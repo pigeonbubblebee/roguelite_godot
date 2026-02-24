@@ -2,7 +2,7 @@ class_name QuickStrikeCard
 extends Card
 
 var damage : int = 40
-var multistrike_amount : int = 3
+var multistrike_amount : int = 2
 
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
