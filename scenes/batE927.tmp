@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://uofcxxiaue0i"]
+
+[ext_resource type="Script" path="res://Script/battle_scene.gd" id="1_0hekd"]
+[ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://Assets/Background.png" id="1_igw74"]
+[ext_resource type="PackedScene" uid="uid://2s8n7v3j7nf4" path="res://Scenes/battle_hud.tscn" id="2_oyr6g"]
+[ext_resource type="Texture2D" uid="uid://cdthgn4v8ncgr" path="res://Assets/player_battle_sprite.png" id="4_4mk0r"]
+[ext_resource type="Script" path="res://Script/actor_ui.gd" id="4_dfvcr"]
+[ext_resource type="PackedScene" uid="uid://prnhw6kneqmu" path="res://Scenes/card.tscn" id="5_34irb"]
+[ext_resource type="Script" path="res://Script/hand_ui.gd" id="6_sqh8v"]
+
+[node name="battle_scene" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_0hekd")
+_battle_hud_path = NodePath("HUD/battle_hud")
+_actor_ui_path = NodePath("actor_ui/actor_ui")
+_enemy_ui_container_path = NodePath("actor_ui/actor_ui/enemy_ui_container")
+_hand_ui_path = NodePath("hand")
+
+[node name="background" type="Sprite2D" parent="."]
+scale = Vector2(64, 36)
+texture = ExtResource("1_igw74")
+
+[node name="HUD" type="Node2D" parent="."]
+position = Vector2(-320, -180)
+
+[node name="battle_hud" parent="HUD" instance=ExtResource("2_oyr6g")]
+
+[node name="actor_ui" type="Node2D" parent="."]
+
+[node name="actor_ui" type="Control" parent="actor_ui"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -193.0
+offset_top = -100.0
+offset_right = 195.0
+offset_bottom = 78.0
+
+[node name="player_actor" type="Control" parent="actor_ui/actor_ui"]
+anchors_preset = 0
+offset_left = 47.0
+offset_top = 90.0
+offset_right = 111.0
+offset_bottom = 154.0
+script = ExtResource("4_dfvcr")
+
+[node name="sprite" type="TextureRect" parent="actor_ui/actor_ui/player_actor"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_4mk0r")
+
+[node name="enemy_ui_container" type="HBoxContainer" parent="actor_ui/actor_ui"]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 92.0
+offset_right = 385.0
+offset_bottom = 156.0
+theme_override_constants/separation = 0
+
+[node name="hand" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -193.0
+offset_top = 84.0
+offset_right = 193.0
+offset_bottom = 180.0
+script = ExtResource("6_sqh8v")
+card_ui_scene = ExtResource("5_34irb")
+_card_ui_container_path = NodePath("card_ui_container")
+
+[node name="card_ui_container" type="HBoxContainer" parent="hand"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="hand"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

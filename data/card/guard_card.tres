@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=4 format=3 uid="uid://bkmhojxsij3ux"]
+
+[ext_resource type="Script" path="res://script/card/logic/guard_card.gd" id="1_1haug"]
+[ext_resource type="Script" path="res://script/card/card_resource.gd" id="1_38gxc"]
+[ext_resource type="Texture2D" uid="uid://bywc4cuu7y51p" path="res://assets/card_art/guard_card.png" id="2_27efq"]
+
+[resource]
+script = ExtResource("1_38gxc")
+cost = 1
+texture = ExtResource("2_27efq")
+target_drag = false
+title = "Guard"
+type = 2
+logic = ExtResource("1_1haug")
+description = "Gain 50 Armor. Scales with DEF (B)"

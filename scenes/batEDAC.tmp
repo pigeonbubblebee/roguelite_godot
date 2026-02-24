@@ -1,0 +1,186 @@
+[gd_scene load_steps=16 format=3 uid="uid://uofcxxiaue0i"]
+
+[ext_resource type="Script" path="res://Script/UI/battle_scene.gd" id="1_0hekd"]
+[ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://Assets/Background.png" id="1_igw74"]
+[ext_resource type="PackedScene" uid="uid://2s8n7v3j7nf4" path="res://Scenes/battle_hud.tscn" id="2_oyr6g"]
+[ext_resource type="Texture2D" uid="uid://cdthgn4v8ncgr" path="res://Assets/player_battle_sprite.png" id="4_4mk0r"]
+[ext_resource type="Script" path="res://Script/UI/actor_ui.gd" id="4_dfvcr"]
+[ext_resource type="Script" path="res://Script/UI/actor_ui_manager.gd" id="4_xp43c"]
+[ext_resource type="PackedScene" uid="uid://prnhw6kneqmu" path="res://Scenes/card.tscn" id="5_34irb"]
+[ext_resource type="Texture2D" uid="uid://dchwacvnpfc5s" path="res://Assets/target.png" id="5_aboep"]
+[ext_resource type="Texture2D" uid="uid://dnvyvm5vfpg31" path="res://Assets/small_target.png" id="6_kk4xk"]
+[ext_resource type="Script" path="res://Script/UI/hand_ui.gd" id="6_sqh8v"]
+[ext_resource type="Texture2D" uid="uid://bwkrj48on7ba7" path="res://Assets/bar_background.png" id="9_ledjq"]
+[ext_resource type="Texture2D" uid="uid://bp0lnreg5mivs" path="res://Assets/health_bar_progress.png" id="10_76d13"]
+[ext_resource type="Script" path="res://Script/UI/end_turn_button.gd" id="14_vdmwm"]
+[ext_resource type="Texture2D" uid="uid://pmtbvaw8jtdm" path="res://Assets/end_turn.png" id="15_11nws"]
+[ext_resource type="FontFile" uid="uid://cgih62i6o6aul" path="res://Data/PixelPurl.ttf" id="16_ypwo7"]
+
+[node name="battle_scene" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_0hekd")
+_battle_hud_path = NodePath("HUD/battle_hud")
+_actor_ui_path = NodePath("actor_ui/actor_ui")
+_hand_ui_path = NodePath("hand_ui/hand")
+_end_turn_button_path = NodePath("end_turn_button")
+
+[node name="background" type="Sprite2D" parent="."]
+scale = Vector2(64, 36)
+texture = ExtResource("1_igw74")
+
+[node name="HUD" type="Node2D" parent="."]
+position = Vector2(-320, -180)
+
+[node name="battle_hud" parent="HUD" instance=ExtResource("2_oyr6g")]
+
+[node name="actor_ui" type="Node2D" parent="."]
+
+[node name="actor_ui" type="Control" parent="actor_ui"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -193.0
+offset_top = -100.0
+offset_right = 195.0
+offset_bottom = 78.0
+script = ExtResource("4_xp43c")
+_enemy_ui_container_path = NodePath("enemy_ui_container")
+target_texture = ExtResource("5_aboep")
+blast_target_texture = ExtResource("6_kk4xk")
+
+[node name="player_actor" type="Control" parent="actor_ui/actor_ui"]
+anchors_preset = 0
+offset_left = 47.0
+offset_top = 90.0
+offset_right = 111.0
+offset_bottom = 154.0
+script = ExtResource("4_dfvcr")
+
+[node name="Control" type="Control" parent="actor_ui/actor_ui/player_actor"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -70.0
+offset_right = 32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="sprite" type="TextureRect" parent="actor_ui/actor_ui/player_actor/Control"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("4_4mk0r")
+
+[node name="target" type="TextureRect" parent="actor_ui/actor_ui/player_actor/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 16.0
+offset_top = -16.0
+offset_right = 48.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(-1, 1)
+mouse_filter = 2
+texture = ExtResource("5_aboep")
+
+[node name="health_bar" type="TextureProgressBar" parent="actor_ui/actor_ui/player_actor/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -2.0
+offset_right = 15.0
+grow_horizontal = 2
+grow_vertical = 0
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("9_ledjq")
+texture_progress = ExtResource("10_76d13")
+
+[node name="enemy_ui_container" type="Control" parent="actor_ui/actor_ui"]
+anchors_preset = 0
+offset_left = 193.0
+offset_top = 2.0
+offset_right = 385.0
+offset_bottom = 156.0
+mouse_filter = 2
+
+[node name="hand_ui" type="Node2D" parent="."]
+
+[node name="hand" type="Control" parent="hand_ui"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -193.0
+offset_top = 84.0
+offset_right = 193.0
+offset_bottom = 180.0
+script = ExtResource("6_sqh8v")
+card_ui_scene = ExtResource("5_34irb")
+_card_ui_container_path = NodePath("card_ui_container")
+_card_starting_position_path = NodePath("card_starting_position")
+spacing = 50
+
+[node name="card_ui_container" type="Control" parent="hand_ui/hand"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="card_starting_position" type="Control" parent="hand_ui/hand"]
+anchors_preset = 0
+offset_left = 160.0
+offset_top = -2.0
+offset_right = 160.0
+offset_bottom = -2.0
+mouse_filter = 1
+
+[node name="end_turn_button" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 129.0
+offset_top = 142.0
+offset_right = 193.0
+offset_bottom = 174.0
+script = ExtResource("14_vdmwm")
+
+[node name="texture" type="TextureRect" parent="end_turn_button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_11nws")
+
+[node name="Label" type="Label" parent="end_turn_button/texture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_ypwo7")
+text = "End Turn"
+horizontal_alignment = 1
+vertical_alignment = 1

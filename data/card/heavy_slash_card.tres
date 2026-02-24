@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=4 format=3 uid="uid://b3byj6acav5mo"]
+
+[ext_resource type="Script" path="res://script/card/card_resource.gd" id="1_78byu"]
+[ext_resource type="Script" path="res://script/card/logic/heavy_slash_card.gd" id="1_sua8w"]
+[ext_resource type="Texture2D" uid="uid://cjpxxd7pvdqnn" path="res://assets/card_art/heavy_slash_card.png" id="2_c10qy"]
+
+[resource]
+script = ExtResource("1_78byu")
+cost = 2
+texture = ExtResource("2_c10qy")
+target_drag = true
+title = "Heavy Slash"
+type = 0
+logic = ExtResource("1_sua8w")
+description = "Deal 80 Physical Damage and 40 Physical Damage to adjacent targets. Scales with STR (A) and DEX (C)"

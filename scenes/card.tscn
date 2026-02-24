@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://prnhw6kneqmu"]
+
+[ext_resource type="Script" path="res://script/ui/cardGUI.gd" id="1_da6pn"]
+[ext_resource type="Texture2D" uid="uid://cmbk2xw8don7n" path="res://assets/card_bg.png" id="2_rwr0g"]
+[ext_resource type="Texture2D" uid="uid://snsetagk3pb1" path="res://assets/card_art/energy_symbol.png" id="3_ehxke"]
+[ext_resource type="FontFile" uid="uid://cgih62i6o6aul" path="res://data/PixelPurl.ttf" id="4_nujep"]
+[ext_resource type="Texture2D" uid="uid://cjpxxd7pvdqnn" path="res://assets/card_art/heavy_slash_card.png" id="5_1tu24"]
+
+[sub_resource type="Curve" id="Curve_2lon5"]
+min_value = 0.2
+_data = [Vector2(0.00337838, 0.2), 0.0, 0.0, 0, 0, Vector2(0.972973, 1), 0.0, 0.0, 0, 0, Vector2(0.99999, 0.2), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="card" type="Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 102)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -570.0
+offset_bottom = -258.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_da6pn")
+_cost_text_path = NodePath("cost")
+_title_text_path = NodePath("title")
+_type_text_path = NodePath("type")
+_card_art_texture_path = NodePath("card_art")
+hover_vertical_offset = 10.0
+_arc_path = NodePath("arc")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_rwr0g")
+
+[node name="energy_background" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 0
+offset_left = 61.0
+offset_top = -6.0
+offset_right = 76.0
+offset_bottom = 9.0
+texture = ExtResource("3_ehxke")
+
+[node name="cost" type="Label" parent="."]
+layout_mode = 0
+offset_left = 66.0
+offset_top = -6.0
+offset_right = 75.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("4_nujep")
+text = "2"
+
+[node name="title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 64.0
+offset_bottom = 31.0
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("4_nujep")
+theme_override_font_sizes/font_size = 0
+text = "Heavy Strike"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="type" type="Label" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 83.0
+offset_right = 64.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("4_nujep")
+theme_override_font_sizes/font_size = 0
+text = "Attack"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="card_art" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 31.0
+offset_right = 65.0
+offset_bottom = 81.0
+texture = ExtResource("5_1tu24")
+
+[node name="arc" type="Line2D" parent="."]
+width_curve = SubResource("Curve_2lon5")

@@ -1,0 +1,374 @@
+[gd_scene load_steps=10 format=3 uid="uid://2s8n7v3j7nf4"]
+
+[ext_resource type="Script" path="res://script/ui/turn_order_ui.gd" id="1_ewv71"]
+[ext_resource type="Script" path="res://script/ui/battle_hud.gd" id="1_uc058"]
+[ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://assets/Background.png" id="1_yxa21"]
+[ext_resource type="Texture2D" uid="uid://bga5pxyite2ig" path="res://assets/bar.png" id="2_5l0kr"]
+[ext_resource type="PackedScene" uid="uid://ch0lwq7tq3m4q" path="res://scenes/actor_icon.tscn" id="4_romcy"]
+[ext_resource type="Texture2D" uid="uid://bp0lnreg5mivs" path="res://assets/health_bar_progress.png" id="6_6qxb5"]
+[ext_resource type="FontFile" uid="uid://cgih62i6o6aul" path="res://data/PixelPurl.ttf" id="7_m4jvc"]
+[ext_resource type="Texture2D" uid="uid://snsetagk3pb1" path="res://assets/card_art/energy_symbol.png" id="8_oret0"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_m6bb4"]
+
+[node name="battle_hud" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -5.0
+offset_right = 1.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_uc058")
+_turn_order_path = NodePath("turn_order")
+_card_label_path = NodePath("stat_screen/card_label")
+_energy_label_path = NodePath("stat_screen/energy_ui/energy_counter/energy_amount")
+_energy_label_2_path = NodePath("energy_ui_2/energy_counter/energy_amount")
+_deck_count_label_path = NodePath("stat_screen/deck_count_label")
+_discard_count_label_path = NodePath("stat_screen/discard_count_label")
+_attribute_label_path = NodePath("stat_screen/stat_label_1")
+_attribute_label_2_path = NodePath("stat_screen/stat_label_2")
+
+[node name="turn_order" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 635.0
+offset_bottom = 85.0
+script = ExtResource("1_ewv71")
+actor_icon_scene = ExtResource("4_romcy")
+_actor_icon_container_path = NodePath("actor_bar_containers")
+
+[node name="background" type="TextureRect" parent="turn_order"]
+material = SubResource("CanvasItemMaterial_m6bb4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yxa21")
+expand_mode = 1
+
+[node name="borders" type="NinePatchRect" parent="turn_order"]
+material = SubResource("CanvasItemMaterial_m6bb4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5l0kr")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="actor_bar_containers" type="HBoxContainer" parent="turn_order"]
+layout_direction = 2
+layout_mode = 2
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 628.0
+offset_bottom = 78.0
+theme_override_constants/separation = 0
+
+[node name="stat_screen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 87.0
+offset_right = 126.0
+offset_bottom = 359.0
+
+[node name="background" type="TextureRect" parent="stat_screen"]
+material = SubResource("CanvasItemMaterial_m6bb4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yxa21")
+expand_mode = 1
+
+[node name="borders" type="NinePatchRect" parent="stat_screen"]
+material = SubResource("CanvasItemMaterial_m6bb4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5l0kr")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="stat_screen"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="stat_screen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="stat_screen/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -0.5
+offset_right = 50.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+texture_progress = ExtResource("6_6qxb5")
+
+[node name="stat_label_1" type="RichTextLabel" parent="stat_screen"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 61.0
+offset_bottom = 52.0
+theme_override_fonts/normal_font = ExtResource("7_m4jvc")
+bbcode_enabled = true
+text = "STR: 11
+VIG: 12
+INT: 8"
+
+[node name="stat_label_2" type="RichTextLabel" parent="stat_screen"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 4.0
+offset_right = 116.0
+offset_bottom = 52.0
+theme_override_fonts/normal_font = ExtResource("7_m4jvc")
+bbcode_enabled = true
+text = "DEX: 12
+DEF: 10
+ARC: 6"
+
+[node name="deck_count_label" type="Label" parent="stat_screen"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 76.0
+offset_right = 118.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("7_m4jvc")
+text = "Deck: 10"
+autowrap_mode = 3
+
+[node name="discard_count_label" type="Label" parent="stat_screen"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 90.0
+offset_right = 118.0
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("7_m4jvc")
+text = "Discard Pile: 0"
+autowrap_mode = 3
+
+[node name="card_label" type="RichTextLabel" parent="stat_screen"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 111.0
+offset_right = 117.0
+offset_bottom = 270.0
+theme_override_fonts/normal_font = ExtResource("7_m4jvc")
+bbcode_enabled = true
+text = "No card selected."
+
+[node name="energy_ui" type="Control" parent="stat_screen"]
+anchors_preset = 0
+offset_left = 5.0
+offset_top = 59.0
+offset_right = 61.0
+offset_bottom = 74.0
+
+[node name="energy_title_label" type="Label" parent="stat_screen/energy_ui"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -7.0
+offset_right = 38.0
+offset_bottom = 7.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_m4jvc")
+text = "Energy:"
+
+[node name="energy_counter" type="Control" parent="stat_screen/energy_ui"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -7.5
+offset_bottom = 7.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="energy_background" type="TextureRect" parent="stat_screen/energy_ui/energy_counter"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_oret0")
+
+[node name="energy_amount" type="Label" parent="stat_screen/energy_ui/energy_counter"]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 11.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("7_m4jvc")
+text = "3"
+
+[node name="energy_ui_2" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 455.0
+offset_top = 306.0
+offset_right = 511.0
+offset_bottom = 321.0
+
+[node name="energy_title_label" type="Label" parent="energy_ui_2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -7.0
+offset_right = 38.0
+offset_bottom = 7.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_m4jvc")
+text = "Energy:"
+
+[node name="energy_counter" type="Control" parent="energy_ui_2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -7.5
+offset_bottom = 7.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="energy_background" type="TextureRect" parent="energy_ui_2/energy_counter"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_oret0")
+
+[node name="energy_amount" type="Label" parent="energy_ui_2/energy_counter"]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 11.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("7_m4jvc")
+text = "3"
+
+[node name="enemy_screen" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 514.0
+offset_top = 87.0
+offset_right = 635.0
+offset_bottom = 359.0
+
+[node name="background" type="TextureRect" parent="enemy_screen"]
+material = SubResource("CanvasItemMaterial_m6bb4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_yxa21")
+expand_mode = 1
+
+[node name="borders" type="NinePatchRect" parent="enemy_screen"]
+material = SubResource("CanvasItemMaterial_m6bb4")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5l0kr")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="enemy_screen"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="enemy_screen/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="enemy_screen/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -0.5
+offset_right = 50.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+texture_progress = ExtResource("6_6qxb5")
+
+[node name="Label" type="Label" parent="enemy_screen"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 117.0
+offset_bottom = 177.0
+theme_override_fonts/font = ExtResource("7_m4jvc")
+text = "Wolf:
+HP: 500/500
+DEF: 200
+SPD: 130
+
+Vulnerable: Takes 20% more damage."
+autowrap_mode = 3

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ActorData" load_steps=5 format=3 uid="uid://c8hjjotu0p86s"]
+
+[ext_resource type="Script" path="res://script/actor/player_actor.gd" id="1_kyk50"]
+[ext_resource type="Texture2D" uid="uid://drmt0up0wngwo" path="res://assets/player_icon.png" id="2_e8s1x"]
+[ext_resource type="Script" path="res://script/actor/actor_data.gd" id="3_1x37b"]
+[ext_resource type="PackedScene" uid="uid://cal3ok533lipw" path="res://scenes/player_actor.tscn" id="4_nr512"]
+
+[resource]
+script = ExtResource("3_1x37b")
+name = "Player"
+icon_texture = ExtResource("2_e8s1x")
+actor_script = ExtResource("1_kyk50")
+ui_scene = ExtResource("4_nr512")
+max_health = 400

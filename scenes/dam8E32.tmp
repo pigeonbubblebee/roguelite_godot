@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy6wrp2uhuvia"]
+
+[ext_resource type="Script" path="res://script/effects/damage_number.gd" id="1_hoesv"]
+[ext_resource type="FontFile" uid="uid://cgih62i6o6aul" path="res://data/PixelPurl.ttf" id="1_nosax"]
+
+[node name="damage_number" type="Label"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -620.0
+offset_bottom = -346.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("1_nosax")
+text = "10"
+horizontal_alignment = 1
+script = ExtResource("1_hoesv")

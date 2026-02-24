@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="StartingCharacter" load_steps=12 format=3 uid="uid://36qmxn3olfqk"]
+
+[ext_resource type="Script" path="res://script/starting_character.gd" id="1_ml6py"]
+[ext_resource type="Script" path="res://script/card/card_resource.gd" id="2_ni8ag"]
+[ext_resource type="Resource" uid="uid://dqhw806v30myy" path="res://data/card/focus_card.tres" id="3_mb5jr"]
+[ext_resource type="Resource" uid="uid://bkmhojxsij3ux" path="res://data/card/guard_card.tres" id="4_x556o"]
+[ext_resource type="Resource" uid="uid://b3byj6acav5mo" path="res://data/card/heavy_slash_card.tres" id="5_mjy07"]
+[ext_resource type="Resource" uid="uid://b4b0xnj3qf42n" path="res://data/card/quick_strike_card.tres" id="6_6kidg"]
+[ext_resource type="Resource" uid="uid://b805tfl4mqpse" path="res://data/card/strike_card.tres" id="7_8nigc"]
+[ext_resource type="Resource" uid="uid://bfahn8c7dkvtp" path="res://data/card/thrust_card.tres" id="8_neum0"]
+[ext_resource type="Resource" uid="uid://c8keiqoacx148" path="res://data/card/magic_missile_card.tres" id="9_dqjes"]
+[ext_resource type="Resource" uid="uid://ys8gerd1vt6l" path="res://data/card/support_fire_card.tres" id="10_mgq6d"]
+[ext_resource type="Resource" uid="uid://bcxbty7qankaq" path="res://data/card/shield_bash_card.tres" id="11_7a86j"]
+
+[resource]
+script = ExtResource("1_ml6py")
+starting_deck = Array[ExtResource("2_ni8ag")]([ExtResource("3_mb5jr"), ExtResource("4_x556o"), ExtResource("5_mjy07"), ExtResource("6_6kidg"), ExtResource("7_8nigc"), ExtResource("8_neum0"), ExtResource("9_dqjes"), ExtResource("10_mgq6d"), ExtResource("11_7a86j")])
+base_strength = 0
+base_dexterity = 0
+base_intelligence = 0
+base_vigor = 0
+base_defense = 0
+base_arcane = 0

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="StartingCharacter" load_steps=7 format=3 uid="uid://chvr7yhqp20xh"]
+
+[ext_resource type="Script" path="res://script/starting_character.gd" id="1_ex163"]
+[ext_resource type="Script" path="res://script/card/card_resource.gd" id="2_73mca"]
+[ext_resource type="Resource" uid="uid://b805tfl4mqpse" path="res://data/card/strike_card.tres" id="3_cr84n"]
+[ext_resource type="Resource" uid="uid://bkmhojxsij3ux" path="res://data/card/guard_card.tres" id="4_gjpec"]
+[ext_resource type="Resource" uid="uid://b3byj6acav5mo" path="res://data/card/heavy_slash_card.tres" id="5_mu4h3"]
+[ext_resource type="Resource" uid="uid://dqhw806v30myy" path="res://data/card/focus_card.tres" id="6_n08jj"]
+
+[resource]
+script = ExtResource("1_ex163")
+starting_deck = Array[ExtResource("2_73mca")]([ExtResource("3_cr84n"), ExtResource("3_cr84n"), ExtResource("3_cr84n"), ExtResource("3_cr84n"), ExtResource("4_gjpec"), ExtResource("4_gjpec"), ExtResource("4_gjpec"), ExtResource("4_gjpec"), ExtResource("5_mu4h3"), ExtResource("6_n08jj")])
+base_strength = 11
+base_dexterity = 9
+base_intelligence = 6
+base_vigor = 12
+base_defense = 9
+base_arcane = 7

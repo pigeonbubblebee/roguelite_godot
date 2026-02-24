@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://prnhw6kneqmu"]
+
+[ext_resource type="Texture2D" uid="uid://cmbk2xw8don7n" path="res://Assets/card_bg.png" id="1_533sw"]
+[ext_resource type="Script" path="res://Script/cardGUI.gd" id="1_vllc8"]
+[ext_resource type="FontFile" uid="uid://cgih62i6o6aul" path="res://Data/PixelPurl.ttf" id="2_f6f3s"]
+
+[node name="card" type="Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 102)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -570.0
+offset_bottom = -258.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vllc8")
+hover_scale_value = 1.0
+hover_vertical_offset = 10.0
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_533sw")
+
+[node name="cost" type="Label" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 14.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("2_f6f3s")
+text = "1
+"
+
+[node name="type" type="Label" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 83.0
+offset_right = 64.0
+offset_bottom = 97.0
+theme_override_fonts/font = ExtResource("2_f6f3s")
+theme_override_font_sizes/font_size = 0
+text = "Attack"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 64.0
+offset_bottom = 29.0
+theme_override_constants/line_spacing = -2
+theme_override_fonts/font = ExtResource("2_f6f3s")
+theme_override_font_sizes/font_size = 0
+text = "Strike"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

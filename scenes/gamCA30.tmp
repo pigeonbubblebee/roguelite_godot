@@ -1,0 +1,23 @@
+[gd_scene load_steps=9 format=3 uid="uid://v6ek03m7gtgj"]
+
+[ext_resource type="Script" path="res://Script/game_manager.gd" id="1_r8oqj"]
+[ext_resource type="PackedScene" uid="uid://uofcxxiaue0i" path="res://Scenes/battle_scene.tscn" id="2_s2qa7"]
+[ext_resource type="Resource" uid="uid://c8hjjotu0p86s" path="res://Data/player_actor.tres" id="3_yi8io"]
+[ext_resource type="Resource" uid="uid://ywvivpwgolbn" path="res://Data/enemy_actor.tres" id="4_8epq7"]
+[ext_resource type="Resource" uid="uid://b4b0xnj3qf42n" path="res://Data/Card/quick_strike_card.tres" id="5_cbiw8"]
+[ext_resource type="Resource" uid="uid://b805tfl4mqpse" path="res://Data/Card/strike_card.tres" id="5_iylw6"]
+[ext_resource type="Resource" uid="uid://bfahn8c7dkvtp" path="res://Data/Card/thrust.tres" id="7_wmeyj"]
+[ext_resource type="Resource" uid="uid://b3byj6acav5mo" path="res://Data/Card/heavy_slash_card.tres" id="8_pp5xw"]
+
+[node name="GameManager" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_r8oqj")
+battle_scene = ExtResource("2_s2qa7")
+actor1 = ExtResource("3_yi8io")
+actor2 = ExtResource("4_8epq7")
+test_card = ExtResource("5_cbiw8")
+test_card2 = ExtResource("5_iylw6")
+test_card3 = ExtResource("7_wmeyj")
+test_card4 = ExtResource("8_pp5xw")
+
+[node name="Camera2D" type="Camera2D" parent="."]

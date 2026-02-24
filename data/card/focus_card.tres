@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=4 format=3 uid="uid://dqhw806v30myy"]
+
+[ext_resource type="Script" path="res://script/card/card_resource.gd" id="1_snrm3"]
+[ext_resource type="Script" path="res://script/card/logic/focus_card.gd" id="1_wa34x"]
+[ext_resource type="Texture2D" uid="uid://d8e1dxx2h806" path="res://assets/card_art/focus_card.png" id="2_xj7h1"]
+
+[resource]
+script = ExtResource("1_snrm3")
+cost = 1
+texture = ExtResource("2_xj7h1")
+target_drag = false
+title = "Focus"
+type = 1
+logic = ExtResource("1_wa34x")
+description = "All sources deal 30% more damage for the next 2 turns."
