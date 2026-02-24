@@ -13,6 +13,7 @@ extends Control
 
 var _actor: Actor
 var displayed_av: float
+var _av_tween: Tween
 
 func _ready() -> void:
 	border.texture = _default_border_texture
@@ -20,12 +21,18 @@ func _ready() -> void:
 func update_actor(actor: Actor, active: bool) -> void:
 	_actor = actor
 	icon.texture = actor.get_texture()
-	if displayed_av == 0 || displayed_av < actor.get_remaining_av():
-		displayed_av = actor.get_remaining_av()
+
+	var new_av = actor.get_remaining_av()
+	if _av_tween:
+		_av_tween.kill()
+
+	_av_tween = create_tween()
+	_av_tween.tween_property(self, "displayed_av", new_av, 0.4)\
+		.set_trans(Tween.TRANS_CUBIC)\
+		.set_ease(Tween.EASE_OUT)
 	
 	border.texture = _default_border_texture if !active else _highlighted_border_texture
 
 func _process(delta):
 	if _actor:
-		displayed_av = lerp(displayed_av, _actor.get_remaining_av(), delta*5)
 		av_text.text = "%.2f" % displayed_av

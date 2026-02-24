@@ -19,7 +19,8 @@ func execute(scene: BattleScene):
 		return
 		
 	var original_pos = actor_ui.global_position
-	var forward_pos = original_pos + Vector2(distance, 0)
+	var direction_multiplier = (-1 if actor.get_actor_faction() == Faction.Type.ENEMY else 1)
+	var forward_pos = original_pos + Vector2(distance, 0) * direction_multiplier
 
 	var tween = actor_ui.create_tween()
 	tween.tween_property(actor_ui, "global_position", forward_pos, duration)

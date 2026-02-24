@@ -1,8 +1,8 @@
-class_name CardRuntimeHelper
+class_name BattleRuntimeHelper
 
-static func generate_basic_attack_action(context: BattleContext) -> BattleVisualAction:
+static func generate_basic_attack_action(context: BattleContext, actor: Actor = context.get_player()) -> BattleVisualAction:
 	var parallel = ParallelAction.new([
-		MoveForwardAction.new(context.get_player(), 20, 0.12),
+		MoveForwardAction.new(actor, 20, 0.12),
 		ShakeCameraAction.new(0.65)
 	])
 	

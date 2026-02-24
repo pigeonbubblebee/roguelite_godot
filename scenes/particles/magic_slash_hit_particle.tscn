@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://g7rftko87npn"]
+
+[ext_resource type="Texture2D" uid="uid://bseat3p1v3qed" path="res://assets/vfx/magic_slash_hit.png" id="1_brtcx"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8u8g4"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 2
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_n7pav"]
+particle_flag_disable_z = true
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[node name="particle" type="GPUParticles2D"]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_8u8g4")
+emitting = false
+amount = 1
+process_material = SubResource("ParticleProcessMaterial_n7pav")
+texture = ExtResource("1_brtcx")
+lifetime = 0.16
+one_shot = true
+fixed_fps = 40
+local_coords = true

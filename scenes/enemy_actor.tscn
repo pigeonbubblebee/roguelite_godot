@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1ynugb3e8na6"]
+[gd_scene load_steps=9 format=3 uid="uid://d1ynugb3e8na6"]
 
 [ext_resource type="Script" path="res://script/ui/enemy_actor_ui.gd" id="1_q5t74"]
 [ext_resource type="PackedScene" uid="uid://cy6wrp2uhuvia" path="res://scenes/damage_number.tscn" id="2_e3st8"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bwkrj48on7ba7" path="res://assets/bar_background.png" id="3_3rpqr"]
 [ext_resource type="Texture2D" uid="uid://dchwacvnpfc5s" path="res://assets/target.png" id="3_hf8h6"]
 [ext_resource type="Texture2D" uid="uid://bp0lnreg5mivs" path="res://assets/health_bar_progress.png" id="4_4lf3j"]
+[ext_resource type="Texture2D" uid="uid://clfddyu5ap45x" path="res://assets/ui/enemy_moves/armor_move.png" id="7_xu261"]
+[ext_resource type="FontFile" uid="uid://cgih62i6o6aul" path="res://data/PixelPurl.ttf" id="8_xhbgn"]
 
 [node name="enemy_actor" type="Control"]
 texture_filter = 1
@@ -16,6 +18,8 @@ offset_right = 64.0
 offset_bottom = 64.0
 pivot_offset = Vector2(32, 32)
 script = ExtResource("1_q5t74")
+_move_visual_path = NodePath("Control/move_display/move_visual")
+_move_amount_path = NodePath("Control/move_display/move_amount")
 _health_bar_path = NodePath("Control/health_bar")
 _target_path = NodePath("Control/target")
 damage_number_scene = ExtResource("2_e3st8")
@@ -68,12 +72,50 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -15.0
+offset_left = -17.5
 offset_top = -2.0
-offset_right = 15.0
+offset_right = 17.5
 grow_horizontal = 2
 grow_vertical = 0
 value = 50.0
 nine_patch_stretch = true
 texture_under = ExtResource("3_3rpqr")
 texture_progress = ExtResource("4_4lf3j")
+
+[node name="move_display" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.0
+offset_top = -13.0
+offset_right = 7.0
+offset_bottom = 6.0
+grow_horizontal = 2
+pivot_offset = Vector2(40, 0)
+mouse_filter = 1
+
+[node name="move_visual" type="TextureRect" parent="Control/move_display"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -16.0
+offset_bottom = 16.0
+grow_horizontal = 0
+scale = Vector2(-1, 1)
+pivot_offset = Vector2(8, 8)
+mouse_filter = 2
+texture = ExtResource("7_xu261")
+
+[node name="move_amount" type="Label" parent="Control/move_display"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -14.0
+offset_right = 41.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("8_xhbgn")
+text = "310"
+horizontal_alignment = 2

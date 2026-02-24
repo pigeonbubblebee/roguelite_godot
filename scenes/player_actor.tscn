@@ -37,6 +37,12 @@ offset_right = 64.0
 offset_bottom = 64.0
 texture = ExtResource("2_5u0ne")
 
+[node name="sprite2" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("2_5u0ne")
+
 [node name="target" type="TextureRect" parent="Control"]
 visible = false
 layout_mode = 1
@@ -62,9 +68,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -15.0
+offset_left = -25.0
 offset_top = -2.0
-offset_right = 15.0
+offset_right = 25.0
 grow_horizontal = 2
 grow_vertical = 0
 value = 50.0

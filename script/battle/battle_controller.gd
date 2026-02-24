@@ -7,6 +7,8 @@ var _battle_context: BattleContext
 var _battle_data: BattleData
 var _energy_manager: EnergyManager
 
+var _is_first_turn = true
+
 # Signals
 signal battle_started
 signal turn_started(actor: Actor)
@@ -78,6 +80,9 @@ func _create_actors(actors: Array[ActorData]):
 		
 		actor_instance.reset_health()
 		
+		if faction == Faction.Type.ENEMY:
+			actor_instance.turn_finished.connect(_on_enemy_turn_finish)
+		
 func _get_next_team_position_for_faction(faction: Faction.Type) -> int:
 	var max_pos := -1 # -1 for 0 indexing, bc returns max_pos+1
 	
@@ -102,6 +107,7 @@ func _initialize_deck(deck: Array[CardResource]):
 		
 func _setup_connections():
 	_turn_manager.turn_started.connect(_on_turn_started)
+	_turn_manager.turn_ready.connect(_on_turn_ready)
 	
 	_hand_manager.card_drawn.connect(_on_card_drawn)
 	# _hand_manager.card_played.connect(_on_card_played)
@@ -119,17 +125,28 @@ func _start_battle():
 	_energy_manager.reset_energy()
 	_turn_manager.progress_turn_order()
 	battle_started.emit()
+	for actor in _battle_context.get_actors_of_faction(Faction.Type.ENEMY):
+		actor.generate_next_move(_battle_context)
 	
 ############################
 ##### SIGNAL REACTIONS #####
 ############################
 
+func _on_turn_ready(actor: Actor):
+	load_next_actor_turn()
+
 func _on_turn_started(actor: Actor):
 	if actor.get_actor_faction() == Faction.Type.ALLY:
 		_energy_manager.reset_energy()
 		_hand_manager.draw_to_max()
+		
+	actor.take_action(_battle_context, self)
 	
 	turn_started.emit(actor)
+	
+func _on_enemy_turn_finish(actor: Actor):
+	_turn_manager.finish_turn()
+	actor.generate_next_move(_battle_context)
 	
 func _on_card_drawn(card: Card):
 	card_drawn.emit(card)
@@ -239,6 +256,17 @@ func free_actor(actor: Actor):
 	## UI should then react
 	## Turn Order UI, Actor Sprite UI
 	
+func load_next_actor_turn():
+	if not _is_first_turn:
+		var process_turn_pass_action = ProcessPassTurnAction.new()
+		enqueue_action(process_turn_pass_action)
+		
+		await process_turn_pass_action.finished
+	else:
+		_is_first_turn = false
+	
+	_turn_manager.start_turn()
+
 func enqueue_action(action: BattleVisualAction):
 	request_visual_action_enqueue.emit(action)
 	

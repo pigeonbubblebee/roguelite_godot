@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://uofcxxiaue0i"]
+[gd_scene load_steps=17 format=3 uid="uid://uofcxxiaue0i"]
 
 [ext_resource type="Script" path="res://script/ui/battle_scene.gd" id="1_0hekd"]
 [ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://assets/Background.png" id="1_igw74"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://script/ui/end_turn_button.gd" id="14_vdmwm"]
 [ext_resource type="Texture2D" uid="uid://pmtbvaw8jtdm" path="res://assets/end_turn.png" id="15_11nws"]
 [ext_resource type="PackedScene" uid="uid://fp4dd2rv1vu5" path="res://scenes/particles/slash_hit_effect.tscn" id="15_k8xp2"]
+[ext_resource type="PackedScene" uid="uid://g7rftko87npn" path="res://scenes/particles/magic_slash_hit_particle.tscn" id="16_hqydk"]
 [ext_resource type="FontFile" uid="uid://cgih62i6o6aul" path="res://data/PixelPurl.ttf" id="16_ypwo7"]
 
 [node name="battle_scene" type="Node2D"]
@@ -143,3 +144,4 @@ script = ExtResource("13_yyjm8")
 [node name="particle_effect" type="Node2D" parent="."]
 script = ExtResource("14_eymi4")
 slash_effect = ExtResource("15_k8xp2")
+magic_slash_effect = ExtResource("16_hqydk")

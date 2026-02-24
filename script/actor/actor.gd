@@ -35,7 +35,7 @@ func get_speed() -> float:
 	return 0.0
 	
 # Implementable function for taking action
-func take_action() -> void:
+func take_action(context: BattleContext, controller: BattleController) -> void:
 	push_error("take_action() must be implemented by subclasses")
 	
 # Implementable function for getting actor name

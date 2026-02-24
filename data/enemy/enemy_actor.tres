@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ActorData" load_steps=5 format=3 uid="uid://ywvivpwgolbn"]
 
-[ext_resource type="Script" path="res://script/enemy/enemy_actor.gd" id="1_dos6w"]
+[ext_resource type="Script" path="res://script/actor/enemy_actor.gd" id="1_dos6w"]
 [ext_resource type="Texture2D" uid="uid://cexnsksr5xd2j" path="res://assets/wolf_icon.png" id="2_wxch1"]
 [ext_resource type="Script" path="res://script/actor/actor_data.gd" id="3_mu2au"]
 [ext_resource type="PackedScene" uid="uid://d1ynugb3e8na6" path="res://scenes/enemy_actor.tscn" id="4_ux3d3"]

@@ -13,13 +13,13 @@ func play(context: BattleContext, controller: BattleController):
 	var random_enemies : Array[Actor] = []
 	
 	for i in range(multistrike_amount):
-		var action = CardRuntimeHelper.generate_basic_attack_action(context)
+		var action = BattleRuntimeHelper.generate_basic_attack_action(context)
 		actions.append(action)
 		
 		var random_enemy = selected_enemys.pick_random()
 		random_enemies.append(random_enemy)
 		
-		action.append_action(PlayParticleEffectAction.new(random_enemy))
+		action.append_action(PlayParticleEffectAction.new(random_enemy, "magic_slash"))
 		
 		controller.enqueue_action( action )
 		
@@ -27,7 +27,7 @@ func play(context: BattleContext, controller: BattleController):
 	for i in range(multistrike_amount):
 		var hit_actors: Array[Actor] = [ random_enemies[i] ]
 		
-		var damage_context = CardRuntimeHelper.generate_damage_context(damage, hit_actors, 0, DamageType.Type.MAGIC)	
+		var damage_context = BattleRuntimeHelper.generate_damage_context(damage, hit_actors, 0, DamageType.Type.MAGIC)	
 		damage_context.source_name = "magic_missile_card"
 		
 		controller.apply_damage(damage_context)

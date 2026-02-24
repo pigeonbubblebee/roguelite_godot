@@ -12,7 +12,7 @@ func play(context: BattleContext, controller: BattleController):
 	var actions : Array[BattleVisualAction] = []
 	
 	for i in range(multistrike_amount):
-		var action = CardRuntimeHelper.generate_basic_attack_action(context)
+		var action = BattleRuntimeHelper.generate_basic_attack_action(context)
 		actions.append(action)
 		
 		action.append_action(PlayParticleEffectAction.new(selected_enemy))
@@ -23,7 +23,7 @@ func play(context: BattleContext, controller: BattleController):
 	for i in range(multistrike_amount):
 		var hit_actors: Array[Actor] = [ selected_enemy ]
 		
-		var damage_context = CardRuntimeHelper.generate_damage_context(damage, hit_actors)	
+		var damage_context = BattleRuntimeHelper.generate_damage_context(damage, hit_actors)	
 		damage_context.source_name = "quick_strike_card"
 		
 		controller.apply_damage(damage_context)

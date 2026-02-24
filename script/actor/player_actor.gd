@@ -1,7 +1,8 @@
 class_name PlayerActor
 extends Actor
 
-var fixed_speed_temp = 201
+#var fixed_speed_temp = 201
+var fixed_speed_temp = 100
 
 # RUNTIME ATTRIBUTES
 var strength: int
@@ -14,7 +15,7 @@ var arcane: int
 func get_speed() -> float:
 	return fixed_speed_temp
 
-func take_action() -> void:
+func take_action(context: BattleContext, controller: BattleController) -> void:
 	print("Player Turn Taken")
 
 func get_actor_name() -> String:
