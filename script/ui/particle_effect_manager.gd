@@ -3,10 +3,12 @@ extends Node
 
 @export var slash_effect: PackedScene
 @export var magic_slash_effect: PackedScene
+@export var armor_effect: PackedScene
 
 @onready var effect_map: Dictionary = {
 	"slash": slash_effect,
-	"magic_slash": magic_slash_effect
+	"magic_slash": magic_slash_effect,
+	"armor": armor_effect
 }
 
 # Spawns particle effect as a child of target node, returns the instance

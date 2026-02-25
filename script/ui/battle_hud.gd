@@ -21,6 +21,9 @@ extends Control
 @export var _attribute_label_2_path: NodePath
 @onready var attribute_label_2 = get_node(_attribute_label_2_path)
 
+@export var _actor_label_path: NodePath
+@onready var actor_label = get_node(_actor_label_path)
+
 func bind(controller: BattleController):
 	turn_order.bind(controller.get_turn_manager())
 	controller.get_energy_manager().energy_change.connect(on_energy_change)
@@ -42,7 +45,8 @@ func on_card_hover_ended(card: Card):
 	card_label.text = "No card selected"
 
 func on_card_drag_ended(card: Card):
-	card_label.text = "No card selected"
+	return
+	#card_label.text = "No card selected"
 	
 func on_energy_change(amt: int):
 	energy_label.text = str(amt)
@@ -52,3 +56,14 @@ func on_deck_change(deck):
 	deck_count_label.text = "Deck: " + str(deck.size()) 
 func on_discard_change(discard):
 	discard_count_label.text = "Discard: " + str(discard.size()) 
+
+func on_hovered_enemy_change(actor: ActorUI):
+	if not actor:
+		actor_label.text = "No Enemy Selected"
+		return
+	var actor_logic = actor.actor
+	
+	var hp_text = "HP: " + str(actor_logic.get_health()) + "/" + str(actor_logic.get_max_health())
+	var ar_text = "ARMOR: " + str(actor_logic.get_armor())
+	var sp_text = "SPEED: " + str(actor_logic.get_speed())
+	actor_label.text = actor_logic.get_actor_name() + "\n" + hp_text + "\n" + ar_text + "\n" + sp_text

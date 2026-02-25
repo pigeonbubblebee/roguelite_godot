@@ -160,7 +160,8 @@ func _on_energy_change(current: int):
 ## UI CONNECTIONS
 	
 func on_end_turn_pressed():
-	_turn_manager.finish_turn()
+	if(_turn_manager._current_actor.get_actor_name() == "Player"):
+		_turn_manager.finish_turn()
 	
 func on_hovered_enemy_change(actorUI: EnemyActorUI):
 	if(not actorUI):
@@ -202,7 +203,7 @@ func on_actor_death(actor: Actor):
 ##### RUNTIME LOGIC REQUESTS #####
 ##################################
 	
-func request_play_card(card: Card) -> bool:
+func request_play_card(card: Card) -> bool:	
 	if not card.can_play(_battle_context):
 		if log_card_play:
 			print("BattleController: CANNOT PLAY REQUESTED CARD: " + card.title)
@@ -228,6 +229,9 @@ func apply_damage(ctx: DamageContext):
 		ctx.hit_actors[i].take_damage(ctx.blast_damage, ctx)
 	
 	damage_dealt.emit(ctx)
+	
+func apply_armor(amount: int, actor: Actor):
+	actor.add_armor(amount)
 	
 func draw_card(amt: int = 1):
 	for i in range(amt):

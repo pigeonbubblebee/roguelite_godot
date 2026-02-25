@@ -7,6 +7,10 @@ func _init(amt : int, source : String, _actor : Actor):
 	super._init(_actor)
 	amount = amt
 	source_name = source
+	
+func clone() -> AttackActorPremove:
+	var copy = AttackActorPremove.new(amount, source_name, actor)
+	return copy
 
 func execute(context: BattleContext, controller: BattleController):
 	var player = context.get_player()
@@ -17,11 +21,11 @@ func execute(context: BattleContext, controller: BattleController):
 	
 	var action = BattleRuntimeHelper.generate_basic_attack_action(context, actor)
 	action.append_action(PlayParticleEffectAction.new(player))
-	controller.enqueue_action(action)
-	
 	controller.apply_damage(damage_context)
 
 	action.finished.connect(_finish_move)
+	
+	controller.enqueue_action(action)
 
 func _finish_move():
 	finished.emit()

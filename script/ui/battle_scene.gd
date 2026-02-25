@@ -39,7 +39,7 @@ func bind_controller(controller: BattleController) -> void:
 	controller.request_visual_action_enqueue.connect(_handle_visual_action_enqueue)
 	
 	# Bind UI components
-	hand_ui.bind(controller.get_context(), controller.get_hand_manager())
+	hand_ui.bind(controller)
 	actor_ui.bind(controller)
 	battle_hud.bind(controller)
 	
@@ -51,6 +51,8 @@ func bind_controller(controller: BattleController) -> void:
 	# UI-only interactions
 	_battle_action_manager.queue_started.connect(hand_ui.on_action_queue_started)
 	_battle_action_manager.queue_finished.connect(hand_ui.on_action_queue_finished)
+	
+	actor_ui.hovered_enemy_change.connect(battle_hud.on_hovered_enemy_change)
 	
 	hand_ui.card_drag_started.connect(actor_ui.on_card_drag_started)
 	hand_ui.card_drag_ended.connect(actor_ui.on_card_drag_ended)

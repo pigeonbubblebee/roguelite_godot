@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://2s8n7v3j7nf4"]
+[gd_scene load_steps=9 format=3 uid="uid://2s8n7v3j7nf4"]
 
 [ext_resource type="Script" path="res://script/ui/turn_order_ui.gd" id="1_ewv71"]
 [ext_resource type="Script" path="res://script/ui/battle_hud.gd" id="1_uc058"]
 [ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://assets/Background.png" id="1_yxa21"]
 [ext_resource type="Texture2D" uid="uid://bga5pxyite2ig" path="res://assets/bar.png" id="2_5l0kr"]
 [ext_resource type="PackedScene" uid="uid://ch0lwq7tq3m4q" path="res://scenes/actor_icon.tscn" id="4_romcy"]
-[ext_resource type="Texture2D" uid="uid://bp0lnreg5mivs" path="res://assets/health_bar_progress.png" id="6_6qxb5"]
 [ext_resource type="FontFile" uid="uid://cgih62i6o6aul" path="res://data/PixelPurl.ttf" id="7_m4jvc"]
 [ext_resource type="Texture2D" uid="uid://snsetagk3pb1" path="res://assets/card_art/energy_symbol.png" id="8_oret0"]
 
@@ -33,6 +32,7 @@ _deck_count_label_path = NodePath("stat_screen/deck_count_label")
 _discard_count_label_path = NodePath("stat_screen/discard_count_label")
 _attribute_label_path = NodePath("stat_screen/stat_label_1")
 _attribute_label_2_path = NodePath("stat_screen/stat_label_2")
+_actor_label_path = NodePath("actor_screen/actor_label")
 
 [node name="turn_order" type="Control" parent="."]
 layout_mode = 1
@@ -114,35 +114,6 @@ patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="stat_screen"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Control" type="Control" parent="stat_screen/VBoxContainer"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="stat_screen/VBoxContainer/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -0.5
-offset_right = 50.0
-offset_bottom = 7.5
-grow_horizontal = 2
-grow_vertical = 2
-value = 100.0
-texture_progress = ExtResource("6_6qxb5")
-
 [node name="stat_label_1" type="RichTextLabel" parent="stat_screen"]
 layout_mode = 0
 offset_left = 5.0
@@ -182,7 +153,7 @@ layout_mode = 0
 offset_left = 5.0
 offset_top = 90.0
 offset_right = 118.0
-offset_bottom = 138.0
+offset_bottom = 104.0
 theme_override_fonts/font = ExtResource("7_m4jvc")
 text = "Discard Pile: 0"
 autowrap_mode = 3
@@ -295,7 +266,7 @@ offset_bottom = 14.0
 theme_override_fonts/font = ExtResource("7_m4jvc")
 text = "3"
 
-[node name="enemy_screen" type="Control" parent="."]
+[node name="actor_screen" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 0
 offset_left = 514.0
@@ -303,7 +274,7 @@ offset_top = 87.0
 offset_right = 635.0
 offset_bottom = 359.0
 
-[node name="background" type="TextureRect" parent="enemy_screen"]
+[node name="background" type="TextureRect" parent="actor_screen"]
 material = SubResource("CanvasItemMaterial_m6bb4")
 layout_mode = 1
 anchors_preset = 15
@@ -314,7 +285,7 @@ grow_vertical = 2
 texture = ExtResource("1_yxa21")
 expand_mode = 1
 
-[node name="borders" type="NinePatchRect" parent="enemy_screen"]
+[node name="borders" type="NinePatchRect" parent="actor_screen"]
 material = SubResource("CanvasItemMaterial_m6bb4")
 layout_mode = 1
 anchors_preset = 15
@@ -329,36 +300,7 @@ patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="enemy_screen"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Control" type="Control" parent="enemy_screen/VBoxContainer"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="enemy_screen/VBoxContainer/Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -0.5
-offset_right = 50.0
-offset_bottom = 7.5
-grow_horizontal = 2
-grow_vertical = 2
-value = 100.0
-texture_progress = ExtResource("6_6qxb5")
-
-[node name="Label" type="Label" parent="enemy_screen"]
+[node name="actor_label" type="Label" parent="actor_screen"]
 layout_mode = 0
 offset_left = 5.0
 offset_top = 4.0

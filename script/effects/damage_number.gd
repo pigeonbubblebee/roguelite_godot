@@ -16,3 +16,8 @@ func _ready() -> void:
 func bind(amt, ctx):
 	text = str(amt)
 	KeywordFormatter.format_damage_text(self, ctx)
+	
+
+func bind_armor(amt):
+	text = str(amt)
+	KeywordFormatter.format_armor_text(self)

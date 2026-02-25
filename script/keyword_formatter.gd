@@ -47,6 +47,8 @@ static var DAMAGE_TYPE_COLORS := {
 	}
 }
 
+static var ARMOR_COLOR = ColorPalette.CYAN
+
 static func format_text(text: String) -> String:
 	for keyword in KEYWORDS.keys():
 		var data = KEYWORDS[keyword]
@@ -65,4 +67,8 @@ static func format_text(text: String) -> String:
 static func format_damage_text(label: Label, ctx: DamageContext):
 	var color = DAMAGE_TYPE_COLORS[ctx.damage_type].color
 	
+	label.add_theme_color_override("font_color", color)
+
+static func format_armor_text(label: Label):
+	var color = ARMOR_COLOR
 	label.add_theme_color_override("font_color", color)

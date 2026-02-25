@@ -13,7 +13,12 @@ const ATTACK_ICON := preload("res://assets/ui/enemy_moves/attack_move.png")
 const ARMOR_ICON := preload("res://assets/ui/enemy_moves/armor_move.png")
 
 func get_amount():
-	return amount
+	return str(amount)
+	
+func clone() -> ActorPremove:
+	push_error("clone() must be implemented by subclasses")
+	var copy = ActorPremove.new(actor)
+	return copy
 
 func execute(context: BattleContext, controller: BattleController):
 	push_error("execute() must be implemented by subclasses")

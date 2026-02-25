@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://uofcxxiaue0i"]
+[gd_scene load_steps=18 format=3 uid="uid://uofcxxiaue0i"]
 
 [ext_resource type="Script" path="res://script/ui/battle_scene.gd" id="1_0hekd"]
 [ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://assets/Background.png" id="1_igw74"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://fp4dd2rv1vu5" path="res://scenes/particles/slash_hit_effect.tscn" id="15_k8xp2"]
 [ext_resource type="PackedScene" uid="uid://g7rftko87npn" path="res://scenes/particles/magic_slash_hit_particle.tscn" id="16_hqydk"]
 [ext_resource type="FontFile" uid="uid://cgih62i6o6aul" path="res://data/PixelPurl.ttf" id="16_ypwo7"]
+[ext_resource type="PackedScene" uid="uid://cgyp8anhrnogx" path="res://scenes/particles/armor_particle.tscn" id="17_b1quu"]
 
 [node name="battle_scene" type="Node2D"]
 texture_filter = 1
@@ -145,3 +146,4 @@ script = ExtResource("13_yyjm8")
 script = ExtResource("14_eymi4")
 slash_effect = ExtResource("15_k8xp2")
 magic_slash_effect = ExtResource("16_hqydk")
+armor_effect = ExtResource("17_b1quu")

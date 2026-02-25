@@ -11,9 +11,13 @@ var battle_context: BattleContext
 var _team_position : int
 
 var _health : int
+var _armor : int
+
 signal health_updated
 signal damage_taken(dmg, ctx)
+signal armor_updated(armor)
 signal died(actor: Actor)
+signal armor_gained(amount)
 var _processing_death = false
 
 func _init(data: ActorData):
@@ -22,6 +26,23 @@ func _init(data: ActorData):
 func reset_health():
 	_health = actor_data.max_health
 	emit_signal("health_updated")
+	
+func get_max_health():
+	return actor_data.max_health
+	
+func get_health():
+	return _health
+func get_armor():
+	return _armor
+	
+func add_armor(amt: int):
+	_armor += amt
+	armor_updated.emit(_armor)
+	armor_gained.emit(amt)
+	
+func reset_armor():
+	_armor = 0
+	armor_updated.emit(_armor)
 
 # Getter & setter for remaining AV
 func get_remaining_av() -> float:
@@ -55,9 +76,24 @@ func set_team_position(position: int) -> void:
 	
 func get_team_position() -> int:
 	return _team_position	
+	
+func has_armor() -> bool:
+	return _armor > 0
 
 func take_damage(damage: int, context: DamageContext) -> void:
-	_health -= damage
+	var taken_damage = damage
+	
+	if has_armor():
+		_armor -= damage
+		taken_damage = 0
+		
+		if _armor < 0:
+			taken_damage = _armor * -1
+			_armor = 0
+			
+		armor_updated.emit(_armor)
+	
+	_health -= taken_damage
 	# print(actor_data.name + " HIT! DAMAGE: " + str(damage) + ", HEALTH: " + str(_health))
 	emit_signal("health_updated")
 	damage_taken.emit(damage, context)

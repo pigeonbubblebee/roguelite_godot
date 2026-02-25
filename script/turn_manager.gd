@@ -68,6 +68,8 @@ func _sort_actors() -> void:
 	_active_actors.sort_custom(func(a, b):
 		var same_faction = a.get_actor_faction() == b.get_actor_faction()
 		var same_av = a.get_remaining_av() == b.get_remaining_av()
+		# Ensures if av is the same, characters of the same team will move 
+		# left to right
 		if same_faction and same_av:
 			return a.get_team_position() < b.get_team_position()
 		return a.get_remaining_av() < b.get_remaining_av()

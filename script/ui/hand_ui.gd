@@ -26,10 +26,13 @@ signal card_exited_drop_zone(card)
 
 signal card_ui_play_request(cardGUI, card_logic)
 
-func bind(battle_context: BattleContext, manager: HandManager):
-	context = battle_context
-	var hand_manager = manager
+func bind(controller: BattleController):
+	context = controller.get_context()
+	var hand_manager = controller.get_hand_manager()
+	
+	controller.turn_started.connect(_on_turn_started)
 	# connect signal to update action bar
+	
 	hand_manager.connect("hand_updated", Callable(self, "update_ui"))
 	update_ui(hand_manager.get_hand()) 
 
@@ -98,7 +101,7 @@ func layout_hand():
 		var y_offset = pow(offset, 2) * card_spacing * fan_curve_strength
 		
 		card.hover_base_position = Vector2(start_x + x_offset, start_y + y_offset)
-		
+		card.drag_original_position = card.hover_base_position
 		card.global_position = card.hover_base_position
 
 func _on_card_drag_started(card):
@@ -139,6 +142,20 @@ func on_action_queue_started():
 	for card_ui in cards_ui_array:
 		card_ui.can_drag = false
 		
+		if(card_ui.current_card_state == card_ui.drag_state):
+			card_ui.current_card_state.force_drag_end()
+		
 func on_action_queue_finished():
 	for card_ui in cards_ui_array:
 		card_ui.can_drag = true
+		
+func _on_turn_started(actor : Actor):
+	if actor.get_actor_name() == "Player":
+		for card_ui in cards_ui_array:
+			card_ui.can_drag = true
+		return
+	for card_ui in cards_ui_array:
+		card_ui.can_drag = false
+		
+		if(card_ui.current_card_state == card_ui.drag_state):
+			card_ui.current_card_state.force_drag_end()

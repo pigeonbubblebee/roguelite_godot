@@ -16,7 +16,8 @@ func get_speed() -> float:
 	return fixed_speed_temp
 
 func take_action(context: BattleContext, controller: BattleController) -> void:
-	print("Player Turn Taken")
+	reset_armor()
+	# print("Player Turn Taken")
 
 func get_actor_name() -> String:
 	return "Player"
