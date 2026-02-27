@@ -16,7 +16,7 @@ func execute(context: BattleContext, controller: BattleController):
 	var player = context.get_player()
 	
 	var hit_actors: Array[Actor] = [ player ]
-	var damage_context = BattleRuntimeHelper.generate_damage_context(amount, hit_actors)	
+	var damage_context = BattleRuntimeHelper.generate_damage_context(amount, hit_actors, actor)	
 	damage_context.source_name = source_name
 	
 	var action = BattleRuntimeHelper.generate_basic_attack_action(context, actor)

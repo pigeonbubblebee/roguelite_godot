@@ -25,7 +25,12 @@ static func generate_heavy_attack_action(context: BattleContext) -> BattleVisual
 	
 	return parallel
 
-static func generate_damage_context(damage, hit_actors, blast_damage = 0, type = DamageType.Type.PHYSICAL) -> DamageContext:
+static func generate_light_camera_shake_action() -> BattleVisualAction:
+	return ShakeCameraAction.new(0.65)
+
+static func generate_damage_context(damage, hit_actors, damage_owner, blast_damage : int = 0, 
+	type : DamageType.Type = DamageType.Type.PHYSICAL) -> DamageContext:
+		
 	var damage_context = DamageContext.new()
 	
 	damage_context.damage = damage
@@ -33,5 +38,6 @@ static func generate_damage_context(damage, hit_actors, blast_damage = 0, type =
 	damage_context.hit_actors = hit_actors
 	damage_context.source_faction = Faction.Type.ALLY
 	damage_context.damage_type = type
+	damage_context.damage_owner = damage_owner
 	
 	return damage_context

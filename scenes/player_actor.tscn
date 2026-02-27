@@ -1,14 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://cal3ok533lipw"]
+[gd_scene load_steps=14 format=3 uid="uid://cal3ok533lipw"]
 
 [ext_resource type="Script" path="res://script/ui/actor_ui.gd" id="1_irjik"]
 [ext_resource type="PackedScene" uid="uid://cy6wrp2uhuvia" path="res://scenes/damage_number.tscn" id="2_1vb0m"]
 [ext_resource type="Texture2D" uid="uid://cdthgn4v8ncgr" path="res://assets/player_battle_sprite.png" id="2_5u0ne"]
 [ext_resource type="Texture2D" uid="uid://dchwacvnpfc5s" path="res://assets/target.png" id="3_u28hi"]
-[ext_resource type="Texture2D" uid="uid://bwkrj48on7ba7" path="res://assets/bar_background.png" id="4_58o3k"]
-[ext_resource type="Texture2D" uid="uid://d3gtmxfhbu1h8" path="res://assets/armor_bar_progress.png" id="5_gk61u"]
-[ext_resource type="Texture2D" uid="uid://bp0lnreg5mivs" path="res://assets/health_bar_progress.png" id="5_ycog8"]
+[ext_resource type="Texture2D" uid="uid://jao2y28ny783" path="res://assets/ui/armor_bar_progress.png" id="5_7v68v"]
+[ext_resource type="Texture2D" uid="uid://f35k1od0fyv7" path="res://assets/ui/bar_background.png" id="6_ic64j"]
+[ext_resource type="Texture2D" uid="uid://j45m7srcw3sn" path="res://assets/ui/health_bar_progress.png" id="7_omnbu"]
+[ext_resource type="Texture2D" uid="uid://du3an3ccn03uj" path="res://assets/ui/status_icons/damage_percent_buff_icon.png" id="8_3iaie"]
+[ext_resource type="Texture2D" uid="uid://c0l378yaur7yk" path="res://assets/ui/status_icons/damage_percent_debuff_icon.png" id="9_8gtgw"]
+[ext_resource type="Texture2D" uid="uid://bqpivcfxame78" path="res://assets/ui/status_icons/burn_debuff_icon.png" id="10_2msq3"]
+[ext_resource type="Texture2D" uid="uid://b6nyn317kg7b0" path="res://assets/ui/status_icons/vulnerable_debuff_icon.png" id="10_rslls"]
+[ext_resource type="Texture2D" uid="uid://s0dopwv0xkvp" path="res://assets/ui/status_icons/follow_up_buff_icon.png" id="11_rqbam"]
+[ext_resource type="Texture2D" uid="uid://ceamlornti4v6" path="res://assets/ui/status_icons/storm_buff_icon.png" id="13_wdttb"]
 
 [node name="player_actor" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 64.0
@@ -78,7 +85,7 @@ grow_horizontal = 2
 grow_vertical = 0
 value = 100.0
 nine_patch_stretch = true
-texture_progress = ExtResource("5_gk61u")
+texture_progress = ExtResource("5_7v68v")
 
 [node name="health_bar" type="TextureProgressBar" parent="Control"]
 layout_mode = 1
@@ -94,5 +101,37 @@ grow_horizontal = 2
 grow_vertical = 0
 value = 50.0
 nine_patch_stretch = true
-texture_under = ExtResource("4_58o3k")
-texture_progress = ExtResource("5_ycog8")
+texture_under = ExtResource("6_ic64j")
+texture_progress = ExtResource("7_omnbu")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 72.0
+offset_right = 58.0
+offset_bottom = 80.0
+theme_override_constants/separation = 2
+
+[node name="buff_icon" type="TextureRect" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_3iaie")
+
+[node name="buff_icon2" type="TextureRect" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_8gtgw")
+
+[node name="buff_icon3" type="TextureRect" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_2msq3")
+
+[node name="buff_icon4" type="TextureRect" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_rslls")
+
+[node name="buff_icon5" type="TextureRect" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_rqbam")
+
+[node name="buff_icon6" type="TextureRect" parent="Control/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("13_wdttb")

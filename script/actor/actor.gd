@@ -5,8 +5,7 @@ extends RefCounted
 var _remaining_av: float
 
 var actor_data: ActorData
-
-var battle_context: BattleContext
+var status_effect_manager: ActorStatusEffectManager
 
 var _team_position : int
 
@@ -22,27 +21,7 @@ var _processing_death = false
 
 func _init(data: ActorData):
 	actor_data = data
-	
-func reset_health():
-	_health = actor_data.max_health
-	emit_signal("health_updated")
-	
-func get_max_health():
-	return actor_data.max_health
-	
-func get_health():
-	return _health
-func get_armor():
-	return _armor
-	
-func add_armor(amt: int):
-	_armor += amt
-	armor_updated.emit(_armor)
-	armor_gained.emit(amt)
-	
-func reset_armor():
-	_armor = 0
-	armor_updated.emit(_armor)
+	status_effect_manager = ActorStatusEffectManager.new()
 
 # Getter & setter for remaining AV
 func get_remaining_av() -> float:
@@ -76,9 +55,6 @@ func set_team_position(position: int) -> void:
 	
 func get_team_position() -> int:
 	return _team_position	
-	
-func has_armor() -> bool:
-	return _armor > 0
 
 func take_damage(damage: int, context: DamageContext) -> void:
 	var taken_damage = damage
@@ -103,3 +79,31 @@ func request_death():
 		died.emit(self)
 		
 	_processing_death = true
+
+	
+func reset_health():
+	_health = actor_data.max_health
+	emit_signal("health_updated")
+	
+func get_max_health():
+	return actor_data.max_health
+	
+func get_health():
+	return _health
+func get_armor():
+	return _armor
+	
+func add_armor(amt: int):
+	_armor += amt
+	armor_updated.emit(_armor)
+	armor_gained.emit(amt)
+	
+func reset_armor():
+	_armor = 0
+	armor_updated.emit(_armor)
+	
+func has_armor() -> bool:
+	return _armor > 0
+
+func apply_status(status, context, controller):
+	status_effect_manager.apply_status(status, context, controller)

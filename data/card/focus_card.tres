@@ -12,4 +12,4 @@ target_drag = false
 title = "Focus"
 type = 1
 logic = ExtResource("1_wa34x")
-description = "All sources deal 30% more damage for the next 2 turns."
+description = "All sources deal 50% more damage for the next 2 turns."

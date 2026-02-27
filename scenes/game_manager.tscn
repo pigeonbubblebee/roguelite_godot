@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://uofcxxiaue0i" path="res://scenes/battle_scene.tscn" id="2_s2qa7"]
 [ext_resource type="Resource" uid="uid://c8hjjotu0p86s" path="res://data/character/player_actor.tres" id="3_yi8io"]
 [ext_resource type="Resource" uid="uid://dytt0t0kijqb7" path="res://data/encounter/wolf_encounter.tres" id="4_sxopr"]
-[ext_resource type="Resource" uid="uid://chvr7yhqp20xh" path="res://data/character/vagabond_character.tres" id="5_yxner"]
+[ext_resource type="Resource" uid="uid://36qmxn3olfqk" path="res://data/character/testing_character.tres" id="5_d66y7"]
 
 [node name="GameManager" type="Node2D"]
 texture_filter = 1
@@ -12,4 +12,4 @@ script = ExtResource("1_r8oqj")
 battle_scene = ExtResource("2_s2qa7")
 player_actor = ExtResource("3_yi8io")
 test_encounter = ExtResource("4_sxopr")
-test_character = ExtResource("5_yxner")
+test_character = ExtResource("5_d66y7")

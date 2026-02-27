@@ -9,7 +9,7 @@ func play(context: BattleContext, controller: BattleController):
 	var selected_enemy = context.get_selected_enemy()
 	
 	var hit_actors: Array[Actor] = [ selected_enemy ]
-	var damage_context = BattleRuntimeHelper.generate_damage_context(damage, hit_actors)	
+	var damage_context = BattleRuntimeHelper.generate_damage_context(damage, hit_actors, context.get_player())	
 	damage_context.source_name = "thrust_card"
 	
 	var action = BattleRuntimeHelper.generate_basic_attack_action(context)

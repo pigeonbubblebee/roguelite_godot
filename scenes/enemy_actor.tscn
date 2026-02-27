@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://script/ui/enemy_actor_ui.gd" id="1_q5t74"]
 [ext_resource type="PackedScene" uid="uid://cy6wrp2uhuvia" path="res://scenes/damage_number.tscn" id="2_e3st8"]
 [ext_resource type="Texture2D" uid="uid://cdthgn4v8ncgr" path="res://assets/player_battle_sprite.png" id="2_x8mr8"]
-[ext_resource type="Texture2D" uid="uid://bwkrj48on7ba7" path="res://assets/bar_background.png" id="3_3rpqr"]
 [ext_resource type="Texture2D" uid="uid://dchwacvnpfc5s" path="res://assets/target.png" id="3_hf8h6"]
-[ext_resource type="Texture2D" uid="uid://bp0lnreg5mivs" path="res://assets/health_bar_progress.png" id="4_4lf3j"]
-[ext_resource type="Texture2D" uid="uid://d3gtmxfhbu1h8" path="res://assets/armor_bar_progress.png" id="5_fygfq"]
+[ext_resource type="Texture2D" uid="uid://jao2y28ny783" path="res://assets/ui/armor_bar_progress.png" id="5_4ob34"]
+[ext_resource type="Texture2D" uid="uid://f35k1od0fyv7" path="res://assets/ui/bar_background.png" id="6_m7gf2"]
+[ext_resource type="Texture2D" uid="uid://j45m7srcw3sn" path="res://assets/ui/health_bar_progress.png" id="7_qulbj"]
 [ext_resource type="Texture2D" uid="uid://clfddyu5ap45x" path="res://assets/ui/enemy_moves/armor_move.png" id="7_xu261"]
 [ext_resource type="FontFile" uid="uid://cgih62i6o6aul" path="res://data/PixelPurl.ttf" id="8_xhbgn"]
 
@@ -82,7 +82,7 @@ grow_horizontal = 2
 grow_vertical = 0
 value = 100.0
 nine_patch_stretch = true
-texture_progress = ExtResource("5_fygfq")
+texture_progress = ExtResource("5_4ob34")
 
 [node name="health_bar" type="TextureProgressBar" parent="Control"]
 layout_mode = 1
@@ -91,15 +91,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -17.5
+offset_left = -17.0
 offset_top = -2.0
-offset_right = 17.5
+offset_right = 18.0
 grow_horizontal = 2
 grow_vertical = 0
 value = 50.0
 nine_patch_stretch = true
-texture_under = ExtResource("3_3rpqr")
-texture_progress = ExtResource("4_4lf3j")
+texture_under = ExtResource("6_m7gf2")
+texture_progress = ExtResource("7_qulbj")
 
 [node name="move_display" type="Control" parent="Control"]
 layout_mode = 1

@@ -3,6 +3,9 @@ extends RefCounted
 
 var _turn_manager: TurnManager
 var energy: int
+var controller : BattleController
+
+var event_bus : BattleEventBus
 
 signal hovered_actor_changed(actor: Actor)
 signal selected_actor_changed(actor: Actor)
@@ -12,8 +15,12 @@ var selected_actor: Actor = null
 
 var selected_enemy_index: int
 
-func _init(turn_manager: TurnManager):
+func _init(turn_manager: TurnManager, _controller: BattleController):
 	_turn_manager = turn_manager
+	controller = _controller
+	
+func setup_event_bus():
+	event_bus = BattleEventBus.new()
 
 func get_actors_of_faction(faction: Faction.Type) -> Array[Actor]:
 	var active_actors = _turn_manager.get_active_actors()

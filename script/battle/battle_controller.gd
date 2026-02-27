@@ -12,13 +12,11 @@ var _is_first_turn = true
 # Signals
 signal battle_started
 signal turn_started(actor: Actor)
-signal turn_ended(actor: Actor)
 
 signal card_drawn(card: Card)
 signal card_played(card: Card)
 
 signal energy_changed(new_energy: int)
-signal damage_dealt(ctx: DamageContext)
 
 signal request_visual_action_enqueue(action: BattleVisualAction)
 
@@ -62,7 +60,7 @@ func _create_managers():
 ###################
 
 func _create_context():
-	_battle_context = BattleContext.new(_turn_manager)
+	_battle_context = BattleContext.new(_turn_manager, self)
 	
 #######################
 ##### ACTOR LOGIC #####
@@ -108,12 +106,15 @@ func _initialize_deck(deck: Array[CardResource]):
 func _setup_connections():
 	_turn_manager.turn_started.connect(_on_turn_started)
 	_turn_manager.turn_ready.connect(_on_turn_ready)
+	_turn_manager.turn_ended.connect(_on_turn_ended)
 	
 	_hand_manager.card_drawn.connect(_on_card_drawn)
 	# _hand_manager.card_played.connect(_on_card_played)
 	
 	_energy_manager.energy_change.connect(_on_energy_change)
 	_energy_manager.energy_change.connect(_battle_context.on_energy_change)
+	
+	_battle_context.setup_event_bus()
 	
 ############################
 ##### STARTER FUNCTION #####
@@ -156,7 +157,10 @@ func _on_card_played(card: Card):
 	
 func _on_energy_change(current: int):
 	energy_changed.emit(current)
-	
+
+func _on_turn_ended(actor: Actor):
+	_battle_context.event_bus.turn_ended.emit(actor, _battle_context, self)	
+
 ## UI CONNECTIONS
 	
 func on_end_turn_pressed():
@@ -223,15 +227,20 @@ func resolve_card(card: Card):
 	card_played.emit(card)
 
 func apply_damage(ctx: DamageContext):
-	ctx.hit_actors[0].take_damage(ctx.damage, ctx)
+	_battle_context.event_bus.before_damage_dealt.emit(ctx, _battle_context, self)
 	
-	for i in range(1, ctx.hit_actors.size()):
-		ctx.hit_actors[i].take_damage(ctx.blast_damage, ctx)
+	var damage_dictionary = ctx.calculate_damage()
+	for actor in damage_dictionary.keys():
+		var damage_value = damage_dictionary[actor]
+		actor.take_damage(damage_value, ctx)
 	
-	damage_dealt.emit(ctx)
+	_battle_context.event_bus.damage_dealt.emit(ctx, _battle_context, self)
 	
 func apply_armor(amount: int, actor: Actor):
 	actor.add_armor(amount)
+	
+func apply_status(actor: Actor, status: StatusEffect):
+	actor.apply_status(status, _battle_context, self)
 	
 func draw_card(amt: int = 1):
 	for i in range(amt):

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3gtmxfhbu1h8"
-path="res://.godot/imported/armor_bar_progress.png-ce9953b3cf7f5607ea55880a8cf08827.ctex"
+uid="uid://jao2y28ny783"
+path="res://.godot/imported/armor_bar_progress.png-5991882e719b155a326066e309c63478.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/armor_bar_progress.png"
-dest_files=["res://.godot/imported/armor_bar_progress.png-ce9953b3cf7f5607ea55880a8cf08827.ctex"]
+source_file="res://assets/ui/armor_bar_progress.png"
+dest_files=["res://.godot/imported/armor_bar_progress.png-5991882e719b155a326066e309c63478.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cy6wrp2uhuvia"]
 
-[ext_resource type="Script" path="res://script/effects/damage_number.gd" id="1_hoesv"]
+[ext_resource type="Script" path="res://script/ui/damage_number.gd" id="1_hoesv"]
 [ext_resource type="FontFile" uid="uid://cgih62i6o6aul" path="res://data/PixelPurl.ttf" id="1_nosax"]
 
 [node name="damage_number" type="Label"]

@@ -58,7 +58,7 @@ func finish_turn() -> void:
 func add_actor(actor: Actor, context: BattleContext):
 	reset_actor_av(actor)
 	_active_actors.append(actor)
-	actor.battle_context = context
+	# actor.battle_context = context
 	
 	_sort_actors()
 	active_actors_updated.emit(_active_actors)

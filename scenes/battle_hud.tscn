@@ -305,12 +305,12 @@ layout_mode = 0
 offset_left = 5.0
 offset_top = 4.0
 offset_right = 117.0
-offset_bottom = 177.0
+offset_bottom = 268.0
 theme_override_fonts/font = ExtResource("7_m4jvc")
-text = "Wolf:
-HP: 500/500
-DEF: 200
+text = "Player:
+HP: 200/200
+ARMOR: 0
 SPD: 130
 
-Vulnerable: Takes 20% more damage."
+Burn (x36): Deals 10 damage for each stack, then removes 1 stack. Scales with ARC (A)."
 autowrap_mode = 3

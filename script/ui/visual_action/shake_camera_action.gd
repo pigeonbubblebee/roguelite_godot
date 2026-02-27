@@ -18,4 +18,7 @@ func execute(scene: BattleScene):
 	
 	#cam.finished_shaking.connect(_on_shake_finished, CONNECT_ONE_SHOT)
 	cam.add_trauma(strength, duration)
+	
+	await scene.get_tree().create_timer(duration).timeout 
+	
 	emit_signal("finished")

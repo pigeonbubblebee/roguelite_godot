@@ -200,7 +200,7 @@ func return_to_hand():
 	
 func tween_to_hand():
 	var tween = create_tween()
-	print("Tween to hand")
+	
 	tween.tween_property(self, "global_position", drag_original_position, 0.15)\
 	.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	

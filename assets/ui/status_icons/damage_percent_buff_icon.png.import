@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwkrj48on7ba7"
-path="res://.godot/imported/bar_background.png-b0ede28889be8f762127e9e112c10f9b.ctex"
+uid="uid://du3an3ccn03uj"
+path="res://.godot/imported/damage_percent_buff_icon.png-e142809b655442fda7810a04ca491b6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bar_background.png"
-dest_files=["res://.godot/imported/bar_background.png-b0ede28889be8f762127e9e112c10f9b.ctex"]
+source_file="res://assets/ui/status_icons/damage_percent_buff_icon.png"
+dest_files=["res://.godot/imported/damage_percent_buff_icon.png-e142809b655442fda7810a04ca491b6a.ctex"]
 
 [params]
 

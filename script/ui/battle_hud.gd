@@ -65,5 +65,5 @@ func on_hovered_enemy_change(actor: ActorUI):
 	
 	var hp_text = "HP: " + str(actor_logic.get_health()) + "/" + str(actor_logic.get_max_health())
 	var ar_text = "ARMOR: " + str(actor_logic.get_armor())
-	var sp_text = "SPEED: " + str(actor_logic.get_speed())
+	var sp_text = "SPD: " + "%.2f" % (actor_logic.get_speed())
 	actor_label.text = actor_logic.get_actor_name() + "\n" + hp_text + "\n" + ar_text + "\n" + sp_text

@@ -27,7 +27,7 @@ func play(context: BattleContext, controller: BattleController):
 	for i in range(multistrike_amount):
 		var hit_actors: Array[Actor] = [ random_enemies[i] ]
 		
-		var damage_context = BattleRuntimeHelper.generate_damage_context(damage, hit_actors, 0, DamageType.Type.MAGIC)	
+		var damage_context = BattleRuntimeHelper.generate_damage_context(damage, hit_actors, context.get_player(), DamageType.Type.MAGIC)	
 		damage_context.source_name = "magic_missile_card"
 		
 		controller.apply_damage(damage_context)
