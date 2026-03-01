@@ -10,12 +10,14 @@ var ally_ui_array : Array[ActorUI] = []
 
 var current_card : Card = null
 var hovered_enemy = null
+var hovered_actor = null
 
 @export var target_texture: Texture2D
 @export var blast_target_texture: Texture2D
 @export var buff_target_texture: Texture2D
 
 signal hovered_enemy_change(hover)
+signal hovered_actor_change(actor)
 
 func _ready() -> void:
 	self.connect("hovered_enemy_change", Callable(self, "on_hovered_enemy_changed"))
@@ -53,11 +55,12 @@ func load_actor_ui(actor: Actor):
 	if actor.get_actor_faction() == Faction.Type.ENEMY:
 		enemy_ui_array.append(actor_ui)
 		enemy_ui_container.add_child(actor_ui)
-		actor_ui.connect("hover_started", Callable(self, "start_hovered_enemy"))
-		actor_ui.connect("hover_ended", Callable(self, "end_hovered_enemy"))
 	elif actor.get_actor_faction() == Faction.Type.ALLY:
 		ally_ui_array.append(actor_ui)
 		ally_ui_container.add_child(actor_ui)
+		
+	actor_ui.connect("hover_started", Callable(self, "start_hovered_actor"))
+	actor_ui.connect("hover_ended", Callable(self, "end_hovered_actor"))
 	
 	actor_ui.update_health_bar()
 	
@@ -66,20 +69,28 @@ func load_actor_ui(actor: Actor):
 func _position_actor_ui(actor_ui: ActorUI, team_position: int, faction: Faction.Type):
 	var spacing: float = 64
 	var x_pos: float = (team_position) * spacing
-	var y_pos: float = 80 + (20 if team_position%2 == 0 else 0)
+	var y_pos: float = 60 + (20 if team_position%2 == 0 else 0)
 	
 	actor_ui.position = Vector2(x_pos, y_pos)	
 
-func start_hovered_enemy(enemy_actor: EnemyActorUI):
-	hovered_enemy = enemy_actor
-
-	hovered_enemy_change.emit(hovered_enemy)
-
-func end_hovered_enemy(enemy_actor: EnemyActorUI):
-	if hovered_enemy == enemy_actor:
-		hovered_enemy = null
+func start_hovered_actor(actor: ActorUI):
+	if actor.actor.get_actor_faction() == Faction.Type.ENEMY:
+		hovered_enemy = actor
+		hovered_enemy_change.emit(hovered_enemy)
 		
-	hovered_enemy_change.emit(hovered_enemy)
+	hovered_actor = actor
+	hovered_actor_change.emit(hovered_actor)
+
+func end_hovered_actor(actor: ActorUI):
+	if actor.actor.get_actor_faction() == Faction.Type.ENEMY:
+		if hovered_enemy == actor:
+			hovered_enemy = null
+			
+		hovered_enemy_change.emit(hovered_enemy)
+		
+	if hovered_actor == actor:
+		hovered_actor = null
+		hovered_actor_change.emit(hovered_actor)
 
 func on_card_drag_started(card: Card):
 	current_card = card

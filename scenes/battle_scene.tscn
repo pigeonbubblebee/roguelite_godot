@@ -9,13 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://dnvyvm5vfpg31" path="res://assets/small_target.png" id="6_kk4xk"]
 [ext_resource type="Script" path="res://script/ui/hand_ui.gd" id="6_sqh8v"]
 [ext_resource type="Texture2D" uid="uid://b8lpwtlhv4prr" path="res://assets/buff_target.png" id="7_iysv6"]
+[ext_resource type="FontFile" uid="uid://b23c0njeg0avg" path="res://data/PixelPurl8x8 (1).ttf" id="12_7i6l6"]
 [ext_resource type="Script" path="res://script/battle/battle_scene_camera.gd" id="13_yyjm8"]
 [ext_resource type="Script" path="res://script/ui/particle_effect_manager.gd" id="14_eymi4"]
 [ext_resource type="Script" path="res://script/ui/end_turn_button.gd" id="14_vdmwm"]
 [ext_resource type="Texture2D" uid="uid://pmtbvaw8jtdm" path="res://assets/end_turn.png" id="15_11nws"]
 [ext_resource type="PackedScene" uid="uid://fp4dd2rv1vu5" path="res://scenes/particles/slash_hit_effect.tscn" id="15_k8xp2"]
 [ext_resource type="PackedScene" uid="uid://g7rftko87npn" path="res://scenes/particles/magic_slash_hit_particle.tscn" id="16_hqydk"]
-[ext_resource type="FontFile" uid="uid://cgih62i6o6aul" path="res://data/PixelPurl.ttf" id="16_ypwo7"]
 [ext_resource type="PackedScene" uid="uid://cgyp8anhrnogx" path="res://scenes/particles/armor_particle.tscn" id="17_b1quu"]
 
 [node name="battle_scene" type="Node2D"]
@@ -31,11 +31,6 @@ _particle_effect_helper_path = NodePath("particle_effect")
 [node name="background" type="Sprite2D" parent="."]
 scale = Vector2(64, 36)
 texture = ExtResource("1_igw74")
-
-[node name="HUD" type="Node2D" parent="."]
-position = Vector2(-320, -180)
-
-[node name="battle_hud" parent="HUD" instance=ExtResource("2_oyr6g")]
 
 [node name="actor_ui" type="Node2D" parent="."]
 
@@ -67,6 +62,11 @@ offset_left = 1.0
 offset_top = 2.0
 offset_right = 193.0
 offset_bottom = 156.0
+
+[node name="HUD" type="Node2D" parent="."]
+position = Vector2(-320, -180)
+
+[node name="battle_hud" parent="HUD" instance=ExtResource("2_oyr6g")]
 
 [node name="hand_ui" type="Node2D" parent="."]
 
@@ -123,14 +123,12 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 1.0
-offset_top = 1.0
 offset_right = 1.0
-offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("16_ypwo7")
+theme_override_fonts/font = ExtResource("12_7i6l6")
 text = "End Turn"
 horizontal_alignment = 1
 vertical_alignment = 1

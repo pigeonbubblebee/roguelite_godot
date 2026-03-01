@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://drmt0up0wngwo" path="res://assets/player_icon.png" id="4_xvdcy"]
 [ext_resource type="Texture2D" uid="uid://c4pd5piqme8uy" path="res://assets/small_background.png" id="5_k4l07"]
 [ext_resource type="Texture2D" uid="uid://cmxwutgo8i4it" path="res://assets/hourglass.png" id="6_om365"]
-[ext_resource type="FontFile" uid="uid://cgih62i6o6aul" path="res://data/PixelPurl.ttf" id="7_fwnjr"]
+[ext_resource type="FontFile" uid="uid://b23c0njeg0avg" path="res://data/PixelPurl8x8 (1).ttf" id="7_d2qxl"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gpb5u"]
 
@@ -94,7 +94,7 @@ offset_bottom = 6.0
 grow_horizontal = 0
 grow_vertical = 2
 pivot_offset = Vector2(1, 0)
-theme_override_fonts/font = ExtResource("7_fwnjr")
+theme_override_fonts/font = ExtResource("7_d2qxl")
 text = "10"
 
 [node name="borders" type="NinePatchRect" parent="MarginContainer"]

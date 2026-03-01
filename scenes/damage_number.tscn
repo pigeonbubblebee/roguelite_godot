@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cy6wrp2uhuvia"]
 
+[ext_resource type="FontFile" uid="uid://b23c0njeg0avg" path="res://data/PixelPurl8x8 (1).ttf" id="1_2wf22"]
 [ext_resource type="Script" path="res://script/ui/damage_number.gd" id="1_hoesv"]
-[ext_resource type="FontFile" uid="uid://cgih62i6o6aul" path="res://data/PixelPurl.ttf" id="1_nosax"]
 
 [node name="damage_number" type="Label"]
 texture_filter = 1
@@ -13,7 +13,7 @@ offset_bottom = -346.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.75, 1.75)
-theme_override_fonts/font = ExtResource("1_nosax")
+theme_override_fonts/font = ExtResource("1_2wf22")
 text = "10"
 horizontal_alignment = 1
 script = ExtResource("1_hoesv")

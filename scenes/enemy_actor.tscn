@@ -1,14 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1ynugb3e8na6"]
+[gd_scene load_steps=13 format=3 uid="uid://d1ynugb3e8na6"]
 
 [ext_resource type="Script" path="res://script/ui/enemy_actor_ui.gd" id="1_q5t74"]
 [ext_resource type="PackedScene" uid="uid://cy6wrp2uhuvia" path="res://scenes/damage_number.tscn" id="2_e3st8"]
 [ext_resource type="Texture2D" uid="uid://cdthgn4v8ncgr" path="res://assets/player_battle_sprite.png" id="2_x8mr8"]
+[ext_resource type="Texture2D" uid="uid://du3an3ccn03uj" path="res://assets/ui/status_icons/damage_percent_buff_icon.png" id="3_2h6ju"]
 [ext_resource type="Texture2D" uid="uid://dchwacvnpfc5s" path="res://assets/target.png" id="3_hf8h6"]
+[ext_resource type="Texture2D" uid="uid://c0l378yaur7yk" path="res://assets/ui/status_icons/damage_percent_debuff_icon.png" id="4_ewhf8"]
 [ext_resource type="Texture2D" uid="uid://jao2y28ny783" path="res://assets/ui/armor_bar_progress.png" id="5_4ob34"]
+[ext_resource type="Texture2D" uid="uid://bqpivcfxame78" path="res://assets/ui/status_icons/burn_debuff_icon.png" id="5_qvw4e"]
 [ext_resource type="Texture2D" uid="uid://f35k1od0fyv7" path="res://assets/ui/bar_background.png" id="6_m7gf2"]
 [ext_resource type="Texture2D" uid="uid://j45m7srcw3sn" path="res://assets/ui/health_bar_progress.png" id="7_qulbj"]
 [ext_resource type="Texture2D" uid="uid://clfddyu5ap45x" path="res://assets/ui/enemy_moves/armor_move.png" id="7_xu261"]
-[ext_resource type="FontFile" uid="uid://cgih62i6o6aul" path="res://data/PixelPurl.ttf" id="8_xhbgn"]
+[ext_resource type="FontFile" uid="uid://b23c0njeg0avg" path="res://data/PixelPurl8x8 (1).ttf" id="12_ihbrq"]
 
 [node name="enemy_actor" type="Control"]
 texture_filter = 1
@@ -16,7 +19,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 64.0
-offset_bottom = 64.0
+offset_bottom = 80.0
 pivot_offset = Vector2(32, 32)
 script = ExtResource("1_q5t74")
 _move_visual_path = NodePath("Control/move_display/move_visual")
@@ -26,18 +29,45 @@ _armor_bar_path = NodePath("Control/armor_bar")
 _target_path = NodePath("Control/target")
 damage_number_scene = ExtResource("2_e3st8")
 
-[node name="Control" type="Control" parent="."]
+[node name="status_effects" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = -70.0
-offset_right = 32.0
+offset_left = -18.0
+offset_top = -8.0
+offset_right = 19.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 2
+
+[node name="buff_icon" type="TextureRect" parent="status_effects"]
+layout_mode = 2
+texture = ExtResource("3_2h6ju")
+
+[node name="buff_icon2" type="TextureRect" parent="status_effects"]
+layout_mode = 2
+texture = ExtResource("4_ewhf8")
+
+[node name="buff_icon4" type="TextureRect" parent="status_effects"]
+layout_mode = 2
+texture = ExtResource("4_ewhf8")
+
+[node name="buff_icon3" type="TextureRect" parent="status_effects"]
+layout_mode = 2
+texture = ExtResource("5_qvw4e")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 70.0
+grow_horizontal = 2
 mouse_filter = 2
 
 [node name="sprite" type="TextureRect" parent="Control"]
@@ -135,6 +165,6 @@ anchor_bottom = 1.0
 offset_top = -14.0
 offset_right = 41.0
 grow_vertical = 0
-theme_override_fonts/font = ExtResource("8_xhbgn")
+theme_override_fonts/font = ExtResource("12_ihbrq")
 text = "310"
 horizontal_alignment = 2

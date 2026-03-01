@@ -17,6 +17,7 @@ signal damage_taken(dmg, ctx)
 signal armor_updated(armor)
 signal died(actor: Actor)
 signal armor_gained(amount)
+
 var _processing_death = false
 
 func _init(data: ActorData):
@@ -107,3 +108,6 @@ func has_armor() -> bool:
 
 func apply_status(status, context, controller):
 	status_effect_manager.apply_status(status, context, controller)
+
+func get_status_manager() -> ActorStatusEffectManager:
+	return status_effect_manager

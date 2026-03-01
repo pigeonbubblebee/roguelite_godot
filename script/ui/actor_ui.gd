@@ -12,6 +12,9 @@ var actor: Actor
 
 @export var damage_number_scene: PackedScene
 
+signal hover_started(actorUI)
+signal hover_ended(actorUI)
+
 func _ready():
 	if actor:
 		actor.connect("health_updated", Callable(self, "update_health_bar"))
@@ -28,6 +31,9 @@ func _ready():
 	tween.tween_property(target, "modulate:a", 0.3, 0.6)
 	tween.tween_property(target, "modulate:a", 1.0, 0.6)
 	
+	mouse_entered.connect(_mouse_entered)
+	mouse_exited.connect(_mouse_exited)
+
 func set_target_visibility(visible: bool, texture: Texture2D = null):
 	target.visible = visible
 	target.texture = texture
@@ -55,3 +61,10 @@ func _on_damage_taken(amt, ctx):
 	damage_number_instance.bind(amt, ctx)
 	damage_number_instance.global_position = global_position + Vector2(size.x / 2 - 5, size.y / 2 - 20)
 	get_tree().current_scene.call_deferred("add_child", damage_number_instance)
+
+func _mouse_entered():
+	#print(actor.get_team_position())
+	hover_started.emit(self)
+
+func _mouse_exited():
+	hover_ended.emit(self)

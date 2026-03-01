@@ -5,7 +5,7 @@ extends BattleVisualAction
 var strength: float = 2
 var duration: float = 0.08
 
-func _init(_strength = 2, _duration = 0.08):
+func _init(_strength : float = 2, _duration = 0.08):
 	strength = _strength
 	duration = _duration
 

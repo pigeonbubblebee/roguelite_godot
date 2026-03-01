@@ -33,8 +33,14 @@ func on_turn_end(actor: Actor, battle_context: BattleContext, controller: Battle
 		if(_stacks == 0):
 			expired.emit(self)
 
-func get_is_turn_based():
+func get_is_turn_based() -> bool:
 	return true
+	
+func get_stacks() -> int:
+	return _stacks
 	
 func get_name():
 	return _status_name
+
+func get_desc():
+	return "Test Description"

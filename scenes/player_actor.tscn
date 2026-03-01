@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cal3ok533lipw"]
+[gd_scene load_steps=13 format=3 uid="uid://cal3ok533lipw"]
 
 [ext_resource type="Script" path="res://script/ui/actor_ui.gd" id="1_irjik"]
 [ext_resource type="PackedScene" uid="uid://cy6wrp2uhuvia" path="res://scenes/damage_number.tscn" id="2_1vb0m"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://du3an3ccn03uj" path="res://assets/ui/status_icons/damage_percent_buff_icon.png" id="8_3iaie"]
 [ext_resource type="Texture2D" uid="uid://c0l378yaur7yk" path="res://assets/ui/status_icons/damage_percent_debuff_icon.png" id="9_8gtgw"]
 [ext_resource type="Texture2D" uid="uid://bqpivcfxame78" path="res://assets/ui/status_icons/burn_debuff_icon.png" id="10_2msq3"]
-[ext_resource type="Texture2D" uid="uid://b6nyn317kg7b0" path="res://assets/ui/status_icons/vulnerable_debuff_icon.png" id="10_rslls"]
 [ext_resource type="Texture2D" uid="uid://s0dopwv0xkvp" path="res://assets/ui/status_icons/follow_up_buff_icon.png" id="11_rqbam"]
 [ext_resource type="Texture2D" uid="uid://ceamlornti4v6" path="res://assets/ui/status_icons/storm_buff_icon.png" id="13_wdttb"]
 
@@ -19,25 +18,56 @@ texture_filter = 1
 layout_mode = 3
 anchors_preset = 0
 offset_right = 64.0
-offset_bottom = 64.0
+offset_bottom = 80.0
 script = ExtResource("1_irjik")
 _health_bar_path = NodePath("Control/health_bar")
 _armor_bar_path = NodePath("Control/armor_bar")
 _target_path = NodePath("Control/target")
 damage_number_scene = ExtResource("2_1vb0m")
 
-[node name="Control" type="Control" parent="."]
+[node name="status_effects" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = -70.0
-offset_right = 32.0
+offset_left = -26.0
+offset_top = -8.0
+offset_right = 26.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/separation = 2
+
+[node name="buff_icon" type="TextureRect" parent="status_effects"]
+layout_mode = 2
+texture = ExtResource("8_3iaie")
+
+[node name="buff_icon2" type="TextureRect" parent="status_effects"]
+layout_mode = 2
+texture = ExtResource("9_8gtgw")
+
+[node name="buff_icon3" type="TextureRect" parent="status_effects"]
+layout_mode = 2
+texture = ExtResource("10_2msq3")
+
+[node name="buff_icon5" type="TextureRect" parent="status_effects"]
+layout_mode = 2
+texture = ExtResource("11_rqbam")
+
+[node name="buff_icon6" type="TextureRect" parent="status_effects"]
+layout_mode = 2
+texture = ExtResource("13_wdttb")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_right = 32.0
+offset_bottom = 70.0
+grow_horizontal = 2
 mouse_filter = 2
 
 [node name="sprite" type="TextureRect" parent="Control"]
@@ -103,35 +133,3 @@ value = 50.0
 nine_patch_stretch = true
 texture_under = ExtResource("6_ic64j")
 texture_progress = ExtResource("7_omnbu")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 72.0
-offset_right = 58.0
-offset_bottom = 80.0
-theme_override_constants/separation = 2
-
-[node name="buff_icon" type="TextureRect" parent="Control/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("8_3iaie")
-
-[node name="buff_icon2" type="TextureRect" parent="Control/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("9_8gtgw")
-
-[node name="buff_icon3" type="TextureRect" parent="Control/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("10_2msq3")
-
-[node name="buff_icon4" type="TextureRect" parent="Control/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("10_rslls")
-
-[node name="buff_icon5" type="TextureRect" parent="Control/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("11_rqbam")
-
-[node name="buff_icon6" type="TextureRect" parent="Control/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("13_wdttb")

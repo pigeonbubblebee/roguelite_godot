@@ -6,27 +6,14 @@ extends ActorUI
 @export var _move_amount_path: NodePath
 @onready var move_amount = get_node(_move_amount_path)
 
-signal hover_started(actorUI)
-signal hover_ended(actorUI)
-
 func _ready():
 	super._ready()
 	
 	mouse_filter = Control.MOUSE_FILTER_PASS
 	
-	mouse_entered.connect(_mouse_entered)
-	mouse_exited.connect(_mouse_exited)
-	
 	if actor:
 		actor.connect("move_updated", Callable(self, "update_move_display"))
 		update_move_display(actor.get_next_move())
-
-func _mouse_entered():
-	#print(actor.get_team_position())
-	hover_started.emit(self)
-
-func _mouse_exited():
-	hover_ended.emit(self)
 	
 func update_move_display(move: ActorPremove):
 	if not move:
