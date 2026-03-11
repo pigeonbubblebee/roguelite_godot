@@ -102,6 +102,10 @@ func layout_hand():
 		
 		card.hover_base_position = Vector2(start_x + x_offset, start_y + y_offset)
 		card.drag_original_position = card.hover_base_position
+		
+		card.change_state(card.idle_state)
+		if card.hover_tween:
+			card.hover_tween.kill()
 		card.global_position = card.hover_base_position
 
 func _on_card_drag_started(card):

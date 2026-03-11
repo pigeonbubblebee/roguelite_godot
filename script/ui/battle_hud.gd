@@ -24,6 +24,13 @@ extends Control
 @export var _actor_label_path: NodePath
 @onready var actor_label = get_node(_actor_label_path)
 
+@export var _tooltip_path: NodePath
+@onready var tooltip = get_node(_tooltip_path)
+
+@onready var tooltip_offset = Vector2(100, 0)
+@onready var tooltip_base_position = tooltip.global_position
+var tooltip_tween : Tween
+
 var _currently_connected_actor : Actor
 
 func bind(controller: BattleController):
@@ -43,8 +50,12 @@ func on_card_hover_started(card: Card):
 	var desc = KeywordFormatter.format_text(card.description)
 	card_label.text = card.title + ":\n" + desc
 	
+	show_tooltip(card)
+	
 func on_card_hover_ended(card: Card):
 	card_label.text = "No card selected"
+	
+	hide_tooltip()
 
 func on_card_drag_ended(card: Card):
 	return
@@ -98,3 +109,29 @@ func update_actor_hud_info(armor = 0):
 		status_text = status_text + text + "\n"
 	
 	actor_label.text = _currently_connected_actor.get_actor_name() + ":\n" + hp_text + "\n" + ar_text + "\n" + sp_text + "\n" + status_text
+
+func show_tooltip(card: Card):
+	if tooltip_tween:
+		tooltip_tween.kill()
+		
+	if card.get_keywords().size() == 0:
+		hide_tooltip()
+		return
+		
+	tooltip_tween = create_tween()
+	tooltip_tween.tween_property(tooltip, "global_position", tooltip_base_position + tooltip_offset, 0.12)\
+	.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		
+	tooltip.visible = true	
+	
+func hide_tooltip():
+	if tooltip_tween:
+		tooltip_tween.kill()
+		
+	tooltip_tween = create_tween()
+	tooltip_tween.tween_property(tooltip, "global_position", tooltip_base_position, 0.12)\
+	.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	
+	tooltip_tween.finished.connect(func():
+		tooltip.visible = false	
+	)

@@ -25,6 +25,9 @@ func play(context: BattleContext, controller: BattleController):
 	emit_signal("played")
 	pass
 	
+func get_keywords() -> Array[String]:
+	return []
+	
 # For enemies
 func get_target_index(total_targets: int, target_index: int) -> Array[int]:
 	return get_index_single(total_targets, target_index)
