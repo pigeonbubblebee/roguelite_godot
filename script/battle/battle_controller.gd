@@ -140,7 +140,10 @@ func _on_turn_started(actor: Actor):
 	if actor.get_actor_faction() == Faction.Type.ALLY:
 		_energy_manager.reset_energy()
 		_hand_manager.draw_to_max()
-		
+		print("ally taking action")	
+	else:
+		print("enemy taking action")	
+	
 	actor.take_action(_battle_context, self)
 	
 	turn_started.emit(actor)
@@ -164,7 +167,7 @@ func _on_turn_ended(actor: Actor):
 ## UI CONNECTIONS
 	
 func on_end_turn_pressed():
-	if(_turn_manager._current_actor.get_actor_name() == "Player"):
+	if(_turn_manager._current_actor.get_actor_name() == "Player" and not _turn_manager.processing_turn_change):
 		_turn_manager.finish_turn()
 	
 func on_hovered_enemy_change(actorUI: EnemyActorUI):

@@ -14,6 +14,10 @@ signal turn_ended(actor: Actor)
 
 signal turn_ready(actor: Actor)
 
+const TIME_BETWEEN_TURNS = 0.25
+
+var processing_turn_change : bool = false
+
 func _input(event: InputEvent) -> void:
 	if event.is_pressed() and event is InputEventKey and event.keycode == KEY_T:
 		print("Debug: advancing turn!")
@@ -26,7 +30,7 @@ func _input(event: InputEvent) -> void:
 func progress_turn_order() -> void:
 	if _active_actors.size() == 0:
 		return
-	
+
 	# Access actor with least AV remaining to move
 	_current_actor = _active_actors[0]
 	var delta = _current_actor.get_remaining_av()
@@ -39,18 +43,25 @@ func progress_turn_order() -> void:
 	active_actors_updated.emit(_active_actors)
 	
 	turn_ready.emit(_current_actor)
+	
+	processing_turn_change = false
 
 func start_turn():
 	turn_started.emit(_current_actor)
 
 func finish_turn() -> void:
+	if processing_turn_change:
+		return
+	
+	processing_turn_change = true
+		
 	reset_actor_av(_current_actor)
 	_sort_actors()
 	active_actors_updated.emit(_active_actors)
 	
 	turn_ended.emit(_current_actor)
 	
-	await get_tree().create_timer(0.25).timeout
+	await get_tree().create_timer(TIME_BETWEEN_TURNS).timeout
 	progress_turn_order()
 	
 # Adds an actor to the turn order

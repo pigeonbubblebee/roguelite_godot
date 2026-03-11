@@ -1,7 +1,7 @@
 class_name WolfEnemyActor
 extends EnemyActor
 
-var fixed_speed_temp = 66.6666667
+var fixed_speed_temp = 99
 
 var damage = 50
 

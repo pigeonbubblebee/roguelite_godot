@@ -18,20 +18,29 @@ var _av_tween: Tween
 func _ready() -> void:
 	border.texture = _default_border_texture
 
-func update_actor(actor: Actor, active: bool) -> void:
+func update_actor(actor: Actor, active: bool) -> void:		
+	var original_actor = false
+	if(actor == _actor):
+		original_actor = true
 	_actor = actor
 	icon.texture = actor.get_texture()
 
+	border.texture = _default_border_texture if !active else _highlighted_border_texture
+
 	var new_av = actor.get_remaining_av()
+	
 	if _av_tween:
 		_av_tween.kill()
-
-	_av_tween = create_tween()
-	_av_tween.tween_property(self, "displayed_av", new_av, 0.4)\
-		.set_trans(Tween.TRANS_CUBIC)\
-		.set_ease(Tween.EASE_OUT)
 	
-	border.texture = _default_border_texture if !active else _highlighted_border_texture
+	if original_actor:
+		_av_tween = create_tween()
+		_av_tween.tween_property(self, "displayed_av", new_av, TurnManager.TIME_BETWEEN_TURNS)\
+			.set_trans(Tween.TRANS_CUBIC)\
+			.set_ease(Tween.EASE_OUT)
+	else:
+		displayed_av = new_av
+	
+	
 
 func _process(delta):
 	if _actor:
