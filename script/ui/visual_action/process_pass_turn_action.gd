@@ -1,11 +1,11 @@
 class_name ProcessPassTurnAction
 extends BattleVisualAction
 
-var duration := 0.4
+var duration := 0.2
 
-func _init(_duration := 0.4):
+func _init(_duration := 0.2):
 	duration = _duration
 
 func execute(scene: BattleScene):
-	await scene.get_tree().create_timer(TurnManager.TIME_BETWEEN_TURNS).timeout
+	await scene.get_tree().create_timer(duration).timeout
 	finished.emit()

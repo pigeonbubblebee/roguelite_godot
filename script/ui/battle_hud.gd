@@ -47,8 +47,9 @@ func bind(controller: BattleController):
 	attribute_label_2.text = KeywordFormatter.format_text(attribute_label_2.text)
 
 func on_card_hover_started(card: Card):
-	var desc = KeywordFormatter.format_text(card.description)
-	card_label.text = card.title + ":\n" + desc
+	#var desc = KeywordFormatter.format_text(card.description)
+	var desc = KeywordFormatter.format_text(card.scaling_data)
+	card_label.text = card.title + "\nScales with:\n" + desc
 	
 	show_tooltip(card)
 	
@@ -100,13 +101,13 @@ func update_actor_hud_info(armor = 0):
 	var active_status = _currently_connected_actor.get_status_manager().get_active_status()
 	
 	if active_status.size() > 0:
-		status_text += "Status Effects:\n"
+		status_text += "STATUS:\n"
 	
 	for status in active_status:
-		var stack_text = ("x" + str(status.get_stacks())) if not status.get_is_turn_based() else (str(status.get_stacks()) + " Turns")
+		var stack_text = ("x" + str(status.get_stacks())) if not status.get_is_turn_based() else (str(status.get_stacks()) + " TURNS")
 		var text = status.get_name() + " (" + stack_text + ")\n"
 		
-		status_text = status_text + text + "\n"
+		status_text = status_text + text
 	
 	actor_label.text = _currently_connected_actor.get_actor_name() + ":\n" + hp_text + "\n" + ar_text + "\n" + sp_text + "\n" + status_text
 

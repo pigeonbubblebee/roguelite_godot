@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("2_wk40j")
+card_id = "strike_card"
 cost = 1
 texture = ExtResource("2_lch4s")
 target_drag = true

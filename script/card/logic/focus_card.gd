@@ -2,13 +2,15 @@ class_name FocusCard
 extends Card
 
 var damage_percent_gain : float = 0.5
+var turns : int = 2
+var status_id : String = "focus_status"
 
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
 	
 	var player = context.get_player()
 	
-	var effect = DamageAmplificationStatusEffect.new("focus", player, 2, damage_percent_gain)
+	var effect = DamageAmplificationStatusEffect.new(status_id, player, turns, damage_percent_gain)
 	controller.apply_status(player, effect)
 	controller.enqueue_action(BattleRuntimeHelper.generate_light_camera_shake_action())
 	

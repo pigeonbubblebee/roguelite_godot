@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("1_rqq8j")
+card_id = "magic_missile_card"
 cost = 2
 texture = ExtResource("3_xkfac")
 target_drag = true

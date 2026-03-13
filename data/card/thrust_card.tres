@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("2_jp37j")
+card_id = "thrust_card"
 cost = 1
 texture = ExtResource("3_fkxes")
 target_drag = true

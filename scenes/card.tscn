@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://prnhw6kneqmu"]
+[gd_scene load_steps=10 format=3 uid="uid://prnhw6kneqmu"]
 
 [ext_resource type="Script" path="res://script/ui/card/cardGUI.gd" id="1_da6pn"]
 [ext_resource type="Texture2D" uid="uid://cmbk2xw8don7n" path="res://assets/card_bg.png" id="2_rwr0g"]
 [ext_resource type="Texture2D" uid="uid://snsetagk3pb1" path="res://assets/card_art/energy_symbol.png" id="3_ehxke"]
 [ext_resource type="Texture2D" uid="uid://cjpxxd7pvdqnn" path="res://assets/card_art/heavy_slash_card.png" id="5_1tu24"]
 [ext_resource type="FontFile" uid="uid://b23c0njeg0avg" path="res://data/PixelPurl8x8 (1).ttf" id="5_jqs8i"]
+[ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://assets/Background.png" id="6_gfjv8"]
+[ext_resource type="Texture2D" uid="uid://bga5pxyite2ig" path="res://assets/bar.png" id="7_r2cjo"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6jqjf"]
 
 [sub_resource type="Curve" id="Curve_2lon5"]
 min_value = 0.2
@@ -29,6 +33,64 @@ _type_text_path = NodePath("type")
 _card_art_texture_path = NodePath("card_art")
 hover_vertical_offset = 10.0
 _arc_path = NodePath("arc")
+_tooltip_path = NodePath("tooltip3")
+_tooltip_text_path = NodePath("tooltip3/card_label")
+
+[node name="tooltip3" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 76.0
+offset_top = 9.0
+offset_right = 217.0
+offset_bottom = 98.0
+mouse_filter = 2
+
+[node name="background" type="TextureRect" parent="tooltip3"]
+material = SubResource("CanvasItemMaterial_6jqjf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_gfjv8")
+expand_mode = 1
+
+[node name="borders" type="NinePatchRect" parent="tooltip3"]
+material = SubResource("CanvasItemMaterial_6jqjf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_r2cjo")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="card_label" type="RichTextLabel" parent="tooltip3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -85.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("5_jqs8i")
+bbcode_enabled = true
+text = "The next 2 times you deal damage, launch follow up: Deal 50 Physical Damage. Apply 2 Daze.
+"
+fit_content = true
+scroll_active = false
 
 [node name="background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -95,3 +157,55 @@ texture = ExtResource("5_1tu24")
 
 [node name="arc" type="Line2D" parent="."]
 width_curve = SubResource("Curve_2lon5")
+
+[node name="tooltip2" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 151.0
+offset_top = -92.0
+offset_right = 249.0
+offset_bottom = -46.0
+mouse_filter = 2
+
+[node name="background" type="TextureRect" parent="tooltip2"]
+material = SubResource("CanvasItemMaterial_6jqjf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_gfjv8")
+expand_mode = 1
+
+[node name="borders" type="NinePatchRect" parent="tooltip2"]
+material = SubResource("CanvasItemMaterial_6jqjf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_r2cjo")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="card_label" type="RichTextLabel" parent="tooltip2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 3.0
+offset_right = -4.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("5_jqs8i")
+bbcode_enabled = true
+text = "Multistrike 2: Deals damage 2 times."
+scroll_active = false

@@ -6,10 +6,11 @@
 
 [resource]
 script = ExtResource("1_rjbpd")
+card_id = "quick_strike_card"
 cost = 1
 texture = ExtResource("3_faoyr")
 target_drag = true
-title = "Quick Slash"
+title = "Quick Strike"
 type = 0
 logic = ExtResource("1_chas7")
 description = "Multistrike 2. Deal 40 Physical Damage. Scales with STR (D) and DEX (B)"

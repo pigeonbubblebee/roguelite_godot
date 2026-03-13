@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("1_afeuq")
+card_id = "shield_bash_card"
 cost = 1
 texture = ExtResource("3_wuyly")
 target_drag = true

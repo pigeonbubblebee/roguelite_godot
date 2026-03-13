@@ -43,10 +43,9 @@ func progress_turn_order() -> void:
 	active_actors_updated.emit(_active_actors)
 	
 	turn_ready.emit(_current_actor)
-	
-	processing_turn_change = false
 
 func start_turn():
+	processing_turn_change = false
 	turn_started.emit(_current_actor)
 
 func finish_turn() -> void:

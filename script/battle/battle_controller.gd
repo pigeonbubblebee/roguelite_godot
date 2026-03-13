@@ -140,9 +140,6 @@ func _on_turn_started(actor: Actor):
 	if actor.get_actor_faction() == Faction.Type.ALLY:
 		_energy_manager.reset_energy()
 		_hand_manager.draw_to_max()
-		print("ally taking action")	
-	else:
-		print("enemy taking action")	
 	
 	actor.take_action(_battle_context, self)
 	

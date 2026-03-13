@@ -10,7 +10,12 @@ var actor: Actor
 @export var _target_path: NodePath
 @onready var target = get_node(_target_path)
 
+@export var _status_icon_container_path: NodePath
+@onready var status_icon_container = get_node(_status_icon_container_path)
+
 @export var damage_number_scene: PackedScene
+
+@onready var status_icon_helper : ActorUIStatusIconHelper = ActorUIStatusIconHelper.new()
 
 signal hover_started(actorUI)
 signal hover_ended(actorUI)
@@ -21,6 +26,8 @@ func _ready():
 		actor.connect("armor_updated", Callable(self, "update_armor_bar"))
 		actor.damage_taken.connect(_on_damage_taken)
 		actor.armor_gained.connect(_on_armor_gain)
+		
+		actor.get_status_manager().status_updated.connect(_on_status_update)
 		
 		update_armor_bar(actor._armor)
 		update_health_bar()
@@ -61,6 +68,22 @@ func _on_damage_taken(amt, ctx):
 	damage_number_instance.bind(amt, ctx)
 	damage_number_instance.global_position = global_position + Vector2(size.x / 2 - 5, size.y / 2 - 20)
 	get_tree().current_scene.call_deferred("add_child", damage_number_instance)
+
+func _on_status_update(status_effects : Array[StatusEffect]):
+	for child in status_icon_container.get_children():
+		child.queue_free()
+
+	for status in status_effects:
+		var icon_instance : StatusEffectIcon = status_icon_helper.status_icon_scene.instantiate()
+		status_icon_container.add_child(icon_instance)
+
+		var status_id = status.get_status_id()
+		var stacks = status.get_stacks()
+
+		if status_icon_helper.status_texture_map.has(status_id):
+			icon_instance.icon.texture = status_icon_helper.status_texture_map[status_id]
+		
+		icon_instance.stacks_label.text = str(stacks)
 
 func _mouse_entered():
 	#print(actor.get_team_position())

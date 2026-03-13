@@ -12,6 +12,12 @@ func gui_input(event):
 			# Otherwise, switch to darg
 			pass
 			
+func enter():
+	card_ui.show_tooltip()
+	
+func exit():
+	card_ui.hide_tooltip()
+			
 func mouse_exited():
 	card_ui.start_hover_reverse_tween()
 	card_ui.emit_hover_ended()

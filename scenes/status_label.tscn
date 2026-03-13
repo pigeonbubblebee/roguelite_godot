@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bih035wdiipkj"]
+
+[ext_resource type="Texture2D" uid="uid://du3an3ccn03uj" path="res://assets/ui/status_icons/damage_percent_buff_icon.png" id="1_qppbk"]
+[ext_resource type="Script" path="res://script/ui/status_effect_icon.gd" id="1_s7si4"]
+[ext_resource type="FontFile" uid="uid://bf2m0mpqifso4" path="res://data/4x4text (1).ttf" id="2_gx6m8"]
+
+[node name="status_label" type="Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(12, 8)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_s7si4")
+_icon_path = NodePath("buff_icon")
+_stacks_label_path = NodePath("Label")
+
+[node name="buff_icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_right = 8.0
+offset_bottom = 4.0
+grow_vertical = 2
+texture = ExtResource("1_qppbk")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -2.0
+offset_right = 13.0
+offset_bottom = 9.0
+theme_override_colors/font_color = Color(0.372549, 0.772549, 0.956863, 1)
+theme_override_fonts/font = ExtResource("2_gx6m8")
+text = "23"

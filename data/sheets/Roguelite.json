@@ -1,0 +1,159 @@
+{
+  "CardFinal": {
+	"strike_card": {
+	  "CARD_NAME": "Strike",
+	  "COST": 1,
+	  "DESCRIPTION": "Deal 50 Physical Damage.",
+	  "RARITY": "COMMON"
+	},
+	"guard_card": {
+	  "CARD_NAME": "Guard",
+	  "COST": 1,
+	  "DESCRIPTION": "Gain 50 Armor.",
+	  "RARITY": "COMMON"
+	},
+	"heavy_slash_card": {
+	  "CARD_NAME": "Heavy Slash",
+	  "COST": 2,
+	  "DESCRIPTION": "Deal 80 Physical Damage and 40 to adjacent targets.",
+	  "RARITY": "COMMON"
+	},
+	"focus_card": {
+	  "CARD_NAME": "Focus",
+	  "COST": 1,
+	  "DESCRIPTION": "Deal 50% more damage for 2 turns.",
+	  "RARITY": "COMMON"
+	},
+	"thrust_card": {
+	  "CARD_NAME": "Thrust",
+	  "COST": 1,
+	  "DESCRIPTION": "Deal 75 Physical Damage. Draw a card, then discard a card.",
+	  "RARITY": "COMMON"
+	},
+	"quick_strike_card": {
+	  "CARD_NAME": "Quick Strike",
+	  "COST": 1,
+	  "DESCRIPTION": "Multistrike 2. Deal 40 Physical Damage.",
+	  "RARITY": "COMMON"
+	},
+	"shield_bash_card": {
+	  "CARD_NAME": "Shield Bash",
+	  "COST": 1,
+	  "DESCRIPTION": "Deal Physical Damage equal to your Armor.",
+	  "RARITY": "COMMON"
+	},
+	"magic_missile_card": {
+	  "CARD_NAME": "Magic Missile",
+	  "COST": 2,
+	  "DESCRIPTION": "Multistrike 3. Deal 45 Magic Damage to a random target.",
+	  "RARITY": "COMMON"
+	},
+	"support_fire_card": {
+	  "CARD_NAME": "Support Fire",
+	  "COST": 1,
+	  "DESCRIPTION": "The next 2 times you deal damage, launch follow up: Deal 50 Physical Damage. Apply 2 Daze.",
+	  "RARITY": "COMMON"
+	},
+	"thorned_armor_card": {
+	  "CARD_NAME": "Thorned Armor",
+	  "COST": 1,
+	  "DESCRIPTION": "Gain 50 Armor. For 1 turn, when you lose armor, launch follow-up: Deal 30 Physical Damage.",
+	  "RARITY": "COMMON"
+	},
+	"flaming_strike_card": {
+	  "CARD_NAME": "Flaming Strike",
+	  "COST": 1,
+	  "DESCRIPTION": "Deal 60 Fire Damage. Apply 4 burn.",
+	  "RARITY": "COMMON"
+	}
+  },
+  "ScalingValues": {
+	"strike_card": {
+	  "STR": "B",
+	  "DEX": "C",
+	  "VIG": null,
+	  "DEF": null,
+	  "INT": null,
+	  "ARC": null
+	},
+	"guard_card": {
+	  "STR": null,
+	  "DEX": null,
+	  "VIG": null,
+	  "DEF": "B",
+	  "INT": null,
+	  "ARC": null
+	},
+	"heavy_slash_card": {
+	  "STR": "B",
+	  "DEX": "C",
+	  "VIG": null,
+	  "DEF": null,
+	  "INT": null,
+	  "ARC": null
+	},
+	"thrust_card": {
+	  "STR": "B",
+	  "DEX": "C",
+	  "VIG": null,
+	  "DEF": null,
+	  "INT": null,
+	  "ARC": null
+	},
+	"quick_strike_card": {
+	  "STR": "C",
+	  "DEX": "B",
+	  "VIG": null,
+	  "DEF": null,
+	  "INT": null,
+	  "ARC": null
+	},
+	"shield_bash_card": {
+	  "STR": "D",
+	  "DEX": null,
+	  "VIG": null,
+	  "DEF": "C",
+	  "INT": null,
+	  "ARC": null
+	},
+	"magic_missile_card": {
+	  "STR": null,
+	  "DEX": null,
+	  "VIG": null,
+	  "DEF": null,
+	  "INT": "A",
+	  "ARC": null
+	},
+	"support_fire_card": {
+	  "STR": "C",
+	  "DEX": "C",
+	  "VIG": null,
+	  "DEF": null,
+	  "INT": null,
+	  "ARC": null
+	},
+	"thorned_armor_card": {
+	  "STR": null,
+	  "DEX": null,
+	  "VIG": null,
+	  "DEF": "C",
+	  "INT": null,
+	  "ARC": null
+	},
+	"flaming_strike_card": {
+	  "STR": "B",
+	  "DEX": null,
+	  "VIG": null,
+	  "DEF": null,
+	  "INT": "C",
+	  "ARC": null
+	}
+  },
+  "StatusEffects": {
+	"focus_status": {
+	  "STATUS_NAME": "Focus",
+	  "ICON_TYPE": "damage_percent_buff",
+	  "DESCRIPTION": "Deals 40% more damage."
+	}
+  }
+}

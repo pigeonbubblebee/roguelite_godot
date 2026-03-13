@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("1_78byu")
+card_id = "heavy_slash_card"
 cost = 2
 texture = ExtResource("2_c10qy")
 target_drag = true

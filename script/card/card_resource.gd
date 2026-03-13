@@ -1,6 +1,7 @@
 class_name CardResource
 extends Resource
 
+@export var card_id : String
 @export var cost := 1
 @export var texture : Texture2D
 @export var target_drag := true

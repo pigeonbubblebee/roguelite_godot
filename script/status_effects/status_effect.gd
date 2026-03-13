@@ -3,7 +3,8 @@ extends RefCounted
 
 var _owner : Actor
 var _stacks : int
-var _status_name : String
+var _status_id : String
+var status_name : String
 
 signal expired(status: StatusEffect)
 signal stacks_changed(stacks: int)
@@ -11,8 +12,16 @@ signal stacks_changed(stacks: int)
 func _init(id : String, owner: Actor, stacks : int = 1):
 	_owner = owner
 	_stacks = stacks
-	_status_name = id
+	_status_id = id
 	
+	var status = StatusEffectDatabase.get_status_effect(_status_id)
+	
+	status_name = status["STATUS_EFFECT_NAME"]
+	
+	stacks_changed.emit(_stacks)
+	
+func add_stacks(amt : int):
+	_stacks += amt
 	stacks_changed.emit(_stacks)
 
 func on_apply(_context: BattleContext, _controller: BattleController):
@@ -40,7 +49,10 @@ func get_stacks() -> int:
 	return _stacks
 	
 func get_name():
-	return _status_name
+	return status_name
+	
+func get_status_id():
+	return _status_id
 
 func get_desc():
 	return "Test Description"

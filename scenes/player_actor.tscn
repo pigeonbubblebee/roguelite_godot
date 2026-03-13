@@ -1,17 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://cal3ok533lipw"]
+[gd_scene load_steps=8 format=3 uid="uid://cal3ok533lipw"]
 
 [ext_resource type="Script" path="res://script/ui/actor_ui.gd" id="1_irjik"]
 [ext_resource type="PackedScene" uid="uid://cy6wrp2uhuvia" path="res://scenes/damage_number.tscn" id="2_1vb0m"]
 [ext_resource type="Texture2D" uid="uid://cdthgn4v8ncgr" path="res://assets/player_battle_sprite.png" id="2_5u0ne"]
 [ext_resource type="Texture2D" uid="uid://dchwacvnpfc5s" path="res://assets/target.png" id="3_u28hi"]
-[ext_resource type="FontFile" uid="uid://bf2m0mpqifso4" path="res://data/4x4text (1).ttf" id="4_hlyuy"]
 [ext_resource type="Texture2D" uid="uid://jao2y28ny783" path="res://assets/ui/armor_bar_progress.png" id="5_7v68v"]
 [ext_resource type="Texture2D" uid="uid://f35k1od0fyv7" path="res://assets/ui/bar_background.png" id="6_ic64j"]
 [ext_resource type="Texture2D" uid="uid://j45m7srcw3sn" path="res://assets/ui/health_bar_progress.png" id="7_omnbu"]
-[ext_resource type="Texture2D" uid="uid://du3an3ccn03uj" path="res://assets/ui/status_icons/damage_percent_buff_icon.png" id="8_3iaie"]
-[ext_resource type="Texture2D" uid="uid://bqpivcfxame78" path="res://assets/ui/status_icons/burn_debuff_icon.png" id="10_2msq3"]
-[ext_resource type="Texture2D" uid="uid://s0dopwv0xkvp" path="res://assets/ui/status_icons/follow_up_buff_icon.png" id="11_rqbam"]
-[ext_resource type="Texture2D" uid="uid://ceamlornti4v6" path="res://assets/ui/status_icons/storm_buff_icon.png" id="13_wdttb"]
 
 [node name="player_actor" type="Control"]
 texture_filter = 1
@@ -23,6 +18,7 @@ script = ExtResource("1_irjik")
 _health_bar_path = NodePath("Control/health_bar")
 _armor_bar_path = NodePath("Control/armor_bar")
 _target_path = NodePath("Control/target")
+_status_icon_container_path = NodePath("status_effects")
 damage_number_scene = ExtResource("2_1vb0m")
 
 [node name="status_effects" type="HBoxContainer" parent="."]
@@ -38,106 +34,6 @@ offset_right = 54.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 1
-
-[node name="status_label" type="Control" parent="status_effects"]
-custom_minimum_size = Vector2(12, 8)
-layout_mode = 2
-
-[node name="buff_icon" type="TextureRect" parent="status_effects/status_label"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -4.0
-offset_right = 8.0
-offset_bottom = 4.0
-grow_vertical = 2
-texture = ExtResource("8_3iaie")
-
-[node name="Label" type="Label" parent="status_effects/status_label"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = -2.0
-offset_right = 13.0
-offset_bottom = 9.0
-theme_override_colors/font_color = Color(0.372549, 0.772549, 0.956863, 1)
-theme_override_fonts/font = ExtResource("4_hlyuy")
-text = "23"
-
-[node name="status_label2" type="Control" parent="status_effects"]
-custom_minimum_size = Vector2(8, 8)
-layout_mode = 2
-
-[node name="buff_icon" type="TextureRect" parent="status_effects/status_label2"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -4.0
-offset_right = 8.0
-offset_bottom = 4.0
-grow_vertical = 2
-texture = ExtResource("11_rqbam")
-
-[node name="Label" type="Label" parent="status_effects/status_label2"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = -2.0
-offset_right = 13.0
-offset_bottom = 9.0
-theme_override_colors/font_color = Color(0.372549, 0.772549, 0.956863, 1)
-theme_override_fonts/font = ExtResource("4_hlyuy")
-text = "2"
-
-[node name="status_label3" type="Control" parent="status_effects"]
-custom_minimum_size = Vector2(12, 8)
-layout_mode = 2
-
-[node name="buff_icon" type="TextureRect" parent="status_effects/status_label3"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -4.0
-offset_right = 8.0
-offset_bottom = 4.0
-grow_vertical = 2
-texture = ExtResource("10_2msq3")
-
-[node name="Label" type="Label" parent="status_effects/status_label3"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = -2.0
-offset_right = 13.0
-offset_bottom = 9.0
-theme_override_colors/font_color = Color(0.372549, 0.772549, 0.956863, 1)
-theme_override_fonts/font = ExtResource("4_hlyuy")
-text = "23"
-
-[node name="status_label4" type="Control" parent="status_effects"]
-custom_minimum_size = Vector2(12, 8)
-layout_mode = 2
-
-[node name="buff_icon" type="TextureRect" parent="status_effects/status_label4"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -4.0
-offset_right = 8.0
-offset_bottom = 4.0
-grow_vertical = 2
-texture = ExtResource("13_wdttb")
-
-[node name="Label" type="Label" parent="status_effects/status_label4"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = -2.0
-offset_right = 13.0
-offset_bottom = 9.0
-theme_override_colors/font_color = Color(0.372549, 0.772549, 0.956863, 1)
-theme_override_fonts/font = ExtResource("4_hlyuy")
-text = "8"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1

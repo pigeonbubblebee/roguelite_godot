@@ -1,22 +1,29 @@
 class_name Card
 extends RefCounted
 
+var id : String
 var cost := 1
 var texture : Texture2D
 var target_drag := true
 var title : String
 var type : CardType
 var description : String
+var scaling_data : String # String of scaling data, i e STR (A), DEX (B)
 
 signal played
 
 func _init(resource: CardResource):
-	cost = resource.cost
+	id = resource.card_id
+	
+	var card = CardDatabase.get_card(id)
+	
+	cost = card["COST"]
+	scaling_data = CardDatabase.get_all_scaling(id)
 	texture = resource.texture
 	target_drag = resource.target_drag
-	title = resource.title
+	title = card["CARD_NAME"]
 	type = resource.type
-	description = resource.description
+	description = card["DESCRIPTION"]
 
 func can_play(context: BattleContext) -> bool:
 	return context.get_current_energy() >= cost

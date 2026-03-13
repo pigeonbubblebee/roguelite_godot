@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("1_pxde5")
+card_id = "support_fire_card"
 cost = 1
 texture = ExtResource("3_ld33n")
 target_drag = false

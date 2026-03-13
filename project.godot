@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 EventBus="*res://script/event_bus.gd"
+CardDatabase="*res://script/card/card_database_loader.gd"
+StatusEffectDatabase="*res://script/status_effects/status_effect_database_loader.gd"
 
 [display]
 

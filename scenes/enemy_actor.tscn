@@ -27,6 +27,7 @@ _move_amount_path = NodePath("Control/move_display/move_amount")
 _health_bar_path = NodePath("Control/health_bar")
 _armor_bar_path = NodePath("Control/armor_bar")
 _target_path = NodePath("Control/target")
+_status_icon_container_path = NodePath("status_effects")
 damage_number_scene = ExtResource("2_e3st8")
 
 [node name="status_effects" type="HBoxContainer" parent="."]
