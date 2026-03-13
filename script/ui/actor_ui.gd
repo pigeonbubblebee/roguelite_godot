@@ -20,6 +20,9 @@ var actor: Actor
 signal hover_started(actorUI)
 signal hover_ended(actorUI)
 
+signal status_icon_hover_started(actorUI, status_effect)
+signal status_icon_hover_ended(actorUI, status_effect)
+
 func _ready():
 	if actor:
 		actor.connect("health_updated", Callable(self, "update_health_bar"))
@@ -79,11 +82,20 @@ func _on_status_update(status_effects : Array[StatusEffect]):
 
 		var status_id = status.get_status_id()
 		var stacks = status.get_stacks()
+		var icon_type = status.get_icon_type()
+		var type = status.status_type
 
-		if status_icon_helper.status_texture_map.has(status_id):
-			icon_instance.icon.texture = status_icon_helper.status_texture_map[status_id]
+		if status_icon_helper.status_texture_map.has(icon_type):
+			icon_instance.icon.texture = status_icon_helper.status_texture_map[icon_type]
 		
 		icon_instance.stacks_label.text = str(stacks)
+		var text_color = ColorPalette.CYAN if type == "Buff" else ColorPalette.RED
+		icon_instance.stacks_label.add_theme_color_override("font_color", text_color)
+		
+		icon_instance.status_effect = status
+		
+		icon_instance.hover_started.connect(_on_status_icon_mouse_entered)
+		icon_instance.hover_ended.connect(_on_status_icon_mouse_exited)
 
 func _mouse_entered():
 	#print(actor.get_team_position())
@@ -91,3 +103,9 @@ func _mouse_entered():
 
 func _mouse_exited():
 	hover_ended.emit(self)
+	
+func _on_status_icon_mouse_entered(status):
+	status_icon_hover_started.emit(self, status)
+	
+func _on_status_icon_mouse_exited(status):
+	status_icon_hover_ended.emit(self, status)

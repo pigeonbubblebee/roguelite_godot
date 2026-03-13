@@ -32,6 +32,7 @@ extends Control
 var tooltip_tween : Tween
 
 var _currently_connected_actor : Actor
+var _currently_connected_status : StatusEffect
 
 func bind(controller: BattleController):
 	turn_order.bind(controller.get_turn_manager())
@@ -77,6 +78,15 @@ func on_hovered_actor_change(actor: ActorUI):
 		connect_actor_to_hud(_currently_connected_actor)
 	else:
 		disconnect_actor_from_hud(_currently_connected_actor)
+		
+func on_hovered_status_icon_change(actor: ActorUI, status_effect: StatusEffect):
+	if actor:
+		_currently_connected_actor = actor.actor
+		_currently_connected_status = status_effect
+		connect_actor_to_hud(_currently_connected_actor)
+	else:
+		_currently_connected_status = status_effect
+		disconnect_actor_from_hud(_currently_connected_actor)
 
 func connect_actor_to_hud(actor: Actor):
 	actor.armor_gained.connect(update_actor_hud_info)
@@ -98,16 +108,24 @@ func update_actor_hud_info(armor = 0):
 	var sp_text = "SPD: " + "%.2f" % (_currently_connected_actor.get_speed())
 	
 	var status_text = "\n"
-	var active_status = _currently_connected_actor.get_status_manager().get_active_status()
 	
-	if active_status.size() > 0:
-		status_text += "STATUS:\n"
-	
-	for status in active_status:
-		var stack_text = ("x" + str(status.get_stacks())) if not status.get_is_turn_based() else (str(status.get_stacks()) + " TURNS")
-		var text = status.get_name() + " (" + stack_text + ")\n"
+	if _currently_connected_status:
+		var status = _currently_connected_status
 		
-		status_text = status_text + text
+		var stack_text = ("x" + str(status.get_stacks())) if not status.get_is_turn_based() else (str(status.get_stacks()) + " TURNS")
+		status_text += "%s (%s):\n" % [status.get_name(), stack_text]
+		status_text += "%s\n" % status.get_description()
+	else:
+		var active_status = _currently_connected_actor.get_status_manager().get_active_status()
+		
+		if active_status.size() > 0:
+			status_text += "STATUS:\n"
+		
+		for status in active_status:
+			var stack_text = ("x" + str(status.get_stacks())) if not status.get_is_turn_based() else (str(status.get_stacks()) + " TURNS")
+			var text = status.get_name() + " (" + stack_text + ")\n"
+			
+			status_text = status_text + text
 	
 	actor_label.text = _currently_connected_actor.get_actor_name() + ":\n" + hp_text + "\n" + ar_text + "\n" + sp_text + "\n" + status_text
 

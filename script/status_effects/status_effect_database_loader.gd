@@ -25,7 +25,8 @@ func load_status(path: String):
 			"STATUS_EFFECT_ID": status_id,
 			"STATUS_EFFECT_NAME": info["STATUS_NAME"],
 			"DESCRIPTION": info["DESCRIPTION"],
-			"ICON_TYPE": info["ICON_TYPE"]
+			"ICON_TYPE": info["ICON_TYPE"],
+			"STATUS_TYPE": info["STATUS_TYPE"]
 		}
 
 		status_effects[status_id] = status

@@ -5,6 +5,9 @@ var _owner : Actor
 var _stacks : int
 var _status_id : String
 var status_name : String
+var status_type : String
+var _description : String
+var _icon_type : String
 
 signal expired(status: StatusEffect)
 signal stacks_changed(stacks: int)
@@ -16,7 +19,10 @@ func _init(id : String, owner: Actor, stacks : int = 1):
 	
 	var status = StatusEffectDatabase.get_status_effect(_status_id)
 	
+	_icon_type = status["ICON_TYPE"]
 	status_name = status["STATUS_EFFECT_NAME"]
+	status_type = status["STATUS_TYPE"]
+	_description = status["DESCRIPTION"]
 	
 	stacks_changed.emit(_stacks)
 	
@@ -54,5 +60,8 @@ func get_name():
 func get_status_id():
 	return _status_id
 
-func get_desc():
-	return "Test Description"
+func get_description():
+	return _description
+	
+func get_icon_type():
+	return _icon_type

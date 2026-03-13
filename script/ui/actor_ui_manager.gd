@@ -18,6 +18,7 @@ var hovered_actor = null
 
 signal hovered_enemy_change(hover)
 signal hovered_actor_change(actor)
+signal hovered_status_icon_change(actor, status_effect)
 
 func _ready() -> void:
 	self.connect("hovered_enemy_change", Callable(self, "on_hovered_enemy_changed"))
@@ -62,6 +63,9 @@ func load_actor_ui(actor: Actor):
 	actor_ui.connect("hover_started", Callable(self, "start_hovered_actor"))
 	actor_ui.connect("hover_ended", Callable(self, "end_hovered_actor"))
 	
+	actor_ui.connect("status_icon_hover_started", Callable(self, "start_hovered_status_icon"))
+	actor_ui.connect("status_icon_hover_ended", Callable(self, "end_hovered_status_icon"))
+	
 	actor_ui.update_health_bar()
 	
 	_position_actor_ui(actor_ui, actor.get_team_position(), actor.get_actor_faction())
@@ -91,6 +95,12 @@ func end_hovered_actor(actor: ActorUI):
 	if hovered_actor == actor:
 		hovered_actor = null
 		hovered_actor_change.emit(hovered_actor)
+		
+func start_hovered_status_icon(actor: ActorUI, status: StatusEffect):
+	hovered_status_icon_change.emit(actor, status)
+	
+func end_hovered_status_icon(actor: ActorUI, status: StatusEffect):
+	hovered_status_icon_change.emit(null, null)
 
 func on_card_drag_started(card: Card):
 	current_card = card
