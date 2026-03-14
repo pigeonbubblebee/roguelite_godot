@@ -15,7 +15,8 @@ func play(context: BattleContext, controller: BattleController):
 	
 	var effect = DamageAmplificationStatusEffect.new(status_id, player, 
 		turns, damage_percent_gain)
-	controller.apply_status(player, effect)
+	var application_status = StatusEffectApplicationContext.new(player, effect, context.get_player())
+	controller.apply_status(application_status)
 	
 	
 func get_buff_target_index(total_targets: int) -> Array[int]:

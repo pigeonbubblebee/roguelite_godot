@@ -5,5 +5,9 @@ extends RefCounted
 
 signal before_damage_dealt(ctx: DamageContext, context: BattleContext, controller: BattleController)
 signal damage_dealt(ctx: DamageContext, context: BattleContext, controller: BattleController)
+
 signal turn_ended(actor: Actor, context: BattleContext, controller: BattleController)
 signal turn_started(actor: Actor, context: BattleContext, controller: BattleController)
+
+signal before_armor_applied(ctx: ArmorGainContext, context: BattleContext, controller: BattleController)
+signal armor_applied(ctx: ArmorGainContext, context: BattleContext, controller: BattleController)

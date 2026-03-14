@@ -10,6 +10,7 @@ func play(context: BattleContext, controller: BattleController):
 	var hit_actors = context.get_selected_enemies_blast()
 	var damage_context = BattleRuntimeHelper.generate_damage_context(damage, hit_actors, context.get_player(), blast_damage)	
 	damage_context.source_name = "heavy_slash_card"
+	damage_context.add_tag(DamageContext.TAG_CARD)
 	
 	var action = BattleRuntimeHelper.generate_heavy_attack_action(context)
 	for actor in hit_actors:

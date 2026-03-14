@@ -17,6 +17,8 @@ var actor: Actor
 
 @onready var status_icon_helper : ActorUIStatusIconHelper = ActorUIStatusIconHelper.new()
 
+var _status_icons : Dictionary = {}
+
 signal hover_started(actorUI)
 signal hover_ended(actorUI)
 
@@ -73,29 +75,43 @@ func _on_damage_taken(amt, ctx):
 	get_tree().current_scene.call_deferred("add_child", damage_number_instance)
 
 func _on_status_update(status_effects : Array[StatusEffect]):
-	for child in status_icon_container.get_children():
-		child.queue_free()
+	var active_status_set := {}
 
 	for status in status_effects:
-		var icon_instance : StatusEffectIcon = status_icon_helper.status_icon_scene.instantiate()
-		status_icon_container.add_child(icon_instance)
+		active_status_set[status] = true
 
-		var status_id = status.get_status_id()
+		var icon : StatusEffectIcon
+
+		if not _status_icons.has(status):
+			icon = status_icon_helper.status_icon_scene.instantiate()
+			status_icon_container.add_child(icon)
+
+			icon.status_effect = status
+
+			icon.hover_started.connect(_on_status_icon_mouse_entered)
+			icon.hover_ended.connect(_on_status_icon_mouse_exited)
+
+			_status_icons[status] = icon
+		else:
+			icon = _status_icons[status]
+
 		var stacks = status.get_stacks()
 		var icon_type = status.get_icon_type()
 		var type = status.status_type
 
 		if status_icon_helper.status_texture_map.has(icon_type):
-			icon_instance.icon.texture = status_icon_helper.status_texture_map[icon_type]
-		
-		icon_instance.stacks_label.text = str(stacks)
+			icon.icon.texture = status_icon_helper.status_texture_map[icon_type]
+
+		icon.stacks_label.text = str(stacks)
+
 		var text_color = ColorPalette.CYAN if type == "Buff" else ColorPalette.RED
-		icon_instance.stacks_label.add_theme_color_override("font_color", text_color)
-		
-		icon_instance.status_effect = status
-		
-		icon_instance.hover_started.connect(_on_status_icon_mouse_entered)
-		icon_instance.hover_ended.connect(_on_status_icon_mouse_exited)
+		icon.stacks_label.add_theme_color_override("font_color", text_color)
+
+	for status in _status_icons.keys():
+		if not active_status_set.has(status):
+			var icon = _status_icons[status]
+			icon.queue_free()
+			_status_icons.erase(status)
 
 func _mouse_entered():
 	#print(actor.get_team_position())

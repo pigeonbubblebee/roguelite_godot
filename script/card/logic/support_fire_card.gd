@@ -16,7 +16,8 @@ func play(context: BattleContext, controller: BattleController):
 	
 	var effect = SupportFireStatusEffect.new(status_id, player, context.event_bus, 
 		event_hook_name, stacks)
-	controller.apply_status(player, effect)
+	var application_status = StatusEffectApplicationContext.new(player, effect, player)
+	controller.apply_status(application_status)
 	
 	
 func get_buff_target_index(total_targets: int) -> Array[int]:

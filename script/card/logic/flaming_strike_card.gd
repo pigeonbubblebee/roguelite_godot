@@ -13,9 +13,12 @@ func play(context: BattleContext, controller: BattleController):
 	var hit_actors: Array[Actor] = [ selected_enemy ]
 	var damage_context = BattleRuntimeHelper.generate_damage_context(damage, hit_actors, context.get_player())	
 	damage_context.source_name = "flaming_strike_card"
+	damage_context.add_tag(DamageContext.TAG_CARD)
 	
-	var effect = BurnStatusEffect.new(status_id, selected_enemy, status_buildup, 10)
-	controller.apply_status(selected_enemy, effect)
+	var effect = BurnStatusEffect.new(status_id, selected_enemy, status_buildup)
+	
+	var application_status = StatusEffectApplicationContext.new(selected_enemy, effect, context.get_player())
+	controller.apply_status(application_status)
 	
 	var action = BattleRuntimeHelper.generate_basic_attack_action(context)
 	action.append_action(PlayParticleEffectAction.new(selected_enemy))

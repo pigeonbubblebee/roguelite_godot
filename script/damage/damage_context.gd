@@ -1,6 +1,7 @@
 class_name DamageContext
 extends RefCounted
 
+const TAG_CARD = "card"
 const TAG_FOLLOW_UP = "follow_up"
 
 var source_name: String
@@ -17,8 +18,8 @@ var source_faction: Faction.Type
 var modifiers : DamageModifiers
 var tags : Array[String]
 
-var damage_dealt : int = 0
-var armor_damage_dealt : int = 0
+var damage_dealt : Dictionary
+var armor_damage_dealt : Dictionary
 
 func _init():
 	modifiers = DamageModifiers.new()
@@ -55,6 +56,6 @@ func calculate_damage() -> Dictionary:
 		
 		var final_damage = position_damage * (damage_percent_bonus + 1) * (vuln_bonus + 1)
 				
-		final_damage_dictionary[hit_actor] = int(ceil(final_damage))
+		final_damage_dictionary[hit_actor] = max(0, int(ceil(final_damage)))
 		
 	return final_damage_dictionary

@@ -13,11 +13,16 @@ var original_z := 0
 @onready var type_text = get_node(_type_text_path)
 @export var _card_art_texture_path: NodePath
 @onready var card_art_texture = get_node(_card_art_texture_path)
+@export var _highlight_path: NodePath
+@onready var highlight = get_node(_highlight_path)
 
 @export var hover_vertical_offset : float
 @onready var hover_offset := Vector2(0, -hover_vertical_offset)
+@onready var selected_offset := Vector2(0, -hover_vertical_offset * 1.5)
 var hover_base_position := Vector2.ZERO
 var hover_tween: Tween
+
+var return_to_hand_tween: Tween
 
 var card_logic: Card
 
@@ -39,7 +44,7 @@ var current_card_state : CardUIState
 @onready var drag_state : CardUIDragState = CardUIDragState.new(self)
 @onready var return_state : CardUIReturnState = CardUIReturnState.new(self)
 @onready var play_process_state : CardUIPlayProcessState = CardUIPlayProcessState.new(self)
-
+@onready var selected_state : CardUISelectedState = CardUISelectedState.new(self)
 
 # TEMP TBD: Make tooltip logic recursive
 @export var _tooltip_path: NodePath
@@ -52,9 +57,12 @@ var current_card_state : CardUIState
 var tooltip_tween : Tween
 
 var mouse_on : bool
+var input_type : HandUI.InputType = HandUI.InputType.BATTLE
 
 signal drag_started(card)
 signal drag_ended(card)
+signal selection_started(card)
+signal selection_ended(card)
 signal hover_started(card)
 signal hover_ended(card)
 signal attempt_card_play(cardGUI, cardLogic)
@@ -131,9 +139,11 @@ func update_card_logic(card: Card) -> void:
 		
 # Makes card hover when highlighting
 func _on_mouse_enter():
+	mouse_on = true
 	current_card_state.mouse_entered()
 
 func _on_mouse_exit():
+	mouse_on = false
 	current_card_state.mouse_exited()
 	
 func emit_hover_started():
@@ -148,7 +158,16 @@ func emit_drag_started():
 func emit_drag_ended():
 	drag_ended.emit(card_logic)
 	
+func emit_selection_started():
+	selection_started.emit(card_logic)
+	
+func emit_selection_ended():
+	selection_ended.emit(card_logic)
+	
 func start_hover_tween():
+	if (return_to_hand_tween):
+		return_to_hand_tween.kill()
+	
 	if hover_tween:
 		hover_tween.kill()
 	
@@ -156,8 +175,6 @@ func start_hover_tween():
 	hover_tween = create_tween()
 	hover_tween.tween_property(self, "global_position", hover_base_position + hover_offset, 0.12)\
 	.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	
-	z_index = 500
 	
 func start_hover_reverse_tween():
 	if hover_tween:
@@ -167,8 +184,6 @@ func start_hover_reverse_tween():
 	hover_tween = create_tween()
 	hover_tween.tween_property(self, "global_position", hover_base_position, 0.12)\
 	.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-	
-	z_index = original_z
 
 func start_drag(mouse_pos):
 	if hover_tween:
@@ -179,7 +194,7 @@ func start_drag(mouse_pos):
 
 	drag_original_position = global_position - hover_offset
 	
-	z_index = 1000 # front layer TBD
+	#z_index = 1000 # front layer TBD
 	
 	is_in_drop_zone = false
 	exited_drop_zone.emit(card_logic)
@@ -191,7 +206,7 @@ func end_drag():
 	if hover_tween:
 		hover_tween.kill()
 	
-	z_index = 0
+	# z_index = 0
 	is_in_drop_zone = false
 	exited_drop_zone.emit(card_logic)
 	
@@ -216,16 +231,29 @@ func return_to_hand():
 	change_state(return_state)
 	
 func tween_to_hand():
-	var tween = create_tween()
+	if (return_to_hand_tween):
+		return_to_hand_tween.kill()
 	
-	tween.tween_property(self, "global_position", drag_original_position, 0.15)\
+	return_to_hand_tween = create_tween()
+	
+	return_to_hand_tween.tween_property(self, "global_position", drag_original_position, 0.15)\
 	.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	
-	tween.finished.connect(func ():
-		hover_base_position = drag_original_position
-	)
+	hover_base_position = drag_original_position
 	
 	z_index = original_z
+	
+func tween_to_selected():
+	if (return_to_hand_tween):
+		return_to_hand_tween.kill()
+		
+	if hover_tween:
+		hover_tween.kill()
+	
+	# Tweens position up
+	return_to_hand_tween = create_tween()
+	return_to_hand_tween.tween_property(self, "global_position", hover_base_position + selected_offset, 0.12)\
+	.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
 # Arc Maths for drawing arrow
 func _get_points() -> Array:
@@ -252,7 +280,6 @@ func _get_points() -> Array:
 func ease_out_cubic(number : float) -> float:
 	return 1.0 - pow(1.0 - number, 3.0)
 
-
 func show_tooltip():
 	if tooltip_tween:
 		tooltip_tween.kill()
@@ -271,3 +298,8 @@ func hide_tooltip():
 		
 	tooltip.visible = false	
 	tooltip.global_position = hover_base_position + tooltip_base_offset
+	
+func show_highlight():
+	highlight.visible = true
+func hide_highlight():
+	highlight.visible = false

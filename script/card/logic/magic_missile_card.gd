@@ -24,6 +24,7 @@ func play(context: BattleContext, controller: BattleController):
 			hit_actors, context.get_player())
 		damage_context.damage_type = DamageType.Type.MAGIC	
 		damage_context.source_name = "magic_missile_card"
+		damage_context.add_tag(DamageContext.TAG_CARD)
 		
 		controller.apply_damage(damage_context)
 		

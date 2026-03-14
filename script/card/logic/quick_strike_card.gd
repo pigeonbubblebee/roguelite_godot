@@ -22,6 +22,7 @@ func play(context: BattleContext, controller: BattleController):
 		
 		var damage_context = BattleRuntimeHelper.generate_damage_context(damage, hit_actors, context.get_player())	
 		damage_context.source_name = "quick_strike_card"
+		damage_context.add_tag(DamageContext.TAG_CARD)
 		
 		controller.apply_damage(damage_context)
 		

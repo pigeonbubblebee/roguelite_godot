@@ -16,7 +16,9 @@ func execute(context: BattleContext, controller: BattleController):
 	
 	controller.enqueue_action(action)
 	
-	controller.apply_armor(amount, actor)
+	var armor_context = ArmorGainContext.new(actor, amount, actor)
+	
+	controller.apply_armor(armor_context)
 
 func _finish_move():
 	finished.emit()

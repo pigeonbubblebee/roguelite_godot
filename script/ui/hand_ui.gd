@@ -13,6 +13,8 @@ var cards_ui_array: Array[Control] = []
 var dragged_card: Card
 var hovered_card: Card
 
+var current_input_type : InputType
+
 var context : BattleContext
 
 signal card_drag_started(card)
@@ -24,7 +26,21 @@ signal card_hover_ended(card)
 signal card_entered_drop_zone(card)
 signal card_exited_drop_zone(card)
 
+signal card_selection_started(card)
+signal card_selection_ended(card)
+
 signal card_ui_play_request(cardGUI, card_logic)
+
+enum InputType {
+	BATTLE,
+	SELECTION
+}
+
+# TEMP
+func _input(event: InputEvent) -> void:
+	if event.is_pressed() and event is InputEventKey and event.keycode == KEY_U:
+		print("Debug: switching input state!")
+		change_input_type(InputType.SELECTION if current_input_type == InputType.BATTLE else InputType.BATTLE)
 
 func bind(controller: BattleController):
 	context = controller.get_context()
@@ -35,9 +51,21 @@ func bind(controller: BattleController):
 	
 	hand_manager.connect("hand_updated", Callable(self, "update_ui"))
 	update_ui(hand_manager.get_hand()) 
+	
+	layout_hand()
+	
+	change_input_type(InputType.BATTLE)
+	
+func change_input_type(type : InputType):
+	#layout_hand()
+	
+	current_input_type = type
+	
+	for card_ui in cards_ui_array:
+		card_ui.can_drag = true
+		card_ui.input_type = type
 
 func update_ui(hand: Array[Card]):
-
 	# Adds excess cards if new card in hand
 	for i in range(hand.size()):
 		if i >= cards_ui_array.size():
@@ -46,6 +74,7 @@ func update_ui(hand: Array[Card]):
 			cards_ui_array.append(card)
 			
 			card.context = context
+			card.input_type = current_input_type
 			#card.ui_manager = self
 			
 			card.drag_started.connect(_on_card_drag_started)
@@ -56,6 +85,9 @@ func update_ui(hand: Array[Card]):
 			
 			card.entered_drop_zone.connect(_on_card_entered_drop_zone)
 			card.exited_drop_zone.connect(_on_card_exited_drop_zone)
+			
+			card.selection_started.connect(_on_card_selection_started)
+			card.selection_ended.connect(_on_card_selection_ended)
 			
 			card.attempt_card_play.connect(_on_card_attempt_card_play)
 			
@@ -100,13 +132,15 @@ func layout_hand():
 		var x_offset = offset * card_spacing - card.size.x/2
 		var y_offset = pow(offset, 2) * card_spacing * fan_curve_strength
 		
-		card.hover_base_position = Vector2(start_x + x_offset, start_y + y_offset)
 		card.drag_original_position = card.hover_base_position
 		
 		card.change_state(card.idle_state)
+		card.hover_base_position = Vector2(start_x + x_offset, start_y + y_offset)
+		
 		if card.hover_tween:
 			card.hover_tween.kill()
 		card.global_position = card.hover_base_position
+		
 
 func _on_card_drag_started(card):
 	dragged_card = card
@@ -141,6 +175,12 @@ func _on_card_exited_drop_zone(card):
 	
 func _on_card_attempt_card_play(cardGUI: CardGUI, logic: Card):
 	card_ui_play_request.emit(cardGUI, logic)
+	
+func _on_card_selection_started(card):
+	card_selection_started.emit(card)
+	
+func _on_card_selection_ended(card):
+	card_selection_ended.emit(card)
 	
 func on_action_queue_started():
 	for card_ui in cards_ui_array:

@@ -1,12 +1,12 @@
-class_name StrikeCard
+class_name ShieldBashCard
 extends Card
-
-var damage : int = 50
 
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
 	
 	var selected_enemy = context.get_selected_enemy()
+	
+	var damage = context.get_player().get_armor()
 	
 	var hit_actors: Array[Actor] = [ selected_enemy ]
 	var damage_context = BattleRuntimeHelper.generate_damage_context(damage, hit_actors, context.get_player())	

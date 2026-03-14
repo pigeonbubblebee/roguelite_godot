@@ -1,8 +1,8 @@
 class_name FollowUpStatusEffect
 extends StatusEffect
 
-func _init(id: String, owner: Actor, event_bus: BattleEventBus, event_hook_name: String, _stacks: int = 1):
-	super._init(id, owner, _stacks)
+func _init(id: String, owner: Actor, event_bus: BattleEventBus, event_hook_name: String, stacks: int = 1):
+	super._init(id, owner, stacks)
 	
 	event_bus.connect(event_hook_name, Callable(self, "execute"))
 	

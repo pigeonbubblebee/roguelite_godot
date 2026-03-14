@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://prnhw6kneqmu"]
+[gd_scene load_steps=11 format=3 uid="uid://prnhw6kneqmu"]
 
 [ext_resource type="Script" path="res://script/ui/card/cardGUI.gd" id="1_da6pn"]
 [ext_resource type="Texture2D" uid="uid://cmbk2xw8don7n" path="res://assets/card_bg.png" id="2_rwr0g"]
 [ext_resource type="Texture2D" uid="uid://snsetagk3pb1" path="res://assets/card_art/energy_symbol.png" id="3_ehxke"]
 [ext_resource type="Texture2D" uid="uid://cjpxxd7pvdqnn" path="res://assets/card_art/heavy_slash_card.png" id="5_1tu24"]
+[ext_resource type="Texture2D" uid="uid://biek722kau2q6" path="res://assets/card_bg_highlighted.png" id="5_ift0r"]
 [ext_resource type="FontFile" uid="uid://b23c0njeg0avg" path="res://data/PixelPurl8x8 (1).ttf" id="5_jqs8i"]
 [ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://assets/Background.png" id="6_gfjv8"]
 [ext_resource type="Texture2D" uid="uid://bga5pxyite2ig" path="res://assets/bar.png" id="7_r2cjo"]
@@ -31,6 +32,7 @@ _cost_text_path = NodePath("cost")
 _title_text_path = NodePath("title")
 _type_text_path = NodePath("type")
 _card_art_texture_path = NodePath("card_art")
+_highlight_path = NodePath("highlight")
 hover_vertical_offset = 10.0
 _arc_path = NodePath("arc")
 _tooltip_path = NodePath("tooltip3")
@@ -91,6 +93,16 @@ text = "The next 2 times you deal damage, launch follow up: Deal 50 Physical Dam
 "
 fit_content = true
 scroll_active = false
+
+[node name="highlight" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ift0r")
 
 [node name="background" type="TextureRect" parent="."]
 layout_mode = 1

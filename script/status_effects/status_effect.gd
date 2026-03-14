@@ -32,10 +32,14 @@ func add_stacks(amt : int):
 
 func on_apply(_context: BattleContext, _controller: BattleController):
 	_context.event_bus.before_damage_dealt.connect(before_damage_dealt)
+	_context.event_bus.before_armor_applied.connect(before_armor_applied)
 	_context.event_bus.turn_ended.connect(on_turn_end)
 	_context.event_bus.turn_started.connect(on_turn_start)
 	
 func before_damage_dealt(_context: DamageContext, battle_context: BattleContext, controller: BattleController):
+	pass
+	
+func before_armor_applied(_context: ArmorGainContext, battle_context: BattleContext, controller: BattleController):
 	pass
 	
 func on_turn_end(actor: Actor, battle_context: BattleContext, controller: BattleController):
@@ -47,10 +51,11 @@ func on_turn_end(actor: Actor, battle_context: BattleContext, controller: Battle
 			
 func reduce_stacks(amount : int = 1):
 	_stacks -= amount
-	stacks_changed.emit(_stacks)
 		
 	if(_stacks <= 0):
 		expired.emit(self)
+	else:
+		stacks_changed.emit(_stacks)
 			
 func on_turn_start(actor: Actor, battle_context: BattleContext, controller: BattleController):
 	pass

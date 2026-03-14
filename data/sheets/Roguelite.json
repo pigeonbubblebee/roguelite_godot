@@ -21,7 +21,7 @@
 		"focus_card": {
 			"CARD_NAME": "Focus",
 			"COST": 1,
-			"DESCRIPTION": "Gain 50% DMG UP for 2 turns.",
+			"DESCRIPTION": "Deal 50% more damage for 2 turns.",
 			"RARITY": "COMMON"
 		},
 		"thrust_card": {
@@ -51,13 +51,13 @@
 		"support_fire_card": {
 			"CARD_NAME": "Support Fire",
 			"COST": 1,
-			"DESCRIPTION": "The next 2 times you deal damage, launch follow-up: Deal 50 Physical Damage. Apply 2 Daze.",
+			"DESCRIPTION": "The next 2 times you deal damage with a card, launch follow-up: Deal 50 Physical Damage. Apply 2 Daze.",
 			"RARITY": "COMMON"
 		},
 		"thorned_armor_card": {
 			"CARD_NAME": "Thorned Armor",
 			"COST": 1,
-			"DESCRIPTION": "Gain 50 Armor. For 1 turn, when you lose Armor, launch follow-up: Deal 30 Physical Damage.",
+			"DESCRIPTION": "Gain 50 Armor. For 1 turn, when you lose any Armor, launch follow-up: Deal 30 Physical Damage.",
 			"RARITY": "COMMON"
 		},
 		"flaming_strike_card": {
@@ -93,7 +93,7 @@
 		"chilling_mist_card": {
 			"CARD_NAME": "Chilling Mist",
 			"COST": 2,
-			"DESCRIPTION": "Deal 130 Cold Damage. Apply 40% VULN for 2 turns.",
+			"DESCRIPTION": "Deal 130 Cold Damage. Hit enemies take 40% more damage for 2 turns.",
 			"RARITY": "COMMON"
 		},
 		"mage_armor_card": {
@@ -117,11 +117,11 @@
 		"arcane_insight_card": {
 			"CARD_NAME": "Arcane Insight",
 			"COST": 1,
-			"DESCRIPTION": "Gain 30% DMG UP for 2 turns. Draw 2 cards.",
+			"DESCRIPTION": "Deal 30% more damage for 2 turns. Draw 2 cards.",
 			"RARITY": "COMMON"
 		},
-		"icicles_card": {
-			"CARD_NAME": "Icicles",
+		"frozen_guard_card": {
+			"CARD_NAME": "Frozen Guard",
 			"COST": 1,
 			"DESCRIPTION": "Deal 40 Cold Damage. If you've discarded a card this turn, gain 40 Armor and 4 Fortitude.",
 			"RARITY": "COMMON"
@@ -144,8 +144,8 @@
 			"DESCRIPTION": "Deal 80 Lightning Damage. If this card is discarded, its played for free as a follow-up.",
 			"RARITY": "COMMON"
 		},
-		"frozen_strike_card": {
-			"CARD_NAME": "Frozen Strike",
+		"icicles_card": {
+			"CARD_NAME": "Icicles",
 			"COST": 1,
 			"DESCRIPTION": "Deal 80 Cold Damage. Gain 2 Fortitude.",
 			"RARITY": "COMMON"
@@ -153,7 +153,7 @@
 		"war_armor_card": {
 			"CARD_NAME": "War Armor",
 			"COST": 1,
-			"DESCRIPTION": "Gain 45 Armor. Gain 40% DMG UP for 2 turns.",
+			"DESCRIPTION": "Gain 45 Armor. Deal 40% more damage for 2 turns.",
 			"RARITY": "COMMON"
 		},
 		"lightning_prayer_card": {
@@ -162,11 +162,11 @@
 			"DESCRIPTION": "Gain 2 Storm.",
 			"RARITY": "RARE"
 		},
-		"": {
-			"CARD_NAME": null,
-			"COST": null,
-			"DESCRIPTION": "Apply 30% DMG DOWN for 1 turn.",
-			"RARITY": null
+		"guardian_card": {
+			"CARD_NAME": "Guardian",
+			"COST": 1,
+			"DESCRIPTION": "Hit enemy deas 40% less damage for 1 turn.",
+			"RARITY": "RARE"
 		}
 	},
 	"ScalingValues": {
@@ -269,14 +269,26 @@
 		"burn_status": {
 			"STATUS_NAME": "Burn",
 			"ICON_TYPE": "burn_debuff",
-			"DESCRIPTION": "Deals {10*STACKS} damage on turn start, then loses 1 burn. Scales with ARC (A).",
+			"DESCRIPTION": "Deals {10*STACKS} Fire Damage on turn start, then loses 1 Burn. Scales with ARC (A).",
 			"STATUS_TYPE": "Debuff"
 		},
 		"support_fire_status": {
 			"STATUS_NAME": "Support Fire",
 			"ICON_TYPE": "follow_up_buff",
-			"DESCRIPTION": "After dealing damage, launches follow-up: Deal 50 Physical Damage and apply 2 daze.",
+			"DESCRIPTION": "After dealing damage with a card, launches follow-up: Deal 50 Physical Damage and apply 2 daze.",
 			"STATUS_TYPE": "Buff"
+		},
+		"thorned_armor_status": {
+			"STATUS_NAME": "Thorned Armor",
+			"ICON_TYPE": "follow_up_buff",
+			"DESCRIPTION": "After losing any Armor, launches follow-up: Deal 30 Physical Damage.",
+			"STATUS_TYPE": "Buff"
+		},
+		"daze_status": {
+			"STATUS_NAME": "Daze",
+			"ICON_TYPE": "daze_debuff",
+			"DESCRIPTION": "Gains {2.5*STACKS}% less Armor. Deals {2*STACKS} Physical Damage on turn start, then loses 1 Daze. Scales with STR (B) and ARC (C).",
+			"STATUS_TYPE": "Debuff"
 		}
 	}
 }

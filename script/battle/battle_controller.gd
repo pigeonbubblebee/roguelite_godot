@@ -20,8 +20,10 @@ signal energy_changed(new_energy: int)
 
 signal request_visual_action_enqueue(action: BattleVisualAction)
 
-@export var log_card_play := false
+signal request_card_selection(ctx : CardSelectionContext)
+signal card_selection_finished(ctx : CardSelectionContext)
 
+@export var log_card_play := false
 
 func _input(event: InputEvent) -> void:
 	if event.is_pressed() and event is InputEventKey and event.keycode == KEY_K:
@@ -179,6 +181,13 @@ func on_actor_death(actor: Actor):
 func on_end_turn_pressed():
 	if(_turn_manager._current_actor.get_actor_name() == "Player" and not _turn_manager.processing_turn_change):
 		_turn_manager.finish_turn()
+		
+func on_confirm_selection_pressed():
+	if _hand_manager.is_ready_to_end_selection():
+		card_selection_finished.emit(_hand_manager.current_card_selection_context)
+		_hand_manager.current_card_selection_context.finish()
+		
+		_hand_manager.current_card_selection_context = null
 	
 func on_hovered_enemy_change(actorUI: EnemyActorUI):
 	if(not actorUI):
@@ -212,6 +221,12 @@ func try_play_card_ui(card_ui: CardGUI, card_logic: Card):
 	if not request_play_card(card_logic):
 		card_ui.return_to_hand()
 		return
+		
+func on_card_selection_started(card: Card):
+	_hand_manager.select_card(card)
+	
+func on_card_selection_ended(card: Card):
+	_hand_manager.deselect_card(card)
 		
 func on_action_queue_started():
 	get_context().action_started = true
@@ -250,20 +265,30 @@ func apply_damage(ctx: DamageContext):
 		
 		var lost_values = actor.take_damage(damage_value, ctx)
 		
-		ctx.damage_dealt += lost_values[0]
-		ctx.armor_damage_dealt += lost_values[1]
+		ctx.damage_dealt[actor] = lost_values[0]
+		ctx.armor_damage_dealt[actor] = lost_values[1]
 		
 	_battle_context.event_bus.damage_dealt.emit(ctx, _battle_context, self)
 	
-func apply_armor(amount: int, actor: Actor):
-	actor.add_armor(amount)
+func apply_armor(ctx: ArmorGainContext):
+	_battle_context.event_bus.before_armor_applied.emit(ctx, _battle_context, self)
 	
-func apply_status(actor: Actor, status: StatusEffect):
-	actor.apply_status(status, _battle_context, self)
+	var amount = ctx.calculate_armor()
+	
+	ctx.actor.add_armor(amount)
+	ctx.armor_gained = amount
+	
+	_battle_context.event_bus.armor_applied.emit(ctx, _battle_context, self)
+	
+func apply_status(context: StatusEffectApplicationContext):
+	context.actor.apply_status(context.status, _battle_context, self)
 	
 func draw_card(amt: int = 1):
 	for i in range(amt):
 		_hand_manager.draw_from_top()
+		
+func discard_card(card: Card):
+	_hand_manager.discard_card(card)
 		
 func free_actor(actor: Actor):
 	print(actor.actor_data.name + " DIED! PROCESSING REMOVAL")
@@ -298,6 +323,10 @@ func load_next_actor_turn():
 		_is_first_turn = false
 	
 	_turn_manager.start_turn()
+
+func start_card_selection(context: CardSelectionContext):
+	_hand_manager.current_card_selection_context = context
+	request_card_selection.emit(context)
 
 func enqueue_action(action: BattleVisualAction):
 	request_visual_action_enqueue.emit(action)

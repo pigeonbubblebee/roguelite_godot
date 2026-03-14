@@ -21,7 +21,9 @@ func force_drag_end():
 	card_ui.change_state(card_ui.return_state)
 
 func enter():
+	card_ui.z_index = 1000
 	card_ui.emit_drag_started()
 	
 func exit():
+	card_ui.z_index = card_ui.original_z
 	card_ui.emit_drag_ended()
