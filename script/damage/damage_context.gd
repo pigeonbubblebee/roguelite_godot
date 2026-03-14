@@ -1,6 +1,8 @@
 class_name DamageContext
 extends RefCounted
 
+const TAG_FOLLOW_UP = "follow_up"
+
 var source_name: String
 # Actual name of the damage provider, i e card name, status effect name, FuA name
 var damage_owner # Actor, Status Effect, Ect.
@@ -13,6 +15,10 @@ var multi_strike_amount: int
 var damage_type: DamageType.Type
 var source_faction: Faction.Type
 var modifiers : DamageModifiers
+var tags : Array[String]
+
+var damage_dealt : int = 0
+var armor_damage_dealt : int = 0
 
 func _init():
 	modifiers = DamageModifiers.new()
@@ -23,6 +29,12 @@ func add_damage_percent(amp: float):
 			modifiers.damage_percent_dictionary[actor] += amp
 		else:
 			modifiers.damage_percent_dictionary[actor] = amp
+	
+func add_tag(tag: String):
+	tags.append(tag)	
+	
+func has_tag(tag: String) -> bool:
+	return tags.has(tag)
 	
 func calculate_damage() -> Dictionary:
 	var float_damage = float(damage)

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=4 format=3 uid="uid://btjwia78x5dy5"]
+
+[ext_resource type="Script" path="res://script/card/card_resource.gd" id="1_7jctg"]
+[ext_resource type="Script" path="res://script/card/logic/mana_explosion_card.gd" id="1_aj3u5"]
+[ext_resource type="Texture2D" uid="uid://52wy2dsroa6d" path="res://assets/card_art/mana_explosion_card.png" id="3_xqjuq"]
+
+[resource]
+script = ExtResource("1_7jctg")
+card_id = "mana_explosion_card"
+cost = 1
+texture = ExtResource("3_xqjuq")
+target_drag = true
+title = ""
+type = 0
+logic = ExtResource("1_aj3u5")
+description = ""

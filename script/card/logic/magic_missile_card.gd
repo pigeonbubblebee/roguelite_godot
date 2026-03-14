@@ -8,26 +8,21 @@ func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
 	
 	var selected_enemys = context.get_selected_enemies_aoe()
-	
-	var actions : Array[BattleVisualAction] = []
-	var random_enemies : Array[Actor] = []
-	
+
 	for i in range(multistrike_amount):
 		var action = BattleRuntimeHelper.generate_basic_attack_action(context)
-		actions.append(action)
 		
 		var random_enemy = selected_enemys.pick_random()
-		random_enemies.append(random_enemy)
 		
 		action.append_action(PlayParticleEffectAction.new(random_enemy, "magic_slash"))
 		
 		controller.enqueue_action( action )
 		
-	
-	for i in range(multistrike_amount):
-		var hit_actors: Array[Actor] = [ random_enemies[i] ]
+		var hit_actors: Array[Actor] = [ random_enemy ]
 		
-		var damage_context = BattleRuntimeHelper.generate_damage_context(damage, hit_actors, context.get_player(), 0, DamageType.Type.MAGIC)	
+		var damage_context = BattleRuntimeHelper.generate_damage_context(damage, 
+			hit_actors, context.get_player())
+		damage_context.damage_type = DamageType.Type.MAGIC	
 		damage_context.source_name = "magic_missile_card"
 		
 		controller.apply_damage(damage_context)
@@ -35,7 +30,7 @@ func play(context: BattleContext, controller: BattleController):
 		if i == multistrike_amount - 1:
 			continue
 		
-		await actions[i].finished
+		await context.await_battle_actions()
 
 func get_target_index(total_targets: int, target_index: int) -> Array[int]:
 	return get_index_aoe(total_targets, target_index)

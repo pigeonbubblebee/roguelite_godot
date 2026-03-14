@@ -57,10 +57,16 @@ func set_team_position(position: int) -> void:
 func get_team_position() -> int:
 	return _team_position	
 
-func take_damage(damage: int, context: DamageContext) -> void:
+# return value: Health/Armor Lost
+func take_damage(damage: int, context: DamageContext)-> Array[int] :
 	var taken_damage = damage
 	
+	var armor_lost = 0
+	var health_lost = 0
+	
 	if has_armor():
+		armor_lost = min(_armor, damage)
+		
 		_armor -= damage
 		taken_damage = 0
 		
@@ -70,10 +76,14 @@ func take_damage(damage: int, context: DamageContext) -> void:
 			
 		armor_updated.emit(_armor)
 	
+	health_lost = min(0, damage - _armor)
+	
 	_health -= taken_damage
 	# print(actor_data.name + " HIT! DAMAGE: " + str(damage) + ", HEALTH: " + str(_health))
 	emit_signal("health_updated")
 	damage_taken.emit(damage, context)
+	
+	return [health_lost, armor_lost]
 
 func request_death():
 	if not _processing_death:

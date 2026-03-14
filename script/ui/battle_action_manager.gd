@@ -29,8 +29,8 @@ func get_is_processing_action() -> bool:
 func _process_next() -> void:
 	if _action_queue.is_empty():
 		_is_processing_action = false
-		queue_finished.emit()
 		current_action = null
+		queue_finished.emit()
 		return
 
 	if not _is_processing_action:

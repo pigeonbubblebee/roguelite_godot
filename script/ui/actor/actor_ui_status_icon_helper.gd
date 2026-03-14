@@ -13,6 +13,6 @@ var status_texture_map: Dictionary = {
 	"burn_debuff": burn_debuff_icon,
 	"damage_percent_buff": damage_percent_buff_icon,
 	"damage_percent_debuff": damage_percent_debuff_icon,
-	"follow_up_buff_icon": follow_up_buff_icon,
-	"storm_buff_icon": storm_buff_icon
+	"follow_up_buff": follow_up_buff_icon,
+	"storm_buff": storm_buff_icon
 }

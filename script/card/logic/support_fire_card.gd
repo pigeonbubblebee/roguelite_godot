@@ -1,20 +1,21 @@
-class_name FocusCard
+class_name SupportFireCard
 extends Card
 
-var damage_percent_gain : float = 0.5
-var turns : int = 2
-var status_id : String = "focus_status"
+const SUPPORT_FIRE_DAMAGE_SOURCE_NAME = "support_fire_card"
+
+var stacks : int = 2
+var status_id : String = "support_fire_status"
+var event_hook_name : String = "damage_dealt"
 
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
 	
 	var player = context.get_player()
 	
-	
 	controller.enqueue_action(BattleRuntimeHelper.generate_light_camera_shake_action())
 	
-	var effect = DamageAmplificationStatusEffect.new(status_id, player, 
-		turns, damage_percent_gain)
+	var effect = SupportFireStatusEffect.new(status_id, player, context.event_bus, 
+		event_hook_name, stacks)
 	controller.apply_status(player, effect)
 	
 	

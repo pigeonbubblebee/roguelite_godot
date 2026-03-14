@@ -21,11 +21,14 @@ func execute(context: BattleContext, controller: BattleController):
 	
 	var action = BattleRuntimeHelper.generate_basic_attack_action(context, actor)
 	action.append_action(PlayParticleEffectAction.new(player))
+	
+	controller.enqueue_action(action)
+	
 	controller.apply_damage(damage_context)
 
 	action.finished.connect(_finish_move)
 	
-	controller.enqueue_action(action)
+	
 
 func _finish_move():
 	finished.emit()

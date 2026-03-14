@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://script/ui/battle_scene.gd" id="1_0hekd"]
 [ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://assets/Background.png" id="1_igw74"]
 [ext_resource type="PackedScene" uid="uid://2s8n7v3j7nf4" path="res://scenes/battle_hud.tscn" id="2_oyr6g"]
-[ext_resource type="Script" path="res://script/ui/actor_ui_manager.gd" id="4_xp43c"]
+[ext_resource type="Script" path="res://script/ui/actor/actor_ui_manager.gd" id="4_xp43c"]
 [ext_resource type="PackedScene" uid="uid://prnhw6kneqmu" path="res://scenes/card.tscn" id="5_34irb"]
 [ext_resource type="Texture2D" uid="uid://dchwacvnpfc5s" path="res://assets/target.png" id="5_aboep"]
 [ext_resource type="Texture2D" uid="uid://dnvyvm5vfpg31" path="res://assets/small_target.png" id="6_kk4xk"]

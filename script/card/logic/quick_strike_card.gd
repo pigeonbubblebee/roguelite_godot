@@ -12,18 +12,12 @@ func play(context: BattleContext, controller: BattleController):
 	
 	var selected_enemy = context.get_selected_enemy()
 	
-	var actions : Array[BattleVisualAction] = []
-	
 	for i in range(multistrike_amount):
 		var action = BattleRuntimeHelper.generate_basic_attack_action(context)
-		actions.append(action)
-		
 		action.append_action(PlayParticleEffectAction.new(selected_enemy))
 		
 		controller.enqueue_action( action )
 		
-	
-	for i in range(multistrike_amount):
 		var hit_actors: Array[Actor] = [ selected_enemy ]
 		
 		var damage_context = BattleRuntimeHelper.generate_damage_context(damage, hit_actors, context.get_player())	
@@ -34,6 +28,6 @@ func play(context: BattleContext, controller: BattleController):
 		if i == multistrike_amount - 1:
 			continue
 		
-		await actions[i].finished
+		await context.await_battle_actions()
 		
 	

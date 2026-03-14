@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="StartingCharacter" load_steps=12 format=3 uid="uid://36qmxn3olfqk"]
+[gd_resource type="Resource" script_class="StartingCharacter" load_steps=15 format=3 uid="uid://36qmxn3olfqk"]
 
 [ext_resource type="Script" path="res://script/starting_character.gd" id="1_ml6py"]
 [ext_resource type="Script" path="res://script/card/card_resource.gd" id="2_ni8ag"]
@@ -11,10 +11,13 @@
 [ext_resource type="Resource" uid="uid://c8keiqoacx148" path="res://data/card/magic_missile_card.tres" id="9_dqjes"]
 [ext_resource type="Resource" uid="uid://ys8gerd1vt6l" path="res://data/card/support_fire_card.tres" id="10_mgq6d"]
 [ext_resource type="Resource" uid="uid://bcxbty7qankaq" path="res://data/card/shield_bash_card.tres" id="11_7a86j"]
+[ext_resource type="Resource" uid="uid://boann136ojxe3" path="res://data/card/flaming_strike_card.tres" id="12_tqyjh"]
+[ext_resource type="Resource" uid="uid://cw0e0wh030xb1" path="res://data/card/thorned_armor_card.tres" id="13_3ab33"]
+[ext_resource type="Resource" uid="uid://btjwia78x5dy5" path="res://data/card/mana_explosion_card.tres" id="14_leni8"]
 
 [resource]
 script = ExtResource("1_ml6py")
-starting_deck = Array[ExtResource("2_ni8ag")]([ExtResource("3_mb5jr"), ExtResource("4_x556o"), ExtResource("5_mjy07"), ExtResource("6_6kidg"), ExtResource("7_8nigc"), ExtResource("8_neum0"), ExtResource("9_dqjes"), ExtResource("10_mgq6d"), ExtResource("11_7a86j")])
+starting_deck = Array[ExtResource("2_ni8ag")]([ExtResource("3_mb5jr"), ExtResource("4_x556o"), ExtResource("5_mjy07"), ExtResource("6_6kidg"), ExtResource("7_8nigc"), ExtResource("8_neum0"), ExtResource("9_dqjes"), ExtResource("10_mgq6d"), ExtResource("11_7a86j"), ExtResource("12_tqyjh"), ExtResource("13_3ab33"), ExtResource("14_leni8")])
 base_strength = 0
 base_dexterity = 0
 base_intelligence = 0

@@ -141,11 +141,21 @@ func _on_turn_started(actor: Actor):
 		_energy_manager.reset_energy()
 		_hand_manager.draw_to_max()
 	
-	actor.take_action(_battle_context, self)
+	_battle_context.event_bus.turn_started.emit(actor, _battle_context, self)
+	
+	await _battle_context.await_battle_actions()
+
+	if actor._processing_death:
+		_turn_manager.finish_turn()
+		return
+
+	actor.take_action(_battle_context, self)	
 	
 	turn_started.emit(actor)
 	
 func _on_enemy_turn_finish(actor: Actor):
+	await _battle_context.await_battle_actions()
+	
 	_turn_manager.finish_turn()
 	actor.generate_next_move(_battle_context)
 	
@@ -160,6 +170,9 @@ func _on_energy_change(current: int):
 
 func _on_turn_ended(actor: Actor):
 	_battle_context.event_bus.turn_ended.emit(actor, _battle_context, self)	
+		
+func on_actor_death(actor: Actor):
+	free_actor(actor)
 
 ## UI CONNECTIONS
 	
@@ -200,8 +213,10 @@ func try_play_card_ui(card_ui: CardGUI, card_logic: Card):
 		card_ui.return_to_hand()
 		return
 		
-func on_actor_death(actor: Actor):
-	free_actor(actor)
+func on_action_queue_started():
+	get_context().action_started = true
+func on_action_queue_finished():
+	get_context().on_action_queue_clear()
 	
 ##################################
 ##### RUNTIME LOGIC REQUESTS #####
@@ -232,8 +247,12 @@ func apply_damage(ctx: DamageContext):
 	var damage_dictionary = ctx.calculate_damage()
 	for actor in damage_dictionary.keys():
 		var damage_value = damage_dictionary[actor]
-		actor.take_damage(damage_value, ctx)
-	
+		
+		var lost_values = actor.take_damage(damage_value, ctx)
+		
+		ctx.damage_dealt += lost_values[0]
+		ctx.armor_damage_dealt += lost_values[1]
+		
 	_battle_context.event_bus.damage_dealt.emit(ctx, _battle_context, self)
 	
 func apply_armor(amount: int, actor: Actor):

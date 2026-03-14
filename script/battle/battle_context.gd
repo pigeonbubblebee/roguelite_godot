@@ -15,6 +15,10 @@ var selected_actor: Actor = null
 
 var selected_enemy_index: int
 
+var action_started = false
+
+signal action_queue_cleared
+
 func _init(turn_manager: TurnManager, _controller: BattleController):
 	_turn_manager = turn_manager
 	controller = _controller
@@ -42,6 +46,16 @@ func get_player() -> Actor:
 		if actor.get_actor_name() == "Player":
 			result = actor
 	return result
+	
+func on_action_queue_clear():
+	action_started = false
+	action_queue_cleared.emit()
+	
+func await_battle_actions():
+	if action_started:
+		await action_queue_cleared
+	else:
+		return
 	
 func get_current_energy() -> int:
 	return energy

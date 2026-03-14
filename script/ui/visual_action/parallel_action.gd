@@ -12,7 +12,11 @@ func append_action(action: BattleVisualAction):
 
 func execute(context):
 	if actions.is_empty():
+		started.emit()
+		emit_signal("finished")
 		return
+		
+	started.emit()
 
 	remaining = actions.size()
 

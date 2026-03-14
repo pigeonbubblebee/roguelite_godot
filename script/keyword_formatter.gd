@@ -72,3 +72,29 @@ static func format_damage_text(label: Label, ctx: DamageContext):
 static func format_armor_text(label: Label):
 	var color = ARMOR_COLOR
 	label.add_theme_color_override("font_color", color)
+	
+static func format_status_description(template: String, stacks: int) -> String:
+	var regex = RegEx.new()
+	regex.compile("\\{([^}]*)\\}")
+	
+	var result = template
+	
+	var matches = regex.search_all(template)
+	
+	for m in matches:
+		var expr = m.get_string(1)
+		var value = evaluate_expression(expr, stacks)
+		result = result.replace("{" + expr + "}", str(value))
+	
+	return result
+
+static func evaluate_expression(expr: String, stacks: int):
+	expr = expr.replace("STACKS", str(stacks))
+	
+	var expression = Expression.new()
+	var err = expression.parse(expr)
+	
+	if err != OK:
+		return "?"
+	
+	return expression.execute()

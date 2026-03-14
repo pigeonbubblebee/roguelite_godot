@@ -23,11 +23,13 @@ func get_remaining_av() -> float:
 func get_actor_faction() -> Faction.Type:
 	return Faction.Type.ENEMY
 	
-func take_damage(damage: int, ctx: DamageContext) -> void:
-	super.take_damage(damage, ctx)
+func take_damage(damage: int, ctx: DamageContext):
+	var res = super.take_damage(damage, ctx)
 	
 	if(_health <= 0):
 		request_death()
+		
+	return res
 
 func get_actor_name() -> String:
 	return "Enemy"

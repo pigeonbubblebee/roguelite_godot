@@ -44,6 +44,8 @@ func load_cards(path: String):
 		cards[card_id] = card
 		
 func get_card(card_id: String) -> Dictionary:
+	if(not cards.has(card_id)):
+		push_error("Cannot find card: " + card_id)
 	return cards.get(card_id, null)
 	
 func get_scaling(card_id: String, stat: String):

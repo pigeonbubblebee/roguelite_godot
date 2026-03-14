@@ -7,5 +7,6 @@ func _init(_duration := 0.2):
 	duration = _duration
 
 func execute(scene: BattleScene):
+	started.emit()
 	await scene.get_tree().create_timer(duration).timeout
 	finished.emit()

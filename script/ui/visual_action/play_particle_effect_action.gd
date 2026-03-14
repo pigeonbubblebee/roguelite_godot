@@ -16,6 +16,8 @@ func execute(scene: Node):
 		finished.emit()
 		return
 		
+	started.emit()
+		
 	var particle = scene.particle_effect_helper.spawn_effect(effect_name, 
 		actor_ui, actor_ui.global_position)
 		

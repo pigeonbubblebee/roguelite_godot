@@ -10,6 +10,8 @@ func _init(_strength : float = 2, _duration = 0.08):
 	duration = _duration
 
 func execute(scene: BattleScene):
+	started.emit()
+	
 	var cam = scene.get_camera()
 	if not cam:
 		push_warning("No camera found for ScreenShakeAction")

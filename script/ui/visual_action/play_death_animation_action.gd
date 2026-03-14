@@ -15,6 +15,7 @@ func execute(scene: BattleScene):
 		push_warning("No actor ui found for MoveForwardAction")
 		finished.emit()
 		return
+	started.emit()
 	
 	var tween = actor_ui.create_tween()
 	tween.tween_property(actor_ui, "modulate:a", 0, duration)

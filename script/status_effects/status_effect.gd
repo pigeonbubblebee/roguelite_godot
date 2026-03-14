@@ -33,6 +33,7 @@ func add_stacks(amt : int):
 func on_apply(_context: BattleContext, _controller: BattleController):
 	_context.event_bus.before_damage_dealt.connect(before_damage_dealt)
 	_context.event_bus.turn_ended.connect(on_turn_end)
+	_context.event_bus.turn_started.connect(on_turn_start)
 	
 func before_damage_dealt(_context: DamageContext, battle_context: BattleContext, controller: BattleController):
 	pass
@@ -42,11 +43,17 @@ func on_turn_end(actor: Actor, battle_context: BattleContext, controller: Battle
 		return
 	
 	if(get_is_turn_based()):
-		_stacks -= 1
-		stacks_changed.emit(_stacks)
+		reduce_stacks()
+			
+func reduce_stacks(amount : int = 1):
+	_stacks -= amount
+	stacks_changed.emit(_stacks)
 		
-		if(_stacks == 0):
-			expired.emit(self)
+	if(_stacks <= 0):
+		expired.emit(self)
+			
+func on_turn_start(actor: Actor, battle_context: BattleContext, controller: BattleController):
+	pass
 
 func get_is_turn_based() -> bool:
 	return true
@@ -61,7 +68,7 @@ func get_status_id():
 	return _status_id
 
 func get_description():
-	return _description
+	return KeywordFormatter.format_status_description(_description, _stacks)
 	
 func get_icon_type():
 	return _icon_type

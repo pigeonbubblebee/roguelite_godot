@@ -48,6 +48,9 @@ func bind_controller(controller: BattleController) -> void:
 	actor_ui.hovered_enemy_change.connect(controller.on_hovered_enemy_change)
 	hand_ui.card_ui_play_request.connect(controller.on_card_ui_play_request)
 	
+	_battle_action_manager.queue_started.connect(controller.on_action_queue_started)
+	_battle_action_manager.queue_finished.connect(controller.on_action_queue_finished)
+	
 	# UI-only interactions
 	_battle_action_manager.queue_started.connect(hand_ui.on_action_queue_started)
 	_battle_action_manager.queue_finished.connect(hand_ui.on_action_queue_finished)
