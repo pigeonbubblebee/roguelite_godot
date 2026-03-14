@@ -22,6 +22,8 @@ extends Node2D
 
 @export var _card_selection_ui_path: NodePath
 @onready var card_selection_ui = get_node(_card_selection_ui_path)
+@export var _card_selection_prompt_path: NodePath
+@onready var card_selection_prompt = get_node(_card_selection_prompt_path)
 
 @export var _scene_camera_path: NodePath
 @onready var scene_camera = get_node(_scene_camera_path)
@@ -95,6 +97,8 @@ func _on_request_card_selection(ctx):
 	confirm_selection_button.mouse_filter = card_selection_ui.MOUSE_FILTER_STOP
 	
 	card_selection_ui.visible = true
+	
+	card_selection_prompt.text = ctx.get_prompt()
 
 	hand_ui.change_input_type(hand_ui.InputType.SELECTION)
 	

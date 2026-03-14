@@ -15,7 +15,7 @@ func play(context: BattleContext, controller: BattleController):
 	damage_context.source_name = "flaming_strike_card"
 	damage_context.add_tag(DamageContext.TAG_CARD)
 	
-	var effect = BurnStatusEffect.new(status_id, selected_enemy, status_buildup)
+	var effect = BurnStatusEffect.new(status_id, selected_enemy, context.get_player(), status_buildup)
 	
 	var application_status = StatusEffectApplicationContext.new(selected_enemy, effect, context.get_player())
 	controller.apply_status(application_status)

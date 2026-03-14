@@ -16,22 +16,14 @@ func play(context: BattleContext, controller: BattleController):
 	var action = BattleRuntimeHelper.generate_basic_attack_action(context)
 	action.append_action(PlayParticleEffectAction.new(selected_enemy))
 	
+	var discard_selection_context = BattleRuntimeHelper.generate_discard_card_selection_context(context, controller)
+	action.append_action(CardSelectionAction.new(discard_selection_context))
+	
 	controller.enqueue_action(action)
 	
 	controller.apply_damage(damage_context)
 	
 	controller.draw_card()
 	
-	var hand = controller.get_hand_manager().get_hand()
-	var card_selection_context = CardSelectionContext.new(hand, CardSelectionContext.DISCARD_PROMPT)
-	
-	var selected_card : Card
-	
-	card_selection_context.finished.connect(func(selected_cards):
-		if selected_cards:
-			selected_card = selected_cards[0]
-			
-			controller.discard_card(selected_card)
-	)
-	
-	controller.start_card_selection(card_selection_context)
+	# Discards
+	controller.start_card_selection(discard_selection_context)

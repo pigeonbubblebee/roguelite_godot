@@ -75,7 +75,6 @@ func update_ui(hand: Array[Card]):
 			
 			card.context = context
 			card.input_type = current_input_type
-			#card.ui_manager = self
 			
 			card.drag_started.connect(_on_card_drag_started)
 			card.drag_ended.connect(_on_card_drag_ended)

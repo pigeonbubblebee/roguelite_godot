@@ -30,6 +30,7 @@ _hand_ui_path = NodePath("hand_ui/hand")
 _end_turn_button_path = NodePath("end_turn_button")
 _confirm_selection_button_path = NodePath("hand_ui/card_selection_ui/confirm_selection")
 _card_selection_ui_path = NodePath("hand_ui/card_selection_ui")
+_card_selection_prompt_path = NodePath("hand_ui/card_selection_ui/background/Label")
 _scene_camera_path = NodePath("Camera2D")
 _particle_effect_helper_path = NodePath("particle_effect")
 

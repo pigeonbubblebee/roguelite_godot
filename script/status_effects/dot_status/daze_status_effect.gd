@@ -1,11 +1,15 @@
 class_name DazeStatusEffect
 extends StatusEffect
 
+var damage_owner
+
 var dot_damage : int = 2
 var armor_reduction_percent : float = 0.025
 
-func _init(id: String, owner: Actor, stacks: int = 1):
+func _init(id: String, owner: Actor, _dmg_owner, stacks: int = 1):
 	super._init(id, owner, stacks)
+	
+	damage_owner = _dmg_owner
 	
 func get_is_turn_based() -> bool:
 	return false
@@ -23,7 +27,8 @@ func on_turn_end(actor: Actor, context: BattleContext, controller: BattleControl
 	
 	var base_damage = dot_damage * get_stacks()
 	
-	var damage_context = BattleRuntimeHelper.generate_damage_context(base_damage, hit_actors, context.get_player())	
+	var damage_context = BattleRuntimeHelper.generate_damage_context(base_damage, 
+		hit_actors, damage_owner)	
 	damage_context.source_name = "daze_status"
 	
 	var action = ParallelAction.new([

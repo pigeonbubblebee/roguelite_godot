@@ -1,11 +1,15 @@
 class_name CardSelectionAction
 extends BattleVisualAction
 
-func _init(ctx):
-	pass
+var context : CardSelectionContext
+
+func _init(_context : CardSelectionContext):
+	context = _context
 
 func execute(scene: BattleScene):
 	started.emit()
-	print("selecting")
-	await scene.get_tree().create_timer(0.2).timeout
+	
+	if context:
+		await context.finished
+	
 	finished.emit()

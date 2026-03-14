@@ -41,3 +41,27 @@ static func generate_damage_context(damage, hit_actors, damage_owner, blast_dama
 	damage_context.damage_owner = damage_owner
 	
 	return damage_context
+	
+static func generate_discard_card_selection_context(context: BattleContext, controller: BattleController, 
+	amount : int = 1) -> CardSelectionContext:
+	
+	var result = generate_card_selection_context(context, controller, 
+		CardSelectionContext.DISCARD_PROMPT, amount)
+		
+	result.finished.connect(func(selected_cards):
+		if selected_cards:
+			var selected_card : Card
+			
+			selected_card = selected_cards[0]
+			
+			controller.discard_card(selected_card)
+	)
+	
+	return result
+
+static func generate_card_selection_context(context: BattleContext, controller: BattleController, 
+	prompt : String, amount : int = 1) -> CardSelectionContext:
+	
+	var hand = controller.get_hand_manager().get_hand()	
+	var card_selection_context = CardSelectionContext.new(hand, CardSelectionContext.DISCARD_PROMPT)
+	return card_selection_context

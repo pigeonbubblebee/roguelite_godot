@@ -16,7 +16,7 @@ func execute(dmg_context: DamageContext, context: BattleContext, controller: Bat
 	action.started.connect(func():
 		var hit_actors: Array[Actor] = [ dmg_context.hit_actors[0] ]
 		
-		var effect = DazeStatusEffect.new(status_id, dmg_context.hit_actors[0], status_buildup)
+		var effect = DazeStatusEffect.new(status_id, dmg_context.hit_actors[0], context.get_player(), status_buildup)
 		var application_status = StatusEffectApplicationContext.new(dmg_context.hit_actors[0], effect, context.get_player())
 		controller.apply_status(application_status)
 		
