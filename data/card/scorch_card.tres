@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=4 format=3 uid="uid://cb0h7q4oqlyjw"]
+
+[ext_resource type="Script" path="res://script/card/card_resource.gd" id="1_1mrty"]
+[ext_resource type="Script" path="res://script/card/logic/scorch_card.gd" id="1_2tpex"]
+[ext_resource type="Texture2D" uid="uid://cqnpd06g8uay0" path="res://assets/card_art/scorch_card.png" id="2_okmdt"]
+
+[resource]
+script = ExtResource("1_1mrty")
+card_id = "scorch_card"
+cost = 1
+texture = ExtResource("2_okmdt")
+target_drag = true
+title = ""
+type = 0
+logic = ExtResource("1_2tpex")
+description = ""

@@ -3,6 +3,10 @@ extends Node
 
 var cards : Dictionary = {}
 
+const ART_PATH := "res://assets/card_art/"
+const SCRIPT_PATH := "res://script/card/logic/"
+const RESOURCE_PATH := "res://data/card/"
+
 func _ready():
 	load_cards("res://data/sheets/Roguelite.json")
 
@@ -29,8 +33,14 @@ func load_cards(path: String):
 			"DESCRIPTION": info["DESCRIPTION"],
 			"COST": info["COST"],
 			"RARITY": info["RARITY"],
-			"SCALING": {}
+			"SCALING": {},
+			"TYPE": Card.get_string_as_card_type(info["TYPE"]),
+			"TEXTURE": null,
+			"SCRIPT": null,
+			"RESOURCE": null
 		}
+		
+		# Scaling Data
 
 		if scaling_data.has(card_id):
 			for stat in scaling_data[card_id].keys():
@@ -40,7 +50,31 @@ func load_cards(path: String):
 					card["SCALING"][stat] = "N/A"
 				else:
 					card["SCALING"][stat] = value
+					
+		# Loads card art
+		var art_path = ART_PATH + card_id + ".png"
 
+		if ResourceLoader.exists(art_path):
+			card["TEXTURE"] = load(art_path)
+		else:
+			push_warning("Missing card art for: " + card_id)
+
+		# Loads card script
+		var script_path = SCRIPT_PATH + card_id + ".gd"
+
+		if ResourceLoader.exists(script_path):
+			card["SCRIPT"] = load(script_path)
+		else:
+			push_warning("Missing card script for: " + card_id)
+			
+		# Loads card resource
+		var resource_path = RESOURCE_PATH + card_id + ".tres"
+
+		if ResourceLoader.exists(resource_path):
+			card["RESOURCE"] = load(resource_path)
+		else:
+			push_warning("Missing card resource for: " + card_id)
+			
 		cards[card_id] = card
 		
 func get_card(card_id: String) -> Dictionary:

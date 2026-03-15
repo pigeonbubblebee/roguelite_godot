@@ -96,7 +96,7 @@ func _get_next_team_position_for_faction(faction: Faction.Type) -> int:
 ##### CARD LOGIC #####
 ######################
 
-func _initialize_deck(deck: Array[CardResource]):
+func _initialize_deck(deck: Array[String]):
 	for entry in deck:
 		_hand_manager.add_to_deck(entry)
 	_hand_manager.shuffle_deck()
@@ -252,7 +252,13 @@ func request_play_card(card: Card) -> bool:
 	
 func resolve_card(card: Card):
 	card.play(_battle_context, self)
-	_hand_manager.discard_card_from_play(card)
+	
+	match card.effect_on_resolve(_battle_context, self):
+		Card.ResolveEffect.DISCARD:
+			_hand_manager.discard_card_from_play(card)
+		Card.ResolveEffect.REMOVE:
+			_hand_manager.remove_card_from_play(card)
+		
 	_energy_manager.use_energy(card.get_cost())
 	card_played.emit(card)
 
@@ -286,6 +292,11 @@ func apply_status(context: StatusEffectApplicationContext):
 func draw_card(amt: int = 1):
 	for i in range(amt):
 		_hand_manager.draw_from_top()
+		
+func add_card_to_hand(card_id : String, amt : int = 1):
+	for i in range(amt):
+		var card = _hand_manager.init_card_script_from_id(card_id)
+		_hand_manager.draw_card(card)
 		
 func discard_card(card: Card):
 	_hand_manager.discard_card(card)
@@ -330,6 +341,9 @@ func start_card_selection(context: CardSelectionContext):
 
 func enqueue_action(action: BattleVisualAction):
 	request_visual_action_enqueue.emit(action)
+	
+func gain_energy(amt: int = 1):
+	_energy_manager.gain_energy(amt)
 	
 ###################
 ##### GETTERS #####

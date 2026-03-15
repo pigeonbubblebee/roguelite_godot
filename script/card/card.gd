@@ -12,18 +12,26 @@ var scaling_data : String # String of scaling data, i e STR (A), DEX (B)
 
 signal played
 
-func _init(resource: CardResource):
-	id = resource.card_id
+func _init(_id : String):
+	var card = CardDatabase.get_card(_id)
 	
-	var card = CardDatabase.get_card(id)
+	id = card["CARD_ID"]
 	
 	cost = card["COST"]
 	scaling_data = CardDatabase.get_all_scaling(id)
-	texture = resource.texture
-	target_drag = resource.target_drag
+	texture = card["TEXTURE"]
+	type = card["TYPE"]
+	target_drag = (type == CardType.ATTACK)
 	title = card["CARD_NAME"]
-	type = resource.type
 	description = card["DESCRIPTION"]
+	
+enum ResolveEffect {
+	DISCARD,
+	REMOVE
+}
+	
+func effect_on_resolve(context, controller) -> ResolveEffect:
+	return ResolveEffect.DISCARD
 
 func can_play(context: BattleContext) -> bool:
 	return context.get_current_energy() >= cost
@@ -86,6 +94,16 @@ static func get_card_type_as_string(type: CardType) -> String:
 		CardType.DEFENSE:
 			return "Defense"
 	return "Cannot Find Type"
+	
+static func get_string_as_card_type(string: String) -> CardType:
+	match string:
+		"ATTACK":
+			return CardType.ATTACK
+		"BUFF":
+			return CardType.BUFF
+		"DEFENSE":
+			return CardType.DEFENSE
+	return CardType.ATTACK
 
 enum CardType {
 	ATTACK,

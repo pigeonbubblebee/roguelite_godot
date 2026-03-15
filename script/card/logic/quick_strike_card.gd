@@ -13,6 +13,9 @@ func play(context: BattleContext, controller: BattleController):
 	var selected_enemy = context.get_selected_enemy()
 	
 	for i in range(multistrike_amount):
+		if selected_enemy._processing_death:
+			return
+		
 		var action = BattleRuntimeHelper.generate_basic_attack_action(context)
 		action.append_action(PlayParticleEffectAction.new(selected_enemy))
 		

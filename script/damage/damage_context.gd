@@ -30,6 +30,15 @@ func add_damage_percent(amp: float):
 			modifiers.damage_percent_dictionary[actor] += amp
 		else:
 			modifiers.damage_percent_dictionary[actor] = amp
+			
+func add_vulnerable(amp: float, target: Actor):
+	if target in modifiers.vulnerability_dictionary:
+		modifiers.vulnerability_dictionary[target] += amp
+	else:
+		modifiers.vulnerability_dictionary[target] = amp
+
+func get_damage_modifiers() -> DamageModifiers:
+	return modifiers
 	
 func add_tag(tag: String):
 	tags.append(tag)	

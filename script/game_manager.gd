@@ -36,6 +36,6 @@ func _ready() -> void:
 		data.actors.append(enemy)
 	
 	for card in test_character.starting_deck:
-		data.deck.append(card)
+		data.deck.append(card.card_id)
 	
 	load_battle(data)

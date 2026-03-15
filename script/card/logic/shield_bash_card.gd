@@ -5,6 +5,8 @@ func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
 	
 	var selected_enemy = context.get_selected_enemy()
+	if selected_enemy._processing_death:
+		return
 	
 	var damage = context.get_player().get_armor()
 	

@@ -4,6 +4,7 @@ extends Node2D
 var hand: Array[Card] = []
 var deck: Array[Card] = []
 var discard_pile: Array[Card] = []
+var remove_pile: Array[Card] = []
 
 var current_card_selection_context : CardSelectionContext
 
@@ -12,6 +13,7 @@ var max_hand_size = 5
 signal hand_updated(hand: Array[Card])
 signal deck_updated(deck: Array[Card])
 signal discard_pile_updated(discard: Array[Card])
+signal remove_pile_updated(remove_pile: Array[Card])
 signal card_drawn(card: Card)
 signal card_discarded(card: Card)
 
@@ -47,9 +49,13 @@ func draw_from_top(amt = 1):
 func shuffle_deck():
 	deck.shuffle()
 	
-func add_to_deck(card: CardResource, amt=1):
+func add_to_deck(card_id: String, amt=1):
 	for i in range(amt):
-		add_card_to_deck(card.logic.new(card))
+		add_card_to_deck(init_card_script_from_id(card_id))
+		
+func init_card_script_from_id(id : String) -> Card:
+	var card = CardDatabase.get_card(id)
+	return card["SCRIPT"].new(id)
 		
 func add_card_to_deck(card: Card):
 	deck.append(card)
@@ -71,6 +77,13 @@ func discard_card_from_play(card: Card):
 	
 	discard_pile.append(card)
 	discard_pile_updated.emit(discard_pile)
+	
+func remove_card_from_play(card: Card):
+	hand.erase(card)
+	hand_updated.emit(hand)
+	
+	remove_pile.append(card)
+	remove_pile_updated.emit(remove_pile)
 	
 func discard_card(card: Card):
 	# print(hand.find(card))

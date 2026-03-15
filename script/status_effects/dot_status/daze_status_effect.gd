@@ -19,8 +19,11 @@ func before_armor_applied(context: ArmorGainContext, battle_context: BattleConte
 		var reduction_percent = -1 * armor_reduction_percent * get_stacks()
 		context.add_armor_percent(reduction_percent)
 		
-func on_turn_end(actor: Actor, context: BattleContext, controller: BattleController):
+func on_turn_start(actor: Actor, context: BattleContext, controller: BattleController):
 	if not actor == _owner:
+		return
+		
+	if actor._processing_death:
 		return
 
 	var hit_actors: Array[Actor] = [ actor ]
@@ -35,11 +38,15 @@ func on_turn_end(actor: Actor, context: BattleContext, controller: BattleControl
 		PlayParticleEffectAction.new(actor),
 		ShakeCameraAction.new(0.65)
 	])
+	
+	action.started.connect(func():
+		controller.apply_damage(damage_context)
+	)
 
 	controller.enqueue_action(action)
 	
-	controller.apply_damage(damage_context)
-	
 	# Reduce Daze Stack by 1
 	
-	reduce_stacks()
+func on_turn_end(actor: Actor, context: BattleContext, controller: BattleController):
+	if actor == _owner:
+		reduce_stacks()

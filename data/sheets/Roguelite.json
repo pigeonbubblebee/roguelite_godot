@@ -4,169 +4,204 @@
 			"CARD_NAME": "Strike",
 			"COST": 1,
 			"DESCRIPTION": "Deal 50 Physical Damage.",
-			"RARITY": "COMMON"
+			"RARITY": "COMMON",
+			"TYPE": "ATTACK"
 		},
 		"guard_card": {
 			"CARD_NAME": "Guard",
 			"COST": 1,
 			"DESCRIPTION": "Gain 50 Armor.",
-			"RARITY": "COMMON"
+			"RARITY": "COMMON",
+			"TYPE": "DEFENSE"
 		},
 		"heavy_slash_card": {
 			"CARD_NAME": "Heavy Slash",
 			"COST": 2,
 			"DESCRIPTION": "Deal 80 Physical Damage and 40 to adjacent enemies.",
-			"RARITY": "COMMON"
+			"RARITY": "COMMON",
+			"TYPE": "ATTACK"
 		},
 		"focus_card": {
 			"CARD_NAME": "Focus",
 			"COST": 1,
 			"DESCRIPTION": "Deal 50% more damage for 2 turns.",
-			"RARITY": "COMMON"
+			"RARITY": "COMMON",
+			"TYPE": "BUFF"
 		},
 		"thrust_card": {
 			"CARD_NAME": "Thrust",
 			"COST": 1,
 			"DESCRIPTION": "Deal 75 Physical Damage. Draw a card, then discard a card.",
-			"RARITY": "COMMON"
+			"RARITY": "COMMON",
+			"TYPE": "ATTACK"
 		},
 		"quick_strike_card": {
 			"CARD_NAME": "Quick Strike",
 			"COST": 1,
 			"DESCRIPTION": "Multistrike 2. Deal 40 Physical Damage.",
-			"RARITY": "COMMON"
+			"RARITY": "COMMON",
+			"TYPE": "ATTACK"
 		},
 		"shield_bash_card": {
 			"CARD_NAME": "Shield Bash",
 			"COST": 1,
 			"DESCRIPTION": "Deal Physical Damage equal to your Armor.",
-			"RARITY": "COMMON"
+			"RARITY": "COMMON",
+			"TYPE": "ATTACK"
 		},
 		"magic_missile_card": {
 			"CARD_NAME": "Magic Missile",
 			"COST": 2,
 			"DESCRIPTION": "Multistrike 3. Deal 45 Magic Damage to a random enemy.",
-			"RARITY": "COMMON"
+			"RARITY": "COMMON",
+			"TYPE": "ATTACK"
 		},
 		"support_fire_card": {
 			"CARD_NAME": "Support Fire",
 			"COST": 1,
-			"DESCRIPTION": "The next 2 times you deal damage with a card, launch follow-up: Deal 50 Physical Damage. Apply 2 Daze.",
-			"RARITY": "COMMON"
+			"DESCRIPTION": "The next 2 times you deal damage with a card, launch follow-up: Deal 40 Physical Damage. Apply 1 Daze.",
+			"RARITY": "COMMON",
+			"TYPE": "BUFF"
 		},
 		"thorned_armor_card": {
 			"CARD_NAME": "Thorned Armor",
 			"COST": 1,
 			"DESCRIPTION": "Gain 50 Armor. For 1 turn, when you lose any Armor, launch follow-up: Deal 30 Physical Damage.",
-			"RARITY": "COMMON"
+			"RARITY": "COMMON",
+			"TYPE": "DEFENSE"
 		},
 		"flaming_strike_card": {
 			"CARD_NAME": "Flaming Strike",
 			"COST": 1,
 			"DESCRIPTION": "Deal 60 Fire Damage. Apply 4 Burn.",
-			"RARITY": "COMMON"
+			"RARITY": "COMMON",
+			"TYPE": "ATTACK"
 		},
 		"mana_explosion_card": {
 			"CARD_NAME": "Mana Explosion",
 			"COST": 3,
 			"DESCRIPTION": "Deal 210 Magic Damage to all enemies.",
-			"RARITY": "COMMON"
+			"RARITY": "COMMON",
+			"TYPE": "ATTACK"
 		},
 		"sundering_strike_card": {
 			"CARD_NAME": "Sundering Strike",
 			"COST": 1,
-			"DESCRIPTION": "Deal 60 Physical Damage. Apply 2 Daze.",
-			"RARITY": "COMMON"
+			"DESCRIPTION": "Deal 70 Physical Damage. Apply 4 Daze.",
+			"RARITY": "COMMON",
+			"TYPE": "ATTACK"
 		},
 		"scorch_card": {
 			"CARD_NAME": "Scorch",
 			"COST": 1,
-			"DESCRIPTION": "Deal 50 Fire Damage and Apply 3 Burn to all enemies.",
-			"RARITY": "COMMON"
+			"DESCRIPTION": "Deal 50 Fire Damage and apply 2 Burn to all enemies.",
+			"RARITY": "COMMON",
+			"TYPE": "ATTACK"
 		},
 		"eldritch_blast_card": {
 			"CARD_NAME": "Eldritch Blast",
 			"COST": 1,
-			"DESCRIPTION": "Deal 145 Magic Damage, then Channel 1. Discard two cards.",
-			"RARITY": "COMMON"
+			"DESCRIPTION": "Deal 90 Magic Damage, then Channel 1. Discard a card.",
+			"RARITY": "COMMON",
+			"TYPE": "ATTACK"
 		},
-		"chilling_mist_card": {
-			"CARD_NAME": "Chilling Mist",
+		"rancorous_bolt_card": {
+			"CARD_NAME": "Rancorous Bolt",
 			"COST": 2,
 			"DESCRIPTION": "Deal 130 Cold Damage. Hit enemies take 40% more damage for 2 turns.",
-			"RARITY": "COMMON"
+			"RARITY": "COMMON",
+			"TYPE": "ATTACK"
 		},
 		"mage_armor_card": {
 			"CARD_NAME": "Mage Armor",
 			"COST": 1,
-			"DESCRIPTION": "Gain 75 Armor. Channel 1.",
-			"RARITY": "COMMON"
+			"DESCRIPTION": "Gain 80 Armor. Channel 1.",
+			"RARITY": "COMMON",
+			"TYPE": "DEFENSE"
 		},
 		"bulwark_card": {
 			"CARD_NAME": "Bulwark",
 			"COST": 1,
-			"DESCRIPTION": "Gain 75 Armor. If this card is discarded, its played for free as a follow-up.",
-			"RARITY": "COMMON"
+			"DESCRIPTION": "Gain 70 Armor. If this card is discarded, its played for free as a follow-up.",
+			"RARITY": "COMMON",
+			"TYPE": "DEFENSE"
 		},
 		"divination_card": {
 			"CARD_NAME": "Divination",
 			"COST": 1,
 			"DESCRIPTION": "Draw three cards, then discard two cards.",
-			"RARITY": "COMMON"
+			"RARITY": "COMMON",
+			"TYPE": "BUFF"
 		},
 		"arcane_insight_card": {
 			"CARD_NAME": "Arcane Insight",
 			"COST": 1,
 			"DESCRIPTION": "Deal 30% more damage for 2 turns. Draw 2 cards.",
-			"RARITY": "COMMON"
+			"RARITY": "COMMON",
+			"TYPE": "BUFF"
 		},
 		"frozen_guard_card": {
 			"CARD_NAME": "Frozen Guard",
 			"COST": 1,
-			"DESCRIPTION": "Deal 40 Cold Damage. If you've discarded a card this turn, gain 40 Armor and 4 Fortitude.",
-			"RARITY": "COMMON"
+			"DESCRIPTION": "Deal 60 Cold Damage. If you've discarded a card this turn, gain 40 Armor and 4 Fortitude.",
+			"RARITY": "COMMON",
+			"TYPE": "ATTACK"
 		},
 		"shock_card": {
 			"CARD_NAME": "Shock",
 			"COST": 1,
 			"DESCRIPTION": "Deal 60 Lightning Damage. Gain 2 Storm. The next 2 times you play a card, lose 1 Storm.",
-			"RARITY": "COMMON"
+			"RARITY": "COMMON",
+			"TYPE": "ATTACK"
 		},
 		"piercing_blows_card": {
 			"CARD_NAME": "Piercing Blows",
 			"COST": 1,
 			"DESCRIPTION": "Deal 70 Physical Damage. If the targeted enemy has Armor, this gains Multistrike x2 and applies 1 Daze.",
-			"RARITY": "COMMON"
+			"RARITY": "COMMON",
+			"TYPE": "ATTACK"
 		},
 		"crackling_strike_card": {
 			"CARD_NAME": "Crackling Strike",
 			"COST": 1,
 			"DESCRIPTION": "Deal 80 Lightning Damage. If this card is discarded, its played for free as a follow-up.",
-			"RARITY": "COMMON"
+			"RARITY": "COMMON",
+			"TYPE": "ATTACK"
 		},
 		"icicles_card": {
 			"CARD_NAME": "Icicles",
 			"COST": 1,
 			"DESCRIPTION": "Deal 80 Cold Damage. Gain 2 Fortitude.",
-			"RARITY": "COMMON"
+			"RARITY": "COMMON",
+			"TYPE": "ATTACK"
 		},
 		"war_armor_card": {
 			"CARD_NAME": "War Armor",
 			"COST": 1,
-			"DESCRIPTION": "Gain 45 Armor. Deal 40% more damage for 2 turns.",
-			"RARITY": "COMMON"
+			"DESCRIPTION": "Gain 40 Armor. Deal 40% more damage for 2 turns.",
+			"RARITY": "COMMON",
+			"TYPE": "DEFENSE"
+		},
+		"mana_crystal_card": {
+			"CARD_NAME": "Mana Crystal",
+			"COST": 0,
+			"DESCRIPTION": "Ephemeral. Gain 1 Energy next turn.",
+			"RARITY": "COMMON",
+			"TYPE": "BUFF"
 		},
 		"lightning_prayer_card": {
 			"CARD_NAME": "Lightning Prayer",
 			"COST": 1,
 			"DESCRIPTION": "Gain 2 Storm.",
-			"RARITY": "RARE"
+			"RARITY": "RARE",
+			"TYPE": "BUFF"
 		},
 		"guardian_card": {
 			"CARD_NAME": "Guardian",
 			"COST": 1,
 			"DESCRIPTION": "Hit enemy deas 40% less damage for 1 turn.",
-			"RARITY": "RARE"
+			"RARITY": "RARE",
+			"TYPE": "ATTACK"
 		}
 	},
 	"ScalingValues": {
@@ -257,6 +292,54 @@
 			"DEF": null,
 			"INT": "C",
 			"ARC": null
+		},
+		"sundering_strike_card": {
+			"STR": "B",
+			"DEX": "C",
+			"VIG": null,
+			"DEF": null,
+			"INT": null,
+			"ARC": null
+		},
+		"scorch_card": {
+			"STR": null,
+			"DEX": "C",
+			"VIG": null,
+			"DEF": null,
+			"INT": "B",
+			"ARC": null
+		},
+		"eldritch_blast_card": {
+			"STR": null,
+			"DEX": null,
+			"VIG": null,
+			"DEF": null,
+			"INT": "B",
+			"ARC": null
+		},
+		"burn_status": {
+			"STR": null,
+			"DEX": null,
+			"VIG": null,
+			"DEF": null,
+			"INT": null,
+			"ARC": "A"
+		},
+		"daze_status": {
+			"STR": "B",
+			"DEX": null,
+			"VIG": null,
+			"DEF": null,
+			"INT": null,
+			"ARC": "C"
+		},
+		"rancorous_bolt_card": {
+			"STR": null,
+			"DEX": null,
+			"VIG": null,
+			"DEF": null,
+			"INT": "B",
+			"ARC": "C"
 		}
 	},
 	"StatusEffects": {
@@ -287,7 +370,19 @@
 		"daze_status": {
 			"STATUS_NAME": "Daze",
 			"ICON_TYPE": "daze_debuff",
-			"DESCRIPTION": "Gains {2.5*STACKS}% less Armor. Deals {2*STACKS} Physical Damage on turn start, then loses 1 Daze. Scales with STR (B) and ARC (C).",
+			"DESCRIPTION": "Gains {2.5*STACKS}% less Armor. Deals {2*STACKS} Physical Damage on turn start. Loses 1 Daze on turn end. Scales with STR (B) and ARC (C).",
+			"STATUS_TYPE": "Debuff"
+		},
+		"mana_crystal_status": {
+			"STATUS_NAME": "Mana Crystal",
+			"ICON_TYPE": "mana_crystal_buff",
+			"DESCRIPTION": "Gains {STACKS} Energy next turn.",
+			"STATUS_TYPE": "Buff"
+		},
+		"rancorous_bolt_status": {
+			"STATUS_NAME": "Rancorous Bolt",
+			"ICON_TYPE": "damage_taken_percent_debuff",
+			"DESCRIPTION": "Takes 40% more damage.",
 			"STATUS_TYPE": "Debuff"
 		}
 	}

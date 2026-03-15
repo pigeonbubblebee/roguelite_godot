@@ -112,7 +112,8 @@ func update_actor_hud_info(armor = 0):
 	if _currently_connected_status:
 		var status = _currently_connected_status
 		
-		var stack_text = ("x" + str(status.get_stacks())) if not status.get_is_turn_based() else (str(status.get_stacks()) + " TURNS")
+		var turns_text = " TURN" if status.get_stacks() == 1 else " TURNS"
+		var stack_text = ("x" + str(status.get_stacks())) if not status.get_is_turn_based() else (str(status.get_stacks()) + turns_text)
 		status_text += "%s (%s):\n" % [status.get_name(), stack_text]
 		status_text += "%s\n" % status.get_description()
 	else:
@@ -122,7 +123,8 @@ func update_actor_hud_info(armor = 0):
 			status_text += "STATUS:\n"
 		
 		for status in active_status:
-			var stack_text = ("x" + str(status.get_stacks())) if not status.get_is_turn_based() else (str(status.get_stacks()) + " TURNS")
+			var turns_text = " TURN" if status.get_stacks() == 1 else " TURNS"
+			var stack_text = ("x" + str(status.get_stacks())) if not status.get_is_turn_based() else (str(status.get_stacks()) + turns_text)
 			var text = status.get_name() + " (" + stack_text + ")\n"
 			
 			status_text = status_text + text

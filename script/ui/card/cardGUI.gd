@@ -249,7 +249,7 @@ func tween_to_selected():
 		
 	if hover_tween:
 		hover_tween.kill()
-	
+	drag_original_position = global_position - hover_offset
 	# Tweens position up
 	return_to_hand_tween = create_tween()
 	return_to_hand_tween.tween_property(self, "global_position", hover_base_position + selected_offset, 0.12)\

@@ -13,8 +13,14 @@ func play(context: BattleContext, controller: BattleController):
 	damage_context.add_tag(DamageContext.TAG_CARD)
 	
 	var action = BattleRuntimeHelper.generate_heavy_attack_action(context)
+	var all_dead = true
 	for actor in hit_actors:
-		action.append_action(PlayParticleEffectAction.new(actor))
+		if not actor._processing_death:
+			all_dead = false
+			action.append_action(PlayParticleEffectAction.new(actor))
+	
+	if all_dead:
+		return
 	
 	controller.enqueue_action(action)
 	

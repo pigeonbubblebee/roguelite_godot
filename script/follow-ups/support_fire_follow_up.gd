@@ -1,9 +1,9 @@
 class_name SupportFireFollowUp
 extends FollowUp
 
-var damage : int = 50
+var damage : int = 40
 var status_id: String = "daze_status"
-var status_buildup : int = 2
+var status_buildup : int = 1
 
 func execute(dmg_context: DamageContext, context: BattleContext, controller: BattleController):
 	if dmg_context.hit_actors[0]._processing_death:

@@ -15,6 +15,9 @@ func get_is_turn_based() -> bool:
 func on_turn_start(actor: Actor, context: BattleContext, controller: BattleController):
 	if not actor == _owner:
 		return
+		
+	if actor._processing_death:
+		return
 
 	var hit_actors: Array[Actor] = [ actor ]
 	
@@ -30,10 +33,12 @@ func on_turn_start(actor: Actor, context: BattleContext, controller: BattleContr
 		PlayParticleEffectAction.new(actor),
 		ShakeCameraAction.new(0.65)
 	])
+	
+	action.started.connect(func():
+		controller.apply_damage(damage_context)
+	)
 
 	controller.enqueue_action(action)
-	
-	controller.apply_damage(damage_context)
 	
 	# Reduce Burn Stack by 1
 	

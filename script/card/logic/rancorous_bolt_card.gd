@@ -1,7 +1,10 @@
-class_name ThrustCard
+class_name RancorousBoltCard
 extends Card
 
-var damage : int = 75
+var damage : int = 130
+var status_turns : int = 2
+var status_id : String = "rancorous_bolt_status"
+var vuln_percent : float = 0.4
 
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
@@ -12,20 +15,18 @@ func play(context: BattleContext, controller: BattleController):
 	
 	var hit_actors: Array[Actor] = [ selected_enemy ]
 	var damage_context = BattleRuntimeHelper.generate_damage_context(damage, hit_actors, context.get_player())	
-	damage_context.source_name = "thrust_card"
+	damage_context.source_name = "strike_card"
 	damage_context.add_tag(DamageContext.TAG_CARD)
 	
 	var action = BattleRuntimeHelper.generate_basic_attack_action(context)
 	action.append_action(PlayParticleEffectAction.new(selected_enemy))
 	
-	var discard_selection_context = BattleRuntimeHelper.generate_discard_card_selection_context(context, controller)
-	action.append_action(CardSelectionAction.new(discard_selection_context))
-	
 	controller.enqueue_action(action)
 	
 	controller.apply_damage(damage_context)
 	
-	controller.draw_card()
+	var effect =  DamageTakenAmplificationEffect.new(status_id, selected_enemy, 
+		status_turns, vuln_percent)
 	
-	# Discards
-	controller.start_card_selection(discard_selection_context)
+	var application_status = StatusEffectApplicationContext.new(selected_enemy, effect, context.get_player())
+	controller.apply_status(application_status)

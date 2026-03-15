@@ -11,6 +11,6 @@ cost = 1
 texture = ExtResource("3_gqufa")
 target_drag = false
 title = ""
-type = 0
+type = 2
 logic = ExtResource("1_g70to")
 description = ""

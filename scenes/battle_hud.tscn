@@ -230,12 +230,13 @@ texture = ExtResource("8_oret0")
 
 [node name="energy_amount" type="Label" parent="stat_screen/energy_ui/energy_counter"]
 layout_mode = 0
-offset_left = 5.0
+offset_left = 4.0
 offset_top = -1.0
-offset_right = 11.0
+offset_right = 12.0
 offset_bottom = 12.0
 theme_override_fonts/font = ExtResource("7_3reef")
-text = "3"
+text = "0"
+horizontal_alignment = 1
 
 [node name="deck_count_label" type="Label" parent="stat_screen"]
 layout_mode = 0
@@ -312,12 +313,13 @@ texture = ExtResource("8_oret0")
 
 [node name="energy_amount" type="Label" parent="energy_ui2/energy_counter"]
 layout_mode = 0
-offset_left = 5.0
+offset_left = 4.0
 offset_top = -1.0
-offset_right = 11.0
+offset_right = 12.0
 offset_bottom = 12.0
 theme_override_fonts/font = ExtResource("7_3reef")
-text = "3"
+text = "0"
+horizontal_alignment = 1
 
 [node name="actor_screen" type="Control" parent="."]
 layout_mode = 1

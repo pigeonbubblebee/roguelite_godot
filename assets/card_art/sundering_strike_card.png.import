@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6nyn317kg7b0"
-path="res://.godot/imported/vulnerable_debuff_icon.png-be4fccc23af386a70baa6a45850869ec.ctex"
+uid="uid://7ib0ksowsklm"
+path="res://.godot/imported/sundering_strike_card.png-89b15e5466bdb1a12801f8b7438240d5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/status_icons/vulnerable_debuff_icon.png"
-dest_files=["res://.godot/imported/vulnerable_debuff_icon.png-be4fccc23af386a70baa6a45850869ec.ctex"]
+source_file="res://assets/card_art/sundering_strike_card.png"
+dest_files=["res://.godot/imported/sundering_strike_card.png-89b15e5466bdb1a12801f8b7438240d5.ctex"]
 
 [params]
 
