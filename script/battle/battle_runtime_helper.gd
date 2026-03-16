@@ -3,7 +3,8 @@ class_name BattleRuntimeHelper
 static func generate_basic_attack_action(context: BattleContext, actor: Actor = context.get_player()) -> BattleVisualAction:
 	var parallel = ParallelAction.new([
 		MoveForwardAction.new(actor, 20, 0.12),
-		ShakeCameraAction.new(0.65)
+		ShakeCameraAction.new(0.65),
+		DelayAction.new()
 	])
 	
 	return parallel
@@ -11,7 +12,8 @@ static func generate_basic_attack_action(context: BattleContext, actor: Actor = 
 static func generate_basic_defense_action(context: BattleContext, actor: Actor = context.get_player()) -> BattleVisualAction:
 	var parallel = ParallelAction.new([
 		ShakeCameraAction.new(0.65),
-		PlayParticleEffectAction.new(actor, "armor")
+		PlayParticleEffectAction.new(actor, "armor"),
+		DelayAction.new()
 	])
 	
 	return parallel
@@ -20,7 +22,8 @@ static func generate_heavy_attack_action(context: BattleContext) -> BattleVisual
 	var parallel = ParallelAction.new([
 		MoveForwardAction.new(context.get_player(), 20, 0.12),
 		# SlashEffectAction.new(context.selected_enemy),
-		ShakeCameraAction.new(2, 0.12)
+		ShakeCameraAction.new(2, 0.12),
+		DelayAction.new()
 	])
 	
 	return parallel
@@ -50,11 +53,8 @@ static func generate_discard_card_selection_context(context: BattleContext, cont
 		
 	result.finished.connect(func(selected_cards):
 		if selected_cards:
-			var selected_card : Card
-			
-			selected_card = selected_cards[0]
-			
-			controller.discard_card(selected_card)
+			for selected_card in selected_cards:
+				controller.discard_card(selected_card)
 	)
 	
 	return result
@@ -63,5 +63,5 @@ static func generate_card_selection_context(context: BattleContext, controller: 
 	prompt : String, amount : int = 1) -> CardSelectionContext:
 	
 	var hand = controller.get_hand_manager().get_hand()	
-	var card_selection_context = CardSelectionContext.new(hand, CardSelectionContext.DISCARD_PROMPT)
+	var card_selection_context = CardSelectionContext.new(hand, CardSelectionContext.DISCARD_PROMPT, amount)
 	return card_selection_context

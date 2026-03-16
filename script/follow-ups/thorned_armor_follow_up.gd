@@ -2,6 +2,7 @@ class_name ThornedArmorFollowUp
 extends FollowUp
 
 var damage : int = 30
+var card_id : String = "thorned_armor_card"
 
 func execute(dmg_context: DamageContext, context: BattleContext, controller: BattleController):
 	var target : Actor
@@ -14,8 +15,7 @@ func execute(dmg_context: DamageContext, context: BattleContext, controller: Bat
 		return
 	
 	var action = BattleRuntimeHelper.generate_basic_attack_action(context)
-	action.append_action(PlayParticleEffectAction.new(target))
-	controller.enqueue_action(action)
+	action.append_action(CardArtAction.new(context.get_player(), card_id))
 	
 	action.started.connect(func():
 		var hit_actors: Array[Actor] = [ target ]
@@ -26,3 +26,5 @@ func execute(dmg_context: DamageContext, context: BattleContext, controller: Bat
 		
 		controller.apply_damage(damage_context)
 	)
+	
+	controller.enqueue_action(action)

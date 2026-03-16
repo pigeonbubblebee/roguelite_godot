@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=2 format=3 uid="uid://cw1dwvni6q2ur"]
+
+[ext_resource type="Script" path="res://script/card/card_resource.gd" id="1_8roxe"]
+
+[resource]
+script = ExtResource("1_8roxe")
+card_id = "mage_armor_card"
+cost = 1
+target_drag = true
+title = ""
+type = 0
+description = ""

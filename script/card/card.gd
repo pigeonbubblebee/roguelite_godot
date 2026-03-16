@@ -29,6 +29,9 @@ enum ResolveEffect {
 	DISCARD,
 	REMOVE
 }
+
+func on_discard(context, controller):
+	pass
 	
 func effect_on_resolve(context, controller) -> ResolveEffect:
 	return ResolveEffect.DISCARD

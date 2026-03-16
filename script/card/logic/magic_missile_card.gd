@@ -17,7 +17,7 @@ func play(context: BattleContext, controller: BattleController):
 		if random_enemy._processing_death:
 			return
 		
-		action.append_action(PlayParticleEffectAction.new(random_enemy, "magic_slash"))
+		action.append_action(PlayParticleEffectAction.new(random_enemy))
 		
 		controller.enqueue_action( action )
 		

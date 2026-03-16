@@ -111,6 +111,7 @@ func _setup_connections():
 	_turn_manager.turn_ended.connect(_on_turn_ended)
 	
 	_hand_manager.card_drawn.connect(_on_card_drawn)
+	_hand_manager.card_discarded.connect(_on_card_discarded)
 	# _hand_manager.card_played.connect(_on_card_played)
 	
 	_energy_manager.energy_change.connect(_on_energy_change)
@@ -163,6 +164,9 @@ func _on_enemy_turn_finish(actor: Actor):
 	
 func _on_card_drawn(card: Card):
 	card_drawn.emit(card)
+	
+func _on_card_discarded(card: Card):
+	_battle_context.event_bus.on_card_discarded.emit(card, _battle_context, self)
 
 func _on_card_played(card: Card):
 	request_play_card(card)
@@ -300,6 +304,7 @@ func add_card_to_hand(card_id : String, amt : int = 1):
 		
 func discard_card(card: Card):
 	_hand_manager.discard_card(card)
+	card.on_discard(_battle_context, self)
 		
 func free_actor(actor: Actor):
 	print(actor.actor_data.name + " DIED! PROCESSING REMOVAL")

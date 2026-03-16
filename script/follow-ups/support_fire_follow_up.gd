@@ -4,6 +4,7 @@ extends FollowUp
 var damage : int = 40
 var status_id: String = "daze_status"
 var status_buildup : int = 1
+var card_id : String = "support_fire_card"
 
 func execute(dmg_context: DamageContext, context: BattleContext, controller: BattleController):
 	if dmg_context.hit_actors[0]._processing_death:
@@ -11,6 +12,7 @@ func execute(dmg_context: DamageContext, context: BattleContext, controller: Bat
 	
 	var action = BattleRuntimeHelper.generate_basic_attack_action(context)
 	action.append_action(PlayParticleEffectAction.new(dmg_context.hit_actors[0]))
+	action.append_action(CardArtAction.new(context.get_player(), card_id))
 	controller.enqueue_action(action)
 	
 	action.started.connect(func():

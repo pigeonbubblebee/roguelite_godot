@@ -11,3 +11,5 @@ signal turn_started(actor: Actor, context: BattleContext, controller: BattleCont
 
 signal before_armor_applied(ctx: ArmorGainContext, context: BattleContext, controller: BattleController)
 signal armor_applied(ctx: ArmorGainContext, context: BattleContext, controller: BattleController)
+
+signal on_card_discarded(card : Card, context: BattleContext, controller: BattleController)
