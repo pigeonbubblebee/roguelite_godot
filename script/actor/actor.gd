@@ -17,6 +17,7 @@ signal damage_taken(dmg, ctx)
 signal armor_updated(armor)
 signal died(actor: Actor)
 signal armor_gained(amount)
+signal armor_reset_request(context: ArmorResetContext)
 
 var _processing_death = false
 
@@ -110,7 +111,9 @@ func add_armor(amt: int):
 	armor_gained.emit(amt)
 	
 func reset_armor():
-	_armor = 0
+	var context = ArmorResetContext.new(self, _armor)
+	armor_reset_request.emit(context)
+	_armor = context.calculate_final()
 	armor_updated.emit(_armor)
 	
 func has_armor() -> bool:

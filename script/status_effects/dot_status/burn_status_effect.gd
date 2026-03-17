@@ -4,8 +4,8 @@ extends StatusEffect
 var damage_owner
 var dot_damage : int = 10
 
-func _init(id: String, owner: Actor, _dmg_owner, stacks: int = 1):
-	super._init(id, owner, stacks)
+func _init(id: String, _dmg_owner, stacks: int = 1):
+	super._init(id, stacks)
 	
 	damage_owner = _dmg_owner
 	

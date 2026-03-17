@@ -12,7 +12,7 @@ func play(context: BattleContext, controller: BattleController):
 	
 	var hit_actors: Array[Actor] = [ selected_enemy ]
 	var damage_context = BattleRuntimeHelper.generate_damage_context(damage, hit_actors, context.get_player())	
-	damage_context.source_name = "strike_card"
+	damage_context.source_name = "shield_bash_card"
 	damage_context.add_tag(DamageContext.TAG_CARD)
 	
 	var action = BattleRuntimeHelper.generate_basic_attack_action(context)

@@ -30,7 +30,7 @@ func play(context: BattleContext, controller: BattleController):
 	controller.enqueue_action(action)
 	
 	for actor in hit_actors:
-		var effect = BurnStatusEffect.new(status_id, actor, context.get_player(), status_buildup)
+		var effect = BurnStatusEffect.new(status_id, context.get_player(), status_buildup)
 
 		var application_status = StatusEffectApplicationContext.new(actor, effect, context.get_player())
 		controller.apply_status(application_status)

@@ -17,7 +17,7 @@ func play(context: BattleContext, controller: BattleController):
 	damage_context.source_name = "sundering_strike_card"
 	damage_context.add_tag(DamageContext.TAG_CARD)
 	
-	var effect = DazeStatusEffect.new(status_id, selected_enemy, context.get_player(), status_buildup)
+	var effect = DazeStatusEffect.new(status_id, context.get_player(), status_buildup)
 	
 	var action = BattleRuntimeHelper.generate_basic_attack_action(context)
 	action.append_action(PlayParticleEffectAction.new(selected_enemy))

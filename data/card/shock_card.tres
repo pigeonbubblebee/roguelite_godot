@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=2 format=3 uid="uid://die4gb44h7e8q"]
+
+[ext_resource type="Script" path="res://script/card/card_resource.gd" id="1_mn8uh"]
+
+[resource]
+script = ExtResource("1_mn8uh")
+card_id = "shock_card"
+cost = 1
+target_drag = true
+title = ""
+type = 0
+description = ""

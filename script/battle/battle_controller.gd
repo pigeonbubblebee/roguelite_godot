@@ -77,6 +77,7 @@ func _create_actors(actors: Array[ActorData]):
 		_turn_manager.add_actor(actor_instance, _battle_context)
 		
 		actor_instance.died.connect(on_actor_death)
+		actor_instance.armor_reset_request.connect(on_armor_reset_request)
 		
 		actor_instance.reset_health()
 		
@@ -179,6 +180,9 @@ func _on_turn_ended(actor: Actor):
 		
 func on_actor_death(actor: Actor):
 	free_actor(actor)
+	
+func on_armor_reset_request(context: ArmorResetContext):
+	_battle_context.event_bus.on_armor_reset_request.emit(context, _battle_context, self)
 
 ## UI CONNECTIONS
 	
@@ -265,6 +269,7 @@ func resolve_card(card: Card):
 		
 	_energy_manager.use_energy(card.get_cost())
 	card_played.emit(card)
+	_battle_context.event_bus.on_card_played.emit(card, _battle_context, self)
 
 func apply_damage(ctx: DamageContext):
 	_battle_context.event_bus.before_damage_dealt.emit(ctx, _battle_context, self)
@@ -291,6 +296,7 @@ func apply_armor(ctx: ArmorGainContext):
 	_battle_context.event_bus.armor_applied.emit(ctx, _battle_context, self)
 	
 func apply_status(context: StatusEffectApplicationContext):
+	context.status.set_owner(context.actor)
 	context.actor.apply_status(context.status, _battle_context, self)
 	
 func draw_card(amt: int = 1):

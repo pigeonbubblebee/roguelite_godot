@@ -19,7 +19,7 @@ func play(context: BattleContext, controller: BattleController):
 	var armor_context = ArmorGainContext.new(context.get_player(), armor, context.get_player())
 	controller.apply_armor(armor_context)
 	
-	var effect = ThornedArmorStatusEffect.new(status_id, player, context.event_bus, 
+	var effect = ThornedArmorStatusEffect.new(status_id, context.event_bus, 
 		event_hook_name, stacks)
 	var application_status = StatusEffectApplicationContext.new(player, effect, player)
 	controller.apply_status(application_status)

@@ -12,8 +12,7 @@ var _icon_type : String
 signal expired(status: StatusEffect)
 signal stacks_changed(stacks: int)
 
-func _init(id : String, owner: Actor, stacks : int = 1):
-	_owner = owner
+func _init(id : String, stacks : int = 1):
 	_stacks = stacks
 	_status_id = id
 	
@@ -25,6 +24,9 @@ func _init(id : String, owner: Actor, stacks : int = 1):
 	_description = status["DESCRIPTION"]
 	
 	stacks_changed.emit(_stacks)
+	
+func set_owner(owner : Actor):
+	_owner = owner
 	
 func add_stacks(amt : int):
 	_stacks += amt

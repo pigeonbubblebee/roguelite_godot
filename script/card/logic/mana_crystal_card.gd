@@ -14,7 +14,7 @@ func play(context: BattleContext, controller: BattleController):
 	
 	controller.enqueue_action(BattleRuntimeHelper.generate_light_camera_shake_action())
 	
-	var effect = ManaCrystalEffect.new(status_id, player, 
+	var effect = ManaCrystalEffect.new(status_id, 
 		stacks)
 	var application_status = StatusEffectApplicationContext.new(player, effect, context.get_player())
 	controller.apply_status(application_status)

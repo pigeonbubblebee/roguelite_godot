@@ -14,7 +14,7 @@ func play(context: BattleContext, controller: BattleController):
 	
 	controller.enqueue_action(BattleRuntimeHelper.generate_light_camera_shake_action())
 	
-	var effect = SupportFireStatusEffect.new(status_id, player, context.event_bus, 
+	var effect = SupportFireStatusEffect.new(status_id, context.event_bus, 
 		event_hook_name, stacks)
 	var application_status = StatusEffectApplicationContext.new(player, effect, player)
 	controller.apply_status(application_status)

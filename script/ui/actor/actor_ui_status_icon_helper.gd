@@ -9,6 +9,7 @@ var daze_debuff_icon = preload("res://assets/ui/status_icons/daze_debuff_icon.pn
 var mana_crystal_buff_icon = preload("res://assets/ui/status_icons/mana_crystal_buff_icon.png")
 var damage_taken_percent_debuff_icon = preload("res://assets/ui/status_icons/damage_taken_percent_debuff_icon.png")
 var fortitude_buff_icon = preload("res://assets/ui/status_icons/fortitude_buff_icon.png")
+var general_debuff_icon = preload("res://assets/ui/status_icons/general_debuff_icon.png")
 
 var status_icon_scene : PackedScene = preload("res://scenes/status_label.tscn")
 
@@ -22,5 +23,6 @@ var status_texture_map: Dictionary = {
 	"daze_debuff": daze_debuff_icon,
 	"mana_crystal_buff": mana_crystal_buff_icon,
 	"damage_taken_percent_debuff" : damage_taken_percent_debuff_icon,
-	"fortitude_buff": fortitude_buff_icon
+	"fortitude_buff": fortitude_buff_icon,
+	"general_debuff": general_debuff_icon
 }

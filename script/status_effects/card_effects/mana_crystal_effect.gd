@@ -1,8 +1,8 @@
 class_name ManaCrystalEffect
 extends StatusEffect
 
-func _init(id: String, owner: Actor, stacks: int = 1):
-	super._init(id, owner, stacks)
+func _init(id: String, stacks: int = 1):
+	super._init(id, stacks)
 	
 func get_is_turn_based() -> bool:
 	return false

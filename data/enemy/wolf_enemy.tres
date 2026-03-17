@@ -11,4 +11,4 @@ name = "WolfEnemy"
 icon_texture = ExtResource("2_5edic")
 actor_script = ExtResource("1_i6vtf")
 ui_scene = ExtResource("4_bx50c")
-max_health = 200
+max_health = 400

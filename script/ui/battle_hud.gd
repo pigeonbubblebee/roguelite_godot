@@ -89,7 +89,7 @@ func on_hovered_status_icon_change(actor: ActorUI, status_effect: StatusEffect):
 		disconnect_actor_from_hud(_currently_connected_actor)
 
 func connect_actor_to_hud(actor: Actor):
-	actor.armor_gained.connect(update_actor_hud_info)
+	actor.armor_updated.connect(update_actor_hud_info)
 	actor.health_updated.connect(update_actor_hud_info)
 	actor.get_status_manager().status_updated.connect(update_actor_hud_info)
 	
@@ -97,7 +97,7 @@ func connect_actor_to_hud(actor: Actor):
 	#actor.health_updated.connect(update_actor_hud_info)
 	
 func disconnect_actor_from_hud(actor: Actor):
-	actor.armor_gained.disconnect(update_actor_hud_info)
+	actor.armor_updated.disconnect(update_actor_hud_info)
 	actor.health_updated.disconnect(update_actor_hud_info)
 	actor.get_status_manager().status_updated.disconnect(update_actor_hud_info)
 	actor_label.text = "No Enemy Selected"

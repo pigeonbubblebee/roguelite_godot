@@ -1,8 +1,8 @@
 class_name ThornedArmorStatusEffect
 extends FollowUpStatusEffect
 
-func _init(id: String, owner: Actor, event_bus: BattleEventBus, event_hook_name: String, stacks: int = 1):
-	super._init(id, owner, event_bus, event_hook_name, stacks)
+func _init(id: String, event_bus: BattleEventBus, event_hook_name: String, stacks: int = 1):
+	super._init(id, event_bus, event_hook_name, stacks)
 
 func on_turn_start(actor: Actor, context: BattleContext, controller: BattleController):
 	if not actor == _owner:

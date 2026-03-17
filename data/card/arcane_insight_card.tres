@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=2 format=3 uid="uid://cqrhnlx141xge"]
+
+[ext_resource type="Script" path="res://script/card/card_resource.gd" id="1_n6rfm"]
+
+[resource]
+script = ExtResource("1_n6rfm")
+card_id = "arcane_insight_card"
+cost = 1
+target_drag = true
+title = ""
+type = 0
+description = ""
