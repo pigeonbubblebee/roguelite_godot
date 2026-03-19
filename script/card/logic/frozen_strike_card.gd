@@ -4,7 +4,7 @@ extends Card
 var damage : int = 50
 var armor : int = 40
 var status_id : String = "fortitude_status"
-var stacks : int = 8
+var stacks : int = 2
 
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
@@ -25,16 +25,18 @@ func play(context: BattleContext, controller: BattleController):
 	
 	action.append_action(PlayParticleEffectAction.new(context.get_player(), "armor"))
 	
-	controller.enqueue_action(action)
-	
 	var armor_context = ArmorGainContext.new(context.get_player(), armor, context.get_player())
 	
-	var effect = FortitudeEffect.new(status_id, 
+	var effect = FortitudeStatusEffect.new(status_id, 
 		stacks)
 	var application_status = StatusEffectApplicationContext.new(context.get_player(), effect, context.get_player())
 	
-	controller.apply_status(application_status)
+	action.started.connect(func():
+		controller.apply_status(application_status)
 	
-	controller.apply_armor(armor_context)
+		controller.apply_armor(armor_context)
+		
+		controller.apply_damage(damage_context)
+	)
+	controller.enqueue_action(action)
 	
-	controller.apply_damage(damage_context)

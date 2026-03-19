@@ -143,14 +143,14 @@
     "frozen_strike_card": {
       "CARD_NAME": "Frozen Strike",
       "COST": 1,
-      "DESCRIPTION": "Deal 50 Cold Damage. Gain 40 Armor and 8 Fortitude.",
+      "DESCRIPTION": "Deal 50 Cold Damage. Gain 40 Armor and 4 Fortitude.",
       "RARITY": "COMMON",
       "TYPE": "ATTACK"
     },
-    "shock_card": {
-      "CARD_NAME": "Shock",
+    "discharge_card": {
+      "CARD_NAME": "Discharge",
       "COST": 1,
-      "DESCRIPTION": "Deal 40 Lightning Damage. Gain 3 Storm. The next 3 times you play a card, lose 1 Storm.",
+      "DESCRIPTION": "Deal 40 Lightning Damage. Gain 3 Storm this turn.",
       "RARITY": "COMMON",
       "TYPE": "ATTACK"
     },
@@ -171,14 +171,14 @@
     "frost_barrier_card": {
       "CARD_NAME": "Frost Barrier",
       "COST": 2,
-      "DESCRIPTION": "Gain 140 Armor. Gain 12 Fortitude.",
+      "DESCRIPTION": "Gain 140 Armor. Gain 6 Fortitude.",
       "RARITY": "COMMON",
       "TYPE": "DEFENSE"
     },
     "war_armor_card": {
       "CARD_NAME": "War Armor",
       "COST": 1,
-      "DESCRIPTION": "Gain 40 Armor. Deal 60% more damage for 1 turns.",
+      "DESCRIPTION": "Gain 40 Armor. Deal 60% more damage for 1 turn.",
       "RARITY": "COMMON",
       "TYPE": "DEFENSE"
     },
@@ -389,7 +389,7 @@
       "INT": "C",
       "ARC": null
     },
-    "frost_barrier": {
+    "frost_barrier_card": {
       "STR": null,
       "DEX": null,
       "VIG": null,
@@ -397,12 +397,20 @@
       "INT": null,
       "ARC": null
     },
-    "war_armor": {
+    "war_armor_card": {
       "STR": "C",
       "DEX": null,
       "VIG": null,
       "DEF": "B",
       "INT": null,
+      "ARC": null
+    },
+    "discharge_card": {
+      "STR": null,
+      "DEX": "B",
+      "VIG": null,
+      "DEF": null,
+      "INT": "C",
       "ARC": null
     }
   },
@@ -464,7 +472,7 @@
     "fortitude_status": {
       "STATUS_NAME": "Fortitude",
       "ICON_TYPE": "fortitude_buff",
-      "DESCRIPTION": "If you would lose armor between turns, for every 10 armor lost, lose 1 fortitude instead.",
+      "DESCRIPTION": "Keeps up to {10*STACKS} Armor between turns. Loses 1 Fortitude on turn start.",
       "STATUS_TYPE": "Buff"
     },
     "shock_status": {
@@ -478,6 +486,12 @@
       "ICON_TYPE": "damage_percent_buff",
       "DESCRIPTION": "Deal 60% more damage.",
       "STATUS_TYPE": "Buff"
+    },
+    "discharge_status": {
+      "STATUS_NAME": "Discharge",
+      "ICON_TYPE": "general_debuff",
+      "DESCRIPTION": "Lose 3 Storm on turn end.",
+      "STATUS_TYPE": "Debuff"
     }
   }
 }

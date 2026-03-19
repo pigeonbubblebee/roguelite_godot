@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cal3ok533lipw"]
+[gd_scene load_steps=9 format=3 uid="uid://cal3ok533lipw"]
 
 [ext_resource type="Script" path="res://script/ui/actor/actor_ui.gd" id="1_irjik"]
 [ext_resource type="PackedScene" uid="uid://cy6wrp2uhuvia" path="res://scenes/damage_number.tscn" id="2_1vb0m"]
-[ext_resource type="Texture2D" uid="uid://cdthgn4v8ncgr" path="res://assets/player_battle_sprite.png" id="2_5u0ne"]
 [ext_resource type="Texture2D" uid="uid://dchwacvnpfc5s" path="res://assets/target.png" id="3_u28hi"]
+[ext_resource type="Texture2D" uid="uid://futya47oaovw" path="res://assets/ui/actor_sprites/vagabond_sprite.png" id="4_anshv"]
+[ext_resource type="Texture2D" uid="uid://c5cf31mcqr2if" path="res://assets/ui/actor_sprites/longsword_sprite.png" id="4_popdn"]
 [ext_resource type="Texture2D" uid="uid://jao2y28ny783" path="res://assets/ui/armor_bar_progress.png" id="5_7v68v"]
 [ext_resource type="Texture2D" uid="uid://f35k1od0fyv7" path="res://assets/ui/bar_background.png" id="6_ic64j"]
 [ext_resource type="Texture2D" uid="uid://j45m7srcw3sn" path="res://assets/ui/health_bar_progress.png" id="7_omnbu"]
@@ -46,17 +47,17 @@ offset_bottom = 70.0
 grow_horizontal = 2
 mouse_filter = 2
 
-[node name="sprite" type="TextureRect" parent="Control"]
+[node name="base_sprite" type="TextureRect" parent="Control"]
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
-texture = ExtResource("2_5u0ne")
+texture = ExtResource("4_anshv")
 
-[node name="sprite2" type="TextureRect" parent="Control"]
+[node name="weapon_sprite" type="TextureRect" parent="Control"]
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
-texture = ExtResource("2_5u0ne")
+texture = ExtResource("4_popdn")
 
 [node name="target" type="TextureRect" parent="Control"]
 visible = false

@@ -1,9 +1,8 @@
-class_name FortitudeEffect
+class_name FortitudeStatusEffect
 extends StatusEffect
 
 func _init(id: String, _stacks: int = 1):
 	super._init(id, _stacks)
-
 
 func on_apply(_context: BattleContext, _controller: BattleController):
 	super.on_apply(_context, _controller)
@@ -13,11 +12,11 @@ func on_armor_reset_request(context:ArmorResetContext, b_context, controller):
 	if not context.actor == _owner:
 		return
 	
-	var amount = min(_stacks, floor(context.amount / 10))
+	var amount = min(_stacks * 10, context.amount)
 	
-	context.amount_reduction += 10 * amount
+	context.amount_reduction += amount
 	
-	reduce_stacks(amount)
+	reduce_stacks()
 	
 func get_is_turn_based() -> bool:
 	return false

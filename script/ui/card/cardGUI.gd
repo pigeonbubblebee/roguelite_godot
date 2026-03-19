@@ -92,10 +92,11 @@ func _process(_delta):
 		arc.visible = true
 		arc.points = _get_points()
 		
-		if context.get_hovered_enemy():
-			arc.default_color = Color.RED
-		else:
-			arc.default_color = Color.WHITE
+		if context:
+			if context.get_hovered_enemy():
+				arc.default_color = Color.RED
+			else:
+				arc.default_color = Color.WHITE
 	elif current_card_state == drag_state:
 		var distance = global_position.distance_to(drag_original_position)
 	

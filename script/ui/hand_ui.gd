@@ -33,7 +33,8 @@ signal card_ui_play_request(cardGUI, card_logic)
 
 enum InputType {
 	BATTLE,
-	SELECTION
+	SELECTION,
+	VIEW
 }
 
 # TEMP

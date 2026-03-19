@@ -81,6 +81,21 @@ func get_card(card_id: String) -> Dictionary:
 	if(not cards.has(card_id)):
 		push_error("Cannot find card: " + card_id)
 	return cards.get(card_id, null)
+
+func get_all_valid_cards() -> Array:
+	var res = []
+	for card in cards:
+		var dic = get_card(card)
+		
+		if not dic:
+			continue
+		
+		if not (dic["TEXTURE"] && dic["SCRIPT"]):
+			continue
+		
+		res.append(dic)
+		
+	return res
 	
 func get_scaling(card_id: String, stat: String):
 	if !cards.has(card_id):

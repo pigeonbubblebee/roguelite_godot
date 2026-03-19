@@ -237,7 +237,7 @@ mouse_filter = 1
 script = ExtResource("16_5tote")
 _ui_path = NodePath("card_view_ui")
 card_ui_scene = ExtResource("5_34irb")
-_card_ui_container_path = NodePath("card_view_ui/card_ui_container2/card_ui_container")
+_card_ui_container_path = NodePath("card_view_ui/card_ui_container")
 
 [node name="card_view_ui" type="Control" parent="card_view"]
 layout_mode = 3
@@ -273,34 +273,23 @@ anchors_preset = -1
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -194.0
-offset_top = 86.0
+offset_top = 49.0
 offset_right = 194.0
-offset_bottom = 109.0
+offset_bottom = 72.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("12_7i6l6")
 text = "Deck"
 horizontal_alignment = 1
 
-[node name="card_ui_container2" type="Control" parent="card_view/card_view_ui"]
-clip_contents = true
-layout_mode = 2
-anchors_preset = 0
-offset_left = -315.0
-offset_top = -80.0
-offset_right = 307.0
-offset_bottom = 179.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-
-[node name="card_ui_container" type="Control" parent="card_view/card_view_ui/card_ui_container2"]
+[node name="card_ui_container" type="Control" parent="card_view/card_view_ui"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 10.0
+offset_left = -315.0
+offset_top = -61.0
+offset_right = 275.0
+offset_bottom = 139.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
 mouse_filter = 2

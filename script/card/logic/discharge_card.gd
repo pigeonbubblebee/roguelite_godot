@@ -1,4 +1,4 @@
-class_name ShockCard
+class_name DischargeCard
 extends Card
 
 var damage : int = 40
@@ -6,7 +6,7 @@ var stacks : int = 3
 var status_id : String = "storm_status"
 
 var stacks_2 : int = 3
-var status_id_2 : String = "shock_status"
+var status_id_2 : String = "discharge_status"
 
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
@@ -18,7 +18,7 @@ func play(context: BattleContext, controller: BattleController):
 	
 	var hit_actors: Array[Actor] = [ selected_enemy ]
 	var damage_context = BattleRuntimeHelper.generate_damage_context(damage, hit_actors, context.get_player())	
-	damage_context.source_name = "shock_card"
+	damage_context.source_name = "discharge_card"
 	damage_context.add_tag(DamageContext.TAG_CARD)
 	
 	var action = BattleRuntimeHelper.generate_basic_attack_action(context)
@@ -34,15 +34,13 @@ func play(context: BattleContext, controller: BattleController):
 			effect_storm, context.get_player())
 		
 		controller.apply_status(application_status_storm)
-	)
-	
-	action.finished.connect(func():
-		var effect_shock = ShockEffect.new(status_id_2, stacks_2)
 		
-		var application_status_shock = StatusEffectApplicationContext.new(context.get_player(), 
+		var effect_shock = DischargeStatusEffect.new(status_id_2, stacks_2)
+		
+		var application_status_discharge = StatusEffectApplicationContext.new(context.get_player(), 
 			effect_shock, context.get_player())
 			
-		controller.apply_status(application_status_shock)
+		controller.apply_status(application_status_discharge)
 	)
 	
 	controller.enqueue_action(action)

@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://cjoeofe24sn7e" path="res://data/card/frozen_strike_card.tres" id="3_0637b"]
 [ext_resource type="Resource" uid="uid://oqgg3gigb3h4" path="res://data/card/bulwark_card.tres" id="3_ae3l6"]
 [ext_resource type="Resource" uid="uid://cw1dwvni6q2ur" path="res://data/card/mage_armor_card.tres" id="5_wqk18"]
-[ext_resource type="Resource" uid="uid://die4gb44h7e8q" path="res://data/card/shock_card.tres" id="9_ewdxm"]
+[ext_resource type="Resource" uid="uid://die4gb44h7e8q" path="res://data/card/discharge_card.tres" id="9_ewdxm"]
 [ext_resource type="Resource" uid="uid://cgbqf0gktmv5c" path="res://data/card/frost_barrier_card.tres" id="10_hocku"]
 [ext_resource type="Resource" uid="uid://ys8gerd1vt6l" path="res://data/card/support_fire_card.tres" id="10_mgq6d"]
 [ext_resource type="Resource" uid="uid://brv1li235j2v5" path="res://data/card/war_armor_card.tres" id="11_blc6b"]
