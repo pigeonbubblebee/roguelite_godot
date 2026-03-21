@@ -12,13 +12,17 @@ func clone() -> DefendActorPremove:
 func execute(context: BattleContext, controller: BattleController):
 	var action = BattleRuntimeHelper.generate_basic_defense_action(context, actor)
 
-	action.finished.connect(_finish_move)
+	var custom_action = BattleRuntimeHelper.generate_basic_defense_action(context)
+
+	EffectSequenceBuilder.new(context, controller)\
+		.as_actor(actor)\
+		.use_action(custom_action)\
+		.armor(actor, amount)\
+		.enqueue()
+		
+	await context.await_battle_actions()
 	
-	controller.enqueue_action(action)
-	
-	var armor_context = ArmorGainContext.new(actor, amount, actor)
-	
-	controller.apply_armor(armor_context)
+	finished.emit()
 
 func _finish_move():
 	finished.emit()

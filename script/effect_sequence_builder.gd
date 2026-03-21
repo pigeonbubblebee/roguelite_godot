@@ -27,6 +27,15 @@ func as_card(card: Card) -> EffectSequenceBuilder:
 	add_tag(DamageContext.TAG_CARD)
 	return self
 
+func as_actor(actor: Actor) -> EffectSequenceBuilder:
+	set_owner(actor)
+	return self
+	
+func as_follow_up(fua: FollowUp) -> EffectSequenceBuilder:
+	add_tag(DamageContext.TAG_FOLLOW_UP)
+	set_source(fua.get_follow_up_id())
+	return self
+
 func set_source(name: String) -> EffectSequenceBuilder:
 	_override_source = name
 	return self
@@ -225,7 +234,7 @@ func enqueue() -> void:
 	
 	var action: BattleVisualAction = _custom_action
 	if action == null:
-		action = BattleRuntimeHelper.generate_basic_attack_action(context)
+		action = BattleRuntimeHelper.generate_basic_attack_action(context, _get_owner())
 	
 	# Build visuals
 	for s in _steps:

@@ -58,6 +58,10 @@ func set_team_position(position: int) -> void:
 func get_team_position() -> int:
 	return _team_position	
 
+func get_actor_id() -> String:
+	push_error("get_actor_id not implemented")
+	return ""
+
 # return value: Health/Armor Lost
 func take_damage(damage: int, context: DamageContext)-> Array[int] :
 	var taken_damage = damage

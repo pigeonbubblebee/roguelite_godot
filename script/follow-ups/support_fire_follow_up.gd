@@ -4,30 +4,18 @@ extends FollowUp
 var damage : int = 40
 var status_id: String = "daze_status"
 var status_buildup : int = 1
-var card_id : String = "support_fire_card"
+var source_id : String = "support_fire_follow_up"
+var damage_type : DamageType.Type = DamageType.Type.PHYSICAL
 
 func execute(dmg_context: DamageContext, context: BattleContext, controller: BattleController):
-	if dmg_context.hit_actors[0]._processing_death:
-		return
+	var target = dmg_context.hit_actors[0]
+	var effect = DazeStatusEffect.new(status_id, context.get_player(), status_buildup)
 	
-	var action = BattleRuntimeHelper.generate_basic_attack_action(context)
-	action.append_action(PlayParticleEffectAction.new(dmg_context.hit_actors[0]))
-	action.append_action(CardArtAction.new(context.get_player(), card_id))
-	controller.enqueue_action(action)
-	
-	action.started.connect(func():
-		var hit_actors: Array[Actor] = [ dmg_context.hit_actors[0] ]
-		
-		var effect = DazeStatusEffect.new(status_id, context.get_player(), status_buildup)
-		var application_status = StatusEffectApplicationContext.new(dmg_context.hit_actors[0], effect, context.get_player())
-		controller.apply_status(application_status)
-		
-		var damage_context = BattleRuntimeHelper.generate_damage_context(damage, 
-			hit_actors, context.get_player())	
-		damage_context.source_name = SupportFireCard.SUPPORT_FIRE_DAMAGE_SOURCE_NAME
-		damage_context.add_tag(DamageContext.TAG_FOLLOW_UP)
-		
-		controller.apply_damage(damage_context)
-		
-		
-	)
+	EffectSequenceBuilder.new(context, controller)\
+		.as_follow_up(self)\
+		.damage(target, damage, damage_type)\
+		.apply_status(target, effect)\
+		.enqueue()
+
+func get_follow_up_id() -> String:
+	return source_id
