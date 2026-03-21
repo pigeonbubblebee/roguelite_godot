@@ -2,29 +2,23 @@ class_name FlamingStrikeCard
 extends Card
 
 var damage : int = 40
-var status_buildup : int = 4
+var status_stacks : int = 4
 var status_id : String = "burn_status"
+var damage_type : DamageType.Type = DamageType.Type.FIRE
 
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
 	
-	var selected_enemy = context.get_selected_enemy()
+	var target = context.get_selected_enemy()
+	var effect = BurnStatusEffect.new(
+		status_id, 
+		context.get_player(), 
+		status_stacks)
 	
-	if selected_enemy._processing_death:
-		return
+	EffectSequenceBuilder.new(context, controller)\
+		.as_card(self)\
+		.damage(target, damage, damage_type)\
+		.apply_status(target, effect)\
+		.enqueue()
 	
-	var hit_actors: Array[Actor] = [ selected_enemy ]
-	var damage_context = BattleRuntimeHelper.generate_damage_context(damage, hit_actors, context.get_player())	
-	damage_context.source_name = "flaming_strike_card"
-	damage_context.add_tag(DamageContext.TAG_CARD)
 	
-	var action = BattleRuntimeHelper.generate_basic_attack_action(context)
-	action.append_action(PlayParticleEffectAction.new(selected_enemy))
-	controller.enqueue_action(action)
-	
-	var effect = BurnStatusEffect.new(status_id, context.get_player(), status_buildup)
-	
-	var application_status = StatusEffectApplicationContext.new(selected_enemy, effect, context.get_player())
-	controller.apply_status(application_status)
-	
-	controller.apply_damage(damage_context)

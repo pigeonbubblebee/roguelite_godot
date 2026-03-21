@@ -2,45 +2,30 @@ class_name DischargeCard
 extends Card
 
 var damage : int = 40
-var stacks : int = 3
-var status_id : String = "storm_status"
+var stacks_storm : int = 3
+var status_id_storm : String = "storm_status"
 
-var stacks_2 : int = 3
-var status_id_2 : String = "discharge_status"
+var stacks_discharge : int = 3
+var status_id_discharge : String = "discharge_status"
+
+var damage_type : DamageType.Type = DamageType.Type.LIGHTNING
 
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
 	
-	var selected_enemy = context.get_selected_enemy()
+	var player = context.get_player()
+	var target = context.get_selected_enemy()
+	var effect_storm = StormStatusEffect.new(
+		status_id_storm, 
+		context.event_bus, 
+		stacks_storm)
+	var effect_discharge = DischargeStatusEffect.new(
+		status_id_discharge,
+		stacks_discharge)
 	
-	if selected_enemy._processing_death:
-		return
-	
-	var hit_actors: Array[Actor] = [ selected_enemy ]
-	var damage_context = BattleRuntimeHelper.generate_damage_context(damage, hit_actors, context.get_player())	
-	damage_context.source_name = "discharge_card"
-	damage_context.add_tag(DamageContext.TAG_CARD)
-	
-	var action = BattleRuntimeHelper.generate_basic_attack_action(context)
-	action.append_action(PlayParticleEffectAction.new(selected_enemy))
-	
-	action.started.connect(func():
-		controller.apply_damage(damage_context)
-		
-		var effect_storm = StormStatusEffect.new(status_id, 
-		context.event_bus, stacks)
-		
-		var application_status_storm = StatusEffectApplicationContext.new(context.get_player(), 
-			effect_storm, context.get_player())
-		
-		controller.apply_status(application_status_storm)
-		
-		var effect_shock = DischargeStatusEffect.new(status_id_2, stacks_2)
-		
-		var application_status_discharge = StatusEffectApplicationContext.new(context.get_player(), 
-			effect_shock, context.get_player())
-			
-		controller.apply_status(application_status_discharge)
-	)
-	
-	controller.enqueue_action(action)
+	EffectSequenceBuilder.new(context, controller)\
+		.as_card(self)\
+		.damage(target, damage, damage_type)\
+		.apply_status(player, effect_storm)\
+		.apply_status(player, effect_discharge)\
+		.enqueue()

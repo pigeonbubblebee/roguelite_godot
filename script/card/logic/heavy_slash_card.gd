@@ -3,28 +3,20 @@ extends Card
 
 var damage : int = 80
 var blast_damage : int = 40
+var damage_type : DamageType.Type = DamageType.Type.PHYSICAL
 
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
 	
 	var hit_actors = context.get_selected_enemies_blast()
-	var damage_context = BattleRuntimeHelper.generate_damage_context(damage, hit_actors, context.get_player(), blast_damage)	
-	damage_context.source_name = "heavy_slash_card"
-	damage_context.add_tag(DamageContext.TAG_CARD)
+	var custom_action = BattleRuntimeHelper.generate_heavy_attack_action(context)
 	
-	var action = BattleRuntimeHelper.generate_heavy_attack_action(context)
-	var all_dead = true
-	for actor in hit_actors:
-		if not actor._processing_death:
-			all_dead = false
-			action.append_action(PlayParticleEffectAction.new(actor))
-	
-	if all_dead:
-		return
-	
-	controller.enqueue_action(action)
-	
-	controller.apply_damage(damage_context)
+	EffectSequenceBuilder.new(context, controller)\
+		.as_card(self)\
+		.use_action(custom_action)\
+		.multi_damage(hit_actors, damage, 
+			damage_type, blast_damage)\
+		.enqueue()
 	
 func get_target_index(total_targets: int, target_index: int) -> Array[int]:
 	return get_index_blast(total_targets, target_index)

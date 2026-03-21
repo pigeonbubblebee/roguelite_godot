@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5cf31mcqr2if"
-path="res://.godot/imported/longsword_sprite.png-278cfca6b573a51cea5710bd8c1c1e1a.ctex"
+uid="uid://by7pujim6se6q"
+path="res://.godot/imported/dagger_sprite.png-f6a39cda2f9dc57a08a13c23f4fdb3cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/actor_sprites/longsword_sprite.png"
-dest_files=["res://.godot/imported/longsword_sprite.png-278cfca6b573a51cea5710bd8c1c1e1a.ctex"]
+source_file="res://assets/ui/actor_sprites/weapon/dagger_sprite.png"
+dest_files=["res://.godot/imported/dagger_sprite.png-f6a39cda2f9dc57a08a13c23f4fdb3cf.ctex"]
 
 [params]
 

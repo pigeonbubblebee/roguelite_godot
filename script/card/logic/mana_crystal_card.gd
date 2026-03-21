@@ -11,13 +11,15 @@ func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
 	
 	var player = context.get_player()
-	
-	controller.enqueue_action(BattleRuntimeHelper.generate_light_camera_shake_action())
-	
+	var custom_action = BattleRuntimeHelper.generate_light_camera_shake_action()
 	var effect = ManaCrystalEffect.new(status_id, 
 		stacks)
-	var application_status = StatusEffectApplicationContext.new(player, effect, context.get_player())
-	controller.apply_status(application_status)
+	
+	EffectSequenceBuilder.new(context, controller)\
+		.as_card(self)\
+		.use_action(custom_action)\
+		.apply_status(player, effect)\
+		.enqueue()
 	
 	
 func get_buff_target_index(total_targets: int) -> Array[int]:

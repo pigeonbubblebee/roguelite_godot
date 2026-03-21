@@ -12,7 +12,7 @@ static func generate_basic_attack_action(context: BattleContext, actor: Actor = 
 static func generate_basic_defense_action(context: BattleContext, actor: Actor = context.get_player()) -> BattleVisualAction:
 	var parallel = ParallelAction.new([
 		ShakeCameraAction.new(0.65),
-		PlayParticleEffectAction.new(actor, "armor"),
+		#PlayParticleEffectAction.new(actor, "armor"),
 		DelayAction.new()
 	])
 	
@@ -29,7 +29,11 @@ static func generate_heavy_attack_action(context: BattleContext) -> BattleVisual
 	return parallel
 
 static func generate_light_camera_shake_action() -> BattleVisualAction:
-	return ShakeCameraAction.new(0.65)
+	var parallel = ParallelAction.new([
+		ShakeCameraAction.new(0.65)
+	])
+	
+	return parallel
 
 static func generate_damage_context(damage, hit_actors, damage_owner, blast_damage : int = 0, 
 	type : DamageType.Type = DamageType.Type.PHYSICAL) -> DamageContext:

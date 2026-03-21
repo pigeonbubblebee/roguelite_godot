@@ -12,17 +12,19 @@ func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
 	
 	var player = context.get_player()
-	
-	var action = BattleRuntimeHelper.generate_basic_defense_action(context)
-	controller.enqueue_action( action )
-	
-	var armor_context = ArmorGainContext.new(context.get_player(), armor, context.get_player())
-	controller.apply_armor(armor_context)
-	
-	var effect = ThornedArmorStatusEffect.new(status_id, context.event_bus, 
-		event_hook_name, stacks)
-	var application_status = StatusEffectApplicationContext.new(player, effect, player)
-	controller.apply_status(application_status)
+	var custom_action = BattleRuntimeHelper.generate_basic_defense_action(context)
+	var effect = ThornedArmorStatusEffect.new(
+		status_id, 
+		context.event_bus, 
+		event_hook_name, 
+		stacks)
+		
+	EffectSequenceBuilder.new(context, controller)\
+		.as_card(self)\
+		.use_action(custom_action)\
+		.armor(player, armor)\
+		.apply_status(player, effect)\
+		.enqueue()
 	
 	
 func get_buff_target_index(total_targets: int) -> Array[int]:

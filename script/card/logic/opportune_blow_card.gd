@@ -4,6 +4,8 @@ extends Card
 var damage : int = 30
 var multistrike_amount : int = 3
 
+var damage_type : DamageType.Type = DamageType.Type.PHYSICAL
+
 var status_type : String = "Debuff"
 
 func get_keywords() -> Array[String]:
@@ -12,37 +14,23 @@ func get_keywords() -> Array[String]:
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
 	
-	var selected_enemy = context.get_selected_enemy()
+	var target = context.get_selected_enemy()
 	
-	var status = selected_enemy.get_status_manager().get_active_status()
+	var status_effects = target.get_status_manager().get_active_status()
 	
-	var actual_amount = 1
+	var actual_multistrike_amount = 1
 	
-	for st in status:
-		print(st.status_type)
-		if st.status_type == status_type:
-			actual_amount = 3
+	for status in status_effects:
+		if status.status_type == status_type:
+			actual_multistrike_amount = 3
 	
-	for i in range(actual_amount):
-		if selected_enemy._processing_death:
-			return
+	for i in range(multistrike_amount):
+		EffectSequenceBuilder.new(context, controller)\
+			.as_card(self)\
+			.damage(target, damage, damage_type)\
+			.enqueue()
 		
-		var action = BattleRuntimeHelper.generate_basic_attack_action(context)
-		action.append_action(PlayParticleEffectAction.new(selected_enemy))
-		
-		controller.enqueue_action( action )
-		
-		var hit_actors: Array[Actor] = [ selected_enemy ]
-		
-		var damage_context = BattleRuntimeHelper.generate_damage_context(damage, hit_actors, context.get_player())	
-		damage_context.source_name = "opportune_blow_card"
-		damage_context.add_tag(DamageContext.TAG_CARD)
-		
-		controller.apply_damage(damage_context)
-		
-		if i == actual_amount - 1:
-			continue
-		
-		await context.await_battle_actions()
+		if i < multistrike_amount - 1:
+			await context.await_battle_actions()
 		
 	

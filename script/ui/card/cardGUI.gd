@@ -69,6 +69,8 @@ signal attempt_card_play(cardGUI, cardLogic)
 signal entered_drop_zone(card)
 signal exited_drop_zone(card)
 
+signal return_to_hand_tween_finished
+
 func _ready():
 	mouse_filter = Control.MOUSE_FILTER_PASS
 	
@@ -236,6 +238,10 @@ func tween_to_hand():
 		return_to_hand_tween.kill()
 	
 	return_to_hand_tween = create_tween()
+	
+	return_to_hand_tween.finished.connect(func():
+		return_to_hand_tween_finished.emit()
+	)
 	
 	return_to_hand_tween.tween_property(self, "global_position", drag_original_position, 0.15)\
 	.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)

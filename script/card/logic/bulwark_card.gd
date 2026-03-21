@@ -6,13 +6,13 @@ var armor : int = 75
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
 
-	var action = BattleRuntimeHelper.generate_basic_defense_action(context)
-	
-	action.started.connect( func():
-		var armor_context = ArmorGainContext.new(context.get_player(), armor, context.get_player())
-		controller.apply_armor(armor_context)
-	)
-	controller.enqueue_action( action )
+	var custom_action = BattleRuntimeHelper.generate_basic_defense_action(context)
+
+	EffectSequenceBuilder.new(context, controller)\
+		.as_card(self)\
+		.use_action(custom_action)\
+		.armor(context.get_player(), armor)\
+		.enqueue()
 
 func on_discard(context: BattleContext, controller: BattleController):
 	super.on_discard(context, controller)
