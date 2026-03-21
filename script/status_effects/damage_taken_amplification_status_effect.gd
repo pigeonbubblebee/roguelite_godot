@@ -1,4 +1,4 @@
-class_name DamageTakenAmplificationEffect
+class_name DamageTakenAmplificationStatusEffect
 extends StatusEffect
 
 var vuln_percent

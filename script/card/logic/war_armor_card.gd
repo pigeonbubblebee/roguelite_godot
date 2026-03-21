@@ -9,7 +9,7 @@ var damage_percent_gain : float = 0.6
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
 
-	var effect = DamageAmplificationEffect.new(status_id, 
+	var effect = DamageAmplificationStatusEffect.new(status_id, 
 		stacks, damage_percent_gain)
 	var custom_action = BattleRuntimeHelper.generate_basic_defense_action(context)
 	var player = context.get_player()

@@ -1,4 +1,4 @@
-class_name DamageAmplificationEffect
+class_name DamageAmplificationStatusEffect
 extends StatusEffect
 
 var damage_percent_bonus

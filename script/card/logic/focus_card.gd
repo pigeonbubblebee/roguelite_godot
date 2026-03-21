@@ -9,7 +9,7 @@ func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
 	
 	var player = context.get_player()
-	var effect = DamageAmplificationEffect.new(status_id, 
+	var effect = DamageAmplificationStatusEffect.new(status_id, 
 		turns, damage_percent_gain)
 	var custom_action = BattleRuntimeHelper.generate_light_camera_shake_action()
 	

@@ -1,4 +1,4 @@
-class_name ManaCrystalEffect
+class_name ManaCrystalStatusEffect
 extends StatusEffect
 
 func _init(id: String, stacks: int = 1):

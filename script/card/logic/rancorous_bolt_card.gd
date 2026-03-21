@@ -11,7 +11,7 @@ func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
 	
 	var target = context.get_selected_enemy()
-	var effect =  DamageTakenAmplificationEffect.new(status_id, 
+	var effect =  DamageTakenAmplificationStatusEffect.new(status_id, 
 		status_turns, vuln_percent)
 	
 	EffectSequenceBuilder.new(context, controller)\

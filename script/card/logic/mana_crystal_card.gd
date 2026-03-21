@@ -12,7 +12,7 @@ func play(context: BattleContext, controller: BattleController):
 	
 	var player = context.get_player()
 	var custom_action = BattleRuntimeHelper.generate_light_camera_shake_action()
-	var effect = ManaCrystalEffect.new(status_id, 
+	var effect = ManaCrystalStatusEffect.new(status_id, 
 		stacks)
 	
 	EffectSequenceBuilder.new(context, controller)\
