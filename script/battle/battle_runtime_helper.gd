@@ -57,11 +57,15 @@ static func generate_discard_card_selection_context(context: BattleContext, cont
 		
 	result.finished.connect(func(selected_cards):
 		if selected_cards:
-			for selected_card in selected_cards:
-				controller.discard_card(selected_card)
+			_handle_discard_sequence(selected_cards, context, controller)
 	)
 	
 	return result
+	
+static func _handle_discard_sequence(selected_cards, context, controller):
+	for selected_card in selected_cards:
+		controller.discard_card(selected_card)
+		await context.await_battle_actions()
 
 static func generate_card_selection_context(context: BattleContext, controller: BattleController, 
 	prompt : String, amount : int = 1) -> CardSelectionContext:

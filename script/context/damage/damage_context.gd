@@ -3,6 +3,7 @@ extends RefCounted
 
 const TAG_CARD = "card"
 const TAG_FOLLOW_UP = "follow_up"
+const TAG_STATUS_EFFECT = "status_effect"
 
 var source_name: String
 # Actual name of the damage provider, i e card name, status effect name, FuA name

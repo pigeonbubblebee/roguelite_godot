@@ -13,8 +13,12 @@ func execute(dmg_context: DamageContext, context: BattleContext, controller: Bat
 	var targets = dmg_context.hit_actors
 	var final_damage = damage * stacks
 	
+	var custom_action = BattleRuntimeHelper.generate_light_camera_shake_action()\
+		.set_priority(1)
+	
 	EffectSequenceBuilder.new(context, controller)\
 		.as_follow_up(self)\
+		.use_action(custom_action)\
 		.multi_damage(targets, final_damage, 
 			damage_type, final_damage)\
 		.enqueue()

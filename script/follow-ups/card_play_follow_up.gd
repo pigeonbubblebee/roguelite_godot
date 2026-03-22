@@ -9,11 +9,16 @@ func _init(_behavior: Callable, _card_id : String):
 	
 	card_id = _card_id
 
-
 func execute(context: BattleContext, controller: BattleController):
 	if behavior.is_valid():
-		var action = CardArtAction.new(context.get_player(), card_id)
+		EffectSequenceBuilder.new(context, controller)\
+			.as_follow_up(self)\
+			.use_action(ParallelAction.new([]))\
+			.step(
+				CardArtAction.new(context.get_player(), card_id),
+				func():behavior.call(context, controller)
+			)\
+			.enqueue()
 		
-		action.started.connect(func():behavior.call(context, controller))
-		
-		controller.enqueue_action(action)
+func get_follow_up_id() -> String:
+	return card_id

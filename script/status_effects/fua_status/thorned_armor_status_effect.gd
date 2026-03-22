@@ -7,9 +7,7 @@ func _init(id: String, event_bus: BattleEventBus, event_hook_name: String, stack
 func on_turn_start(actor: Actor, context: BattleContext, controller: BattleController):
 	if not actor == _owner:
 		return
-	
-	#print("turn start")	
-	
+
 	reduce_stacks()
 
 func execute(dmg_context: DamageContext , context: BattleContext, controller: BattleController):

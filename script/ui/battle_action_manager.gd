@@ -13,15 +13,32 @@ var current_action
 
 var _log_actions : bool = false
 
+var _action_counter: int = 0
+
+
 func bind(scene):
 	_scene = scene
 	#_context = context
 
 func enqueue(action: BattleVisualAction) -> void:
-	_action_queue.append(action)
+	_insert_action_sorted(action)
 
 	if not _is_processing_action:
 		_process_next()
+		
+func _insert_action_sorted(action: BattleVisualAction) -> void:
+	action._queue_order = _action_counter
+	_action_counter += 1
+	
+	for i in range(_action_queue.size()):
+		var other = _action_queue[i]
+		
+		if action.priority > other.priority \
+		or (action.priority == other.priority and action._queue_order < other._queue_order):
+			_action_queue.insert(i, action)
+			return
+	
+	_action_queue.append(action)
 
 func get_is_processing_action() -> bool:
 	return _is_processing_action

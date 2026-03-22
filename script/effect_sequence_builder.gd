@@ -35,6 +35,10 @@ func as_follow_up(fua: FollowUp) -> EffectSequenceBuilder:
 	add_tag(DamageContext.TAG_FOLLOW_UP)
 	set_source(fua.get_follow_up_id())
 	return self
+	
+func as_status(status: StatusEffect) -> EffectSequenceBuilder:
+	add_tag(DamageContext.TAG_STATUS_EFFECT)
+	return self
 
 func set_source(name: String) -> EffectSequenceBuilder:
 	_override_source = name
