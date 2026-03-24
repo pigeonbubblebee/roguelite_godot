@@ -5,203 +5,232 @@
       "COST": 1,
       "DESCRIPTION": "Deal 50 Physical Damage.",
       "RARITY": "COMMON",
-      "TYPE": "ATTACK"
+      "TYPE": "ATTACK",
+      "KEYWORDS": null
     },
     "guard_card": {
       "CARD_NAME": "Guard",
       "COST": 1,
       "DESCRIPTION": "Gain 50 Armor.",
       "RARITY": "COMMON",
-      "TYPE": "DEFENSE"
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor"
     },
     "heavy_slash_card": {
       "CARD_NAME": "Heavy Slash",
       "COST": 2,
       "DESCRIPTION": "Deal 80 Physical Damage and 40 to adjacent enemies.",
       "RARITY": "COMMON",
-      "TYPE": "ATTACK"
+      "TYPE": "ATTACK",
+      "KEYWORDS": null
     },
     "focus_card": {
       "CARD_NAME": "Focus",
       "COST": 1,
       "DESCRIPTION": "Deal 50% more damage for 2 turns.",
       "RARITY": "COMMON",
-      "TYPE": "BUFF"
+      "TYPE": "BUFF",
+      "KEYWORDS": null
     },
     "thrust_card": {
       "CARD_NAME": "Thrust",
       "COST": 1,
       "DESCRIPTION": "Deal 75 Physical Damage. Draw a card, then discard a card.",
       "RARITY": "COMMON",
-      "TYPE": "ATTACK"
+      "TYPE": "ATTACK",
+      "KEYWORDS": null
     },
     "quick_strike_card": {
       "CARD_NAME": "Quick Strike",
       "COST": 1,
       "DESCRIPTION": "Multistrike 2. Deal 40 Physical Damage.",
       "RARITY": "COMMON",
-      "TYPE": "ATTACK"
+      "TYPE": "ATTACK",
+      "KEYWORDS": "multistrike"
     },
     "shield_bash_card": {
       "CARD_NAME": "Shield Bash",
       "COST": 1,
       "DESCRIPTION": "Deal Physical Damage equal to your Armor.",
       "RARITY": "COMMON",
-      "TYPE": "ATTACK"
+      "TYPE": "ATTACK",
+      "KEYWORDS": "armor"
     },
     "magic_missile_card": {
       "CARD_NAME": "Magic Missile",
       "COST": 2,
       "DESCRIPTION": "Multistrike 3. Deal 45 Magic Damage to a random enemy.",
       "RARITY": "COMMON",
-      "TYPE": "ATTACK"
+      "TYPE": "ATTACK",
+      "KEYWORDS": "multistrike"
     },
     "support_fire_card": {
       "CARD_NAME": "Support Fire",
       "COST": 1,
       "DESCRIPTION": "The next 2 times you deal damage with a card, launch follow-up: Deal 40 Physical Damage. Apply 1 Daze.",
       "RARITY": "COMMON",
-      "TYPE": "BUFF"
+      "TYPE": "BUFF",
+      "KEYWORDS": "follow_up;daze"
     },
     "thorned_armor_card": {
       "CARD_NAME": "Thorned Armor",
       "COST": 1,
       "DESCRIPTION": "Gain 50 Armor. For 1 turn, when you lose any Armor, launch follow-up: Deal 30 Physical Damage.",
       "RARITY": "COMMON",
-      "TYPE": "DEFENSE"
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor;follow_up"
     },
     "flaming_strike_card": {
       "CARD_NAME": "Flaming Strike",
       "COST": 1,
       "DESCRIPTION": "Deal 40 Fire Damage. Apply 4 Burn.",
       "RARITY": "COMMON",
-      "TYPE": "ATTACK"
+      "TYPE": "ATTACK",
+      "KEYWORDS": "burn"
     },
     "mana_explosion_card": {
       "CARD_NAME": "Mana Explosion",
       "COST": 3,
       "DESCRIPTION": "Deal 210 Magic Damage to all enemies.",
       "RARITY": "COMMON",
-      "TYPE": "ATTACK"
+      "TYPE": "ATTACK",
+      "KEYWORDS": null
     },
     "sundering_strike_card": {
       "CARD_NAME": "Sundering Strike",
       "COST": 1,
       "DESCRIPTION": "Deal 70 Physical Damage. Apply 4 Daze.",
       "RARITY": "COMMON",
-      "TYPE": "ATTACK"
+      "TYPE": "ATTACK",
+      "KEYWORDS": "daze"
     },
     "scorch_card": {
       "CARD_NAME": "Scorch",
       "COST": 1,
       "DESCRIPTION": "Deal 50 Fire Damage and apply 2 Burn to all enemies.",
       "RARITY": "COMMON",
-      "TYPE": "ATTACK"
+      "TYPE": "ATTACK",
+      "KEYWORDS": "burn"
     },
     "eldritch_blast_card": {
       "CARD_NAME": "Eldritch Blast",
       "COST": 1,
       "DESCRIPTION": "Deal 90 Magic Damage. Add a Mana Crystal to your hand, then discard a card.",
       "RARITY": "COMMON",
-      "TYPE": "ATTACK"
+      "TYPE": "ATTACK",
+      "KEYWORDS": "mana_crystal"
     },
     "rancorous_bolt_card": {
       "CARD_NAME": "Rancorous Bolt",
       "COST": 2,
       "DESCRIPTION": "Deal 130 Cold Damage. Hit enemies take 40% more damage for 2 turns.",
       "RARITY": "COMMON",
-      "TYPE": "ATTACK"
+      "TYPE": "ATTACK",
+      "KEYWORDS": null
     },
     "mage_armor_card": {
       "CARD_NAME": "Mage Armor",
       "COST": 1,
       "DESCRIPTION": "Gain 80 Armor. Add a Mana Crystal to your hand.",
       "RARITY": "COMMON",
-      "TYPE": "DEFENSE"
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor;mana_crystal"
     },
     "bulwark_card": {
       "CARD_NAME": "Bulwark",
       "COST": 1,
       "DESCRIPTION": "Gain 75 Armor. If this card is discarded, its played for free as a follow-up.",
       "RARITY": "COMMON",
-      "TYPE": "DEFENSE"
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor;follow_up"
     },
     "divination_card": {
       "CARD_NAME": "Divination",
       "COST": 1,
       "DESCRIPTION": "Draw three cards, then discard two cards.",
       "RARITY": "COMMON",
-      "TYPE": "BUFF"
+      "TYPE": "BUFF",
+      "KEYWORDS": null
     },
     "arcane_insight_card": {
       "CARD_NAME": "Arcane Insight",
       "COST": 1,
       "DESCRIPTION": "Deal 30% more damage for 2 turns. Draw a card.",
       "RARITY": "COMMON",
-      "TYPE": "BUFF"
+      "TYPE": "BUFF",
+      "KEYWORDS": null
     },
     "frozen_strike_card": {
       "CARD_NAME": "Frozen Strike",
       "COST": 1,
-      "DESCRIPTION": "Deal 50 Cold Damage. Gain 40 Armor and 4 Fortitude.",
+      "DESCRIPTION": "Deal 50 Cold Damage. Gain 40 Armor and 2 Fortitude.",
       "RARITY": "COMMON",
-      "TYPE": "ATTACK"
+      "TYPE": "ATTACK",
+      "KEYWORDS": "armor;fortitude"
     },
     "discharge_card": {
       "CARD_NAME": "Discharge",
       "COST": 1,
       "DESCRIPTION": "Deal 40 Lightning Damage. Gain 3 Storm this turn.",
       "RARITY": "COMMON",
-      "TYPE": "ATTACK"
+      "TYPE": "ATTACK",
+      "KEYWORDS": "storm"
     },
     "opportune_blow_card": {
       "CARD_NAME": "Opportune Blow",
       "COST": 1,
       "DESCRIPTION": "Deal 30 Physical Damage. If the targeted enemy has a debuff, this gains Multistrike x3.",
       "RARITY": "COMMON",
-      "TYPE": "ATTACK"
+      "TYPE": "ATTACK",
+      "KEYWORDS": "multistrike"
     },
     "crackling_strike_card": {
       "CARD_NAME": "Crackling Strike",
       "COST": 1,
       "DESCRIPTION": "Deal 80 Lightning Damage. If this card is discarded, its played for free as a follow-up.",
       "RARITY": "COMMON",
-      "TYPE": "ATTACK"
+      "TYPE": "ATTACK",
+      "KEYWORDS": "follow_up"
     },
     "frost_barrier_card": {
       "CARD_NAME": "Frost Barrier",
       "COST": 2,
-      "DESCRIPTION": "Gain 140 Armor. Gain 6 Fortitude.",
+      "DESCRIPTION": "Gain 140 Armor. Gain 4 Fortitude.",
       "RARITY": "COMMON",
-      "TYPE": "DEFENSE"
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor;fortitude"
     },
     "war_armor_card": {
       "CARD_NAME": "War Armor",
       "COST": 1,
       "DESCRIPTION": "Gain 40 Armor. Deal 60% more damage for 1 turn.",
       "RARITY": "COMMON",
-      "TYPE": "DEFENSE"
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor"
     },
     "mana_crystal_card": {
       "CARD_NAME": "Mana Crystal",
       "COST": 0,
       "DESCRIPTION": "Ephemeral. Gain 1 Energy next turn.",
       "RARITY": "COMMON",
-      "TYPE": "BUFF"
+      "TYPE": "BUFF",
+      "KEYWORDS": "ephemeral"
     },
     "lightning_prayer_card": {
       "CARD_NAME": "Lightning Prayer",
       "COST": 1,
       "DESCRIPTION": "Gain 2 Storm.",
       "RARITY": "RARE",
-      "TYPE": "BUFF"
+      "TYPE": "BUFF",
+      "KEYWORDS": "storm"
     },
     "guardian_card": {
       "CARD_NAME": "Guardian",
       "COST": 1,
       "DESCRIPTION": "Hit enemy deas 40% less damage for 1 turn.",
       "RARITY": "RARE",
-      "TYPE": "ATTACK"
+      "TYPE": "ATTACK",
+      "KEYWORDS": null
     }
   },
   "ScalingValues": {
@@ -351,7 +380,7 @@
     },
     "bulwark_card": {
       "STR": null,
-      "DEX": null,
+      "DEX": "D",
       "VIG": null,
       "DEF": "B",
       "INT": null,
@@ -398,7 +427,7 @@
       "ARC": null
     },
     "war_armor_card": {
-      "STR": "C",
+      "STR": "D",
       "DEX": null,
       "VIG": null,
       "DEF": "B",
@@ -475,10 +504,10 @@
       "DESCRIPTION": "Keeps up to {10*STACKS} Armor between turns. Loses 1 Fortitude on turn start.",
       "STATUS_TYPE": "Buff"
     },
-    "shock_status": {
-      "STATUS_NAME": "Shock",
+    "discharge_status": {
+      "STATUS_NAME": "Discharge",
       "ICON_TYPE": "general_debuff",
-      "DESCRIPTION": "When you play a card, lose 1 Storm.",
+      "DESCRIPTION": "Lose 3 Storm on turn end.",
       "STATUS_TYPE": "Debuff"
     },
     "war_armor_status": {
@@ -486,12 +515,486 @@
       "ICON_TYPE": "damage_percent_buff",
       "DESCRIPTION": "Deal 60% more damage.",
       "STATUS_TYPE": "Buff"
+    }
+  },
+  "Keywords": {
+    "multistrike": {
+      "KEYWORD_NAME": "Multistrike",
+      "DESCRIPTION": "Deals damage multiple times."
     },
-    "discharge_status": {
-      "STATUS_NAME": "Discharge",
-      "ICON_TYPE": "general_debuff",
-      "DESCRIPTION": "Lose 3 Storm on turn end.",
-      "STATUS_TYPE": "Debuff"
+    "follow_up": {
+      "KEYWORD_NAME": "Follow-up",
+      "DESCRIPTION": "A special action that happens immediately after a condition is fulfilled."
+    },
+    "daze": {
+      "KEYWORD_NAME": "Daze",
+      "DESCRIPTION": "Reduces Armor gain & deals damage on turn start. On turn end, loses 1 Daze. (Scales: STR, ARC)"
+    },
+    "burn": {
+      "KEYWORD_NAME": "Burn",
+      "DESCRIPTION": "On turn start, deals damage and loses 1 Burn. (Scales: ARC)"
+    },
+    "mana_crystal": {
+      "KEYWORD_NAME": "Mana Crystal",
+      "DESCRIPTION": "A free card that adds 1 Energy next turn."
+    },
+    "storm": {
+      "KEYWORD_NAME": "Storm",
+      "DESCRIPTION": "Adds Lightning damage as a Follow-up to all damage you deal. (Scales: DEX)"
+    },
+    "fortitude": {
+      "KEYWORD_NAME": "Fortitude",
+      "DESCRIPTION": "Retains armor between turns. On turn start, loses 1 Fortitude."
+    },
+    "ephemeral": {
+      "KEYWORD_NAME": "Ephemeral",
+      "DESCRIPTION": "This card is removed from your deck until the end of combat after playing."
+    },
+    "armor": {
+      "KEYWORD_NAME": "Armor",
+      "DESCRIPTION": "Prevents damage this turn."
+    }
+  },
+  "WeaponFinal": {
+    "Longsword": {
+      "STR": 9,
+      "DEX": 7,
+      "VIG": null,
+      "DEF": null,
+      "INT": null,
+      "ARC": null,
+      "RARITY": "COMMON",
+      "DESCRIPTION": null,
+      "STR+1": 3,
+      "DEX+1": 3,
+      "VIG+1": null,
+      "DEF+1": null,
+      "INT+1": null,
+      "ARC+1": null,
+      "STR+2": 3,
+      "DEX+2": 3,
+      "VIG+2": null,
+      "DEF+2": null,
+      "INT+2": null,
+      "ARC+2": null
+    },
+    "Shortsword": {
+      "STR": 7,
+      "DEX": 7,
+      "VIG": null,
+      "DEF": null,
+      "INT": null,
+      "ARC": null,
+      "RARITY": "COMMON",
+      "DESCRIPTION": "Draw a card after killing an enemy.",
+      "STR+1": 2,
+      "DEX+1": 3,
+      "VIG+1": null,
+      "DEF+1": null,
+      "INT+1": null,
+      "ARC+1": null,
+      "STR+2": 2,
+      "DEX+2": 3,
+      "VIG+2": null,
+      "DEF+2": null,
+      "INT+2": null,
+      "ARC+2": null
+    },
+    "Dagger": {
+      "STR": 2,
+      "DEX": 9,
+      "VIG": null,
+      "DEF": null,
+      "INT": null,
+      "ARC": null,
+      "RARITY": "COMMON",
+      "DESCRIPTION": "On battle start, gain 1 Storm.",
+      "STR+1": 1,
+      "DEX+1": 4,
+      "VIG+1": null,
+      "DEF+1": null,
+      "INT+1": null,
+      "ARC+1": null,
+      "STR+2": 1,
+      "DEX+2": 4,
+      "VIG+2": null,
+      "DEF+2": null,
+      "INT+2": null,
+      "ARC+2": null
+    },
+    "Broadsword": {
+      "STR": 7,
+      "DEX": 7,
+      "VIG": null,
+      "DEF": null,
+      "INT": null,
+      "ARC": null,
+      "RARITY": "COMMON",
+      "DESCRIPTION": "Deal 10% more damage.",
+      "STR+1": 3,
+      "DEX+1": 3,
+      "VIG+1": null,
+      "DEF+1": null,
+      "INT+1": null,
+      "ARC+1": null,
+      "STR+2": 3,
+      "DEX+2": 3,
+      "VIG+2": null,
+      "DEF+2": null,
+      "INT+2": null,
+      "ARC+2": null
+    },
+    "Greatsword": {
+      "STR": 15,
+      "DEX": 2,
+      "VIG": null,
+      "DEF": null,
+      "INT": null,
+      "ARC": null,
+      "RARITY": "COMMON",
+      "DESCRIPTION": null,
+      "STR+1": 4,
+      "DEX+1": null,
+      "VIG+1": null,
+      "DEF+1": null,
+      "INT+1": null,
+      "ARC+1": null,
+      "STR+2": 4,
+      "DEX+2": null,
+      "VIG+2": null,
+      "DEF+2": null,
+      "INT+2": null,
+      "ARC+2": null
+    },
+    "War Hammer": {
+      "STR": 10,
+      "DEX": 6,
+      "VIG": null,
+      "DEF": null,
+      "INT": null,
+      "ARC": null,
+      "RARITY": "COMMON",
+      "DESCRIPTION": "The first attack each turn inflicts 3 Daze.",
+      "STR+1": 3,
+      "DEX+1": 2,
+      "VIG+1": null,
+      "DEF+1": null,
+      "INT+1": null,
+      "ARC+1": null,
+      "STR+2": 3,
+      "DEX+2": 2,
+      "VIG+2": null,
+      "DEF+2": null,
+      "INT+2": null,
+      "ARC+2": null
+    },
+    "Greatshield": {
+      "STR": 5,
+      "DEX": null,
+      "VIG": null,
+      "DEF": 12,
+      "INT": null,
+      "ARC": null,
+      "RARITY": "COMMON",
+      "DESCRIPTION": null,
+      "STR+1": 1,
+      "DEX+1": null,
+      "VIG+1": null,
+      "DEF+1": 3,
+      "INT+1": null,
+      "ARC+1": null,
+      "STR+2": 1,
+      "DEX+2": null,
+      "VIG+2": null,
+      "DEF+2": 3,
+      "INT+2": null,
+      "ARC+2": null
+    },
+    "Roundshield": {
+      "STR": null,
+      "DEX": 4,
+      "VIG": null,
+      "DEF": 9,
+      "INT": null,
+      "ARC": null,
+      "RARITY": "COMMON",
+      "DESCRIPTION": "When your turn ends with more than 100 Armor, deal 6% more damage for 3 turns.",
+      "STR+1": null,
+      "DEX+1": null,
+      "VIG+1": null,
+      "DEF+1": 3,
+      "INT+1": null,
+      "ARC+1": null,
+      "STR+2": null,
+      "DEX+2": null,
+      "VIG+2": null,
+      "DEF+2": 3,
+      "INT+2": null,
+      "ARC+2": null
+    },
+    "Shortbow": {
+      "STR": 6,
+      "DEX": 7,
+      "VIG": null,
+      "DEF": null,
+      "INT": null,
+      "ARC": null,
+      "RARITY": "COMMON",
+      "DESCRIPTION": "At turn start, discard a card, then draw a card.",
+      "STR+1": 1,
+      "DEX+1": 4,
+      "VIG+1": null,
+      "DEF+1": null,
+      "INT+1": null,
+      "ARC+1": null,
+      "STR+2": 1,
+      "DEX+2": 4,
+      "VIG+2": null,
+      "DEF+2": null,
+      "INT+2": null,
+      "ARC+2": null
+    },
+    "Longbow": {
+      "STR": 2,
+      "DEX": 15,
+      "VIG": null,
+      "DEF": null,
+      "INT": null,
+      "ARC": null,
+      "RARITY": "COMMON",
+      "DESCRIPTION": null,
+      "STR+1": null,
+      "DEX+1": 4,
+      "VIG+1": null,
+      "DEF+1": null,
+      "INT+1": null,
+      "ARC+1": null,
+      "STR+2": null,
+      "DEX+2": 4,
+      "VIG+2": null,
+      "DEF+2": null,
+      "INT+2": null,
+      "ARC+2": null
+    },
+    "Crossbow": {
+      "STR": 4,
+      "DEX": 10,
+      "VIG": null,
+      "DEF": null,
+      "INT": null,
+      "ARC": null,
+      "RARITY": "COMMON",
+      "DESCRIPTION": "The first time you deal damage each turn, launch follow-up: Deals 60 Physical damage. Scales with DEX (B).",
+      "STR+1": 2,
+      "DEX+1": 2,
+      "VIG+1": null,
+      "DEF+1": null,
+      "INT+1": null,
+      "ARC+1": null,
+      "STR+2": 2,
+      "DEX+2": 2,
+      "VIG+2": null,
+      "DEF+2": null,
+      "INT+2": null,
+      "ARC+2": null
+    },
+    "Gem Staff": {
+      "STR": null,
+      "DEX": 5,
+      "VIG": null,
+      "DEF": null,
+      "INT": 10,
+      "ARC": null,
+      "RARITY": "COMMON",
+      "DESCRIPTION": "On battle start, add 2 Mana Crystal to your hand.",
+      "STR+1": null,
+      "DEX+1": 3,
+      "VIG+1": null,
+      "DEF+1": null,
+      "INT+1": 3,
+      "ARC+1": null,
+      "STR+2": null,
+      "DEX+2": 3,
+      "VIG+2": null,
+      "DEF+2": null,
+      "INT+2": 3,
+      "ARC+2": null
+    },
+    "Wizard's Tome": {
+      "STR": null,
+      "DEX": null,
+      "VIG": null,
+      "DEF": null,
+      "INT": null,
+      "ARC": null,
+      "RARITY": "COMMON",
+      "DESCRIPTION": "The first time you discard a card each turn, deal 12% more damage for 2 turns.",
+      "STR+1": null,
+      "DEX+1": null,
+      "VIG+1": null,
+      "DEF+1": null,
+      "INT+1": null,
+      "ARC+1": null,
+      "STR+2": null,
+      "DEX+2": null,
+      "VIG+2": null,
+      "DEF+2": null,
+      "INT+2": null,
+      "ARC+2": null
+    },
+    "Sparking Wand": {
+      "STR": null,
+      "DEX": null,
+      "VIG": null,
+      "DEF": null,
+      "INT": 7,
+      "ARC": 9,
+      "RARITY": "COMMON",
+      "DESCRIPTION": "On turn start, launch follow-up: Apply 1 Burn to all enemies.",
+      "STR+1": null,
+      "DEX+1": null,
+      "VIG+1": null,
+      "DEF+1": null,
+      "INT+1": 3,
+      "ARC+1": 3,
+      "STR+2": null,
+      "DEX+2": null,
+      "VIG+2": null,
+      "DEF+2": null,
+      "INT+2": 3,
+      "ARC+2": 3
+    },
+    "Dark Seal": {
+      "STR": null,
+      "DEX": null,
+      "VIG": null,
+      "DEF": null,
+      "INT": 2,
+      "ARC": 15,
+      "RARITY": "COMMON",
+      "DESCRIPTION": null,
+      "STR+1": null,
+      "DEX+1": null,
+      "VIG+1": null,
+      "DEF+1": null,
+      "INT+1": null,
+      "ARC+1": 4,
+      "STR+2": null,
+      "DEX+2": null,
+      "VIG+2": null,
+      "DEF+2": null,
+      "INT+2": null,
+      "ARC+2": 4
+    },
+    "Sceptor": {
+      "STR": 2,
+      "DEX": null,
+      "VIG": null,
+      "DEF": null,
+      "INT": 15,
+      "ARC": null,
+      "RARITY": "COMMON",
+      "DESCRIPTION": null,
+      "STR+1": null,
+      "DEX+1": null,
+      "VIG+1": null,
+      "DEF+1": null,
+      "INT+1": 4,
+      "ARC+1": null,
+      "STR+2": null,
+      "DEX+2": null,
+      "VIG+2": null,
+      "DEF+2": null,
+      "INT+2": 4,
+      "ARC+2": null
+    },
+    "Claymore": {
+      "STR": 12,
+      "DEX": 11,
+      "VIG": null,
+      "DEF": null,
+      "INT": null,
+      "ARC": null,
+      "RARITY": "RARE",
+      "DESCRIPTION": "On battle start, add 3 Thrust to your deck. Whenever you play Thrust, draw a card.",
+      "STR+1": 15,
+      "DEX+1": 14,
+      "VIG+1": null,
+      "DEF+1": null,
+      "INT+1": null,
+      "ARC+1": null,
+      "STR+2": null,
+      "DEX+2": null,
+      "VIG+2": null,
+      "DEF+2": null,
+      "INT+2": null,
+      "ARC+2": null
+    },
+    "Crushing Gauntlets": {
+      "STR": 40,
+      "DEX": null,
+      "VIG": null,
+      "DEF": null,
+      "INT": null,
+      "ARC": null,
+      "RARITY": "RARE",
+      "DESCRIPTION": null,
+      "STR+1": 60,
+      "DEX+1": null,
+      "VIG+1": null,
+      "DEF+1": null,
+      "INT+1": null,
+      "ARC+1": null,
+      "STR+2": null,
+      "DEX+2": null,
+      "VIG+2": null,
+      "DEF+2": null,
+      "INT+2": null,
+      "ARC+2": null
+    },
+    "Moonlit Greatsword": {
+      "STR": 14,
+      "DEX": null,
+      "VIG": null,
+      "DEF": null,
+      "INT": 16,
+      "ARC": null,
+      "RARITY": "HEROIC",
+      "DESCRIPTION": "When you deal Magic damage, gain 1 stack of Moonlight. On turn start, consumes all stacks of Moonlight. For each stack, launches follow up: deal 45 Magic Damage. Scales with INT (A) and STR (B)",
+      "STR+1": null,
+      "DEX+1": null,
+      "VIG+1": null,
+      "DEF+1": null,
+      "INT+1": null,
+      "ARC+1": null,
+      "STR+2": null,
+      "DEX+2": null,
+      "VIG+2": null,
+      "DEF+2": null,
+      "INT+2": null,
+      "ARC+2": null
+    },
+    "Serpentine Bolt": {
+      "STR": 13,
+      "DEX": 13,
+      "VIG": null,
+      "DEF": null,
+      "INT": null,
+      "ARC": null,
+      "RARITY": "HEROIC",
+      "DESCRIPTION": "On turn end, gains 2 Storm.",
+      "STR+1": null,
+      "DEX+1": null,
+      "VIG+1": null,
+      "DEF+1": null,
+      "INT+1": null,
+      "ARC+1": null,
+      "STR+2": null,
+      "DEX+2": null,
+      "VIG+2": null,
+      "DEF+2": null,
+      "INT+2": null,
+      "ARC+2": null
     }
   }
 }

@@ -20,6 +20,8 @@ config/icon="res://icon.svg"
 EventBus="*res://script/event_bus.gd"
 CardDatabase="*res://script/card/card_database_loader.gd"
 StatusEffectDatabase="*res://script/status_effects/status_effect_database_loader.gd"
+TooltipRequestBus="*res://script/ui/tooltip/tooltip_request_bus.gd"
+KeywordDatabase="*res://script/keyword_database.gd"
 
 [display]
 

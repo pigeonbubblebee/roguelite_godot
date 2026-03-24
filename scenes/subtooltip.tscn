@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://beaas1s3xn5h3"]
+
+[ext_resource type="Script" path="res://script/ui/tooltip/subtooltip.gd" id="1_dpwwc"]
+[ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://assets/Background.png" id="2_bu4yg"]
+[ext_resource type="Texture2D" uid="uid://bga5pxyite2ig" path="res://assets/bar.png" id="3_himrb"]
+[ext_resource type="FontFile" uid="uid://b23c0njeg0avg" path="res://data/PixelPurl8x8 (1).ttf" id="4_0y1yh"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nbd35"]
+
+[node name="subtooltip" type="Control"]
+texture_filter = 1
+custom_minimum_size = Vector2(141, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_top = -58.0
+offset_right = 141.0
+mouse_filter = 2
+script = ExtResource("1_dpwwc")
+_tooltip_label_path = NodePath("card_label")
+_control_path = NodePath(".")
+
+[node name="background" type="TextureRect" parent="."]
+material = SubResource("CanvasItemMaterial_nbd35")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_bu4yg")
+expand_mode = 1
+
+[node name="borders" type="NinePatchRect" parent="."]
+material = SubResource("CanvasItemMaterial_nbd35")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_himrb")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="card_label" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.5
+offset_top = 3.0
+offset_right = 66.5
+offset_bottom = 16.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("4_0y1yh")
+bbcode_enabled = true
+text = "A"
+fit_content = true
+scroll_active = false

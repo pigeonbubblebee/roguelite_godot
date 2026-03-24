@@ -10,6 +10,8 @@ var type : CardType
 var description : String
 var scaling_data : String # String of scaling data, i e STR (A), DEX (B)
 
+var keywords : Array[String]
+
 signal played
 
 func _init(_id : String):
@@ -24,6 +26,8 @@ func _init(_id : String):
 	target_drag = (type == CardType.ATTACK)
 	title = card["CARD_NAME"]
 	description = card["DESCRIPTION"]
+	
+	keywords = card["KEYWORDS"]
 	
 enum ResolveEffect {
 	DISCARD,
@@ -44,7 +48,7 @@ func play(context: BattleContext, controller: BattleController):
 	pass
 	
 func get_keywords() -> Array[String]:
-	return []
+	return keywords
 	
 # For enemies
 func get_target_index(total_targets: int, target_index: int) -> Array[int]:

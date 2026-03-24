@@ -8,9 +8,6 @@ var damage_type : DamageType.Type = DamageType.Type.PHYSICAL
 
 var status_type : String = "Debuff"
 
-func get_keywords() -> Array[String]:
-	return [ "Multistrike 3" ]
-
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
 	

@@ -8,7 +8,7 @@ var is_discarded = false
 
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
-	
+
 	var target = context.get_selected_enemy()
 
 	if is_discarded:
@@ -19,8 +19,6 @@ func play(context: BattleContext, controller: BattleController):
 		.damage(target, damage, damage_type)\
 		.enqueue()
 	
-	
-
 func on_discard(context: BattleContext, controller: BattleController):
 	super.on_discard(context, controller)
 	

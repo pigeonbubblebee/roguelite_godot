@@ -58,7 +58,8 @@ static func format_text(text: String) -> String:
 
 		var icon_tag = "[img=14x14 valign=center]%s[/img]" % data.icon
 		var colored = "[color=%s]%s[/color]" % [data.color, keyword]
-		var replacement = "%s%s" % [icon_tag, colored if colored_text else keyword] #icon_tag, colored
+		# "" could be (colored if colored_text else keyword)
+		var replacement = "%s%s" % [icon_tag, ""] #icon_tag, colored
 
 		text = regex.sub(text, replacement, true)
 

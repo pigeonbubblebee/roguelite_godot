@@ -37,8 +37,21 @@ func load_cards(path: String):
 			"TYPE": Card.get_string_as_card_type(info["TYPE"]),
 			"TEXTURE": null,
 			"SCRIPT": null,
-			"RESOURCE": null
+			"RESOURCE": null,
+			"KEYWORDS": []
 		}
+		
+		# Keywords
+		
+		var keywords : Array[String] = []
+		
+		if info["KEYWORDS"]:
+			var split = info["KEYWORDS"].split(';')
+			
+			for s in split:
+				keywords.append(s)
+		
+		card["KEYWORDS"] = keywords
 		
 		# Scaling Data
 

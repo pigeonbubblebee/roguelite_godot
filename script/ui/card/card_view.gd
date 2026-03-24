@@ -32,6 +32,9 @@ func _input(event: InputEvent) -> void:
 		card_ui_container.global_position += Vector2(0, -SCROLL_SPEED)
 		calculate_positions()
 		
+	if event.is_pressed() and event is InputEventKey and event.keycode == KEY_K:
+		card_view_ui.visible = not card_view_ui.visible
+		
 func display_cards(cards_dic : Array):
 	var cards : Array[Card] = []
 	
@@ -59,7 +62,7 @@ func display_cards(cards_dic : Array):
 	calculate_positions()
 		
 func calculate_positions():
-	var columns = 8
+	var columns = 6
 	
 	var h_spacing = 72
 	var v_spacing = 104

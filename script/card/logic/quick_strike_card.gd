@@ -5,9 +5,6 @@ var damage : int = 40
 var multistrike_amount : int = 2
 var damage_type : DamageType.Type = DamageType.Type.PHYSICAL
 
-func get_keywords() -> Array[String]:
-	return [ "Multistrike 2" ]
-
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
 	

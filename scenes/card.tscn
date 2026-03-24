@@ -35,10 +35,9 @@ _card_art_texture_path = NodePath("card_art")
 _highlight_path = NodePath("highlight")
 hover_vertical_offset = 10.0
 _arc_path = NodePath("arc")
-_tooltip_path = NodePath("tooltip3")
-_tooltip_text_path = NodePath("tooltip3/card_label")
 
 [node name="tooltip3" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 76.0

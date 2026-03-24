@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://n5vacelk0whk"]
+
+[ext_resource type="Script" path="res://script/ui/tooltip/tooltip_ui.gd" id="1_pi61i"]
+[ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://assets/Background.png" id="1_qsl6a"]
+[ext_resource type="Texture2D" uid="uid://bga5pxyite2ig" path="res://assets/bar.png" id="2_3cuwt"]
+[ext_resource type="FontFile" uid="uid://b23c0njeg0avg" path="res://data/PixelPurl8x8 (1).ttf" id="3_mj7fr"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gmv3f"]
+
+[node name="tooltip" type="Node2D"]
+script = ExtResource("1_pi61i")
+_tooltip_label_path = NodePath("tooltip/card_label")
+_control_path = NodePath("tooltip")
+_subtooltip_container_path = NodePath("VBoxContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = -145.0
+offset_top = -90.0
+offset_right = -4.0
+offset_bottom = 51.0
+
+[node name="tooltip" type="Control" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(141, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_top = -90.0
+offset_right = 141.0
+mouse_filter = 2
+
+[node name="background" type="TextureRect" parent="tooltip"]
+material = SubResource("CanvasItemMaterial_gmv3f")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_qsl6a")
+expand_mode = 1
+
+[node name="borders" type="NinePatchRect" parent="tooltip"]
+material = SubResource("CanvasItemMaterial_gmv3f")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_3cuwt")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="card_label" type="RichTextLabel" parent="tooltip"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -64.5
+offset_top = 3.0
+offset_right = 66.5
+offset_bottom = 16.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_mj7fr")
+bbcode_enabled = true
+text = "A"
+fit_content = true
+scroll_active = false

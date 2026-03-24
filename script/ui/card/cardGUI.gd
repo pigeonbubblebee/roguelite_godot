@@ -16,6 +16,8 @@ var original_z := 0
 @export var _highlight_path: NodePath
 @onready var highlight = get_node(_highlight_path)
 
+var card_description : String
+
 @export var hover_vertical_offset : float
 @onready var hover_offset := Vector2(0, -hover_vertical_offset)
 @onready var selected_offset := Vector2(0, -hover_vertical_offset * 1.5)
@@ -47,14 +49,8 @@ var current_card_state : CardUIState
 @onready var selected_state : CardUISelectedState = CardUISelectedState.new(self)
 
 # TEMP TBD: Make tooltip logic recursive
-@export var _tooltip_path: NodePath
-@onready var tooltip = get_node(_tooltip_path)
-
-@onready var tooltip_offset = Vector2(0, -103)
-@onready var tooltip_base_offset = Vector2(3, 5)
-@export var _tooltip_text_path: NodePath
-@onready var tooltip_text_label = get_node(_tooltip_text_path)
-var tooltip_tween : Tween
+@onready var tooltip_offset = Vector2(0, -70)
+@onready var tooltip_base_offset = Vector2(3, 55)
 
 var mouse_on : bool
 var input_type : HandUI.InputType = HandUI.InputType.BATTLE
@@ -69,6 +65,8 @@ signal attempt_card_play(cardGUI, cardLogic)
 signal entered_drop_zone(card)
 signal exited_drop_zone(card)
 
+signal tooltip_hide_request
+
 signal return_to_hand_tween_finished
 
 func _ready():
@@ -81,9 +79,7 @@ func _ready():
 	mouse_exited.connect(_on_mouse_exit)
 	
 	is_in_drop_zone = false
-	
-	hide_tooltip()
-	
+
 	change_state(idle_state)
 	# pivot_offset = size / 2
 	
@@ -136,7 +132,7 @@ func update_card_logic(card: Card) -> void:
 	
 	var desc = KeywordFormatter.format_text(card_logic.description)
 	
-	tooltip_text_label.text = desc
+	card_description = desc
 	
 	change_state(idle_state)
 		
@@ -288,23 +284,17 @@ func ease_out_cubic(number : float) -> float:
 	return 1.0 - pow(1.0 - number, 3.0)
 
 func show_tooltip():
-	if tooltip_tween:
-		tooltip_tween.kill()
-		
-	tooltip.global_position = hover_base_position + tooltip_base_offset	
-		
-	tooltip_tween = create_tween()
-	tooltip_tween.tween_property(tooltip, "global_position", hover_base_position + tooltip_base_offset + tooltip_offset, 0.12)\
-	.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
-		
-	tooltip.visible = true	
+	var base_position = hover_base_position + tooltip_base_offset
+	
+	TooltipRequestBus.request_tooltip(TooltipData.new()\
+		.add_description(card_description)\
+		.add_starting_position(base_position)\
+		.add_offset(tooltip_offset)\
+		.add_hide_event(self, "tooltip_hide_request")\
+		.add_keywords(card_logic.get_keywords()))
 	
 func hide_tooltip():
-	if tooltip_tween:
-		tooltip_tween.kill()
-		
-	tooltip.visible = false	
-	tooltip.global_position = hover_base_position + tooltip_base_offset
+	tooltip_hide_request.emit()
 	
 func show_highlight():
 	highlight.visible = true
