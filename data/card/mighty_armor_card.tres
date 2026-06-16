@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=2 format=3 uid="uid://d4c4v3gmaopik"]
+
+[ext_resource type="Script" path="res://script/card/card_resource.gd" id="1_j1f6r"]
+
+[resource]
+script = ExtResource("1_j1f6r")
+card_id = "mighty_armor_card"
+cost = 1
+target_drag = true
+title = ""
+type = 0
+description = ""

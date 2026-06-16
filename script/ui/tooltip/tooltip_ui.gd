@@ -33,6 +33,8 @@ func show_tooltip(reposition : bool = true):
 		tooltip_tween.kill()
 		
 	if reposition:
+		var text_size = tooltip_label.get_minimum_size().y
+		
 		global_position = starting_position	
 			
 		tooltip_tween = create_tween()
@@ -65,7 +67,7 @@ func set_keywords(keywords : Array[String]):
 	
 	for keyword in keywords:
 		var dic = KeywordDatabase.get_keyword(keyword)
-		var desc = dic["DESCRIPTION"]
+		var desc = KeywordFormatter.format_text(dic["DESCRIPTION"])
 		var k_name = dic["KEYWORD_NAME"]
 		load_subtooltip(k_name + ": " + desc)
 

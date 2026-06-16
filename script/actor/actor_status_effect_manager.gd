@@ -9,6 +9,7 @@ func apply_status(status : StatusEffect, context: BattleContext, controller: Bat
 	for _status in _active_status_effects:
 		if _status._status_id == status._status_id:
 			_status.add_stacks(status.get_stacks())
+			_status.stacks_updated(context, controller)
 			return
 	
 	_active_status_effects.append(status)

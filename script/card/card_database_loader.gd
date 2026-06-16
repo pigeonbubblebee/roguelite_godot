@@ -38,7 +38,10 @@ func load_cards(path: String):
 			"TEXTURE": null,
 			"SCRIPT": null,
 			"RESOURCE": null,
-			"KEYWORDS": []
+			"KEYWORDS": [],
+			"UPGRADED": info["UPGRADED"],
+			"UPGRADED_KEYWORDS": [],
+			"FORCE_TARGET_DRAG": info["FORCE_TARGET_DRAG"]
 		}
 		
 		# Keywords
@@ -53,6 +56,17 @@ func load_cards(path: String):
 		
 		card["KEYWORDS"] = keywords
 		
+		var keywords_upgraded : Array[String] = []
+		
+		if info["UPGRADED_KEYWORDS"]:
+			var split = info["UPGRADED_KEYWORDS"].split(';')
+			
+			for s in split:
+				keywords_upgraded.append(s)
+		
+		card["UPGRADED_KEYWORDS"] = keywords_upgraded
+		
+		
 		# Scaling Data
 
 		if scaling_data.has(card_id):
@@ -60,7 +74,7 @@ func load_cards(path: String):
 				var value = scaling_data[card_id][stat]
 
 				if value == null:
-					card["SCALING"][stat] = "N/A"
+					card["SCALING"][stat] = 0
 				else:
 					card["SCALING"][stat] = value
 					
@@ -112,18 +126,26 @@ func get_all_valid_cards() -> Array:
 	
 func get_scaling(card_id: String, stat: String):
 	if !cards.has(card_id):
-		return "N/A"
+		return 0
 
 	var scaling = cards[card_id]["SCALING"]
 
 	if !scaling.has(stat):
-		return "N/A"
+		return 0
 
 	return scaling[stat]
+	
+func get_scaling_as_dic(card_id: String):
+	if !cards.has(card_id):
+		return null
+
+	var scaling = cards[card_id]["SCALING"]
+
+	return scaling
 
 func get_all_scaling(card_id: String) -> String:
 	if !cards.has(card_id):
-		return "N/A"
+		return "Neutral"
 
 	var scaling = cards[card_id]["SCALING"]
 	var parts = []
@@ -131,10 +153,10 @@ func get_all_scaling(card_id: String) -> String:
 	for stat in scaling.keys():
 		var value = scaling[stat]
 
-		if value != "N/A":
+		if value != 0:
 			parts.append("%s (%s)" % [stat, value])
 			
 	if parts.size() == 0:
-		return "N/A"
+		return "Neutral"
 
 	return ", ".join(parts)

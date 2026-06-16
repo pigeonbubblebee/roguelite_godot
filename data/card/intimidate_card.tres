@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=2 format=3 uid="uid://bvijowxqg1qog"]
+
+[ext_resource type="Script" path="res://script/card/card_resource.gd" id="1_bdl4p"]
+
+[resource]
+script = ExtResource("1_bdl4p")
+card_id = "intimidate_card"
+cost = 1
+target_drag = true
+title = ""
+type = 0
+description = ""

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=2 format=3 uid="uid://d2cf74ita7jik"]
+
+[ext_resource type="Script" path="res://script/card/card_resource.gd" id="1_sr8o5"]
+
+[resource]
+script = ExtResource("1_sr8o5")
+card_id = "honed_edge_card"
+cost = 1
+target_drag = true
+title = ""
+type = 0
+description = ""

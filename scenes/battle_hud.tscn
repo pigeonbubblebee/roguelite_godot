@@ -30,7 +30,6 @@ _discard_count_label_path = NodePath("stat_screen/discard_count_label")
 _attribute_label_path = NodePath("stat_screen/stat_label_1")
 _attribute_label_2_path = NodePath("stat_screen/stat_label_2")
 _actor_label_path = NodePath("actor_screen/actor_label")
-_tooltip_path = NodePath("tooltip2")
 
 [node name="turn_order" type="Control" parent="."]
 layout_mode = 1

@@ -5,6 +5,7 @@ var context: BattleContext
 var controller: BattleController
 
 var _card: Card = null
+var _fua: FollowUp = null
 var _override_source: String = ""
 
 var _tags: Array[String] = []
@@ -32,6 +33,7 @@ func as_actor(actor: Actor) -> EffectSequenceBuilder:
 	return self
 	
 func as_follow_up(fua: FollowUp) -> EffectSequenceBuilder:
+	_fua = fua
 	add_tag(DamageContext.TAG_FOLLOW_UP)
 	set_source(fua.get_follow_up_id())
 	return self
@@ -84,7 +86,7 @@ func _get_owner():
 func damage(
 	target: Actor,
 	amount: int,
-	damage_type : DamageType.Type
+	damage_type : DamageType.Type = DamageType.Type.PHYSICAL
 ) -> EffectSequenceBuilder:
 	if target == null:
 		return self
@@ -105,6 +107,13 @@ func damage(
 	
 	if damage_type != null:
 		dmg.damage_type = damage_type
+		
+	if _card:
+		dmg.source = _card
+	elif _fua:
+		dmg.source = _fua
+	elif _owner:
+		dmg.source = _owner
 	
 	for tag in _tags:
 		dmg.add_tag(tag)
@@ -117,8 +126,8 @@ func damage(
 func multi_damage(
 	targets: Array[Actor],
 	main_damage: int,
-	damage_type : DamageType.Type,
 	blast_damage := 0,
+	damage_type : DamageType.Type = DamageType.Type.PHYSICAL,
 ) -> EffectSequenceBuilder:
 	
 	if targets.is_empty():
@@ -139,6 +148,13 @@ func multi_damage(
 	
 	if damage_type != null:
 		dmg.damage_type = damage_type
+		
+	if _card:
+		dmg.source = _card
+	elif _fua:
+		dmg.source = _fua
+	elif _owner:
+		dmg.source = _owner
 	
 	for tag in _tags:
 		dmg.add_tag(tag)
@@ -210,6 +226,28 @@ func discard_card(
 		CardSelectionAction.new(selection_context),  # visual
 		func(): controller.start_card_selection(selection_context)
 	)
+	
+func modify_card_select(
+	modifier_factory : Callable,
+) -> EffectSequenceBuilder:
+	var selection_context = BattleRuntimeHelper.generate_modify_card_selection_context(
+		modifier_factory,
+		context, 
+		controller)
+	return step(
+		CardSelectionAction.new(selection_context),  # visual
+		func(): controller.start_card_selection(selection_context)
+	)
+	
+func modify_cards(
+	targets: Array[Card], modifier_factory: Callable
+) -> EffectSequenceBuilder:
+	return step(
+		null,  # visual
+		func(): BattleRuntimeHelper.handle_card_modifiers_sequence(
+			targets, context, controller, modifier_factory)
+	)
+	
 
 func add_card_to_hand(
 	id : String = "strike_card" # Change Default to smth else

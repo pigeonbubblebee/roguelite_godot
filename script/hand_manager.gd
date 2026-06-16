@@ -55,12 +55,33 @@ func add_to_deck(card_id: String, amt=1):
 		
 func init_card_script_from_id(id : String) -> Card:
 	var card = CardDatabase.get_card(id)
-	return card["SCRIPT"].new(id)
+	if(card["SCRIPT"]):
+		return card["SCRIPT"].new(id)
+	else:
+		return CardDatabase.get_card("guard_card")["SCRIPT"].new(id)
 		
 func add_card_to_deck(card: Card):
 	deck.append(card)
 	
 	deck_updated.emit(deck)
+	
+func card_in_hand(card_id: String) -> Card:
+	for card in hand:
+		if card.id == card_id:
+			return card
+	return null
+	
+func card_in_deck(card_id: String) -> Card:
+	for card in deck:
+		if card.id == card_id:
+			return card
+	return null
+	
+func card_in_discard_pile(card_id: String) -> Card:
+	for card in discard_pile:
+		if card.id == card_id:
+			return card
+	return null
 
 func draw_card(card: Card):
 	hand.append(card)

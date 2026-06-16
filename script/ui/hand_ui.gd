@@ -61,10 +61,10 @@ func change_input_type(type : InputType):
 	#layout_hand()
 	
 	current_input_type = type
-	
 	for card_ui in cards_ui_array:
 		card_ui.can_drag = true
 		card_ui.input_type = type
+	layout_hand()
 
 func update_ui(hand: Array[Card]):
 	# Adds excess cards if new card in hand

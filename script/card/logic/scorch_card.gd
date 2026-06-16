@@ -13,8 +13,7 @@ func play(context: BattleContext, controller: BattleController):
 	
 	EffectSequenceBuilder.new(context, controller)\
 		.as_card(self)\
-		.multi_damage(hit_actors, damage, 
-			damage_type, damage)\
+		.multi_damage(hit_actors, damage, damage)\
 		.apply_status_multi(hit_actors, func(t): 
 				return BurnStatusEffect.new(status_id, 
 				context.get_player(), status_buildup))\

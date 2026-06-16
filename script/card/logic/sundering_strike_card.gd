@@ -1,8 +1,8 @@
 class_name SunderingStrikeCard
 extends Card
 
-var damage : int = 70
-var status_buildup : int = 4
+var damage : int = 90
+var status_buildup : int = 2
 var status_id : String = "daze_status"
 var damage_type : DamageType.Type = DamageType.Type.PHYSICAL
 

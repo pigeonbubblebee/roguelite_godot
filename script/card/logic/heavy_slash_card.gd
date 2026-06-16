@@ -1,8 +1,8 @@
 class_name HeavySlashCard
 extends Card
 
-var damage : int = 80
-var blast_damage : int = 40
+var damage : int = 120
+var blast_damage : int = 80
 var damage_type : DamageType.Type = DamageType.Type.PHYSICAL
 
 func play(context: BattleContext, controller: BattleController):

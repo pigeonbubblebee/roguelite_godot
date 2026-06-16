@@ -2,8 +2,10 @@ class_name DamageAmplificationStatusEffect
 extends StatusEffect
 
 var damage_percent_bonus
+var empowered_percent_bonus = 0.5
 
-func _init(id: String, _stacks: int = 1, _damage_percent_bonus: float = 0):
+# empowered by default
+func _init(id: String, _stacks: int = 1, _damage_percent_bonus: float = empowered_percent_bonus):
 	super._init(id, _stacks)
 	
 	damage_percent_bonus = _damage_percent_bonus

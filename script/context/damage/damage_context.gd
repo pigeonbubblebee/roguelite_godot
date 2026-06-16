@@ -9,6 +9,7 @@ var source_name: String
 # Actual name of the damage provider, i e card name, status effect name, FuA name
 var damage_owner # Actor, Status Effect, Ect.
 # FuA, Status effects by player, Cards should all have player as damage owner
+var source # Variant for source, like Card, Enemy
 var damage: int
 var blast_damage: int
 var hit_actors: Array[Actor]

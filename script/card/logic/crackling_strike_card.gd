@@ -13,7 +13,7 @@ func play(context: BattleContext, controller: BattleController):
 
 	if is_discarded:
 		target = context.get_actors_of_faction(Faction.Type.ENEMY).pick_random()
-	
+		is_discarded = false
 	EffectSequenceBuilder.new(context, controller)\
 		.as_card(self)\
 		.damage(target, damage, damage_type)\

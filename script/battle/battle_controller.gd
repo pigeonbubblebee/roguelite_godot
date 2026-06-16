@@ -356,6 +356,9 @@ func enqueue_action(action: BattleVisualAction):
 func gain_energy(amt: int = 1):
 	_energy_manager.gain_energy(amt)
 	
+func add_card_modifier(card: Card, modifier: CardModifier):
+	card.add_modifier(modifier, _battle_context, self)
+	
 ###################
 ##### GETTERS #####
 ###################

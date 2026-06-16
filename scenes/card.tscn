@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://prnhw6kneqmu"]
+[gd_scene load_steps=12 format=3 uid="uid://prnhw6kneqmu"]
 
 [ext_resource type="Script" path="res://script/ui/card/cardGUI.gd" id="1_da6pn"]
 [ext_resource type="Texture2D" uid="uid://cmbk2xw8don7n" path="res://assets/card_bg.png" id="2_rwr0g"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://biek722kau2q6" path="res://assets/card_bg_highlighted.png" id="5_ift0r"]
 [ext_resource type="FontFile" uid="uid://b23c0njeg0avg" path="res://data/PixelPurl8x8 (1).ttf" id="5_jqs8i"]
 [ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://assets/Background.png" id="6_gfjv8"]
+[ext_resource type="Texture2D" uid="uid://i6mo4sxaq7as" path="res://assets/card_color.png" id="7_34k6h"]
 [ext_resource type="Texture2D" uid="uid://bga5pxyite2ig" path="res://assets/bar.png" id="7_r2cjo"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6jqjf"]
@@ -32,6 +33,7 @@ _cost_text_path = NodePath("cost")
 _title_text_path = NodePath("title")
 _type_text_path = NodePath("type")
 _card_art_texture_path = NodePath("card_art")
+_card_color_bg_path = NodePath("color_bg")
 _highlight_path = NodePath("highlight")
 hover_vertical_offset = 10.0
 _arc_path = NodePath("arc")
@@ -112,6 +114,16 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_rwr0g")
 
+[node name="color_bg" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 65.0
+offset_bottom = 29.0
+texture = ExtResource("7_34k6h")
+
 [node name="energy_background" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 0
@@ -140,7 +152,7 @@ offset_bottom = 29.0
 theme_override_constants/line_spacing = -2
 theme_override_fonts/font = ExtResource("5_jqs8i")
 theme_override_font_sizes/font_size = 0
-text = "Heavy Strike"
+text = "Beserker Fury"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

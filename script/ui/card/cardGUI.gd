@@ -13,10 +13,10 @@ var original_z := 0
 @onready var type_text = get_node(_type_text_path)
 @export var _card_art_texture_path: NodePath
 @onready var card_art_texture = get_node(_card_art_texture_path)
+@export var _card_color_bg_path: NodePath
+@onready var _card_color_bg = get_node(_card_color_bg_path)
 @export var _highlight_path: NodePath
 @onready var highlight = get_node(_highlight_path)
-
-var card_description : String
 
 @export var hover_vertical_offset : float
 @onready var hover_offset := Vector2(0, -hover_vertical_offset)
@@ -125,14 +125,12 @@ func _gui_input(event):
 func update_card_logic(card: Card) -> void:
 	card_logic = card
 	
-	cost_text.text = str(card.cost)
+	cost_text.text = str(card.get_cost())
 	title_text.text = card.title
 	type_text.text = Card.get_card_type_as_string(card.type)
 	card_art_texture.texture = card.texture
 	
-	var desc = KeywordFormatter.format_text(card_logic.description)
-	
-	card_description = desc
+	_card_color_bg.modulate = KeywordFormatter.get_keyword_color(card.get_primary_attribute())
 	
 	change_state(idle_state)
 		
@@ -285,9 +283,9 @@ func ease_out_cubic(number : float) -> float:
 
 func show_tooltip():
 	var base_position = hover_base_position + tooltip_base_offset
-	
+	var desc = KeywordFormatter.format_text(card_logic.get_description())
 	TooltipRequestBus.request_tooltip(TooltipData.new()\
-		.add_description(card_description)\
+		.add_description(desc)\
 		.add_starting_position(base_position)\
 		.add_offset(tooltip_offset)\
 		.add_hide_event(self, "tooltip_hide_request")\

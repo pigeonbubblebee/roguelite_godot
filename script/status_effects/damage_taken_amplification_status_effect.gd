@@ -3,7 +3,7 @@ extends StatusEffect
 
 var vuln_percent
 
-func _init(id: String, _stacks: int = 1, _vuln_percent: float = 0):
+func _init(id: String, _stacks: int = 1, _vuln_percent: float = 0.5):
 	super._init(id, _stacks)
 	
 	vuln_percent = _vuln_percent

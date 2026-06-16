@@ -28,6 +28,14 @@ static var KEYWORDS := {
 		"color": ColorPalette.PURPLE,
 		"icon": icon_path + "arc_icon.png"
 	},
+	"FTH": {
+		"color": ColorPalette.ORANGE,
+		"icon": icon_path + "fth_icon.png"
+	},
+	"Neutral": {
+		"color": ColorPalette.GREY,
+		"icon": icon_path + "neu_icon.png"
+	},
 }
 
 static var DAMAGE_TYPE_COLORS := {
@@ -59,11 +67,14 @@ static func format_text(text: String) -> String:
 		var icon_tag = "[img=14x14 valign=center]%s[/img]" % data.icon
 		var colored = "[color=%s]%s[/color]" % [data.color, keyword]
 		# "" could be (colored if colored_text else keyword)
-		var replacement = "%s%s" % [icon_tag, ""] #icon_tag, colored
+		var replacement = "%s%s" % [icon_tag, colored] #icon_tag, colored
 
 		text = regex.sub(text, replacement, true)
 
 	return text
+	
+static func get_keyword_color(keyword: String):
+	return KEYWORDS[keyword].color
 
 static func format_damage_text(label: Label, ctx: DamageContext):
 	var color = DAMAGE_TYPE_COLORS[ctx.damage_type].color

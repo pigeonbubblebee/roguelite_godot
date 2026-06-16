@@ -62,14 +62,34 @@ static func generate_discard_card_selection_context(context: BattleContext, cont
 	
 	return result
 	
+static func generate_modify_card_selection_context(
+	modifier_factory : Callable,
+	context: BattleContext, controller: BattleController, 
+	amount : int = 1) -> CardSelectionContext:
+	
+	var result = generate_card_selection_context(context, controller, 
+		CardSelectionContext.SHARPEN_PROMPT, amount)
+		
+	result.finished.connect(func(selected_cards):
+		if selected_cards:
+			handle_card_modifiers_sequence(selected_cards, context, controller, modifier_factory)
+	)
+	
+	return result
+	
 static func _handle_discard_sequence(selected_cards, context, controller):
 	for selected_card in selected_cards:
 		controller.discard_card(selected_card)
+		await context.await_battle_actions()
+		
+static func handle_card_modifiers_sequence(selected_cards, context, controller, factory):
+	for selected_card in selected_cards:
+		controller.add_card_modifier(selected_card, factory.call(selected_card))
 		await context.await_battle_actions()
 
 static func generate_card_selection_context(context: BattleContext, controller: BattleController, 
 	prompt : String, amount : int = 1) -> CardSelectionContext:
 	
 	var hand = controller.get_hand_manager().get_hand()	
-	var card_selection_context = CardSelectionContext.new(hand, CardSelectionContext.DISCARD_PROMPT, amount)
+	var card_selection_context = CardSelectionContext.new(hand, prompt, amount)
 	return card_selection_context

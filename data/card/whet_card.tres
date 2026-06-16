@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="CardResource" load_steps=2 format=3 uid="uid://bjqg3qf34t7q"]
+
+[ext_resource type="Script" path="res://script/card/card_resource.gd" id="1_2hwe7"]
+
+[resource]
+script = ExtResource("1_2hwe7")
+card_id = "whet_card"
+cost = 1
+target_drag = true
+title = ""
+type = 0
+description = ""

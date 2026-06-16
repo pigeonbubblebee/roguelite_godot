@@ -43,7 +43,7 @@ func bind(controller: BattleController):
 func on_card_hover_started(card: Card):
 	#var desc = KeywordFormatter.format_text(card.description)
 	var desc = KeywordFormatter.format_text(card.scaling_data)
-	card_label.text = card.title + "\nScales with:\n" + desc
+	card_label.text = card.title + "\nAttributes Required:\n" + desc
 	
 func on_card_hover_ended(card: Card):
 	card_label.text = "No card selected"

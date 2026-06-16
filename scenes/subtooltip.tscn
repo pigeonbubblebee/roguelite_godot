@@ -9,7 +9,7 @@
 
 [node name="subtooltip" type="Control"]
 texture_filter = 1
-custom_minimum_size = Vector2(141, 0)
+custom_minimum_size = Vector2(140, 0)
 layout_mode = 3
 anchors_preset = 0
 offset_top = -58.0

@@ -10,6 +10,7 @@ var mana_crystal_buff_icon = preload("res://assets/ui/status_icons/mana_crystal_
 var damage_taken_percent_debuff_icon = preload("res://assets/ui/status_icons/damage_taken_percent_debuff_icon.png")
 var fortitude_buff_icon = preload("res://assets/ui/status_icons/fortitude_buff_icon.png")
 var general_debuff_icon = preload("res://assets/ui/status_icons/general_debuff_icon.png")
+var rage_buff_icon = preload("res://assets/ui/status_icons/rage_buff_icon.png")
 
 var status_icon_scene : PackedScene = preload("res://scenes/status_label.tscn")
 
@@ -24,5 +25,6 @@ var status_texture_map: Dictionary = {
 	"mana_crystal_buff": mana_crystal_buff_icon,
 	"damage_taken_percent_debuff" : damage_taken_percent_debuff_icon,
 	"fortitude_buff": fortitude_buff_icon,
-	"general_debuff": general_debuff_icon
+	"general_debuff": general_debuff_icon,
+	"rage_buff": rage_buff_icon
 }

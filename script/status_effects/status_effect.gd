@@ -37,6 +37,9 @@ func on_apply(_context: BattleContext, _controller: BattleController):
 	_context.event_bus.before_armor_applied.connect(before_armor_applied)
 	_context.event_bus.turn_ended.connect(on_turn_end)
 	_context.event_bus.turn_started.connect(on_turn_start)
+
+func stacks_updated(_context: BattleContext, _controller: BattleController):
+	pass
 	
 func before_damage_dealt(_context: DamageContext, battle_context: BattleContext, controller: BattleController):
 	pass
