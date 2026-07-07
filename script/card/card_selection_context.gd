@@ -5,6 +5,7 @@ const DISCARD_PROMPT = "Choose {AMOUNT} Card{S} to Discard"
 const SHARPEN_PROMPT = "Choose {AMOUNT} Card{S} to Sharpen"
 
 var source_cards : Array[Card]
+var original_cards : Array[Card]
 var amount : int
 var prompt : String
 

@@ -10,6 +10,7 @@ var type : CardType
 var description : String
 var scaling_data : String # String of scaling data, i e STR (A), DEX (B)
 var scaling_data_as_dic
+var rarity
 
 var keywords : Array[String]
 var modifiers : Array[CardModifier]
@@ -26,6 +27,7 @@ func _init(_id : String):
 	scaling_data_as_dic = CardDatabase.get_scaling_as_dic(id)
 	texture = card["TEXTURE"]
 	type = card["TYPE"]
+	rarity = card["RARITY"]
 	target_drag = (type == CardType.ATTACK)
 	if card["FORCE_TARGET_DRAG"]:
 		target_drag = true

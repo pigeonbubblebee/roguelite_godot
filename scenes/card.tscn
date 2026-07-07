@@ -34,6 +34,7 @@ _title_text_path = NodePath("title")
 _type_text_path = NodePath("type")
 _card_art_texture_path = NodePath("card_art")
 _card_color_bg_path = NodePath("color_bg")
+_card_frame_bg_path = NodePath("background")
 _highlight_path = NodePath("highlight")
 hover_vertical_offset = 10.0
 _arc_path = NodePath("arc")

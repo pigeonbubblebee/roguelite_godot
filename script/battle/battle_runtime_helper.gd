@@ -53,7 +53,8 @@ static func generate_discard_card_selection_context(context: BattleContext, cont
 	amount : int = 1) -> CardSelectionContext:
 	
 	var result = generate_card_selection_context(context, controller, 
-		CardSelectionContext.DISCARD_PROMPT, amount)
+		CardSelectionContext.DISCARD_PROMPT, controller.get_hand_manager().get_hand(),
+		amount)
 		
 	result.finished.connect(func(selected_cards):
 		if selected_cards:
@@ -65,10 +66,11 @@ static func generate_discard_card_selection_context(context: BattleContext, cont
 static func generate_modify_card_selection_context(
 	modifier_factory : Callable,
 	context: BattleContext, controller: BattleController, 
+	source_cards : Array[Card],
 	amount : int = 1) -> CardSelectionContext:
 	
 	var result = generate_card_selection_context(context, controller, 
-		CardSelectionContext.SHARPEN_PROMPT, amount)
+		CardSelectionContext.SHARPEN_PROMPT, source_cards, amount)
 		
 	result.finished.connect(func(selected_cards):
 		if selected_cards:
@@ -88,8 +90,8 @@ static func handle_card_modifiers_sequence(selected_cards, context, controller, 
 		await context.await_battle_actions()
 
 static func generate_card_selection_context(context: BattleContext, controller: BattleController, 
-	prompt : String, amount : int = 1) -> CardSelectionContext:
-	
-	var hand = controller.get_hand_manager().get_hand()	
-	var card_selection_context = CardSelectionContext.new(hand, prompt, amount)
+	prompt : String, source_cards : Array[Card], amount : int = 1) -> CardSelectionContext:
+		
+	var card_selection_context = CardSelectionContext.new(source_cards, prompt, amount)
+	card_selection_context.original_cards = controller.get_hand_manager().get_hand()
 	return card_selection_context

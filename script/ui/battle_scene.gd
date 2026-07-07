@@ -99,6 +99,8 @@ func _on_request_card_selection(ctx):
 	card_selection_ui.visible = true
 	
 	card_selection_prompt.text = ctx.get_prompt()
+	
+	hand_ui.update_ui(ctx.source_cards)
 
 	hand_ui.change_input_type(hand_ui.InputType.SELECTION)
 	
@@ -107,5 +109,7 @@ func _on_card_selection_finished(ctx):
 	confirm_selection_button.mouse_filter = card_selection_ui.MOUSE_FILTER_IGNORE
 	
 	card_selection_ui.visible = false
+	
+	hand_ui.update_ui(ctx.original_cards)
 
 	hand_ui.change_input_type(hand_ui.InputType.BATTLE)

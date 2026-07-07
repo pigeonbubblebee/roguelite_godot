@@ -36,6 +36,18 @@ static var KEYWORDS := {
 		"color": ColorPalette.GREY,
 		"icon": icon_path + "neu_icon.png"
 	},
+	"COMMON": {
+		"color": ColorPalette.WHITE,
+		"icon": icon_path + "neu_icon.png"
+	},
+	"RARE": {
+		"color": ColorPalette.GREEN,
+		"icon": icon_path + "neu_icon.png"
+	},
+	"HEROIC": {
+		"color": ColorPalette.YELLOW,
+		"icon": icon_path + "neu_icon.png"
+	},
 }
 
 static var DAMAGE_TYPE_COLORS := {

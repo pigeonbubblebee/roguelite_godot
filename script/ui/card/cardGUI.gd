@@ -15,6 +15,8 @@ var original_z := 0
 @onready var card_art_texture = get_node(_card_art_texture_path)
 @export var _card_color_bg_path: NodePath
 @onready var _card_color_bg = get_node(_card_color_bg_path)
+@export var _card_frame_bg_path: NodePath
+@onready var _card_frame_bg = get_node(_card_frame_bg_path)
 @export var _highlight_path: NodePath
 @onready var highlight = get_node(_highlight_path)
 
@@ -131,6 +133,7 @@ func update_card_logic(card: Card) -> void:
 	card_art_texture.texture = card.texture
 	
 	_card_color_bg.modulate = KeywordFormatter.get_keyword_color(card.get_primary_attribute())
+	_card_frame_bg.modulate = KeywordFormatter.get_keyword_color(card.rarity)
 	
 	change_state(idle_state)
 		

@@ -229,11 +229,13 @@ func discard_card(
 	
 func modify_card_select(
 	modifier_factory : Callable,
+	source_cards : Array[Card]
 ) -> EffectSequenceBuilder:
 	var selection_context = BattleRuntimeHelper.generate_modify_card_selection_context(
 		modifier_factory,
 		context, 
-		controller)
+		controller,
+		source_cards)
 	return step(
 		CardSelectionAction.new(selection_context),  # visual
 		func(): controller.start_card_selection(selection_context)

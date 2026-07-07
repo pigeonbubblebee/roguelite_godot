@@ -94,11 +94,9 @@ func update_ui(hand: Array[Card]):
 			# card.card_played.connect(_on_card_played)
 			# card.hover_base_position = card.position
 			
-	for i in range(cards_ui_array.size()):
-		if i >= hand.size():
-			var card_ui = cards_ui_array[i]
-			cards_ui_array.remove_at(i)
-			card_ui.queue_free()
+	while cards_ui_array.size() > hand.size():
+		var card_ui = cards_ui_array.pop_back()
+		card_ui.queue_free()
 
 	# Updates all actors
 	for i in range(hand.size()):
@@ -106,7 +104,7 @@ func update_ui(hand: Array[Card]):
 		var ui = cards_ui_array[i]
 		# print(card_logic)
 		ui.update_card_logic(card_logic)
-
+		
 	layout_hand()
 
 func set_context(context: BattleContext):

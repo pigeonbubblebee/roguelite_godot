@@ -259,8 +259,6 @@ func request_play_card(card: Card) -> bool:
 	return true
 	
 func resolve_card(card: Card):
-	card.play(_battle_context, self)
-	
 	match card.effect_on_resolve(_battle_context, self):
 		Card.ResolveEffect.DISCARD:
 			_hand_manager.discard_card_from_play(card)
@@ -270,6 +268,8 @@ func resolve_card(card: Card):
 	_energy_manager.use_energy(card.get_cost())
 	card_played.emit(card)
 	_battle_context.event_bus.on_card_played.emit(card, _battle_context, self)
+	
+	card.play(_battle_context, self)
 
 func apply_damage(ctx: DamageContext):
 	_battle_context.event_bus.before_damage_dealt.emit(ctx, _battle_context, self)

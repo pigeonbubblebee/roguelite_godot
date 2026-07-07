@@ -37,5 +37,8 @@ func _ready() -> void:
 	
 	for card in test_character.starting_deck:
 		data.deck.append(card.card_id)
+		
+	var map_generator : MapGenerator = MapGenerator.new()
+	map_generator.initialize()
 	
-	load_battle(data)
+	#load_battle(data)

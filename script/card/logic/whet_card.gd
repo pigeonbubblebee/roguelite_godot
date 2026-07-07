@@ -6,7 +6,11 @@ var armor : int = 60
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
 	
-	var card_arr = controller.get_hand_manager().get_hand()
+	var hand = controller.get_hand_manager().get_hand()
+	var card_arr : Array[Card] = []
+	for card in hand:
+		if card.type == Card.CardType.ATTACK:
+			card_arr.append(card)
 	var custom_action = BattleRuntimeHelper.generate_light_camera_shake_action()
 	var player = context.get_player()
 	
