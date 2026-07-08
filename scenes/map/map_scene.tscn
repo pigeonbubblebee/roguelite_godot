@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://cbg5p46hb15cv"]
+
+[ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://assets/Background.png" id="1_28lnw"]
+[ext_resource type="Script" path="res://script/ui/map/map_scene.gd" id="1_rvjbm"]
+[ext_resource type="PackedScene" uid="uid://kh3gt2hng50" path="res://scenes/map/room_scene.tscn" id="2_5y76d"]
+[ext_resource type="PackedScene" uid="uid://dfcjb1c5ac67e" path="res://scenes/map/horizontal_connector.tscn" id="3_mo7b0"]
+[ext_resource type="PackedScene" uid="uid://b0vrdxl2iy54v" path="res://scenes/map/vertical_connector.tscn" id="4_xp7c3"]
+[ext_resource type="Texture2D" uid="uid://cuvj2pn2e7aum" path="res://assets/ui/map/player_icon.png" id="6_rr3w4"]
+
+[node name="map_scene" type="Node2D" node_paths=PackedStringArray("camera")]
+script = ExtResource("1_rvjbm")
+room_scene = ExtResource("2_5y76d")
+camera = NodePath("player_icon")
+horizontal_connector_scene = ExtResource("3_mo7b0")
+vertical_connector_scene = ExtResource("4_xp7c3")
+
+[node name="background" type="Sprite2D" parent="."]
+scale = Vector2(360, 180)
+texture = ExtResource("1_28lnw")
+
+[node name="player_icon" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="player_icon"]
+texture = ExtResource("6_rr3w4")
+
+[node name="Camera2D" type="Camera2D" parent="player_icon"]

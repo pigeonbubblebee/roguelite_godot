@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://kh3gt2hng50"]
+
+[ext_resource type="Script" path="res://script/ui/map/room_scene.gd" id="1_hsssd"]
+[ext_resource type="Texture2D" uid="uid://b2yxknlk06oy0" path="res://assets/ui/map/map_node.png" id="2_bpief"]
+
+[node name="room_scene" type="Node2D"]
+script = ExtResource("1_hsssd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bpief")

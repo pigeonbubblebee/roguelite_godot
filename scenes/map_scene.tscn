@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbg5p46hb15cv"]
-
-[ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://assets/Background.png" id="1_28lnw"]
-
-[node name="map_scene" type="Node2D"]
-
-[node name="background" type="Sprite2D" parent="."]
-scale = Vector2(64, 36)
-texture = ExtResource("1_28lnw")

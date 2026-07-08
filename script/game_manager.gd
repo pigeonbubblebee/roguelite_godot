@@ -1,6 +1,7 @@
 extends Node
 
 @export var battle_scene: PackedScene
+@export var map_scene : PackedScene
 
 var _current_scene
 var _current_controller: BattleController
@@ -27,6 +28,16 @@ func load_battle(battle_data: BattleData) -> void:
 	controller.load_battle(battle_data)
 	battle_instance.bind_controller(controller)
 	
+func load_map() -> void:
+	var map_instance := map_scene.instantiate() as MapScene
+	add_child(map_instance)
+	_current_scene = map_instance
+	
+	var map_generator : MapGenerator = MapGenerator.new()
+	map_generator.initialize()
+	
+	map_instance.render_map(map_generator.dungeon)
+	
 func _ready() -> void:
 	var data = BattleData.new()
 	
@@ -38,7 +49,6 @@ func _ready() -> void:
 	for card in test_character.starting_deck:
 		data.deck.append(card.card_id)
 		
-	var map_generator : MapGenerator = MapGenerator.new()
-	map_generator.initialize()
 	
+	load_map()
 	#load_battle(data)

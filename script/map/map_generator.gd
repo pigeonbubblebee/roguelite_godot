@@ -5,9 +5,9 @@ var start_node : MapNode
 var dimension : Vector2i = Vector2i(12, 8)
 var dungeon : Array
 var start_node_position : Vector2i = Vector2i(0, -1)
-var critical_path_size : int = 18
-var branches : int = 3
-var branch_length : Vector2i = Vector2i(3, 6)
+var critical_path_size : int = 10
+var branches : int = 6
+var branch_length : Vector2i = Vector2i(2, 4)
 var branch_candidates : Array[MapNode]
 
 func initialize():
@@ -59,6 +59,7 @@ func generate_path(from: MapNode, len: int, marker : String) -> bool:
 				return true
 			else:
 				branch_candidates.erase(new_node)
+				from.neighbors.erase(new_node)
 				dungeon[current.x][current.y] = 0
 				current -= direction
 				

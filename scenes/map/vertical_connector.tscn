@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0vrdxl2iy54v"]
+
+[ext_resource type="Texture2D" uid="uid://d2qwuv1jmnvfl" path="res://assets/ui/map/vertical_connector.png" id="1_qgag0"]
+
+[node name="vertical_connector" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qgag0")
