@@ -1,12 +1,12 @@
 class_name RoomScene
 extends Node2D
 
+var map_node : MapNode
+@export var room_icon_path : NodePath
+@onready var room_icon : Sprite2D = get_node(room_icon_path)
+var icon_helper : RoomUIIconHelper = RoomUIIconHelper.new()
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func update_map_node(node : MapNode):
+	map_node = node
+	
+	room_icon.texture = icon_helper.icon_texture_map[node._to_string()]

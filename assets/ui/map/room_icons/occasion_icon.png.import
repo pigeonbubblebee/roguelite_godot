@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7bx318tga4sq"
-path="res://.godot/imported/combat_icon.png-6944361d3ad087d3fe5f04f616b67cc1.ctex"
+uid="uid://cp0sri1kqdp2k"
+path="res://.godot/imported/occasion_icon.png-bb9a58e2568c99823de946bf78b5d8e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/map/combat_icon.png"
-dest_files=["res://.godot/imported/combat_icon.png-6944361d3ad087d3fe5f04f616b67cc1.ctex"]
+source_file="res://assets/ui/map/room_icons/occasion_icon.png"
+dest_files=["res://.godot/imported/occasion_icon.png-bb9a58e2568c99823de946bf78b5d8e9.ctex"]
 
 [params]
 

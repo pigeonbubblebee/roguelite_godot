@@ -36,7 +36,11 @@ func load_map() -> void:
 	var map_generator : MapGenerator = MapGenerator.new()
 	map_generator.initialize()
 	
-	map_instance.render_map(map_generator.dungeon)
+	var controller = MapController.new()
+	map_instance.add_child(controller)
+	
+	controller.load_map(map_generator.dungeon)
+	map_instance.bind_controller(controller)
 	
 func _ready() -> void:
 	var data = BattleData.new()

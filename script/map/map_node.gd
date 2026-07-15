@@ -14,7 +14,9 @@ enum RoomType {
 	BOSS,
 	KEY,
 	TREASURE,
-	SHOP
+	SHOP,
+	REST,
+	EMPTY
 }
 
 func _to_string() -> String:
@@ -25,7 +27,22 @@ func _to_string() -> String:
 			return "C"
 		RoomType.BOSS:
 			return "B"
+		RoomType.ELITE:
+			return "E"
+		RoomType.OCCASION:
+			return "?"
+		RoomType.KEY:
+			return "K"
+		RoomType.TREASURE:
+			return "T"
+		RoomType.SHOP:
+			return "$"
+		RoomType.REST:
+			return "R"
+		RoomType.EMPTY:
+			return ","
 	return " "
+	
 func _init(_pos : Vector2, _type : RoomType = RoomType.COMBAT, _branch = "C") -> void:
 	position = _pos
 	type = _type

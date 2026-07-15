@@ -5,17 +5,108 @@ var start_node : MapNode
 var dimension : Vector2i = Vector2i(12, 8)
 var dungeon : Array
 var start_node_position : Vector2i = Vector2i(0, -1)
-var critical_path_size : int = 10
+var critical_path_size : int = 19
 var branches : int = 6
-var branch_length : Vector2i = Vector2i(2, 4)
+var branch_length : Vector2i = Vector2i(3, 5)
 var branch_candidates : Array[MapNode]
+
+var combat_rooms = Vector2i(6, 8)
+var combat_rooms_gap = Vector2i(1, 2)
+
+var current_combat_room_gap = 0
+var current_combat_rooms = 0
+
+var critical_path : Array[MapNode]
+var branch_paths : Dictionary = {}
 
 func initialize():
 	generate_map()
 	place_entrance()
+	
+	current_combat_rooms = randi_range(combat_rooms.x, combat_rooms.y)
+	current_combat_room_gap = randi_range(combat_rooms_gap.x, combat_rooms_gap.y)
+	
 	generate_path(start_node, critical_path_size, "C")
 	generate_branches()
+	decorate_path()
+	add_random_connections(0.15)
 	render_dungeon()
+	
+func decorate_path():
+	set_room(
+		critical_path[0],
+		MapNode.RoomType.BOSS
+	)
+	set_room(
+		critical_path[1],
+		MapNode.RoomType.REST
+	)
+	
+	var rest_candidates = branch_paths.keys()
+	
+	var branch = rest_candidates.pick_random()
+	set_room(
+		random_unused(branch_paths[branch].slice(1)),
+		MapNode.RoomType.REST
+	)
+	rest_candidates.erase(branch)
+	branch = rest_candidates.pick_random()
+	set_room(
+		random_unused(branch_paths[branch].slice(1)),
+		MapNode.RoomType.REST
+	)
+	
+	for b in branch_paths.values():
+		var choices = b.slice(1, b.size() - 1)
+		if randf() < 0.75:
+			set_room(
+				random_unused(choices),
+				MapNode.RoomType.COMBAT
+			)
+			
+	var branch_end_candidates = branch_paths.keys()
+	for i in range(3):
+		branch = branch_end_candidates.pick_random()
+		set_room(
+			branch_paths[branch][0],
+			MapNode.RoomType.ELITE
+		)
+		branch_end_candidates.erase(branch)
+	for i in range(2):
+		branch = branch_end_candidates.pick_random()
+		set_room(
+			branch_paths[branch][0],
+			MapNode.RoomType.TREASURE
+		)
+		branch_end_candidates.erase(branch)
+	branch = branch_end_candidates.pick_random()
+	set_room(
+		branch_paths[branch][0],
+		MapNode.RoomType.SHOP
+	)
+	branch_end_candidates.erase(branch)
+	
+	var occ_amount = randi_range(2,3)
+
+	var whole_dungeon = []
+	var combat_nodes = []
+
+	whole_dungeon.append_array(critical_path)
+	for b in branch_paths.values():
+		whole_dungeon.append_array(b)
+	combat_nodes = whole_dungeon.filter(func(n):
+		return n.type == MapNode.RoomType.COMBAT
+	)
+	combat_nodes.shuffle()
+	whole_dungeon = whole_dungeon.filter(func(n):
+		return n.type == MapNode.RoomType.EMPTY
+	)
+	whole_dungeon.shuffle()
+
+	for i in min(occ_amount, whole_dungeon.size()):
+		whole_dungeon[i].type = MapNode.RoomType.OCCASION
+	for i in range(2):
+		combat_nodes[i].type = MapNode.RoomType.KEY
 
 func place_entrance():
 	if start_node_position.x < 0 or start_node_position.x >= dimension.x:
@@ -26,6 +117,40 @@ func place_entrance():
 	start_node = MapNode.new(start_node_position, MapNode.RoomType.START)
 	dungeon[start_node_position.x][start_node_position.y] = start_node
 	
+func add_random_connections(chance: float):
+	for x in range(dimension.x):
+		for y in range(dimension.y):
+			var node = dungeon[x][y]
+
+			if node == null:
+				continue
+
+			for dir in [Vector2i.RIGHT, Vector2i.UP]:
+				var pos = Vector2i(x, y) + dir
+
+				if pos.x < 0 or pos.x >= dimension.x:
+					continue
+				if pos.y < 0 or pos.y >= dimension.y:
+					continue
+
+				var other = dungeon[pos.x][pos.y]
+
+				if not other:
+					continue
+					
+				if not node:
+					continue
+					
+				if node.neighbors.has(other):
+					continue
+					
+				if node.type == MapNode.RoomType.BOSS or other.type == MapNode.RoomType.BOSS:
+					continue
+
+				if randf() < chance:
+					node.neighbors.append(other)
+					other.neighbors.append(node)	
+
 func generate_path(from: MapNode, len: int, marker : String) -> bool:
 	if len == 0:
 		return true
@@ -46,8 +171,19 @@ func generate_path(from: MapNode, len: int, marker : String) -> bool:
 			not dungeon[current.x + direction.x][current.y + direction.y]):
 			
 			current = current + direction
+			
+			var node_type = MapNode.RoomType.EMPTY
+			
+			if marker == 'C' && current_combat_rooms > 0:
+				if current_combat_room_gap == 0:
+					node_type = MapNode.RoomType.COMBAT
+					current_combat_rooms -= 1
+					current_combat_room_gap = randi_range(combat_rooms_gap.x, combat_rooms_gap.y)
+				else:
+					current_combat_room_gap -= 1
+			
 			var new_node = MapNode.new(current, 
-				MapNode.RoomType.COMBAT, marker)
+				node_type, marker)
 			dungeon[current.x][current.y] = new_node
 			new_node.neighbors.append(from)
 			from.neighbors.append(new_node)
@@ -56,6 +192,12 @@ func generate_path(from: MapNode, len: int, marker : String) -> bool:
 				branch_candidates.append(new_node)
 			
 			if generate_path(new_node, len - 1, marker):
+				if marker == "C":
+					critical_path.append(new_node)
+				else:
+					if !branch_paths.has(marker):
+						branch_paths[marker] = []
+					branch_paths[marker].append(new_node)
 				return true
 			else:
 				branch_candidates.erase(new_node)
@@ -65,6 +207,16 @@ func generate_path(from: MapNode, len: int, marker : String) -> bool:
 				
 		direction = Vector2i(direction.y, -direction.x)
 	return false
+	
+func random_unused(nodes:Array) -> MapNode:
+	nodes = nodes.filter(func(n): return n.type == MapNode.RoomType.EMPTY)
+	if nodes.is_empty():
+		return null
+	return nodes.pick_random()
+	
+func set_room(node:MapNode, type):
+	if node:
+		node.type = type
 	
 func generate_branches():
 	var branches_created : int = 0
