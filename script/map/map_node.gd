@@ -6,8 +6,8 @@ var position : Vector2
 var branch = 0
 var type : RoomType = RoomType.COMBAT
 
-var discovered : bool = false
-var visible : bool = false
+var discovered : bool = false # stepped on by player
+var visible : bool = false # can be seen by player (adjacent to discovered counts)
 
 enum RoomType {
 	COMBAT,

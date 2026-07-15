@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://uofcxxiaue0i"]
+[gd_scene load_steps=21 format=3 uid="uid://uofcxxiaue0i"]
 
 [ext_resource type="Script" path="res://script/ui/battle_scene.gd" id="1_0hekd"]
 [ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://assets/Background.png" id="1_igw74"]
@@ -12,11 +12,13 @@
 [ext_resource type="FontFile" uid="uid://b23c0njeg0avg" path="res://data/PixelPurl8x8 (1).ttf" id="12_7i6l6"]
 [ext_resource type="Script" path="res://script/battle/battle_scene_camera.gd" id="13_yyjm8"]
 [ext_resource type="Script" path="res://script/ui/particle_effect_manager.gd" id="14_eymi4"]
-[ext_resource type="Script" path="res://script/ui/end_turn_button.gd" id="14_vdmwm"]
+[ext_resource type="Script" path="res://script/ui/ui_button.gd" id="14_vdmwm"]
 [ext_resource type="Texture2D" uid="uid://pmtbvaw8jtdm" path="res://assets/end_turn.png" id="15_11nws"]
 [ext_resource type="Script" path="res://script/ui/confirm_button.gd" id="16_5ktu8"]
 [ext_resource type="Script" path="res://script/ui/card/card_view.gd" id="16_5tote"]
 [ext_resource type="Script" path="res://script/ui/tooltip/tooltip_manager.gd" id="17_prs2y"]
+[ext_resource type="Script" path="res://scenes/battle_finished_screen.gd" id="18_cxn3p"]
+[ext_resource type="FontFile" uid="uid://cgih62i6o6aul" path="res://data/PixelPurl.ttf" id="18_u1jok"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dwavk"]
 
@@ -27,6 +29,8 @@ _battle_hud_path = NodePath("HUD/battle_hud")
 _actor_ui_path = NodePath("actor_ui/actor_ui")
 _hand_ui_path = NodePath("hand_ui/hand")
 _end_turn_button_path = NodePath("end_turn_button")
+_battle_finished_button_path = NodePath("battle_finished_screen/battle_finished_ui/finish_battle_button")
+_battle_finished_ui_path = NodePath("battle_finished_screen/battle_finished_ui")
 _confirm_selection_button_path = NodePath("hand_ui/card_selection_ui/confirm_selection")
 _card_selection_ui_path = NodePath("hand_ui/card_selection_ui")
 _card_selection_prompt_path = NodePath("hand_ui/card_selection_ui/background/Label")
@@ -308,3 +312,85 @@ mouse_filter = 2
 
 [node name="tooltip_manager" type="Node2D" parent="."]
 script = ExtResource("17_prs2y")
+
+[node name="battle_finished_screen" type="Node2D" parent="."]
+script = ExtResource("18_cxn3p")
+_ui_path = NodePath("battle_finished_ui")
+
+[node name="battle_finished_ui" type="Control" parent="battle_finished_screen"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="background" type="Control" parent="battle_finished_screen/battle_finished_ui"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="background" type="TextureRect" parent="battle_finished_screen/battle_finished_ui/background"]
+modulate = Color(1, 1, 1, 0.545098)
+material = SubResource("CanvasItemMaterial_dwavk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("1_igw74")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="battle_finished_screen/battle_finished_ui/background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -194.0
+offset_top = 110.0
+offset_right = 194.0
+offset_bottom = 133.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("18_u1jok")
+text = "ENEMY SLAIN"
+horizontal_alignment = 1
+
+[node name="finish_battle_button" type="Control" parent="battle_finished_screen/battle_finished_ui"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 16.0
+mouse_filter = 2
+script = ExtResource("14_vdmwm")
+
+[node name="texture" type="TextureRect" parent="battle_finished_screen/battle_finished_ui/finish_battle_button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_11nws")
+
+[node name="Label" type="Label" parent="battle_finished_screen/battle_finished_ui/finish_battle_button/texture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_7i6l6")
+text = "Finish"
+horizontal_alignment = 1
+vertical_alignment = 1

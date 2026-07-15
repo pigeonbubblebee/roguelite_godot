@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://brs5lch3d2nkg"]
+
+[ext_resource type="Texture2D" uid="uid://dahru4qwyaw1s" path="res://assets/ui/room_transition_1.png" id="1_hrb1h"]
+[ext_resource type="Script" path="res://scenes/transition_scene.gd" id="1_wjfjy"]
+[ext_resource type="Texture2D" uid="uid://dl48ocwifojr8" path="res://assets/ui/room_transition_2.png" id="2_pbtlr"]
+
+[node name="transition_scene" type="CanvasLayer"]
+script = ExtResource("1_wjfjy")
+room_transition_1_path = NodePath("RoomTransition1")
+room_transition_2_path = NodePath("RoomTransition2")
+
+[node name="RoomTransition1" type="Sprite2D" parent="."]
+position = Vector2(0, 360)
+texture = ExtResource("1_hrb1h")
+
+[node name="RoomTransition2" type="Sprite2D" parent="."]
+position = Vector2(0, -360)
+texture = ExtResource("2_pbtlr")

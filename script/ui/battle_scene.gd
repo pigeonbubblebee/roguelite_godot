@@ -17,6 +17,11 @@ extends Node2D
 @export var _end_turn_button_path: NodePath
 @onready var end_turn_button = get_node(_end_turn_button_path)
 
+@export var _battle_finished_button_path: NodePath
+@onready var battle_finished_button = get_node(_battle_finished_button_path)
+@export var _battle_finished_ui_path: NodePath
+@onready var battle_finished_ui = get_node(_battle_finished_ui_path)
+
 @export var _confirm_selection_button_path: NodePath
 @onready var confirm_selection_button = get_node(_confirm_selection_button_path)
 
@@ -54,8 +59,11 @@ func bind_controller(controller: BattleController) -> void:
 	controller.request_card_selection.connect(_on_request_card_selection)
 	controller.card_selection_finished.connect(_on_card_selection_finished)
 	
+	controller.queue_battle_won.connect(_on_battle_won)
+	
 	# UI to Controller
 	end_turn_button.pressed.connect(controller.on_end_turn_pressed)
+	battle_finished_button.pressed.connect(controller.on_battle_finished_pressed)
 	confirm_selection_button.pressed.connect(controller.on_confirm_selection_pressed)
 	
 	actor_ui.hovered_enemy_change.connect(controller.on_hovered_enemy_change)
@@ -113,3 +121,9 @@ func _on_card_selection_finished(ctx):
 	hand_ui.update_ui(ctx.original_cards)
 
 	hand_ui.change_input_type(hand_ui.InputType.BATTLE)
+	
+func _on_battle_won(ctx):
+	battle_finished_ui.mouse_filter = battle_finished_ui.MOUSE_FILTER_STOP
+	battle_finished_button.mouse_filter = battle_finished_button.MOUSE_FILTER_STOP
+	
+	battle_finished_ui.visible = true

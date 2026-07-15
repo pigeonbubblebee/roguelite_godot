@@ -7,6 +7,10 @@ var current_node : MapNode
 signal player_moved(node)
 signal map_visibility_updated()
 
+func finish_current_node():
+	if current_node:
+		current_node.type = MapNode.RoomType.EMPTY
+
 func get_neighbor(direction: Vector2) -> MapNode:
 	for neighbor in current_node.neighbors:
 		if neighbor.position - current_node.position == direction:
@@ -54,15 +58,5 @@ func load_map(_map : Array):
 				update_visibility()
 				return
 
-func _process(delta):
-	if Input.is_action_just_pressed("ui_right"):
-		move(Vector2i.RIGHT)
-
-	elif Input.is_action_just_pressed("ui_left"):
-		move(Vector2i.LEFT)
-
-	elif Input.is_action_just_pressed("ui_up"):
-		move(Vector2i.UP)
-
-	elif Input.is_action_just_pressed("ui_down"):
-		move(Vector2i.DOWN)
+func process_move_input(direction):
+	move(direction)

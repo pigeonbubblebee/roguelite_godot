@@ -23,6 +23,9 @@ signal request_visual_action_enqueue(action: BattleVisualAction)
 signal request_card_selection(ctx : CardSelectionContext)
 signal card_selection_finished(ctx : CardSelectionContext)
 
+signal battle_finished
+signal queue_battle_won(ctx)
+
 @export var log_card_play := false
 
 func _input(event: InputEvent) -> void:
@@ -190,6 +193,9 @@ func on_end_turn_pressed():
 	if(_turn_manager._current_actor.get_actor_name() == "Player" and not _turn_manager.processing_turn_change):
 		_turn_manager.finish_turn()
 		
+func on_battle_finished_pressed():
+	battle_finished.emit()
+		
 func on_confirm_selection_pressed():
 	if _hand_manager.is_ready_to_end_selection():
 		card_selection_finished.emit(_hand_manager.current_card_selection_context)
@@ -335,6 +341,8 @@ func free_actor(actor: Actor):
 	## UI should then react
 	## Turn Order UI, Actor Sprite UI
 	
+	check_battle_finished()
+	
 func load_next_actor_turn():
 	if not _is_first_turn:
 		var process_turn_pass_action = ProcessPassTurnAction.new()
@@ -358,6 +366,13 @@ func gain_energy(amt: int = 1):
 	
 func add_card_modifier(card: Card, modifier: CardModifier):
 	card.add_modifier(modifier, _battle_context, self)
+	
+func check_battle_finished():
+	var allies = _battle_context.get_actors_of_faction(Faction.Type.ALLY)
+	var enemies = _battle_context.get_actors_of_faction(Faction.Type.ENEMY)
+
+	if enemies.is_empty():
+		queue_battle_won.emit(BattleWonContext.new())
 	
 ###################
 ##### GETTERS #####
