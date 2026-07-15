@@ -12,6 +12,7 @@ var connector_size : int = 16
 var left_corner = Vector2(-320, -180)
 
 var map_nodes : Array[RoomScene]
+var connectors := []
 
 func _process(delta: float) -> void:
 	pass
@@ -19,6 +20,29 @@ func _process(delta: float) -> void:
 func bind_controller(controller: MapController):
 	render_map(controller.map)
 	controller.player_moved.connect(move_player_to)
+	controller.map_visibility_updated.connect(update_fog)
+	
+	update_fog()
+	
+func update_fog():
+	for room_scene in map_nodes:
+		var node = room_scene.map_node
+
+		if node.visible:
+			if not node.discovered:
+				room_scene.modulate = Color.RED
+			else:
+				room_scene.modulate = Color.WHITE
+			room_scene.show()
+		else:
+			room_scene.hide()
+			
+	for connection in connectors:
+		var a : MapNode = connection["a"]
+		var b : MapNode = connection["b"]
+		var connector : Node2D = connection["scene"]
+
+		connector.visible = a.visible and b.visible
 	
 func move_player_to(node: MapNode):
 	for room in map_nodes:
@@ -85,6 +109,11 @@ func create_connector(a : MapNode, b : MapNode):
 		) + left_corner
 
 		add_child(connector)
+		connectors.append({
+			"scene": connector,
+			"a": a,
+			"b": b
+		})
 
 	elif difference.y != 0:
 		# Vertical connection
@@ -98,3 +127,8 @@ func create_connector(a : MapNode, b : MapNode):
 		) + left_corner
 
 		add_child(connector)
+		connectors.append({
+			"scene": connector,
+			"a": a,
+			"b": b
+		})

@@ -5,6 +5,7 @@ var map : Array
 var current_node : MapNode
 
 signal player_moved(node)
+signal map_visibility_updated()
 
 func get_neighbor(direction: Vector2) -> MapNode:
 	for neighbor in current_node.neighbors:
@@ -20,7 +21,28 @@ func move(direction: Vector2i):
 		return
 
 	current_node = next
+	
+	update_visibility()
+
 	player_moved.emit(next)
+
+func update_visibility():
+	for column in map:
+		for node in column:
+			if node:
+				node.visible = false
+
+	current_node.discovered = true
+
+	for column in map:
+		for node in column:
+			if node and node.discovered:
+				node.visible = true
+
+				for neighbor in node.neighbors:
+					neighbor.visible = true
+
+	map_visibility_updated.emit()
 
 func load_map(_map : Array):
 	map = _map
@@ -29,6 +51,7 @@ func load_map(_map : Array):
 		for node in column:
 			if node and node.type == MapNode.RoomType.START:
 				current_node = node
+				update_visibility()
 				return
 
 func _process(delta):

@@ -6,6 +6,9 @@ var position : Vector2
 var branch = 0
 var type : RoomType = RoomType.COMBAT
 
+var discovered : bool = false
+var visible : bool = false
+
 enum RoomType {
 	COMBAT,
 	START,
