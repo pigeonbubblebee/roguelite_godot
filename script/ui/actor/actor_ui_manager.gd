@@ -71,8 +71,17 @@ func load_actor_ui(actor: Actor):
 	_position_actor_ui(actor_ui, actor.get_team_position(), actor.get_actor_faction())
 	
 func _position_actor_ui(actor_ui: ActorUI, team_position: int, faction: Faction.Type):
-	var spacing: float = 64
-	var x_pos: float = (team_position) * spacing
+	var actor_array: Array = (enemy_ui_array 
+		if actor_ui.actor.get_actor_faction() == Faction.Type.ENEMY 
+		else ally_ui_array)
+	
+	var x_pos := 0.0
+
+	# Sum the widths of all previous actors
+	for i in range(actor_array.size()):
+		if actor_array[i].actor.get_team_position() < team_position:
+			x_pos += actor_array[i].size.x
+		
 	var y_pos: float = 60 + (20 if team_position%2 == 0 else 0)
 	
 	actor_ui.position = Vector2(x_pos, y_pos)	

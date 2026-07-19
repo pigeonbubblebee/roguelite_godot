@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ActorData" load_steps=5 format=3 uid="uid://c4wk2e5i406gy"]
+
+[ext_resource type="Script" path="res://script/actor/actor_data.gd" id="1_gtl8h"]
+[ext_resource type="Script" path="res://script/actor/enemy/wolf_enemy_actor.gd" id="1_o6b42"]
+[ext_resource type="Texture2D" uid="uid://cexnsksr5xd2j" path="res://assets/wolf_icon.png" id="2_qi1u7"]
+[ext_resource type="PackedScene" uid="uid://chifcwge1sd2k" path="res://scenes/ui/actor/enemy/slime_actor.tscn" id="4_hdrim"]
+
+[resource]
+script = ExtResource("1_gtl8h")
+name = "SlimeEnemy"
+icon_texture = ExtResource("2_qi1u7")
+actor_script = ExtResource("1_o6b42")
+ui_scene = ExtResource("4_hdrim")
+max_health = 300

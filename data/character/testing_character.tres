@@ -1,24 +1,17 @@
-[gd_resource type="Resource" script_class="StartingCharacter" load_steps=16 format=3 uid="uid://36qmxn3olfqk"]
+[gd_resource type="Resource" script_class="StartingCharacter" load_steps=9 format=3 uid="uid://36qmxn3olfqk"]
 
 [ext_resource type="Script" path="res://script/starting_character.gd" id="1_ml6py"]
 [ext_resource type="Script" path="res://script/card/card_resource.gd" id="2_ni8ag"]
-[ext_resource type="Resource" uid="uid://bfahn8c7dkvtp" path="res://data/card/thrust_card.tres" id="3_vy3aa"]
 [ext_resource type="Resource" uid="uid://btaudffalqh5l" path="res://data/card/divination_card.tres" id="4_5a3jr"]
-[ext_resource type="Resource" uid="uid://vr6ubts180kh" path="res://data/card/concuss_card.tres" id="4_lyab4"]
-[ext_resource type="Resource" uid="uid://bgm70t3vxwebg" path="res://data/card/sundering_strike_card.tres" id="5_71ead"]
 [ext_resource type="Resource" uid="uid://brv1li235j2v5" path="res://data/card/war_armor_card.tres" id="6_qvwuk"]
 [ext_resource type="Resource" uid="uid://bjqg3qf34t7q" path="res://data/card/whet_card.tres" id="7_0a8jj"]
-[ext_resource type="Resource" uid="uid://cwg420s81c6eb" path="res://data/card/cleave_card.tres" id="8_ooj11"]
+[ext_resource type="Resource" uid="uid://btjwia78x5dy5" path="res://data/card/mana_explosion_card.tres" id="8_1tnv7"]
 [ext_resource type="Resource" uid="uid://bvijowxqg1qog" path="res://data/card/intimidate_card.tres" id="9_whyxy"]
-[ext_resource type="Resource" uid="uid://dvj1poi3kbww8" path="res://data/card/raging_blow_card.tres" id="10_go2vv"]
-[ext_resource type="Resource" uid="uid://d2cf74ita7jik" path="res://data/card/honed_edge_card.tres" id="11_2syeq"]
-[ext_resource type="Resource" uid="uid://c6opkkl2xdxqq" path="res://data/card/surging_slash_card.tres" id="12_vl2fx"]
-[ext_resource type="Resource" uid="uid://3iy8fxxajbjm" path="res://data/card/sweeping_wave_card.tres" id="13_wod5x"]
 [ext_resource type="Resource" uid="uid://d4c4v3gmaopik" path="res://data/card/mighty_armor_card.tres" id="14_pwisx"]
 
 [resource]
 script = ExtResource("1_ml6py")
-starting_deck = Array[ExtResource("2_ni8ag")]([ExtResource("3_vy3aa"), ExtResource("4_lyab4"), ExtResource("5_71ead"), ExtResource("6_qvwuk"), ExtResource("7_0a8jj"), ExtResource("8_ooj11"), ExtResource("9_whyxy"), ExtResource("10_go2vv"), ExtResource("11_2syeq"), ExtResource("12_vl2fx"), ExtResource("13_wod5x"), ExtResource("14_pwisx"), ExtResource("4_5a3jr")])
+starting_deck = Array[ExtResource("2_ni8ag")]([ExtResource("7_0a8jj"), ExtResource("9_whyxy"), ExtResource("14_pwisx"), ExtResource("4_5a3jr"), ExtResource("6_qvwuk"), ExtResource("8_1tnv7")])
 base_strength = 0
 base_dexterity = 0
 base_intelligence = 0

@@ -49,7 +49,9 @@ static func generate_damage_context(damage, hit_actors, damage_owner, blast_dama
 	
 	return damage_context
 	
-static func generate_discard_card_selection_context(context: BattleContext, controller: BattleController, 
+static func generate_discard_card_selection_context(context: BattleContext, 
+	controller: BattleController, 
+	source_cards : Array[Card] = controller.get_hand_manager().get_hand(),
 	amount : int = 1) -> CardSelectionContext:
 	
 	var result = generate_card_selection_context(context, controller, 
@@ -66,7 +68,7 @@ static func generate_discard_card_selection_context(context: BattleContext, cont
 static func generate_modify_card_selection_context(
 	modifier_factory : Callable,
 	context: BattleContext, controller: BattleController, 
-	source_cards : Array[Card],
+	source_cards : Array[Card] = controller.get_hand_manager().get_hand(),
 	amount : int = 1) -> CardSelectionContext:
 	
 	var result = generate_card_selection_context(context, controller, 

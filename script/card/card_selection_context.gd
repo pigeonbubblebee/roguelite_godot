@@ -18,6 +18,9 @@ func _init(_cards, _prompt, _amount = 1):
 	prompt = _prompt
 	amount = _amount
 	
+	if source_cards.size() < amount:
+		amount = source_cards.size()
+	
 func get_prompt() -> String:
 	var result := prompt
 	

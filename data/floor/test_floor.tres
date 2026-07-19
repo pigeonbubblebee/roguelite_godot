@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MapFloorData" load_steps=5 format=3 uid="uid://bbsq4viawx6bo"]
+
+[ext_resource type="Script" path="res://script/encounter_data.gd" id="1_3qt58"]
+[ext_resource type="Script" path="res://script/map/map_floor_data.gd" id="2_7bnsw"]
+[ext_resource type="Resource" uid="uid://e5oikm3qky4n" path="res://data/encounter/tree_spirit_encounter.tres" id="3_06yx3"]
+[ext_resource type="Resource" uid="uid://bmnmbm74adfbu" path="res://data/encounter/demi_human_chief_encounter.tres" id="3_m27g2"]
+
+[resource]
+script = ExtResource("2_7bnsw")
+encounter_pool = Array[ExtResource("1_3qt58")]([ExtResource("3_06yx3"), ExtResource("3_m27g2")])
+encounter_pool_easy = Array[ExtResource("1_3qt58")]([])
+max_easy_pools = 0

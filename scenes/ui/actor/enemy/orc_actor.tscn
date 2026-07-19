@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://qy1mb3wyfqvo"]
+
+[ext_resource type="PackedScene" uid="uid://d1ynugb3e8na6" path="res://scenes/ui/actor/enemy/enemy_actor.tscn" id="1_3v672"]
+[ext_resource type="Texture2D" uid="uid://ckhoah3rkcd2t" path="res://assets/ui/actor_sprites/orc_sprite.png" id="2_0a1ev"]
+
+[node name="enemy_actor" instance=ExtResource("1_3v672")]
+
+[node name="sprite" parent="Control" index="0"]
+texture = ExtResource("2_0a1ev")

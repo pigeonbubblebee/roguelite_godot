@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EncounterData" load_steps=5 format=3 uid="uid://cglhg3s4tmxod"]
+
+[ext_resource type="Script" path="res://script/actor/actor_data.gd" id="1_3h7dr"]
+[ext_resource type="Resource" uid="uid://dfpysmyeram8u" path="res://data/enemy/birdling_enemy.tres" id="2_3u4wa"]
+[ext_resource type="Script" path="res://script/encounter_data.gd" id="2_8ahy5"]
+[ext_resource type="Resource" uid="uid://ckg8xvkbo5lyu" path="res://data/enemy/demi_human_enemy.tres" id="3_4uscb"]
+
+[resource]
+script = ExtResource("2_8ahy5")
+enemies = Array[ExtResource("1_3h7dr")]([ExtResource("2_3u4wa"), ExtResource("3_4uscb")])

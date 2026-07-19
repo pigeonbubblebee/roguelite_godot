@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ActorData" load_steps=5 format=3 uid="uid://cndy66d4osu1o"]
+
+[ext_resource type="Script" path="res://script/actor/actor_data.gd" id="1_2jxtt"]
+[ext_resource type="Script" path="res://script/actor/enemy/wolf_enemy_actor.gd" id="1_p5o05"]
+[ext_resource type="Texture2D" uid="uid://cexnsksr5xd2j" path="res://assets/wolf_icon.png" id="2_lfwy1"]
+[ext_resource type="PackedScene" uid="uid://bhyp4rhueroug" path="res://scenes/ui/actor/enemy/tree_spirit_actor.tscn" id="4_sml86"]
+
+[resource]
+script = ExtResource("1_2jxtt")
+name = "TreeSpiritEnemy"
+icon_texture = ExtResource("2_lfwy1")
+actor_script = ExtResource("1_p5o05")
+ui_scene = ExtResource("4_sml86")
+max_health = 500

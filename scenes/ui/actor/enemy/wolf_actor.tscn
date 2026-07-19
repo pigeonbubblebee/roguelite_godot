@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6tqtkhrwveyt"]
+
+[ext_resource type="PackedScene" uid="uid://d1ynugb3e8na6" path="res://scenes/ui/actor/enemy/enemy_actor.tscn" id="1_iylx7"]
+
+[node name="wolf_actor" instance=ExtResource("1_iylx7")]

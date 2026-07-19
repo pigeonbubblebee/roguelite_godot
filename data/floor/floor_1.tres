@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="MapFloorData" load_steps=16 format=3 uid="uid://cydsrhu0cqoep"]
+
+[ext_resource type="Script" path="res://script/encounter_data.gd" id="1_dfxr7"]
+[ext_resource type="Resource" uid="uid://d30f3rvlq0f7w" path="res://data/encounter/goblin_encounter.tres" id="2_e0n5l"]
+[ext_resource type="Script" path="res://script/map/map_floor_data.gd" id="2_q6uit"]
+[ext_resource type="Resource" uid="uid://bejhbquponaf5" path="res://data/encounter/goblin_orc_encounter.tres" id="3_2qctx"]
+[ext_resource type="Resource" uid="uid://cglhg3s4tmxod" path="res://data/encounter/birdling_demi_human_encounter.tres" id="4_4ae3g"]
+[ext_resource type="Resource" uid="uid://dytt0t0kijqb7" path="res://data/encounter/wolf_encounter.tres" id="4_covq4"]
+[ext_resource type="Resource" uid="uid://btts2ilqddpkb" path="res://data/encounter/bear_encounter.tres" id="5_fxofw"]
+[ext_resource type="Resource" uid="uid://cw8xaoyptupik" path="res://data/encounter/orc_encounter.tres" id="5_vbux2"]
+[ext_resource type="Resource" uid="uid://djfukbx3gt7u2" path="res://data/encounter/birdling_encounter.tres" id="6_4ckib"]
+[ext_resource type="Resource" uid="uid://drybpchyq8xtf" path="res://data/encounter/imp_encounter.tres" id="6_syyg2"]
+[ext_resource type="Resource" uid="uid://5mnsui3mkb46" path="res://data/encounter/troll_encounter.tres" id="7_w2jig"]
+[ext_resource type="Resource" uid="uid://drbt6y6qto153" path="res://data/encounter/demi_human_encounter.tres" id="7_wga3g"]
+[ext_resource type="Resource" uid="uid://d4n4smly38603" path="res://data/encounter/slime_encounter.tres" id="8_wk8ni"]
+[ext_resource type="Resource" uid="uid://e5oikm3qky4n" path="res://data/encounter/tree_spirit_encounter.tres" id="9_asrwe"]
+[ext_resource type="Resource" uid="uid://bmnmbm74adfbu" path="res://data/encounter/demi_human_chief_encounter.tres" id="10_c604g"]
+
+[resource]
+script = ExtResource("2_q6uit")
+encounter_pool = Array[ExtResource("1_dfxr7")]([ExtResource("3_2qctx"), ExtResource("5_fxofw"), ExtResource("4_4ae3g"), ExtResource("5_vbux2"), ExtResource("6_syyg2"), ExtResource("7_w2jig"), ExtResource("8_wk8ni"), ExtResource("9_asrwe"), ExtResource("10_c604g")])
+encounter_pool_easy = Array[ExtResource("1_dfxr7")]([ExtResource("2_e0n5l"), ExtResource("4_covq4"), ExtResource("7_wga3g"), ExtResource("6_4ckib")])
+max_easy_pools = 3

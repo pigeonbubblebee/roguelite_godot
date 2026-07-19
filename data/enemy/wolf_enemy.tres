@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://script/actor/actor_data.gd" id="1_d1c0y"]
 [ext_resource type="Script" path="res://script/actor/enemy/wolf_enemy_actor.gd" id="1_i6vtf"]
 [ext_resource type="Texture2D" uid="uid://cexnsksr5xd2j" path="res://assets/wolf_icon.png" id="2_5edic"]
-[ext_resource type="PackedScene" uid="uid://d1ynugb3e8na6" path="res://scenes/enemy_actor.tscn" id="4_bx50c"]
+[ext_resource type="PackedScene" uid="uid://b6tqtkhrwveyt" path="res://scenes/ui/actor/enemy/wolf_actor.tscn" id="4_v2r7e"]
 
 [resource]
 script = ExtResource("1_d1c0y")
 name = "WolfEnemy"
 icon_texture = ExtResource("2_5edic")
 actor_script = ExtResource("1_i6vtf")
-ui_scene = ExtResource("4_bx50c")
+ui_scene = ExtResource("4_v2r7e")
 max_health = 400

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EncounterData" load_steps=6 format=3 uid="uid://bejhbquponaf5"]
+
+[ext_resource type="Script" path="res://script/actor/actor_data.gd" id="1_trcut"]
+[ext_resource type="Resource" uid="uid://chrxe473te2s1" path="res://data/enemy/goblin_enemy.tres" id="2_avv4d"]
+[ext_resource type="Script" path="res://script/encounter_data.gd" id="2_p4fyw"]
+[ext_resource type="Resource" uid="uid://dhaiwiqd1dp71" path="res://data/enemy/orc_enemy.tres" id="3_2slay"]
+[ext_resource type="Resource" uid="uid://yny6gbal0kmm" path="res://data/enemy/goblin_archer_enemy.tres" id="4_woiio"]
+
+[resource]
+script = ExtResource("2_p4fyw")
+enemies = Array[ExtResource("1_trcut")]([ExtResource("2_avv4d"), ExtResource("3_2slay"), ExtResource("4_woiio")])

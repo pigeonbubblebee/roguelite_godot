@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ActorData" load_steps=5 format=3 uid="uid://cd8cxeamkhufv"]
+
+[ext_resource type="Script" path="res://script/actor/enemy/wolf_enemy_actor.gd" id="1_bfntf"]
+[ext_resource type="Script" path="res://script/actor/actor_data.gd" id="1_ff6k0"]
+[ext_resource type="Texture2D" uid="uid://cexnsksr5xd2j" path="res://assets/wolf_icon.png" id="2_mu486"]
+[ext_resource type="PackedScene" uid="uid://b8dwfivcg8gw4" path="res://scenes/ui/actor/enemy/demi_human_chief_actor.tscn" id="4_vhwap"]
+
+[resource]
+script = ExtResource("1_ff6k0")
+name = "DemiHumanChiefEnemy"
+icon_texture = ExtResource("2_mu486")
+actor_script = ExtResource("1_bfntf")
+ui_scene = ExtResource("4_vhwap")
+max_health = 400

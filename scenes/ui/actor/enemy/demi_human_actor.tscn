@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://0px7f1noia6u"]
+
+[ext_resource type="PackedScene" uid="uid://d1ynugb3e8na6" path="res://scenes/ui/actor/enemy/enemy_actor.tscn" id="1_mag6d"]
+[ext_resource type="Texture2D" uid="uid://qxdcfqvm2c5a" path="res://assets/ui/actor_sprites/demi_human_sprite.png" id="2_5uvw3"]
+
+[node name="enemy_actor" instance=ExtResource("1_mag6d")]
+
+[node name="sprite" parent="Control" index="0"]
+texture = ExtResource("2_5uvw3")
+
+[node name="move_display" parent="Control" index="4"]
+offset_top = -18.0
+offset_bottom = 1.0

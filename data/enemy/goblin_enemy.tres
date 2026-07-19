@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ActorData" load_steps=5 format=3 uid="uid://chrxe473te2s1"]
+
+[ext_resource type="Script" path="res://script/actor/actor_data.gd" id="1_dq625"]
+[ext_resource type="Script" path="res://script/actor/enemy/wolf_enemy_actor.gd" id="1_kxuke"]
+[ext_resource type="Texture2D" uid="uid://cexnsksr5xd2j" path="res://assets/wolf_icon.png" id="2_05flv"]
+[ext_resource type="PackedScene" uid="uid://cr1lkamev6dtg" path="res://scenes/ui/actor/enemy/goblin_actor.tscn" id="4_akxu6"]
+
+[resource]
+script = ExtResource("1_dq625")
+name = "GoblinEnemy"
+icon_texture = ExtResource("2_05flv")
+actor_script = ExtResource("1_kxuke")
+ui_scene = ExtResource("4_akxu6")
+max_health = 200

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://s035k47s6bl1"]
+
+[ext_resource type="PackedScene" uid="uid://d1ynugb3e8na6" path="res://scenes/ui/actor/enemy/enemy_actor.tscn" id="1_ianmj"]
+[ext_resource type="Texture2D" uid="uid://bme5uv7e8iptk" path="res://assets/ui/actor_sprites/birdling_sprite.png" id="2_q7cg8"]
+
+[node name="enemy_actor" instance=ExtResource("1_ianmj")]
+
+[node name="sprite" parent="Control" index="0"]
+texture = ExtResource("2_q7cg8")
+
+[node name="move_display" parent="Control" index="4"]
+offset_top = -16.0
+offset_bottom = 3.0

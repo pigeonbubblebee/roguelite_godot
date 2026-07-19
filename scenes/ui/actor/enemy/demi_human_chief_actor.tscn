@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8dwfivcg8gw4"]
+
+[ext_resource type="PackedScene" uid="uid://d1ynugb3e8na6" path="res://scenes/ui/actor/enemy/enemy_actor.tscn" id="1_fq346"]
+[ext_resource type="Texture2D" uid="uid://jb5es15ftgd7" path="res://assets/ui/actor_sprites/demi_human_chief_sprite.png" id="2_vonmm"]
+
+[node name="enemy_actor" instance=ExtResource("1_fq346")]
+custom_minimum_size = Vector2(80, 64)
+
+[node name="sprite" parent="Control" index="0"]
+offset_left = 72.0
+offset_right = 152.0
+texture = ExtResource("2_vonmm")
+
+[node name="move_display" parent="Control" index="4"]
+offset_top = -17.0
+offset_bottom = 2.0

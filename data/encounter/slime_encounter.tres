@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EncounterData" load_steps=4 format=3 uid="uid://d4n4smly38603"]
+
+[ext_resource type="Script" path="res://script/actor/actor_data.gd" id="1_b3xyq"]
+[ext_resource type="Script" path="res://script/encounter_data.gd" id="2_g2cbm"]
+[ext_resource type="Resource" uid="uid://c4wk2e5i406gy" path="res://data/enemy/slime_enemy.tres" id="2_p00ix"]
+
+[resource]
+script = ExtResource("2_g2cbm")
+enemies = Array[ExtResource("1_b3xyq")]([ExtResource("2_p00ix")])

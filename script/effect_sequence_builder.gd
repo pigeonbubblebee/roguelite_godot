@@ -216,11 +216,20 @@ func draw_card(
 	)
 	
 func discard_card(
-	amount : int = 1
+	amount : int = 1,
+	source_cards : Array[Card] = controller.get_hand_manager().get_hand()
 ) -> EffectSequenceBuilder:
+	
+	if source_cards.size() == 0:
+		return step(
+			null,
+			func(): pass
+		)
+	
 	var selection_context = BattleRuntimeHelper.generate_discard_card_selection_context(
 		context, 
 		controller, 
+		source_cards,
 		amount)
 	return step(
 		CardSelectionAction.new(selection_context),  # visual
@@ -231,6 +240,13 @@ func modify_card_select(
 	modifier_factory : Callable,
 	source_cards : Array[Card]
 ) -> EffectSequenceBuilder:
+	
+	if source_cards.size() == 0:
+		return step(
+			null,
+			func(): pass
+		)
+	
 	var selection_context = BattleRuntimeHelper.generate_modify_card_selection_context(
 		modifier_factory,
 		context, 

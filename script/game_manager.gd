@@ -15,6 +15,9 @@ var _current_battle_context
 
 @export var test_encounter: EncounterData
 @export var test_character: StartingCharacter
+@export var test_floor : MapFloorData
+
+var _current_floor_manager : FloorManager
 
 # battle_data: BattleData
 func load_battle(battle_data: BattleData) -> void:
@@ -52,6 +55,8 @@ func load_map(create_new_map : bool = true) -> void:
 	map_instance.bind_controller(_current_map_controller)
 	
 func _ready() -> void:
+	_current_floor_manager = FloorManager.new()
+	_current_floor_manager.load_floor_data(test_floor)
 	load_map()
 	#load_battle(data)
 	
@@ -79,6 +84,9 @@ func process_room_enter(room : MapNode) -> void:
 			_current_scene.queue_free()
 
 			var battle := instantiate_test_battle_data()
+			var encounter = _current_floor_manager.load_encounter()
+			for enemy in encounter:
+				battle.actors.append(enemy)
 			load_battle(battle)
 		)
 
@@ -94,9 +102,6 @@ func instantiate_test_battle_data() -> BattleData:
 	var data = BattleData.new()
 	
 	data.actors.append(player_actor)
-	
-	for enemy in test_encounter.enemies:
-		data.actors.append(enemy)
 	
 	for card in test_character.starting_deck:
 		data.deck.append(card.card_id)

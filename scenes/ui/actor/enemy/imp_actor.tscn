@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1kn6grkk0na0"]
+
+[ext_resource type="PackedScene" uid="uid://d1ynugb3e8na6" path="res://scenes/ui/actor/enemy/enemy_actor.tscn" id="1_8u3td"]
+[ext_resource type="Texture2D" uid="uid://r6014svlpw8x" path="res://assets/ui/actor_sprites/imp_sprite.png" id="2_qpomu"]
+
+[node name="enemy_actor" instance=ExtResource("1_8u3td")]
+custom_minimum_size = Vector2(48, 48)
+offset_right = 48.0
+
+[node name="sprite" parent="Control" index="0"]
+offset_left = 56.0
+offset_top = 16.0
+offset_right = 104.0
+texture = ExtResource("2_qpomu")

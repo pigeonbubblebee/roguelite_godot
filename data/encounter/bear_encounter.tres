@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EncounterData" load_steps=5 format=3 uid="uid://btts2ilqddpkb"]
+
+[ext_resource type="Script" path="res://script/actor/actor_data.gd" id="1_ras1n"]
+[ext_resource type="Resource" uid="uid://3xgxuxhvqgyf" path="res://data/enemy/wolf_enemy.tres" id="2_nh3xx"]
+[ext_resource type="Script" path="res://script/encounter_data.gd" id="2_pebtc"]
+[ext_resource type="Resource" uid="uid://dba6g2fonpv5n" path="res://data/enemy/bear_enemy.tres" id="2_y7r6k"]
+
+[resource]
+script = ExtResource("2_pebtc")
+enemies = Array[ExtResource("1_ras1n")]([ExtResource("2_nh3xx"), ExtResource("2_y7r6k")])
