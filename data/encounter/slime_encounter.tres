@@ -6,4 +6,4 @@
 
 [resource]
 script = ExtResource("2_g2cbm")
-enemies = Array[ExtResource("1_b3xyq")]([ExtResource("2_p00ix")])
+enemies = Array[ExtResource("1_b3xyq")]([ExtResource("2_p00ix"), ExtResource("2_p00ix")])

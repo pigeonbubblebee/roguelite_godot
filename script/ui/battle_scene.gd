@@ -21,6 +21,8 @@ extends Node2D
 @onready var battle_finished_button = get_node(_battle_finished_button_path)
 @export var _battle_finished_ui_path: NodePath
 @onready var battle_finished_ui = get_node(_battle_finished_ui_path)
+@export var _battle_finished_path: NodePath
+@onready var battle_finished = get_node(_battle_finished_path)
 
 @export var _confirm_selection_button_path: NodePath
 @onready var confirm_selection_button = get_node(_confirm_selection_button_path)
@@ -43,6 +45,9 @@ var _controller: BattleController
 func bind_controller(controller: BattleController) -> void:
 	_controller = controller
 	
+	_init_battle_won_screen()
+	battle_finished.request_reward.connect(process_reward_request)
+	
 	# Init battle action visual manager
 	
 	_battle_action_manager = BattleActionManager.new()
@@ -55,6 +60,7 @@ func bind_controller(controller: BattleController) -> void:
 	hand_ui.bind(controller)
 	actor_ui.bind(controller)
 	battle_hud.bind(controller)
+	battle_finished.bind(controller)
 	
 	controller.request_card_selection.connect(_on_request_card_selection)
 	controller.card_selection_finished.connect(_on_card_selection_finished)
@@ -122,8 +128,20 @@ func _on_card_selection_finished(ctx):
 
 	hand_ui.change_input_type(hand_ui.InputType.BATTLE)
 	
+func _init_battle_won_screen():
+	battle_finished_ui.mouse_filter = battle_finished_ui.MOUSE_FILTER_IGNORE
+	battle_finished_button.mouse_filter = battle_finished_button.MOUSE_FILTER_IGNORE
+	
+	battle_finished_ui.visible = false
+	
 func _on_battle_won(ctx):
 	battle_finished_ui.mouse_filter = battle_finished_ui.MOUSE_FILTER_STOP
 	battle_finished_button.mouse_filter = battle_finished_button.MOUSE_FILTER_STOP
 	
 	battle_finished_ui.visible = true
+	battle_finished.bind_context(ctx)
+
+func process_reward_request(reward):
+	if reward.card_reward:
+		var effect = AddCardPlayerDataEffect.new(reward.card_reward.id)
+		_controller.request_player_data_modification(effect)

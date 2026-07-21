@@ -3,7 +3,6 @@ extends Card
 
 var damage : int = 120
 var blast_damage : int = 80
-var damage_type : DamageType.Type = DamageType.Type.PHYSICAL
 
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
@@ -14,8 +13,7 @@ func play(context: BattleContext, controller: BattleController):
 	EffectSequenceBuilder.new(context, controller)\
 		.as_card(self)\
 		.use_action(custom_action)\
-		.multi_damage(hit_actors, damage, 
-			damage_type, blast_damage)\
+		.multi_damage(hit_actors, damage, blast_damage)\
 		.enqueue()
 	
 func get_target_index(total_targets: int, target_index: int) -> Array[int]:

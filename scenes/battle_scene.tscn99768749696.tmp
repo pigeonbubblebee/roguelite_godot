@@ -1,0 +1,616 @@
+[gd_scene format=3 uid="uid://uofcxxiaue0i"]
+
+[ext_resource type="Script" uid="uid://0qvlrsxb7o04" path="res://script/ui/battle_scene.gd" id="1_0hekd"]
+[ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://assets/Background.png" id="1_igw74"]
+[ext_resource type="PackedScene" uid="uid://2s8n7v3j7nf4" path="res://scenes/battle_hud.tscn" id="2_oyr6g"]
+[ext_resource type="Script" uid="uid://bc3g4ntci7mxd" path="res://script/ui/actor/actor_ui_manager.gd" id="4_xp43c"]
+[ext_resource type="PackedScene" uid="uid://prnhw6kneqmu" path="res://scenes/card.tscn" id="5_34irb"]
+[ext_resource type="Texture2D" uid="uid://dchwacvnpfc5s" path="res://assets/target.png" id="5_aboep"]
+[ext_resource type="Texture2D" uid="uid://dnvyvm5vfpg31" path="res://assets/small_target.png" id="6_kk4xk"]
+[ext_resource type="Script" uid="uid://dhkjibijfgn1l" path="res://script/ui/hand_ui.gd" id="6_sqh8v"]
+[ext_resource type="Texture2D" uid="uid://b8lpwtlhv4prr" path="res://assets/buff_target.png" id="7_iysv6"]
+[ext_resource type="FontFile" uid="uid://b23c0njeg0avg" path="res://data/PixelPurl8x8 (1).ttf" id="12_7i6l6"]
+[ext_resource type="Script" uid="uid://bcidx281kai87" path="res://script/battle/battle_scene_camera.gd" id="13_yyjm8"]
+[ext_resource type="Script" uid="uid://puw7y4vgaljj" path="res://script/ui/particle_effect_manager.gd" id="14_eymi4"]
+[ext_resource type="Script" uid="uid://c1iejnsehgbyd" path="res://script/ui/ui_button.gd" id="14_vdmwm"]
+[ext_resource type="Texture2D" uid="uid://pmtbvaw8jtdm" path="res://assets/end_turn.png" id="15_11nws"]
+[ext_resource type="Script" uid="uid://cdh4nn55dkk0g" path="res://script/ui/confirm_button.gd" id="16_5ktu8"]
+[ext_resource type="Script" uid="uid://bre52ldoo35bh" path="res://script/ui/card/card_view.gd" id="16_5tote"]
+[ext_resource type="Script" uid="uid://bj1nnj552ytgq" path="res://script/ui/tooltip/tooltip_manager.gd" id="17_prs2y"]
+[ext_resource type="Script" uid="uid://bmhoxicg1p6wq" path="res://scenes/battle_finished_screen.gd" id="18_cxn3p"]
+[ext_resource type="FontFile" uid="uid://cgih62i6o6aul" path="res://data/PixelPurl.ttf" id="18_u1jok"]
+[ext_resource type="Texture2D" uid="uid://bga5pxyite2ig" path="res://assets/bar.png" id="20_7mjbx"]
+[ext_resource type="Script" uid="uid://cfoylxpdwwnpe" path="res://script/ui/card_reward_ui.gd" id="21_jrwob"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dwavk"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jrwob"]
+
+[node name="battle_scene" type="Node2D" unique_id=2040451245]
+texture_filter = 1
+script = ExtResource("1_0hekd")
+_battle_hud_path = NodePath("HUD/battle_hud")
+_actor_ui_path = NodePath("actor_ui/actor_ui")
+_hand_ui_path = NodePath("hand_ui/hand")
+_end_turn_button_path = NodePath("end_turn_button")
+_battle_finished_button_path = NodePath("battle_finished_screen/battle_finished_ui/finish_battle_button")
+_battle_finished_ui_path = NodePath("battle_finished_screen/battle_finished_ui")
+_battle_finished_path = NodePath("battle_finished_screen")
+_confirm_selection_button_path = NodePath("hand_ui/card_selection_ui/confirm_selection")
+_card_selection_ui_path = NodePath("hand_ui/card_selection_ui")
+_card_selection_prompt_path = NodePath("hand_ui/card_selection_ui/background/Label")
+_scene_camera_path = NodePath("Camera2D")
+_particle_effect_helper_path = NodePath("particle_effect")
+
+[node name="background" type="Sprite2D" parent="." unique_id=1356726344]
+scale = Vector2(64, 36)
+texture = ExtResource("1_igw74")
+
+[node name="actor_ui" type="Node2D" parent="." unique_id=13891371]
+
+[node name="actor_ui" type="Control" parent="actor_ui" unique_id=1767488120]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -193.0
+offset_top = -100.0
+offset_right = 195.0
+offset_bottom = 78.0
+script = ExtResource("4_xp43c")
+_enemy_ui_container_path = NodePath("enemy_ui_container")
+_ally_ui_container_path = NodePath("ally_ui_container")
+target_texture = ExtResource("5_aboep")
+blast_target_texture = ExtResource("6_kk4xk")
+buff_target_texture = ExtResource("7_iysv6")
+
+[node name="enemy_ui_container" type="Control" parent="actor_ui/actor_ui" unique_id=1928351905]
+anchors_preset = 0
+offset_left = 193.0
+offset_top = 2.0
+offset_right = 328.0
+offset_bottom = 156.0
+mouse_filter = 2
+
+[node name="ally_ui_container" type="Control" parent="actor_ui/actor_ui" unique_id=381509199]
+anchors_preset = 0
+offset_left = 58.0
+offset_top = 2.0
+offset_right = 193.0
+offset_bottom = 156.0
+
+[node name="HUD" type="Node2D" parent="." unique_id=1593652460]
+position = Vector2(-320, -180)
+
+[node name="battle_hud" parent="HUD" unique_id=80589463 instance=ExtResource("2_oyr6g")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1779267616]
+limit_left = -380
+limit_top = -380
+limit_right = 380
+limit_bottom = 380
+script = ExtResource("13_yyjm8")
+
+[node name="particle_effect" type="Node2D" parent="." unique_id=2106678552]
+script = ExtResource("14_eymi4")
+
+[node name="end_turn_button" type="Control" parent="." unique_id=137322272]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 129.0
+offset_top = 142.0
+offset_right = 193.0
+offset_bottom = 174.0
+script = ExtResource("14_vdmwm")
+
+[node name="texture" type="TextureRect" parent="end_turn_button" unique_id=232181359]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_11nws")
+
+[node name="Label" type="Label" parent="end_turn_button/texture" unique_id=1097546836]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_7i6l6")
+text = "End Turn"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hand_ui" type="Node2D" parent="." unique_id=1088928805]
+
+[node name="card_selection_ui" type="Control" parent="hand_ui" unique_id=1739823344]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="background" type="Control" parent="hand_ui/card_selection_ui" unique_id=1885459708]
+anchors_preset = 0
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="background" type="TextureRect" parent="hand_ui/card_selection_ui/background" unique_id=317631318]
+modulate = Color(1, 1, 1, 0.545098)
+material = SubResource("CanvasItemMaterial_dwavk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("1_igw74")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="hand_ui/card_selection_ui/background" unique_id=1896994128]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -194.0
+offset_top = 100.0
+offset_right = 194.0
+offset_bottom = 123.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("12_7i6l6")
+text = "Choose a Card to Discard"
+horizontal_alignment = 1
+
+[node name="confirm_selection" type="Control" parent="hand_ui/card_selection_ui" unique_id=1392273147]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -85.0
+offset_right = 12.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("16_5ktu8")
+
+[node name="texture" type="TextureRect" parent="hand_ui/card_selection_ui/confirm_selection" unique_id=1921437720]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_11nws")
+
+[node name="Label" type="Label" parent="hand_ui/card_selection_ui/confirm_selection/texture" unique_id=231373034]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_7i6l6")
+text = "Confirm"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hand" type="Control" parent="hand_ui" unique_id=2114568314]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -193.0
+offset_top = 84.0
+offset_right = 193.0
+offset_bottom = 180.0
+mouse_filter = 2
+script = ExtResource("6_sqh8v")
+card_ui_scene = ExtResource("5_34irb")
+_card_ui_container_path = NodePath("card_ui_container")
+_card_starting_position_path = NodePath("card_starting_position")
+spacing = 50
+
+[node name="card_ui_container" type="Control" parent="hand_ui/hand" unique_id=1236170890]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="card_starting_position" type="Control" parent="hand_ui/hand" unique_id=1890795542]
+anchors_preset = 0
+offset_left = 160.0
+offset_top = -2.0
+offset_right = 160.0
+offset_bottom = -2.0
+mouse_filter = 1
+
+[node name="card_view" type="Node2D" parent="." unique_id=1680770154]
+visible = false
+script = ExtResource("16_5tote")
+_ui_path = NodePath("card_view_ui")
+card_ui_scene = ExtResource("5_34irb")
+_card_ui_container_path = NodePath("card_view_ui/card_ui_container2/card_ui_container")
+
+[node name="card_view_ui" type="Control" parent="card_view" unique_id=513142580]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="background" type="Control" parent="card_view/card_view_ui" unique_id=1696194335]
+anchors_preset = 0
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="background" type="TextureRect" parent="card_view/card_view_ui/background" unique_id=1841370074]
+modulate = Color(1, 1, 1, 0.545098)
+material = SubResource("CanvasItemMaterial_dwavk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("1_igw74")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="card_view/card_view_ui/background" unique_id=789853103]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -194.0
+offset_top = 86.0
+offset_right = 194.0
+offset_bottom = 109.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("12_7i6l6")
+text = "Deck"
+horizontal_alignment = 1
+
+[node name="card_ui_container2" type="Control" parent="card_view/card_view_ui" unique_id=668750231]
+clip_contents = true
+anchors_preset = 0
+offset_left = -315.0
+offset_top = -80.0
+offset_right = 307.0
+offset_bottom = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="card_ui_container" type="Control" parent="card_view/card_view_ui/card_ui_container2" unique_id=365991066]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="battle_finished_screen" type="Node2D" parent="." unique_id=276219624]
+script = ExtResource("18_cxn3p")
+_ui_path = NodePath("battle_finished_ui")
+_open_card_reward_button_path = NodePath("battle_finished_ui/rewards_menu/add_card_button")
+_card_reward_ui_path = NodePath("battle_finished_ui/card_reward_screen")
+
+[node name="battle_finished_ui" type="Control" parent="battle_finished_screen" unique_id=1651493246]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="background" type="Control" parent="battle_finished_screen/battle_finished_ui" unique_id=576899494]
+anchors_preset = 0
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="background" type="TextureRect" parent="battle_finished_screen/battle_finished_ui/background" unique_id=1664920635]
+modulate = Color(1, 1, 1, 0.545098)
+material = SubResource("CanvasItemMaterial_dwavk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("1_igw74")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="battle_finished_screen/battle_finished_ui/background" unique_id=1015334525]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -194.0
+offset_top = 87.0
+offset_right = 194.0
+offset_bottom = 110.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("18_u1jok")
+text = "ENEMY SLAIN"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="battle_finished_screen/battle_finished_ui/background" unique_id=1622695355]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -194.0
+offset_top = 109.0
+offset_right = 194.0
+offset_bottom = 132.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("18_u1jok")
+text = "Collect Rewards:"
+horizontal_alignment = 1
+
+[node name="rewards_menu" type="Control" parent="battle_finished_screen/battle_finished_ui" unique_id=277766713]
+anchors_preset = 0
+offset_left = -50.0
+offset_top = -56.0
+offset_right = 50.0
+offset_bottom = 72.0
+
+[node name="background" type="TextureRect" parent="battle_finished_screen/battle_finished_ui/rewards_menu" unique_id=148209244]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_igw74")
+
+[node name="borders" type="NinePatchRect" parent="battle_finished_screen/battle_finished_ui/rewards_menu/background" unique_id=1515184831]
+material = SubResource("CanvasItemMaterial_jrwob")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_7mjbx")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="add_card_button" type="Control" parent="battle_finished_screen/battle_finished_ui/rewards_menu" unique_id=789116087]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -59.0
+offset_right = 40.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_5ktu8")
+
+[node name="texture" type="TextureRect" parent="battle_finished_screen/battle_finished_ui/rewards_menu/add_card_button" unique_id=721202785]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_igw74")
+
+[node name="Label" type="Label" parent="battle_finished_screen/battle_finished_ui/rewards_menu/add_card_button/texture" unique_id=1115838913]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("12_7i6l6")
+text = "Add a Card"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="borders" type="NinePatchRect" parent="battle_finished_screen/battle_finished_ui/rewards_menu/add_card_button/texture" unique_id=2137870094]
+material = SubResource("CanvasItemMaterial_jrwob")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_7mjbx")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="finish_battle_button" type="Control" parent="battle_finished_screen/battle_finished_ui" unique_id=604406066]
+anchors_preset = 0
+offset_left = -32.0
+offset_top = 74.0
+offset_right = 32.0
+offset_bottom = 106.0
+mouse_filter = 2
+script = ExtResource("14_vdmwm")
+
+[node name="texture" type="TextureRect" parent="battle_finished_screen/battle_finished_ui/finish_battle_button" unique_id=1303857211]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_11nws")
+
+[node name="Label" type="Label" parent="battle_finished_screen/battle_finished_ui/finish_battle_button/texture" unique_id=676796549]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_7i6l6")
+text = "Finish"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="card_reward_screen" type="Control" parent="battle_finished_screen/battle_finished_ui" unique_id=219961373]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("21_jrwob")
+card_view_ui_path = NodePath("card_view")
+_confirm_reward_button_path = NodePath("card_selection_ui/confirm_selection")
+
+[node name="card_selection_ui" type="Control" parent="battle_finished_screen/battle_finished_ui/card_reward_screen" unique_id=1342238977]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="background" type="Control" parent="battle_finished_screen/battle_finished_ui/card_reward_screen/card_selection_ui" unique_id=1863799471]
+anchors_preset = 0
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="background" type="TextureRect" parent="battle_finished_screen/battle_finished_ui/card_reward_screen/card_selection_ui/background" unique_id=869965683]
+modulate = Color(1, 1, 1, 0.545098)
+material = SubResource("CanvasItemMaterial_dwavk")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("1_igw74")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="battle_finished_screen/battle_finished_ui/card_reward_screen/card_selection_ui/background" unique_id=560112724]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -194.0
+offset_top = 100.0
+offset_right = 194.0
+offset_bottom = 123.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("12_7i6l6")
+text = "Choose a Card to Add to Your Deck"
+horizontal_alignment = 1
+
+[node name="confirm_selection" type="Control" parent="battle_finished_screen/battle_finished_ui/card_reward_screen/card_selection_ui" unique_id=2012560767]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = 54.0
+offset_right = 12.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("16_5ktu8")
+
+[node name="texture" type="TextureRect" parent="battle_finished_screen/battle_finished_ui/card_reward_screen/card_selection_ui/confirm_selection" unique_id=436881539]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_11nws")
+
+[node name="Label" type="Label" parent="battle_finished_screen/battle_finished_ui/card_reward_screen/card_selection_ui/confirm_selection/texture" unique_id=610586624]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("12_7i6l6")
+text = "Confirm"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="card_view" type="Control" parent="battle_finished_screen/battle_finished_ui/card_reward_screen" unique_id=369800799]
+anchors_preset = 0
+offset_left = -193.0
+offset_top = -36.0
+offset_right = 193.0
+offset_bottom = 60.0
+mouse_filter = 2
+script = ExtResource("16_5tote")
+_ui_path = NodePath(".")
+card_ui_scene = ExtResource("5_34irb")
+_card_ui_container_path = NodePath("card_ui_container")
+
+[node name="card_ui_container" type="Control" parent="battle_finished_screen/battle_finished_ui/card_reward_screen/card_view" unique_id=2013273632]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="card_starting_position" type="Control" parent="battle_finished_screen/battle_finished_ui/card_reward_screen/card_view" unique_id=343179467]
+anchors_preset = 0
+offset_left = 160.0
+offset_top = -2.0
+offset_right = 160.0
+offset_bottom = -2.0
+mouse_filter = 1
+
+[node name="tooltip_manager" type="Node2D" parent="." unique_id=1061778929]
+script = ExtResource("17_prs2y")

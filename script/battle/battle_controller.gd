@@ -6,6 +6,7 @@ var _hand_manager: HandManager
 var _battle_context: BattleContext
 var _battle_data: BattleData
 var _energy_manager: EnergyManager
+var _rewards_manager: BattleRewardsManager
 
 var _is_first_turn = true
 
@@ -23,7 +24,8 @@ signal request_visual_action_enqueue(action: BattleVisualAction)
 signal request_card_selection(ctx : CardSelectionContext)
 signal card_selection_finished(ctx : CardSelectionContext)
 
-signal battle_finished
+signal battle_finished()
+signal player_data_change_request(effect)
 signal queue_battle_won(ctx)
 
 @export var log_card_play := false
@@ -59,6 +61,8 @@ func _create_managers():
 	add_child(_hand_manager)
 	_energy_manager = EnergyManager.new()
 	add_child(_energy_manager)
+	
+	_rewards_manager = BattleRewardsManager.new()
 	
 ###################
 ##### CONTEXT #####
@@ -374,6 +378,10 @@ func check_battle_finished():
 	if enemies.is_empty():
 		queue_battle_won.emit(BattleWonContext.new())
 	
+# Permanent Carry-Over between battle changes		
+func request_player_data_modification(effect : PlayerDataEffect):
+	player_data_change_request.emit(effect)
+	
 ###################
 ##### GETTERS #####
 ###################
@@ -389,3 +397,6 @@ func get_context() -> BattleContext:
 
 func get_energy_manager() -> EnergyManager:
 	return _energy_manager
+	
+func get_reward_manager() -> BattleRewardsManager:
+	return _rewards_manager

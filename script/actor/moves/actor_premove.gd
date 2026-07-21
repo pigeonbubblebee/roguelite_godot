@@ -28,4 +28,3 @@ func execute(context: BattleContext, controller: BattleController):
 func get_icon() -> Texture2D:
 	push_error("get_icon() must be implemented by subclasses")
 	return ATTACK_ICON
-	pass

@@ -104,7 +104,7 @@ func _on_status_update(status_effects : Array[StatusEffect]):
 
 		icon.stacks_label.text = str(stacks)
 
-		var text_color = ColorPalette.CYAN if type == "Buff" else ColorPalette.RED
+		var text_color = C_ColorPalette.CYAN if type == "Buff" else C_ColorPalette.RED
 		icon.stacks_label.add_theme_color_override("font_color", text_color)
 
 	for status in _status_icons.keys():

@@ -41,7 +41,8 @@ func load_cards(path: String):
 			"KEYWORDS": [],
 			"UPGRADED": info["UPGRADED"],
 			"UPGRADED_KEYWORDS": [],
-			"FORCE_TARGET_DRAG": info["FORCE_TARGET_DRAG"]
+			"FORCE_TARGET_DRAG": info["FORCE_TARGET_DRAG"],
+			"NOT_DRAFTABLE": true if info["NOT_DRAFTABLE"] else false
 		}
 		
 		# Keywords

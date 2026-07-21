@@ -3,6 +3,7 @@ extends RefCounted
 
 const DISCARD_PROMPT = "Choose {AMOUNT} Card{S} to Discard"
 const SHARPEN_PROMPT = "Choose {AMOUNT} Card{S} to Sharpen"
+const CARD_REWARD_PROMPT = "Choose a Card to Add to Your Deck"
 
 var source_cards : Array[Card]
 var original_cards : Array[Card]

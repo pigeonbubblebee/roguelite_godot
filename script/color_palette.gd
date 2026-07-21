@@ -1,4 +1,4 @@
-class_name ColorPalette
+class_name C_ColorPalette
 
 static var RED : String = "e14242" 
 static var YELLOW : String = "f4cb61" 

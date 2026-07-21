@@ -1,15 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://v6ek03m7gtgj"]
+[gd_scene format=3 uid="uid://v6ek03m7gtgj"]
 
-[ext_resource type="Script" path="res://script/game_manager.gd" id="1_r8oqj"]
+[ext_resource type="Script" uid="uid://bt2su6ik5b6kn" path="res://script/game_manager.gd" id="1_r8oqj"]
 [ext_resource type="PackedScene" uid="uid://uofcxxiaue0i" path="res://scenes/battle_scene.tscn" id="2_s2qa7"]
 [ext_resource type="PackedScene" uid="uid://cbg5p46hb15cv" path="res://scenes/map/map_scene.tscn" id="3_axqe3"]
 [ext_resource type="Resource" uid="uid://c8hjjotu0p86s" path="res://data/character/player_actor.tres" id="3_yi8io"]
 [ext_resource type="PackedScene" uid="uid://brs5lch3d2nkg" path="res://scenes/transition_scene.tscn" id="4_mik07"]
-[ext_resource type="Resource" uid="uid://36qmxn3olfqk" path="res://data/character/testing_character.tres" id="5_e4v27"]
 [ext_resource type="Resource" uid="uid://bejhbquponaf5" path="res://data/encounter/goblin_orc_encounter.tres" id="6_wn4et"]
-[ext_resource type="Resource" uid="uid://bbsq4viawx6bo" path="res://data/floor/test_floor.tres" id="8_uctge"]
+[ext_resource type="Resource" uid="uid://chvr7yhqp20xh" path="res://data/character/vagabond_character.tres" id="7_psd6g"]
+[ext_resource type="Resource" uid="uid://cydsrhu0cqoep" path="res://data/floor/floor_1.tres" id="8_2q788"]
 
-[node name="GameManager" type="Node2D"]
+[node name="GameManager" type="Node2D" unique_id=502932959]
 texture_filter = 1
 script = ExtResource("1_r8oqj")
 battle_scene = ExtResource("2_s2qa7")
@@ -17,5 +17,5 @@ map_scene = ExtResource("3_axqe3")
 transition_scene = ExtResource("4_mik07")
 player_actor = ExtResource("3_yi8io")
 test_encounter = ExtResource("6_wn4et")
-test_character = ExtResource("5_e4v27")
-test_floor = ExtResource("8_uctge")
+test_character = ExtResource("7_psd6g")
+test_floor = ExtResource("8_2q788")

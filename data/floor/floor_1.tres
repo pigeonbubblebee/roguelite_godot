@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MapFloorData" load_steps=16 format=3 uid="uid://cydsrhu0cqoep"]
+[gd_resource type="Resource" script_class="MapFloorData" load_steps=18 format=3 uid="uid://cydsrhu0cqoep"]
 
 [ext_resource type="Script" path="res://script/encounter_data.gd" id="1_dfxr7"]
 [ext_resource type="Resource" uid="uid://d30f3rvlq0f7w" path="res://data/encounter/goblin_encounter.tres" id="2_e0n5l"]
@@ -15,9 +15,11 @@
 [ext_resource type="Resource" uid="uid://d4n4smly38603" path="res://data/encounter/slime_encounter.tres" id="8_wk8ni"]
 [ext_resource type="Resource" uid="uid://e5oikm3qky4n" path="res://data/encounter/tree_spirit_encounter.tres" id="9_asrwe"]
 [ext_resource type="Resource" uid="uid://bmnmbm74adfbu" path="res://data/encounter/demi_human_chief_encounter.tres" id="10_c604g"]
+[ext_resource type="Resource" uid="uid://drrsw16pvv0s8" path="res://data/encounter/goblin_thief_encounter.tres" id="11_axakk"]
+[ext_resource type="Resource" uid="uid://ccmaxyhy54y2q" path="res://data/encounter/orc_slime_encounter.tres" id="12_wiw2w"]
 
 [resource]
 script = ExtResource("2_q6uit")
-encounter_pool = Array[ExtResource("1_dfxr7")]([ExtResource("3_2qctx"), ExtResource("5_fxofw"), ExtResource("4_4ae3g"), ExtResource("5_vbux2"), ExtResource("6_syyg2"), ExtResource("7_w2jig"), ExtResource("8_wk8ni"), ExtResource("9_asrwe"), ExtResource("10_c604g")])
+encounter_pool = Array[ExtResource("1_dfxr7")]([ExtResource("3_2qctx"), ExtResource("5_fxofw"), ExtResource("4_4ae3g"), ExtResource("5_vbux2"), ExtResource("6_syyg2"), ExtResource("7_w2jig"), ExtResource("8_wk8ni"), ExtResource("9_asrwe"), ExtResource("10_c604g"), ExtResource("11_axakk"), ExtResource("12_wiw2w")])
 encounter_pool_easy = Array[ExtResource("1_dfxr7")]([ExtResource("2_e0n5l"), ExtResource("4_covq4"), ExtResource("7_wga3g"), ExtResource("6_4ckib")])
 max_easy_pools = 3

@@ -1,4 +1,5 @@
-extends Node2D
+class_name CardView
+extends Node
 
 @export var _ui_path : NodePath
 @onready var card_view_ui = get_node(_ui_path)
@@ -9,16 +10,25 @@ var cards_ui_array: Array[Control] = []
 @export var _card_ui_container_path: NodePath
 @onready var card_ui_container = get_node(_card_ui_container_path)
 
-const INPUT_TYPE = HandUI.InputType.VIEW
+var INPUT_TYPE = HandUI.InputType.VIEW
 
 const SCROLL_SPEED = 5
+
+var scrollable : bool = true
+
+var columns : float = 6
+var h_spacing = 72
+var v_spacing = 104
 
 func _ready():
 	card_view_ui.visible = false
 	
-	display_cards(CardDatabase.get_all_valid_cards())
+	# display_cards(CardDatabase.get_all_valid_cards())
 	
 func _input(event: InputEvent) -> void:
+	if not scrollable:
+		return
+	
 	if event.is_pressed() and event is InputEventKey and event.keycode == KEY_UP:
 		card_ui_container.global_position += Vector2(0, SCROLL_SPEED)
 		calculate_positions()
@@ -59,14 +69,11 @@ func display_cards(cards_dic : Array):
 		# print(card_logic)
 		ui.update_card_logic(card_logic)
 		
+	print("array: " + str(cards_ui_array))
+		
 	calculate_positions()
 		
 func calculate_positions():
-	var columns = 6
-	
-	var h_spacing = 72
-	var v_spacing = 104
-	
 	var start_x = card_ui_container.global_position.x + card_ui_container.size.x / 2
 	start_x -= columns/2 * h_spacing
 	
@@ -76,7 +83,7 @@ func calculate_positions():
 		var card_ui = cards_ui_array[i]
 		
 		var row = floor(i / columns)
-		var column = i % columns
+		var column = i % int(columns)
 			
 		var offset : Vector2 = Vector2(h_spacing * column, v_spacing * row)
 			
@@ -94,3 +101,9 @@ func calculate_positions():
 	
 	var content_height = total_rows * v_spacing
 	var visible_height = card_ui_container.get_viewport_rect().size.y
+	
+func clear_ui():
+	for card in cards_ui_array:
+		card.queue_free()
+		
+	cards_ui_array.clear()

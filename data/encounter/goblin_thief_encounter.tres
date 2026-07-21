@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EncounterData" load_steps=5 format=3 uid="uid://drrsw16pvv0s8"]
+
+[ext_resource type="Script" path="res://script/actor/actor_data.gd" id="1_pm5tm"]
+[ext_resource type="Script" path="res://script/encounter_data.gd" id="2_74jlo"]
+[ext_resource type="Resource" uid="uid://du1er76jv2wd1" path="res://data/enemy/goblin_thief_enemy.tres" id="2_ggsko"]
+[ext_resource type="Resource" uid="uid://yny6gbal0kmm" path="res://data/enemy/goblin_archer_enemy.tres" id="3_xhotf"]
+
+[resource]
+script = ExtResource("2_74jlo")
+enemies = Array[ExtResource("1_pm5tm")]([ExtResource("2_ggsko"), ExtResource("2_ggsko"), ExtResource("3_xhotf")])

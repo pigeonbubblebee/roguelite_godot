@@ -5,69 +5,69 @@ const colored_text = false
 
 static var KEYWORDS := {
 	"STR": {
-		"color": ColorPalette.RED,
+		"color": C_ColorPalette.RED,
 		"icon": icon_path + "str_icon.png"
 	},
 	"DEX": {
-		"color": ColorPalette.YELLOW,
+		"color": C_ColorPalette.YELLOW,
 		"icon": icon_path + "dex_icon.png"
 	},
 	"INT": {
-		"color": ColorPalette.BLUE,
+		"color": C_ColorPalette.BLUE,
 		"icon": icon_path + "int_icon.png"
 	},
 	"VIG": {
-		"color": ColorPalette.GREEN,
+		"color": C_ColorPalette.GREEN,
 		"icon": icon_path + "vig_icon.png"
 	},
 	"DEF": {
-		"color": ColorPalette.CYAN,
+		"color": C_ColorPalette.CYAN,
 		"icon": icon_path + "def_icon.png"
 	},
 	"ARC": {
-		"color": ColorPalette.PURPLE,
+		"color": C_ColorPalette.PURPLE,
 		"icon": icon_path + "arc_icon.png"
 	},
 	"FTH": {
-		"color": ColorPalette.ORANGE,
+		"color": C_ColorPalette.ORANGE,
 		"icon": icon_path + "fth_icon.png"
 	},
 	"Neutral": {
-		"color": ColorPalette.GREY,
+		"color": C_ColorPalette.GREY,
 		"icon": icon_path + "neu_icon.png"
 	},
 	"COMMON": {
-		"color": ColorPalette.WHITE,
+		"color": C_ColorPalette.WHITE,
 		"icon": icon_path + "neu_icon.png"
 	},
 	"RARE": {
-		"color": ColorPalette.GREEN,
+		"color": C_ColorPalette.GREEN,
 		"icon": icon_path + "neu_icon.png"
 	},
 	"HEROIC": {
-		"color": ColorPalette.YELLOW,
+		"color": C_ColorPalette.YELLOW,
 		"icon": icon_path + "neu_icon.png"
 	},
 }
 
 static var DAMAGE_TYPE_COLORS := {
 	DamageType.Type.PHYSICAL: {
-		"color": ColorPalette.RED,
+		"color": C_ColorPalette.RED,
 	},
 	DamageType.Type.FIRE: {
-		"color": ColorPalette.ORANGE,
+		"color": C_ColorPalette.ORANGE,
 	},
 	DamageType.Type.COLD: {
-		"color": ColorPalette.CYAN,
+		"color": C_ColorPalette.CYAN,
 	},
 	DamageType.Type.LIGHTNING: {
-		"color": ColorPalette.YELLOW,
+		"color": C_ColorPalette.YELLOW,
 	},DamageType.Type.MAGIC: {
-		"color": ColorPalette.BLUE,
+		"color": C_ColorPalette.BLUE,
 	}
 }
 
-static var ARMOR_COLOR = ColorPalette.CYAN
+static var ARMOR_COLOR = C_ColorPalette.CYAN
 
 static func format_text(text: String) -> String:
 	for keyword in KEYWORDS.keys():

@@ -12,6 +12,7 @@ var _current_hand_manager
 var _current_battle_context
 
 @export var player_actor: ActorData
+var player_data : PlayerData
 
 @export var test_encounter: EncounterData
 @export var test_character: StartingCharacter
@@ -31,6 +32,7 @@ func load_battle(battle_data: BattleData) -> void:
 	_current_battle_controller = controller
 	
 	_current_battle_controller.battle_finished.connect(on_battle_finished)
+	_current_battle_controller.player_data_change_request.connect(apply_player_data_change)
 
 	controller.load_battle(battle_data)
 	battle_instance.bind_controller(controller)
@@ -57,6 +59,12 @@ func load_map(create_new_map : bool = true) -> void:
 func _ready() -> void:
 	_current_floor_manager = FloorManager.new()
 	_current_floor_manager.load_floor_data(test_floor)
+	
+	player_data = PlayerData.new()
+	
+	for card in test_character.starting_deck:
+		player_data.deck.append(CardDatabase.get_card(card.card_id))
+	
 	load_map()
 	#load_battle(data)
 	
@@ -103,7 +111,10 @@ func instantiate_test_battle_data() -> BattleData:
 	
 	data.actors.append(player_actor)
 	
-	for card in test_character.starting_deck:
-		data.deck.append(card.card_id)
+	for card in player_data.deck:
+		data.deck.append(card["CARD_ID"])
 		
 	return data
+
+func apply_player_data_change(effect):
+	effect.apply(player_data)

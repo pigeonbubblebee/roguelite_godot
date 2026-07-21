@@ -301,3 +301,7 @@ func show_highlight():
 	highlight.visible = true
 func hide_highlight():
 	highlight.visible = false
+
+func force_deselect():
+	if current_card_state == self.selected_state:
+		selected_state.deselect()
