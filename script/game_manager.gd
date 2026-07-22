@@ -61,7 +61,7 @@ func _ready() -> void:
 	_current_floor_manager.load_floor_data(test_floor)
 	
 	player_data = PlayerData.new()
-	
+	player_data.health = player_actor.max_health
 	for card in test_character.starting_deck:
 		player_data.deck.append(CardDatabase.get_card(card.card_id))
 	
@@ -110,6 +110,7 @@ func instantiate_test_battle_data() -> BattleData:
 	var data = BattleData.new()
 	
 	data.actors.append(player_actor)
+	data.player_health = player_data.health
 	
 	for card in player_data.deck:
 		data.deck.append(card["CARD_ID"])

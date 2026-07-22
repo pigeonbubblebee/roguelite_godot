@@ -46,6 +46,7 @@ func load_battle(battle_data: BattleData):
 	_create_managers()
 	_create_context()
 	_create_actors(battle_data.actors)
+	_init_player_actor(battle_data)
 	_initialize_deck(battle_data.deck)
 	_setup_connections()
 	_start_battle()
@@ -99,6 +100,11 @@ func _get_next_team_position_for_faction(faction: Faction.Type) -> int:
 			max_pos = max(max_pos, actor.get_team_position())
 	
 	return max_pos + 1
+	
+func _init_player_actor(battle_data : BattleData):
+	for actor in _turn_manager.get_active_actors():
+		if actor.get_actor_name() == "Player":
+			actor.set_health(battle_data.player_health)
 	
 ######################
 ##### CARD LOGIC #####
@@ -289,6 +295,9 @@ func apply_damage(ctx: DamageContext):
 		var damage_value = damage_dictionary[actor]
 		
 		var lost_values = actor.take_damage(damage_value, ctx)
+		
+		if actor.get_actor_name() == "Player":
+			request_player_data_modification(HealthChangePlayerDataEffect.new(actor.get_health()))
 		
 		ctx.damage_dealt[actor] = lost_values[0]
 		ctx.armor_damage_dealt[actor] = lost_values[1]

@@ -101,6 +101,10 @@ func reset_health():
 	_health = actor_data.max_health
 	emit_signal("health_updated")
 	
+func set_health(health : int):
+	_health = health
+	emit_signal("health_updated")
+	
 func get_max_health():
 	return actor_data.max_health
 	
