@@ -23,6 +23,8 @@ var default_height = 90
 
 signal tooltip_hide_request
 
+var use_canvas_layer = false
+
 var tooltip_scene : PackedScene = preload("res://scenes/subtooltip.tscn")
 
 func set_description(text : String):
@@ -60,7 +62,10 @@ func hide_tooltip():
 	queue_free()
 
 func set_keywords(keywords : Array[String]):
-	if (starting_position + offset).x < 0:
+	var viewport_center_x := get_viewport().get_visible_rect().size.x * 0.5
+	if not use_canvas_layer:
+		viewport_center_x = 0
+	if (starting_position+offset).x < viewport_center_x:
 		_subtooltip_container.position.x = control.size.x + 4
 	else:
 		_subtooltip_container.position.x = -(control.size.x + 4)

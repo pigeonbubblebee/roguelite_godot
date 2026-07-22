@@ -145,3 +145,6 @@ func process_reward_request(reward):
 	if reward.card_reward:
 		var effect = AddCardPlayerDataEffect.new(reward.card_reward.id)
 		_controller.request_player_data_modification(effect)
+	if reward.gold_reward:
+		var effect = GoldChangePlayerDataEffect.new(reward.gold_reward)
+		_controller.request_player_data_modification(effect)

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://b12nnbhh4kofl"]
+
+[ext_resource type="Script" uid="uid://iiti7oxdob1s" path="res://script/ui/reward_button.gd" id="1_yh07d"]
+[ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://assets/Background.png" id="2_l28yo"]
+[ext_resource type="FontFile" uid="uid://b23c0njeg0avg" path="res://data/PixelPurl8x8 (1).ttf" id="3_q07ts"]
+[ext_resource type="Texture2D" uid="uid://bga5pxyite2ig" path="res://assets/bar.png" id="4_34wnb"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jrwob"]
+
+[node name="reward_button" type="Control" unique_id=1279253214]
+custom_minimum_size = Vector2(80, 32)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_yh07d")
+label_path = NodePath("texture/Label")
+
+[node name="texture" type="TextureRect" parent="." unique_id=328686290]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_l28yo")
+
+[node name="Label" type="Label" parent="texture" unique_id=822958125]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_q07ts")
+text = "Add a Card"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="borders" type="NinePatchRect" parent="texture" unique_id=991747230]
+material = SubResource("CanvasItemMaterial_jrwob")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_34wnb")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2

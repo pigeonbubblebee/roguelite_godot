@@ -6,6 +6,25 @@ extends Node
 @export var horizontal_connector_scene : PackedScene
 @export var vertical_connector_scene : PackedScene
 
+@export var map_container_path : NodePath
+@onready var map_container = get_node(map_container_path)
+
+# HUD #
+
+@export var deck_view_ui_path : NodePath
+@onready var deck_view_ui = get_node(deck_view_ui_path)
+@export var deck_view_path : NodePath
+@onready var deck_view = get_node(deck_view_path)
+@export var view_deck_button_path : NodePath
+@onready var view_deck_button = get_node(view_deck_button_path)
+@export var view_deck_button_label_path : NodePath
+@onready var view_deck_button_label = get_node(view_deck_button_label_path)
+
+@export var hp_label_path : NodePath
+@onready var hp_label = get_node(hp_label_path)
+@export var gold_label_path : NodePath
+@onready var gold_label = get_node(gold_label_path)
+
 var room_size_h : int = 56 #-8 to accont for border, so connector can make transition seamless
 var room_size_v : int = 40
 var connector_size : int = 16
@@ -16,7 +35,15 @@ var connectors := []
 
 signal move_input_pressed (direction : Vector2i)
 
+var movement_enabled : bool = true
+
+func _ready():
+	view_deck_button.pressed.connect(open_deck_view)
+
 func _process(delta: float) -> void:
+	if not movement_enabled:
+		return
+		
 	if Input.is_action_just_pressed("ui_right"):
 		move_input_pressed.emit(Vector2i.RIGHT)
 
@@ -44,6 +71,11 @@ func bind_controller(controller: MapController):
 			player_icon.global_position = room.global_position
 	
 	update_fog()
+	
+func bind_game_manager(game_manager: GameManager):
+	var player_data = game_manager.player_data
+	game_manager.player_data_updated.connect(update_hud)
+	update_hud(player_data)
 	
 func update_fog():
 	for room_scene in map_nodes:
@@ -89,7 +121,7 @@ func render_map(map : Array):
 			if map[x][y]:
 				nodes.append(map[x][y])
 				var room_instance := room_scene.instantiate() as RoomScene
-				add_child(room_instance)
+				map_container.add_child(room_instance)
 				room_instance.update_map_node(map[x][y])
 				map_nodes.append(room_instance)
 				
@@ -122,7 +154,7 @@ func create_connector(a : MapNode, b : MapNode):
 			midpoint.y * (room_size_v + connector_size)
 		) + left_corner
 
-		add_child(connector)
+		map_container.add_child(connector)
 		connectors.append({
 			"scene": connector,
 			"a": a,
@@ -140,9 +172,23 @@ func create_connector(a : MapNode, b : MapNode):
 			midpoint.y * (room_size_v + connector_size)
 		) + left_corner
 
-		add_child(connector)
+		map_container.add_child(connector)
 		connectors.append({
 			"scene": connector,
 			"a": a,
 			"b": b
 		})
+
+func open_deck_view():
+	if not deck_view_ui.visible:
+		deck_view_ui.visible = true
+		view_deck_button_label.text = "Close Deck"
+	else:
+		deck_view_ui.visible = false
+		view_deck_button_label.text = "View Deck"
+
+func update_hud(player_data):
+	deck_view.clear_ui()
+	deck_view.display_cards(player_data.deck)
+	hp_label.text = "HP: %s/%s" % [player_data.health, player_data.max_health]
+	gold_label.text = "GOLD: %s" % [player_data.gold]

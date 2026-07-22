@@ -114,7 +114,7 @@
       "DESCRIPTION": "Apply 1 VULNERABLE to all enemies. EPHEMERAL.",
       "RARITY": "COMMON",
       "TYPE": "ATTACK",
-      "KEYWORDS": "ephemeral",
+      "KEYWORDS": "vulnerable;ephemeral",
       "FORCE_TARGET_DRAG": null,
       "NOT_DRAFTABLE": null,
       "UPGRADED_KEYWORDS": null,

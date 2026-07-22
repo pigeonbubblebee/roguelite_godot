@@ -1,29 +1,226 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbg5p46hb15cv"]
+[gd_scene format=3 uid="uid://cbg5p46hb15cv"]
 
 [ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://assets/Background.png" id="1_28lnw"]
-[ext_resource type="Script" path="res://script/ui/map/map_scene.gd" id="1_rvjbm"]
+[ext_resource type="Script" uid="uid://br5v5uhqxx8i7" path="res://script/ui/map/map_scene.gd" id="1_rvjbm"]
 [ext_resource type="PackedScene" uid="uid://kh3gt2hng50" path="res://scenes/map/room_scene.tscn" id="2_5y76d"]
 [ext_resource type="PackedScene" uid="uid://dfcjb1c5ac67e" path="res://scenes/map/horizontal_connector.tscn" id="3_mo7b0"]
 [ext_resource type="PackedScene" uid="uid://b0vrdxl2iy54v" path="res://scenes/map/vertical_connector.tscn" id="4_xp7c3"]
 [ext_resource type="Texture2D" uid="uid://cuvj2pn2e7aum" path="res://assets/ui/map/player_icon.png" id="6_rr3w4"]
+[ext_resource type="Script" uid="uid://c1iejnsehgbyd" path="res://script/ui/ui_button.gd" id="7_dn3sc"]
+[ext_resource type="Script" uid="uid://bre52ldoo35bh" path="res://script/ui/card/card_view.gd" id="7_i8p2f"]
+[ext_resource type="PackedScene" uid="uid://prnhw6kneqmu" path="res://scenes/card.tscn" id="8_euqq2"]
+[ext_resource type="FontFile" uid="uid://b23c0njeg0avg" path="res://data/PixelPurl8x8 (1).ttf" id="9_dn3sc"]
+[ext_resource type="Texture2D" uid="uid://bga5pxyite2ig" path="res://assets/bar.png" id="9_pbvic"]
+[ext_resource type="Script" uid="uid://bj1nnj552ytgq" path="res://script/ui/tooltip/tooltip_manager.gd" id="12_pbvic"]
 
-[node name="map_scene" type="Node2D" node_paths=PackedStringArray("player_icon")]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pbvic"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_txqbv"]
+
+[node name="map_scene" type="Node2D" unique_id=463102670 node_paths=PackedStringArray("player_icon")]
 script = ExtResource("1_rvjbm")
 room_scene = ExtResource("2_5y76d")
 player_icon = NodePath("player_icon")
 horizontal_connector_scene = ExtResource("3_mo7b0")
 vertical_connector_scene = ExtResource("4_xp7c3")
+map_container_path = NodePath("map_container")
+deck_view_ui_path = NodePath("HUD/Control/card_view/card_view_ui")
+deck_view_path = NodePath("HUD/Control/card_view")
+view_deck_button_path = NodePath("HUD/Control/view_deck_button")
+view_deck_button_label_path = NodePath("HUD/Control/view_deck_button/texture/Label")
+hp_label_path = NodePath("HUD/Control/hp_label")
+gold_label_path = NodePath("HUD/Control/gold_label")
 
-[node name="background" type="Sprite2D" parent="."]
+[node name="background" type="Sprite2D" parent="." unique_id=441851387]
 z_index = -2
 scale = Vector2(360, 180)
 texture = ExtResource("1_28lnw")
 
-[node name="player_icon" type="Node2D" parent="."]
+[node name="map_container" type="Node2D" parent="." unique_id=1433178958]
 
-[node name="Sprite2D" type="Sprite2D" parent="player_icon"]
+[node name="player_icon" type="Node2D" parent="." unique_id=790940697]
+
+[node name="Sprite2D" type="Sprite2D" parent="player_icon" unique_id=1421630352]
 z_index = 2
 z_as_relative = false
 texture = ExtResource("6_rr3w4")
 
-[node name="Camera2D" type="Camera2D" parent="player_icon"]
+[node name="Camera2D" type="Camera2D" parent="player_icon" unique_id=951225142]
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=835664822]
+
+[node name="Control" type="Control" parent="HUD" unique_id=1229895881]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hp_label" type="Label" parent="HUD/Control" unique_id=821789258]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 300.0
+offset_right = -484.0
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("9_dn3sc")
+text = "HP: 100/100"
+vertical_alignment = 1
+
+[node name="gold_label" type="Label" parent="HUD/Control" unique_id=278755108]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 287.0
+offset_right = -484.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("9_dn3sc")
+text = "Gold: 100"
+vertical_alignment = 1
+
+[node name="card_view" type="Control" parent="HUD/Control" unique_id=1024075428]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("7_i8p2f")
+_ui_path = NodePath("card_view_ui")
+card_ui_scene = ExtResource("8_euqq2")
+_card_ui_container_path = NodePath("card_view_ui/card_ui_container2/card_ui_container")
+
+[node name="card_view_ui" type="Control" parent="HUD/Control/card_view" unique_id=799215682]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="Control" parent="HUD/Control/card_view/card_view_ui" unique_id=1463236590]
+anchors_preset = 0
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="background" type="TextureRect" parent="HUD/Control/card_view/card_view_ui/background" unique_id=114722061]
+modulate = Color(1, 1, 1, 0.545098)
+material = SubResource("CanvasItemMaterial_pbvic")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("1_28lnw")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="HUD/Control/card_view/card_view_ui/background" unique_id=1480249684]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -194.0
+offset_top = 86.0
+offset_right = 194.0
+offset_bottom = 109.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("9_dn3sc")
+text = "Deck"
+horizontal_alignment = 1
+
+[node name="card_ui_container2" type="Control" parent="HUD/Control/card_view/card_view_ui" unique_id=1042217629]
+clip_contents = true
+anchors_preset = 0
+offset_left = -315.0
+offset_top = -80.0
+offset_right = 307.0
+offset_bottom = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="card_ui_container" type="Control" parent="HUD/Control/card_view/card_view_ui/card_ui_container2" unique_id=135602501]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="view_deck_button" type="Control" parent="HUD/Control" unique_id=68407807]
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 317.0
+offset_right = 72.0
+offset_bottom = 349.0
+script = ExtResource("7_dn3sc")
+
+[node name="texture" type="TextureRect" parent="HUD/Control/view_deck_button" unique_id=911231380]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_28lnw")
+
+[node name="Label" type="Label" parent="HUD/Control/view_deck_button/texture" unique_id=1905239788]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("9_dn3sc")
+text = "View Deck"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="borders" type="NinePatchRect" parent="HUD/Control/view_deck_button/texture" unique_id=1369745903]
+material = SubResource("CanvasItemMaterial_txqbv")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_pbvic")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="tooltip_manager" type="Node2D" parent="HUD/Control" unique_id=1752100789]
+script = ExtResource("12_pbvic")
+use_canvas_layer = true

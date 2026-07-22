@@ -1,3 +1,4 @@
+class_name UIButton
 extends Control
 
 signal pressed

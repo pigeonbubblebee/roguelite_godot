@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://bre52ldoo35bh" path="res://script/ui/card/card_view.gd" id="16_5tote"]
 [ext_resource type="Script" uid="uid://bj1nnj552ytgq" path="res://script/ui/tooltip/tooltip_manager.gd" id="17_prs2y"]
 [ext_resource type="Script" uid="uid://bmhoxicg1p6wq" path="res://scenes/battle_finished_screen.gd" id="18_cxn3p"]
+[ext_resource type="PackedScene" uid="uid://b12nnbhh4kofl" path="res://scenes/reward_button.tscn" id="18_porms"]
 [ext_resource type="FontFile" uid="uid://cgih62i6o6aul" path="res://data/PixelPurl.ttf" id="18_u1jok"]
 [ext_resource type="Texture2D" uid="uid://bga5pxyite2ig" path="res://assets/bar.png" id="20_7mjbx"]
 [ext_resource type="Script" uid="uid://cfoylxpdwwnpe" path="res://script/ui/card_reward_ui.gd" id="21_jrwob"]
@@ -316,8 +317,9 @@ mouse_filter = 2
 [node name="battle_finished_screen" type="Node2D" parent="." unique_id=276219624]
 script = ExtResource("18_cxn3p")
 _ui_path = NodePath("battle_finished_ui")
-_open_card_reward_button_path = NodePath("battle_finished_ui/rewards_menu/add_card_button")
 _card_reward_ui_path = NodePath("battle_finished_ui/card_reward_screen")
+reward_button_scene = ExtResource("18_porms")
+_reward_button_container_path = NodePath("battle_finished_ui/rewards_menu/VBoxContainer")
 
 [node name="battle_finished_ui" type="Control" parent="battle_finished_screen" unique_id=1651493246]
 layout_mode = 3
@@ -405,60 +407,13 @@ patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
 
-[node name="add_card_button" type="Control" parent="battle_finished_screen/battle_finished_ui/rewards_menu" unique_id=789116087]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -59.0
-offset_right = 40.0
-offset_bottom = -27.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("16_5ktu8")
-
-[node name="texture" type="TextureRect" parent="battle_finished_screen/battle_finished_ui/rewards_menu/add_card_button" unique_id=721202785]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_igw74")
-
-[node name="Label" type="Label" parent="battle_finished_screen/battle_finished_ui/rewards_menu/add_card_button/texture" unique_id=1115838913]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_right = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("12_7i6l6")
-text = "Add a Card"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="borders" type="NinePatchRect" parent="battle_finished_screen/battle_finished_ui/rewards_menu/add_card_button/texture" unique_id=2137870094]
-material = SubResource("CanvasItemMaterial_jrwob")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("20_7mjbx")
-region_rect = Rect2(0, 0, 32, 32)
-patch_margin_left = 2
-patch_margin_top = 2
-patch_margin_right = 2
-patch_margin_bottom = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="battle_finished_screen/battle_finished_ui/rewards_menu" unique_id=937913716]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 90.0
+offset_bottom = 128.0
+theme_override_constants/separation = 4
 
 [node name="finish_battle_button" type="Control" parent="battle_finished_screen/battle_finished_ui" unique_id=604406066]
 anchors_preset = 0
@@ -495,6 +450,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="card_reward_screen" type="Control" parent="battle_finished_screen/battle_finished_ui" unique_id=219961373]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

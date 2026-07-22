@@ -1,6 +1,8 @@
 extends Node2D
 
 var tooltip_scene : PackedScene = preload("res://scenes/tooltip.tscn")
+# turn on if cam moves, so this goes under canvas layer
+@export var use_canvas_layer : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +14,7 @@ func _on_request_tooltip(data : TooltipData):
 	add_child(tooltip)
 	
 	tooltip.starting_position = data.starting_position
+	tooltip.use_canvas_layer = use_canvas_layer
 	tooltip.offset = data.offset
 	tooltip.set_description(data.description)
 	

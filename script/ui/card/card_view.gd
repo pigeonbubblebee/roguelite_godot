@@ -69,8 +69,6 @@ func display_cards(cards_dic : Array):
 		# print(card_logic)
 		ui.update_card_logic(card_logic)
 		
-	print("array: " + str(cards_ui_array))
-		
 	calculate_positions()
 		
 func calculate_positions():
