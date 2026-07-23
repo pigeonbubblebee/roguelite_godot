@@ -41,6 +41,10 @@ func as_follow_up(fua: FollowUp) -> EffectSequenceBuilder:
 func as_status(status: StatusEffect) -> EffectSequenceBuilder:
 	add_tag(DamageContext.TAG_STATUS_EFFECT)
 	return self
+	
+func as_wound(card: Card) -> EffectSequenceBuilder:
+	set_owner(card)
+	return self
 
 func set_source(name: String) -> EffectSequenceBuilder:
 	_override_source = name
@@ -273,6 +277,15 @@ func add_card_to_hand(
 	return step(
 		null,
 		func(): controller.add_card_to_hand(id)
+	)
+	
+func shuffle_card_to_deck(
+	id : String = "strike_card", # Change Default to smth else,
+	amt : int = 1
+)  -> EffectSequenceBuilder:
+	return step(
+		null,
+		func(): controller.shuffle_card_to_deck(id, amt)
 	)
 
 func repeat(times: int, fn: Callable) -> EffectSequenceBuilder:

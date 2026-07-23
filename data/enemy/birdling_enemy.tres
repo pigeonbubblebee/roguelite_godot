@@ -1,14 +1,14 @@
-[gd_resource type="Resource" script_class="ActorData" load_steps=5 format=3 uid="uid://dfpysmyeram8u"]
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://dfpysmyeram8u"]
 
-[ext_resource type="Script" path="res://script/actor/enemy/wolf_enemy_actor.gd" id="1_ewkk1"]
+[ext_resource type="Script" uid="uid://bu7i0lhg5d62e" path="res://script/actor/enemy/birdling_enemy_actor.gd" id="1_wrat0"]
 [ext_resource type="Texture2D" uid="uid://cexnsksr5xd2j" path="res://assets/wolf_icon.png" id="2_6mjsy"]
-[ext_resource type="Script" path="res://script/actor/actor_data.gd" id="3_ien4y"]
+[ext_resource type="Script" uid="uid://cbexi743s5vth" path="res://script/actor/actor_data.gd" id="3_ien4y"]
 [ext_resource type="PackedScene" uid="uid://s035k47s6bl1" path="res://scenes/ui/actor/enemy/birdling_actor.tscn" id="4_jrtl1"]
 
 [resource]
 script = ExtResource("3_ien4y")
 name = "BirdlingEnemy"
 icon_texture = ExtResource("2_6mjsy")
-actor_script = ExtResource("1_ewkk1")
+actor_script = ExtResource("1_wrat0")
 ui_scene = ExtResource("4_jrtl1")
-max_health = 250
+max_health = 380

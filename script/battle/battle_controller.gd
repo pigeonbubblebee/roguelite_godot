@@ -47,6 +47,9 @@ func load_battle(battle_data: BattleData):
 	_create_context()
 	_create_actors(battle_data.actors)
 	_init_player_actor(battle_data)
+	
+	_battle_context.setup_event_bus()
+	
 	_initialize_deck(battle_data.deck)
 	_setup_connections()
 	_start_battle()
@@ -76,9 +79,9 @@ func _create_context():
 ##### ACTOR LOGIC #####
 #######################
 
-func _create_actors(actors: Array[ActorData]):
+func _create_actors(actors: Array):
 	for actor in actors:
-		var actor_instance = actor.actor_script.new(actor)
+		var actor_instance = actor.data.actor_script.new(actor.data)
 		var faction = actor_instance.get_actor_faction()
 			
 		actor_instance.set_team_position(_get_next_team_position_for_faction(faction))
@@ -88,6 +91,8 @@ func _create_actors(actors: Array[ActorData]):
 		actor_instance.armor_reset_request.connect(on_armor_reset_request)
 		
 		actor_instance.reset_health()
+		
+		actor_instance.set_premove(actor.premove_index)
 		
 		if faction == Faction.Type.ENEMY:
 			actor_instance.turn_finished.connect(_on_enemy_turn_finish)
@@ -112,7 +117,7 @@ func _init_player_actor(battle_data : BattleData):
 
 func _initialize_deck(deck: Array[String]):
 	for entry in deck:
-		_hand_manager.add_to_deck(entry)
+		_hand_manager.add_to_deck(entry, _battle_context.event_bus)
 	_hand_manager.shuffle_deck()
 	
 ###################
@@ -130,8 +135,6 @@ func _setup_connections():
 	
 	_energy_manager.energy_change.connect(_on_energy_change)
 	_energy_manager.energy_change.connect(_battle_context.on_energy_change)
-	
-	_battle_context.setup_event_bus()
 	
 ############################
 ##### STARTER FUNCTION #####
@@ -286,6 +289,9 @@ func resolve_card(card: Card):
 	_battle_context.event_bus.on_card_played.emit(card, _battle_context, self)
 	
 	card.play(_battle_context, self)
+	
+func remove_card_from_hand(card: Card):
+	_hand_manager.remove_card_from_play(card)
 
 func apply_damage(ctx: DamageContext):
 	_battle_context.event_bus.before_damage_dealt.emit(ctx, _battle_context, self)
@@ -325,7 +331,14 @@ func draw_card(amt: int = 1):
 func add_card_to_hand(card_id : String, amt : int = 1):
 	for i in range(amt):
 		var card = _hand_manager.init_card_script_from_id(card_id)
+		card.bind_event_bus(_battle_context.event_bus)
 		_hand_manager.draw_card(card)
+		
+func shuffle_card_to_deck(card_id : String, amt : int = 1):
+	for i in range(amt):
+		var card = _hand_manager.init_card_script_from_id(card_id)
+		card.bind_event_bus(_battle_context.event_bus)
+		_hand_manager.shuffle_card_to_deck(card)
 		
 func discard_card(card: Card):
 	_hand_manager.discard_card(card)

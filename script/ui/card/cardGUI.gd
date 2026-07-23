@@ -19,6 +19,8 @@ var original_z := 0
 @onready var _card_frame_bg = get_node(_card_frame_bg_path)
 @export var _highlight_path: NodePath
 @onready var highlight = get_node(_highlight_path)
+@export var _energy_bg_path: NodePath
+@onready var energy_bg = get_node(_energy_bg_path)
 
 @export var hover_vertical_offset : float
 @onready var hover_offset := Vector2(0, -hover_vertical_offset)
@@ -131,6 +133,8 @@ func update_card_logic(card: Card) -> void:
 	title_text.text = card.title
 	type_text.text = Card.get_card_type_as_string(card.type)
 	card_art_texture.texture = card.texture
+	
+	energy_bg.visible = card.display_cost()
 	
 	_card_color_bg.modulate = KeywordFormatter.get_keyword_color(card.get_primary_attribute())
 	_card_frame_bg.modulate = KeywordFormatter.get_keyword_color(card.rarity)

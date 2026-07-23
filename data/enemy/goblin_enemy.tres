@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="ActorData" load_steps=5 format=3 uid="uid://chrxe473te2s1"]
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://chrxe473te2s1"]
 
-[ext_resource type="Script" path="res://script/actor/actor_data.gd" id="1_dq625"]
-[ext_resource type="Script" path="res://script/actor/enemy/wolf_enemy_actor.gd" id="1_kxuke"]
+[ext_resource type="Script" uid="uid://c1bujcb1jookg" path="res://script/actor/enemy/goblin_enemy_actor.gd" id="1_6nc1r"]
+[ext_resource type="Script" uid="uid://cbexi743s5vth" path="res://script/actor/actor_data.gd" id="1_dq625"]
 [ext_resource type="Texture2D" uid="uid://cexnsksr5xd2j" path="res://assets/wolf_icon.png" id="2_05flv"]
 [ext_resource type="PackedScene" uid="uid://cr1lkamev6dtg" path="res://scenes/ui/actor/enemy/goblin_actor.tscn" id="4_akxu6"]
 
@@ -9,6 +9,6 @@
 script = ExtResource("1_dq625")
 name = "GoblinEnemy"
 icon_texture = ExtResource("2_05flv")
-actor_script = ExtResource("1_kxuke")
+actor_script = ExtResource("1_6nc1r")
 ui_scene = ExtResource("4_akxu6")
-max_health = 200
+max_health = 180

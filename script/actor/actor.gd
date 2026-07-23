@@ -61,6 +61,9 @@ func get_team_position() -> int:
 func get_actor_id() -> String:
 	push_error("get_actor_id not implemented")
 	return ""
+	
+func set_premove(index : int):
+	pass
 
 # return value: Health/Armor Lost
 func take_damage(damage: int, context: DamageContext)-> Array[int] :

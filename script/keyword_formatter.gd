@@ -48,6 +48,10 @@ static var KEYWORDS := {
 		"color": C_ColorPalette.YELLOW,
 		"icon": icon_path + "neu_icon.png"
 	},
+	"WOUND": {
+		"color": C_ColorPalette.PURPLE,
+		"icon": icon_path + "neu_icon.png"
+	},
 }
 
 static var DAMAGE_TYPE_COLORS := {

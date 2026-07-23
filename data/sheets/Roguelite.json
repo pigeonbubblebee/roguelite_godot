@@ -204,6 +204,18 @@
       "UPGRADED_KEYWORDS": null,
       "UPGRADED": null
     },
+    "deaths_call_card": {
+      "CARD_NAME": "Death's Call",
+      "COST": 1,
+      "DESCRIPTION": "UNPLAYABLE. Deals 10 DMG to you on turn end, then is removed from combat.",
+      "RARITY": "WOUND",
+      "TYPE": "WOUND",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
     "": {
       "CARD_NAME": null,
       "COST": null,
@@ -894,6 +906,12 @@
       "ICON_TYPE": "damage_percent_buff",
       "DESCRIPTION": "Deal 60% more DMG.",
       "STATUS_TYPE": "Buff"
+    },
+    "weakened_status": {
+      "STATUS_NAME": "Weakened",
+      "ICON_TYPE": "damage_percent_debuff",
+      "DESCRIPTION": "Deal 25% less DMG",
+      "STATUS_TYPE": "Debuff"
     }
   },
   "WeaponFinal": {

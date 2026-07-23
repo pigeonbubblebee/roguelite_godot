@@ -94,8 +94,16 @@ func process_room_enter(room : MapNode) -> void:
 
 			var battle := instantiate_test_battle_data()
 			var encounter = _current_floor_manager.load_encounter()
-			for enemy in encounter:
-				battle.actors.append(enemy)
+			for i in range(encounter.enemies.size()):
+				var enemy = encounter.enemies[i]
+				
+				var index
+				if encounter.premove_index.size() == 0:
+					index = 0
+				else:
+					index = encounter.premove_index[i]
+					
+				battle.actors.append({"data": enemy, "premove_index": index})
 			load_battle(battle)
 		)
 
@@ -110,7 +118,7 @@ func on_battle_finished(): #TBD make a global func for processing node clears fo
 func instantiate_test_battle_data() -> BattleData:
 	var data = BattleData.new()
 	
-	data.actors.append(player_actor)
+	data.actors.append({"data": player_actor, "premove_index": 0})
 	data.player_health = player_data.health
 	
 	for card in player_data.deck:

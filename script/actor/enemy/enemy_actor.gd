@@ -16,6 +16,7 @@ func take_action(context: BattleContext, controller: BattleController) -> void:
 		move_updated.emit(null)
 		
 		next_move.execute(context, controller)
+	
 
 func get_remaining_av() -> float:
 	return _remaining_av

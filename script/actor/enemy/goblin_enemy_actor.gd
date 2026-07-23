@@ -1,4 +1,4 @@
-class_name WolfEnemyActor
+class_name GoblinEnemyActor
 extends EnemyActor
 
 var fixed_speed_temp = 99
@@ -8,15 +8,14 @@ var moveset := ActorCycleMoveset.new()
 func _init(data):
 	super._init(data)
 	
-	moveset.add_move(AttackActorPremove.new(30, "wolf_enemy", self))
-	moveset.add_move(AttackActorPremove.new(45, "wolf_enemy", self))
-	moveset.add_move(DefendActorPremove.new(60, self))
+	moveset.add_move(AttackActorPremove.new(40, "goblin_enemy", self))
+	moveset.add_move(AttackActorPremove.new(50, "goblin_enemy", self))
 
 func get_speed() -> float:
 	return fixed_speed_temp
 
 func get_actor_name() -> String:
-	return "Wolf"
+	return "Goblin"
 	
 func set_premove(index) -> void:
 	moveset.current_index = index

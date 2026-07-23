@@ -15,6 +15,8 @@ var rarity
 var keywords : Array[String]
 var modifiers : Array[CardModifier]
 
+var event_bus : BattleEventBus
+
 signal played
 
 func _init(_id : String):
@@ -40,6 +42,9 @@ enum ResolveEffect {
 	DISCARD,
 	REMOVE
 }
+
+func bind_event_bus(bus):
+	event_bus = bus
 
 func get_description():
 	var result = description
@@ -79,6 +84,9 @@ func get_buff_target_index(total_targets: int) -> Array[int]:
 	
 func get_cost() -> int:
 	return _cost
+	
+func display_cost() -> bool:
+	return true
 
 # Callable by subclass
 
@@ -119,6 +127,8 @@ static func get_card_type_as_string(type: CardType) -> String:
 			return "Buff"
 		CardType.DEFENSE:
 			return "Defense"
+		CardType.WOUND:
+			return "Wound"
 	return "Cannot Find Type"
 	
 static func get_string_as_card_type(string) -> CardType:
@@ -129,12 +139,15 @@ static func get_string_as_card_type(string) -> CardType:
 			return CardType.BUFF
 		"DEFENSE":
 			return CardType.DEFENSE
+		"WOUND":
+			return CardType.WOUND
 	return CardType.ATTACK
 
 enum CardType {
 	ATTACK,
 	BUFF,
-	DEFENSE
+	DEFENSE,
+	WOUND
 }
 
 func get_primary_attribute():

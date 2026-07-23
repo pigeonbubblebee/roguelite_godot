@@ -12,7 +12,7 @@ func load_floor_data(data : MapFloorData):
 	encounter_pool_easy = data.encounter_pool_easy
 	max_easy_pools = data.max_easy_pools
 
-func load_encounter() -> Array:
+func load_encounter() -> EncounterData:
 	if encounter_candidates.size() == 0:
 		if current_easy_pools >= max_easy_pools:
 			for e in encounter_pool:
@@ -29,4 +29,4 @@ func load_encounter() -> Array:
 		if current_easy_pools == max_easy_pools:
 			encounter_candidates.clear()
 
-	return result.enemies
+	return result

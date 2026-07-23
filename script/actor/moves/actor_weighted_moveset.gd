@@ -10,7 +10,7 @@ func add_move(move_instance: RefCounted, weight: float) -> void:
 	_moves.append({"move": move_instance, "weight": weight})
 	_total_weight += weight
 
-func get_weighted_move() -> RefCounted:
+func get_next_move() -> RefCounted:
 	if _moves.is_empty():
 		push_error("WeightedMoveSet is empty!")
 		return null

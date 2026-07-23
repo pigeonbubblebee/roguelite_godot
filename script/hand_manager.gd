@@ -49,9 +49,11 @@ func draw_from_top(amt = 1):
 func shuffle_deck():
 	deck.shuffle()
 	
-func add_to_deck(card_id: String, amt=1):
+func add_to_deck(card_id: String, bus: BattleEventBus, amt=1):
 	for i in range(amt):
-		add_card_to_deck(init_card_script_from_id(card_id))
+		var card = init_card_script_from_id(card_id)
+		card.bind_event_bus(bus)
+		add_card_to_deck(card)
 		
 func init_card_script_from_id(id : String) -> Card:
 	var card = CardDatabase.get_card(id)
@@ -64,6 +66,10 @@ func add_card_to_deck(card: Card):
 	deck.append(card)
 	
 	deck_updated.emit(deck)
+	
+func shuffle_card_to_deck(card: Card):
+	var random_index = randi_range(0, deck.size())
+	deck.insert(random_index, card)
 	
 func card_in_hand(card_id: String) -> Card:
 	for card in hand:
