@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="ActorData" load_steps=5 format=3 uid="uid://ddm11j51twup5"]
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://ddm11j51twup5"]
 
-[ext_resource type="Script" path="res://script/actor/actor_data.gd" id="1_8s5a3"]
-[ext_resource type="Script" path="res://script/actor/enemy/wolf_enemy_actor.gd" id="1_qmprt"]
+[ext_resource type="Script" uid="uid://cefavoycwk4mw" path="res://script/actor/enemy/troll_enemy_actor.gd" id="1_5ggjg"]
+[ext_resource type="Script" uid="uid://cbexi743s5vth" path="res://script/actor/actor_data.gd" id="1_8s5a3"]
 [ext_resource type="Texture2D" uid="uid://cexnsksr5xd2j" path="res://assets/wolf_icon.png" id="2_474bj"]
 [ext_resource type="PackedScene" uid="uid://wo88wxrk3h75" path="res://scenes/ui/actor/enemy/troll_actor.tscn" id="4_1nlrt"]
 
@@ -9,6 +9,6 @@
 script = ExtResource("1_8s5a3")
 name = "Troll"
 icon_texture = ExtResource("2_474bj")
-actor_script = ExtResource("1_qmprt")
+actor_script = ExtResource("1_5ggjg")
 ui_scene = ExtResource("4_1nlrt")
-max_health = 900
+max_health = 760

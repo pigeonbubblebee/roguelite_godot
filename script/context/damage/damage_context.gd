@@ -33,6 +33,10 @@ func add_damage_percent(amp: float):
 		else:
 			modifiers.damage_percent_dictionary[actor] = amp
 			
+func add_damage_flat(amp: int):
+	damage += amp
+	blast_damage += amp
+			
 func add_vulnerable(amp: float, target: Actor):
 	if target in modifiers.vulnerability_dictionary:
 		modifiers.vulnerability_dictionary[target] += amp

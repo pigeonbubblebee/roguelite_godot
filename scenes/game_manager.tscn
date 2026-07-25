@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://brs5lch3d2nkg" path="res://scenes/transition_scene.tscn" id="4_mik07"]
 [ext_resource type="Resource" uid="uid://bejhbquponaf5" path="res://data/encounter/goblin_orc_encounter.tres" id="6_wn4et"]
 [ext_resource type="Resource" uid="uid://chvr7yhqp20xh" path="res://data/character/vagabond_character.tres" id="7_psd6g"]
-[ext_resource type="Resource" uid="uid://cydsrhu0cqoep" path="res://data/floor/floor_1.tres" id="8_2q788"]
+[ext_resource type="Resource" uid="uid://bbsq4viawx6bo" path="res://data/floor/test_floor.tres" id="8_jdad8"]
 
 [node name="GameManager" type="Node2D" unique_id=502932959]
 texture_filter = 1
@@ -18,4 +18,4 @@ transition_scene = ExtResource("4_mik07")
 player_actor = ExtResource("3_yi8io")
 test_encounter = ExtResource("6_wn4et")
 test_character = ExtResource("7_psd6g")
-test_floor = ExtResource("8_2q788")
+test_floor = ExtResource("8_jdad8")

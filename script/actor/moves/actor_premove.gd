@@ -13,6 +13,7 @@ const ATTACK_ICON := preload("res://assets/ui/enemy_moves/attack_move.png")
 const ARMOR_ICON := preload("res://assets/ui/enemy_moves/armor_move.png")
 const ARMOR_ATTACK_ICON := preload("res://assets/ui/enemy_moves/armor_attack_move.png")
 const DEBUFF_ICON := preload("res://assets/ui/enemy_moves/debuff_move.png")
+const BUFF_ICON := preload("res://assets/ui/enemy_moves/buff_move.png")
 
 func get_amount():
 	return str(amount)

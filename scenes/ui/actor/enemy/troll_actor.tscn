@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://wo88wxrk3h75"]
+[gd_scene format=3 uid="uid://wo88wxrk3h75"]
 
 [ext_resource type="PackedScene" uid="uid://d1ynugb3e8na6" path="res://scenes/ui/actor/enemy/enemy_actor.tscn" id="1_gyg0x"]
 [ext_resource type="Texture2D" uid="uid://bg3gj8to4gikv" path="res://assets/ui/actor_sprites/troll_sprite.png" id="2_v3yxp"]
 
-[node name="enemy_actor" instance=ExtResource("1_gyg0x")]
+[node name="enemy_actor" unique_id=518870761 instance=ExtResource("1_gyg0x")]
 offset_right = 128.0
 offset_bottom = 128.0
+
+[node name="status_effects" parent="." index="0"]
+offset_top = -55.0
+offset_bottom = -47.0
 
 [node name="sprite" parent="Control" index="0"]
 offset_left = 96.0
