@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgu1ipdsw0y68"
-path="res://.godot/imported/small_slime_sprite.png-f63fe26acfc334d09a17f01f46e08817.ctex"
+uid="uid://dmdnug6w28gr0"
+path="res://.godot/imported/escape_move.png-42115116a176de9327186be673ddf26f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/actor_sprites/small_slime_sprite.png"
-dest_files=["res://.godot/imported/small_slime_sprite.png-f63fe26acfc334d09a17f01f46e08817.ctex"]
+source_file="res://assets/ui/enemy_moves/escape_move.png"
+dest_files=["res://.godot/imported/escape_move.png-42115116a176de9327186be673ddf26f.ctex"]
 
 [params]
 

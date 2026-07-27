@@ -8,6 +8,8 @@ var _battle_data: BattleData
 var _energy_manager: EnergyManager
 var _rewards_manager: BattleRewardsManager
 
+var battle_won_context : BattleWonContext
+
 var _is_first_turn = true
 
 # Signals
@@ -45,11 +47,9 @@ func load_battle(battle_data: BattleData):
 	
 	_create_managers()
 	_create_context()
+	_battle_context.setup_event_bus()
 	_create_actors(battle_data.actors)
 	_init_player_actor(battle_data)
-	
-	_battle_context.setup_event_bus()
-	
 	_initialize_deck(battle_data.deck)
 	_setup_connections()
 	_start_battle()
@@ -73,15 +73,19 @@ func _create_managers():
 ###################
 
 func _create_context():
+	battle_won_context = BattleWonContext.new()
 	_battle_context = BattleContext.new(_turn_manager, self)
 	
 #######################
 ##### ACTOR LOGIC #####
 #######################
 
-func _create_actors(actors: Array):
+func _create_actors(actors: Array) -> Array:
+	var instances : Array
+	
 	for actor in actors:
 		var actor_instance = actor.data.actor_script.new(actor.data)
+		instances.append(actor_instance)
 		var faction = actor_instance.get_actor_faction()
 			
 		actor_instance.set_team_position(_get_next_team_position_for_faction(faction))
@@ -96,6 +100,10 @@ func _create_actors(actors: Array):
 		
 		if faction == Faction.Type.ENEMY:
 			actor_instance.turn_finished.connect(_on_enemy_turn_finish)
+			
+		actor_instance.on_battle_join(self, _battle_context)
+			
+	return instances
 		
 func _get_next_team_position_for_faction(faction: Faction.Type) -> int:
 	var max_pos := -1 # -1 for 0 indexing, bc returns max_pos+1
@@ -195,6 +203,7 @@ func _on_turn_ended(actor: Actor):
 	_battle_context.event_bus.turn_ended.emit(actor, _battle_context, self)	
 		
 func on_actor_death(actor: Actor):
+	_battle_context.event_bus.actor_died.emit(actor, _battle_context, self)
 	free_actor(actor)
 	
 func on_armor_reset_request(context: ArmorResetContext):
@@ -398,11 +407,16 @@ func check_battle_finished():
 	var enemies = _battle_context.get_actors_of_faction(Faction.Type.ENEMY)
 
 	if enemies.is_empty():
-		queue_battle_won.emit(BattleWonContext.new())
+		queue_battle_won.emit(battle_won_context)
 	
 # Permanent Carry-Over between battle changes		
 func request_player_data_modification(effect : PlayerDataEffect):
 	player_data_change_request.emit(effect)
+	
+func add_actors(actors: Array):
+	var instances = _create_actors(actors)	
+	for actor in instances:
+		actor.generate_next_move(_battle_context)
 	
 ###################
 ##### GETTERS #####

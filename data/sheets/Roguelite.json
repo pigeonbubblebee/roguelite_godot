@@ -224,7 +224,19 @@
       "TYPE": "WOUND",
       "KEYWORDS": "ephemeral",
       "FORCE_TARGET_DRAG": null,
-      "NOT_DRAFTABLE": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "rot_card": {
+      "CARD_NAME": "Rot",
+      "COST": 1,
+      "DESCRIPTION": "UNPLAYABLE. Deals 40 DMG to you on turn end, then is removed from combat.",
+      "RARITY": "WOUND",
+      "TYPE": "WOUND",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
       "UPGRADED_KEYWORDS": null,
       "UPGRADED": null
     },
@@ -775,7 +787,7 @@
     },
     "ephemeral": {
       "KEYWORD_NAME": "Ephemeral",
-      "DESCRIPTION": "This card is removed from your deck until the end of combat after playing."
+      "DESCRIPTION": "Playing this card removes it from your deck until the end of combat."
     },
     "armor": {
       "KEYWORD_NAME": "Armor",
@@ -934,13 +946,25 @@
     "unsteady_status": {
       "STATUS_NAME": "Unsteady",
       "ICON_TYPE": "armor_percent_debuff",
-      "DESCRIPTION": "Gains 25% less ARMOR",
+      "DESCRIPTION": "Gains 25% less ARMOR.",
       "STATUS_TYPE": "Debuff"
     },
     "sturdy_status": {
       "STATUS_NAME": "Sturdy",
       "ICON_TYPE": "armor_percent_buff",
-      "DESCRIPTION": "Gains 25% more ARMOR",
+      "DESCRIPTION": "Gains 25% more ARMOR.",
+      "STATUS_TYPE": "Buff"
+    },
+    "gelatinous_status": {
+      "STATUS_NAME": "Gelatinous",
+      "ICON_TYPE": "general_buff",
+      "DESCRIPTION": "Splits into two smaller slimes upon reaching half HP.",
+      "STATUS_TYPE": "Buff"
+    },
+    "thieving_status": {
+      "STATUS_NAME": "Thieving",
+      "ICON_TYPE": "general_buff",
+      "DESCRIPTION": "Takes {STACKS} Gold upon attacking you. Returns half of stolen gold upon death.",
       "STATUS_TYPE": "Buff"
     }
   },

@@ -28,4 +28,4 @@ func _finish_move():
 	finished.emit()
 
 func get_icon() -> Texture2D:
-	return DEBUFF_ICON
+	return WOUND_ICON

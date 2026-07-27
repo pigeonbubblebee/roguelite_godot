@@ -1,27 +1,23 @@
-class_name OrcEnemyActor
+class_name SmallSlimeEnemyActor
 extends EnemyActor
 
 var fixed_speed_temp = 99
 
 var moveset := ActorCycleMoveset.new()
 
-var wound_amount : int = 1
-var wound_id : String = "gash_card"
-
-var id : String = "orc_enemy"
+var id : String = "small_slime_enemy"
 
 func _init(data):
 	super._init(data)
 	
-	moveset.add_move(AttackActorPremove.new(75, id, self))
-	moveset.add_move(ShuffleWoundPremove.new(wound_amount, wound_id, self))
-	moveset.add_move(ArmorAttackActorPremove.new(50, id, self, 50))
+	moveset.add_move(AttackActorPremove.new(30, id, self))
+	moveset.add_move(AttackActorPremove.new(45, id, self))
 
 func get_speed() -> float:
 	return fixed_speed_temp
 
 func get_actor_name() -> String:
-	return "Orc"
+	return "Small Slime"
 	
 func set_premove(index) -> void:
 	moveset.current_index = index

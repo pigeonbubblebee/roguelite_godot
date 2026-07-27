@@ -33,6 +33,7 @@ func _ready():
 		actor.armor_gained.connect(_on_armor_gain)
 		
 		actor.get_status_manager().status_updated.connect(_on_status_update)
+		_on_status_update(actor.get_status_manager().get_active_status())
 		
 		update_armor_bar(actor._armor)
 		update_health_bar()

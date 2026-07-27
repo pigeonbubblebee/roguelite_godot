@@ -22,9 +22,6 @@ func _ready():
 	
 	_card_reward_ui.request_card_reward.connect(process_card_reward)
 	
-	add_reward_button(RewardButton.RewardType.CARD)
-	add_reward_button(RewardButton.RewardType.GOLD, 15)
-	
 func add_reward_button(type : RewardButton.RewardType, amount : int = 0):
 	var button = reward_button_scene.instantiate()
 	_reward_button_container.add_child(button)
@@ -53,6 +50,10 @@ func on_reward_button_pressed(type, amount):
 	
 func bind_context(ctx : BattleWonContext):
 	battle_won_context = ctx
+	
+	add_reward_button(RewardButton.RewardType.CARD)
+	add_reward_button(RewardButton.RewardType.GOLD, 15)
+	add_reward_button(RewardButton.RewardType.GOLD, ctx.bonus_gold_reward)
 
 func process_card_reward(card):
 	var context = RewardRequestContext.new()

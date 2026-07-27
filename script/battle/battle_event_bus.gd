@@ -16,3 +16,5 @@ signal on_armor_reset_request(ctx: ArmorResetContext, context: BattleController,
 signal on_card_discarded(card : Card, context: BattleContext, controller: BattleController)
 
 signal on_card_played(card : Card, context: BattleContext, controller: BattleController)
+
+signal actor_died(actor: Actor, context: BattleContext, controller: BattleController)

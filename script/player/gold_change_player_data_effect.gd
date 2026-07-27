@@ -8,3 +8,6 @@ func _init(gold : int):
 
 func apply(player_data : PlayerData):
 	player_data.gold += amount
+	
+	if(player_data.gold <= 0):
+		player_data.gold = 0

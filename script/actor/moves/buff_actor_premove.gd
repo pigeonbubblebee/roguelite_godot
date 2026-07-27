@@ -17,19 +17,32 @@ func _init(amt : int, source : String, _actor : Actor, effect_factory: Callable)
 	
 func clone() -> BuffActorPremove:
 	var copy = BuffActorPremove.new(amount, source_name, actor, factory)
+	copy.target_mode = target_mode
 	return copy
 
 func execute(context: BattleContext, controller: BattleController):
-	var target = actor
-	
-	var effect = factory.call(target)
-	var custom_action = BattleRuntimeHelper.generate_light_camera_shake_action()
-	
-	EffectSequenceBuilder.new(context, controller)\
-		.as_actor(actor)\
-		.use_action(custom_action)\
-		.apply_status(target, effect)\
-		.enqueue()
+	if target_mode == target_mode_single:
+		var target = actor
+		
+		var effect = factory.call(target)
+		var custom_action = BattleRuntimeHelper.generate_light_camera_shake_action()
+		
+		EffectSequenceBuilder.new(context, controller)\
+			.as_actor(actor)\
+			.use_action(custom_action)\
+			.apply_status(target, effect)\
+			.enqueue()
+	elif target_mode == target_mode_group:
+		var targets = context.get_actors_of_faction(Faction.Type.ENEMY)
+		
+		var custom_action = BattleRuntimeHelper.generate_light_camera_shake_action()
+		
+		EffectSequenceBuilder.new(context, controller)\
+			.as_actor(actor)\
+			.use_action(custom_action)\
+			.apply_status_multi(targets, func(t): 
+				return factory.call(t))\
+			.enqueue()
 		
 	await context.await_battle_actions()
 	

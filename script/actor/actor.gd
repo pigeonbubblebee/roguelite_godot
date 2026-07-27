@@ -64,6 +64,9 @@ func get_actor_id() -> String:
 	
 func set_premove(index : int):
 	pass
+	
+func on_battle_join(controller, context):
+	pass
 
 # return value: Health/Armor Lost
 func take_damage(damage: int, context: DamageContext)-> Array[int] :
