@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://duyeqbv88h8o4"]
+
+[ext_resource type="Script" uid="uid://cbexi743s5vth" path="res://script/actor/actor_data.gd" id="1_bx58y"]
+[ext_resource type="Script" uid="uid://mjho7niu08ma" path="res://script/actor/enemy/orc_vanguard_enemy_actor.gd" id="1_ri5f3"]
+[ext_resource type="Texture2D" uid="uid://cexnsksr5xd2j" path="res://assets/wolf_icon.png" id="2_60n2k"]
+[ext_resource type="PackedScene" uid="uid://bkbcno3tv5hr8" path="res://scenes/ui/actor/enemy/orc_vanguard_actor.tscn" id="4_uwi38"]
+
+[resource]
+script = ExtResource("1_bx58y")
+name = "OrcVanguardEnemy"
+icon_texture = ExtResource("2_60n2k")
+actor_script = ExtResource("1_ri5f3")
+ui_scene = ExtResource("4_uwi38")
+max_health = 260
+metadata/_custom_type_script = "uid://cbexi743s5vth"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EncounterData" format=3 uid="uid://b0sako0rdqmiw"]
+
+[ext_resource type="Script" uid="uid://cbexi743s5vth" path="res://script/actor/actor_data.gd" id="1_4c1b3"]
+[ext_resource type="Resource" uid="uid://de1c4b1s3ektx" path="res://data/enemy/orc_guardsman_enemy.tres" id="2_3oq3p"]
+[ext_resource type="Script" uid="uid://bsgscmar6ilnf" path="res://script/encounter_data.gd" id="2_ar2nu"]
+[ext_resource type="Resource" uid="uid://dcw3mln1c68m7" path="res://data/enemy/orc_captain_enemy.tres" id="3_p0ojl"]
+[ext_resource type="Resource" uid="uid://duyeqbv88h8o4" path="res://data/enemy/orc_vanguard_enemy.tres" id="4_4h647"]
+
+[resource]
+script = ExtResource("2_ar2nu")
+enemies = Array[ExtResource("1_4c1b3")]([ExtResource("4_4h647"), ExtResource("3_p0ojl"), ExtResource("2_3oq3p")])
+metadata/_custom_type_script = "uid://bsgscmar6ilnf"

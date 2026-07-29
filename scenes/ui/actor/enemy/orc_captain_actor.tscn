@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://pvox8hal7hse"]
+
+[ext_resource type="PackedScene" uid="uid://d1ynugb3e8na6" path="res://scenes/ui/actor/enemy/enemy_actor.tscn" id="1_aex8e"]
+[ext_resource type="Texture2D" uid="uid://d354ac83s8wyx" path="res://assets/ui/actor_sprites/orc_captain_sprite.png" id="2_nn014"]
+
+[node name="enemy_actor" unique_id=1141321093 instance=ExtResource("1_aex8e")]
+
+[node name="sprite" parent="Control" index="0"]
+texture = ExtResource("2_nn014")
+
+[node name="move_display" parent="Control" index="4"]
+offset_top = -16.0
+offset_bottom = 3.0

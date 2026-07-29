@@ -3,7 +3,7 @@ extends Card
 
 var status_stacks : int = 5
 var status_id : String = "rage_status"
-var damage : int = 60
+var damage : int = 70
 
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)

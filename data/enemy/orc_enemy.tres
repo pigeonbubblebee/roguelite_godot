@@ -11,4 +11,4 @@ name = "OrcEnemy"
 icon_texture = ExtResource("2_5d03j")
 actor_script = ExtResource("1_7etl1")
 ui_scene = ExtResource("4_f2pdf")
-max_health = 350
+max_health = 435

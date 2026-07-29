@@ -1,7 +1,7 @@
 class_name WarArmorCard
 extends Card
 
-var armor : int = 60
+var armor : int = 80
 
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)

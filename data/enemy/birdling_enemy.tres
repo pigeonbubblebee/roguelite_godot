@@ -11,4 +11,4 @@ name = "BirdlingEnemy"
 icon_texture = ExtResource("2_6mjsy")
 actor_script = ExtResource("1_wrat0")
 ui_scene = ExtResource("4_jrtl1")
-max_health = 380
+max_health = 410

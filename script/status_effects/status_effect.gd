@@ -35,6 +35,7 @@ func add_stacks(amt : int):
 func on_apply(_context: BattleContext, _controller: BattleController):
 	_context.event_bus.before_damage_dealt.connect(before_damage_dealt)
 	_context.event_bus.before_armor_applied.connect(before_armor_applied)
+	_context.event_bus.armor_applied.connect(armor_applied)
 	_context.event_bus.turn_ended.connect(on_turn_end)
 	_context.event_bus.turn_started.connect(on_turn_start)
 	_context.event_bus.actor_died.connect(on_actor_died)
@@ -46,6 +47,9 @@ func before_damage_dealt(_context: DamageContext, battle_context: BattleContext,
 	pass
 	
 func before_armor_applied(_context: ArmorGainContext, battle_context: BattleContext, controller: BattleController):
+	pass
+	
+func armor_applied(_context: ArmorGainContext, battle_context: BattleContext, controller: BattleController):
 	pass
 	
 func on_actor_died(actor: Actor, context: BattleContext, controller: BattleController):

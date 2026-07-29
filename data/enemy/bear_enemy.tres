@@ -11,4 +11,4 @@ name = "BearEnemy"
 icon_texture = ExtResource("2_d7fb3")
 actor_script = ExtResource("1_mof3o")
 ui_scene = ExtResource("4_thwcd")
-max_health = 490
+max_health = 570

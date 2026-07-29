@@ -74,6 +74,10 @@ func _create_managers():
 
 func _create_context():
 	battle_won_context = BattleWonContext.new()
+	
+	if _battle_data.room_type == MapNode.RoomType.ELITE:
+		battle_won_context.original_gold_reward_variance += 15
+	
 	_battle_context = BattleContext.new(_turn_manager, self)
 	
 #######################

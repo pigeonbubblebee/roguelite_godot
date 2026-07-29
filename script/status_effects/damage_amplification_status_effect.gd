@@ -2,7 +2,7 @@ class_name DamageAmplificationStatusEffect
 extends StatusEffect
 
 var damage_percent_bonus
-var empowered_percent_bonus = 0.5
+var empowered_percent_bonus = 0.4
 static var weakened_percent_bonus = -0.25
 
 # empowered by default

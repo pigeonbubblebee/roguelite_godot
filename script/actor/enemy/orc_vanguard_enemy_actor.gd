@@ -1,28 +1,20 @@
-class_name TrollEnemyActor
+class_name OrcVanguardEnemyActor
 extends EnemyActor
 
 var fixed_speed_temp = 99
 
 var moveset := ActorCycleMoveset.new()
 
-var status_id = "vulnerable_status"
-var status_turns : int = 5
+var id : String = "orc_vanguard_enemy"
 
 var status_id_buff : String = "might_status"
 var might_stacks : int = 2
 
-var id : String = "troll_enemy"
-
 func _init(data):
 	super._init(data)
-	
-	var first_move = ((DebuffActorPremove.new(status_turns, id, self,
-		func(t): 
-				return DamageTakenAmplificationStatusEffect.new(status_id, 
-				status_turns))))
-	moveset.add_first_move(first_move)		
-	moveset.add_move(AttackActorPremove.new(110, id, self))
-	moveset.add_move(ArmorAttackActorPremove.new(80, id, self, 80))
+
+	moveset.add_move(AttackActorPremove.new(70, id, self))
+	moveset.add_move(ArmorAttackActorPremove.new(40, id, self, 40))
 	moveset.add_move((BuffActorPremove.new(might_stacks, id, self,
 		func(t): 
 				return FlatDamageBonusStatusEffect.new(status_id_buff, 
@@ -33,7 +25,7 @@ func get_speed() -> float:
 	return fixed_speed_temp
 
 func get_actor_name() -> String:
-	return "Troll"
+	return "Orc Vanguard"
 	
 func set_premove(index) -> void:
 	moveset.current_index = index

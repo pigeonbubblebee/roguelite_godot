@@ -10,8 +10,8 @@ var id : String = "small_slime_enemy"
 func _init(data):
 	super._init(data)
 	
-	moveset.add_move(AttackActorPremove.new(30, id, self))
-	moveset.add_move(AttackActorPremove.new(45, id, self))
+	moveset.add_move(AttackActorPremove.new(40, id, self))
+	moveset.add_move(AttackActorPremove.new(65, id, self))
 
 func get_speed() -> float:
 	return fixed_speed_temp

@@ -11,4 +11,4 @@ name = "GoblinArcherEnemy"
 icon_texture = ExtResource("2_c3gx7")
 actor_script = ExtResource("1_jtnd2")
 ui_scene = ExtResource("4_k2rd6")
-max_health = 180
+max_health = 210

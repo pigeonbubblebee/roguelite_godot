@@ -24,7 +24,7 @@ func _init(data):
 		func(t): 
 				return DamageAmplificationStatusEffect.new(status_id, 
 				status_turns, DamageAmplificationStatusEffect.weakened_percent_bonus)))
-	moveset.add_move(AttackActorPremove.new(60, id, self))
+	moveset.add_move(AttackActorPremove.new(80, id, self))
 	moveset.add_move(ShuffleWoundPremove.new(wound_amount, wound_id, self))
 
 func get_speed() -> float:

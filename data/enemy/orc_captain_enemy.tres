@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://dcw3mln1c68m7"]
+
+[ext_resource type="Script" uid="uid://cbexi743s5vth" path="res://script/actor/actor_data.gd" id="1_axa3k"]
+[ext_resource type="Script" uid="uid://bb3ulsw1p78mm" path="res://script/actor/enemy/orc_captain_enemy_actor.gd" id="1_i37ji"]
+[ext_resource type="Texture2D" uid="uid://cexnsksr5xd2j" path="res://assets/wolf_icon.png" id="2_ol6rr"]
+[ext_resource type="PackedScene" uid="uid://pvox8hal7hse" path="res://scenes/ui/actor/enemy/orc_captain_actor.tscn" id="4_riu7s"]
+
+[resource]
+script = ExtResource("1_axa3k")
+name = "OrcCaptainEnemy"
+icon_texture = ExtResource("2_ol6rr")
+actor_script = ExtResource("1_i37ji")
+ui_scene = ExtResource("4_riu7s")
+max_health = 270
+metadata/_custom_type_script = "uid://cbexi743s5vth"

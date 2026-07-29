@@ -11,4 +11,4 @@ name = "SlimeEnemy"
 icon_texture = ExtResource("2_qi1u7")
 actor_script = ExtResource("1_gypmq")
 ui_scene = ExtResource("4_hdrim")
-max_health = 300
+max_health = 450

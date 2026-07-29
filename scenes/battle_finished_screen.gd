@@ -52,8 +52,9 @@ func bind_context(ctx : BattleWonContext):
 	battle_won_context = ctx
 	
 	add_reward_button(RewardButton.RewardType.CARD)
-	add_reward_button(RewardButton.RewardType.GOLD, 15)
-	add_reward_button(RewardButton.RewardType.GOLD, ctx.bonus_gold_reward)
+	add_reward_button(RewardButton.RewardType.GOLD, 15 + ctx.original_gold_reward_variance)
+	if ctx.bonus_gold_reward > 0:
+		add_reward_button(RewardButton.RewardType.GOLD, ctx.bonus_gold_reward)
 
 func process_card_reward(card):
 	var context = RewardRequestContext.new()

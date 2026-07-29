@@ -5,15 +5,15 @@ var fixed_speed_temp = 99
 
 var moveset := ActorCycleMoveset.new()
 
-var wound_amount : int = 1
+var wound_amount : int = 2
 var wound_id : String = "deaths_call_card"
 
 func _init(data):
 	super._init(data)
 	
-	moveset.add_move(ShuffleWoundPremove.new(1, wound_id, self))
-	moveset.add_move(AttackActorPremove.new(60, "birdling_enemy", self))
-	moveset.add_move(AttackActorPremove.new(60, "birdling_enemy", self))
+	moveset.add_move(ShuffleWoundPremove.new(wound_amount, wound_id, self))
+	moveset.add_move(AttackActorPremove.new(70, "birdling_enemy", self))
+	moveset.add_move(AttackActorPremove.new(70, "birdling_enemy", self))
 
 func get_speed() -> float:
 	return fixed_speed_temp

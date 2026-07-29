@@ -88,12 +88,19 @@ func process_room_enter(room : MapNode) -> void:
 		or room.type == MapNode.RoomType.KEY 
 		or room.type == MapNode.RoomType.ELITE):
 			
-		transition(func():
-			_current_scene.movement_enabled = false
+		_current_scene.movement_enabled = false
+			
+		transition(func():	
 			_current_scene.queue_free()
 
 			var battle := instantiate_test_battle_data()
 			var encounter = _current_floor_manager.load_encounter()
+			
+			battle.room_type = room.type
+			
+			if room.type == MapNode.RoomType.ELITE:
+				encounter = _current_floor_manager.load_encounter_elite()
+			
 			for i in range(encounter.enemies.size()):
 				var enemy = encounter.enemies[i]
 				

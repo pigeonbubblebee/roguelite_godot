@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://wpa8g0v26n7l"]
+
+[ext_resource type="PackedScene" uid="uid://d1ynugb3e8na6" path="res://scenes/ui/actor/enemy/enemy_actor.tscn" id="1_qskku"]
+[ext_resource type="Texture2D" uid="uid://01u5bpqhe70f" path="res://assets/ui/actor_sprites/orc_guardsman_sprite.png" id="2_jm1wa"]
+
+[node name="enemy_actor" unique_id=2139489029 instance=ExtResource("1_qskku")]
+
+[node name="sprite" parent="Control" index="0"]
+texture = ExtResource("2_jm1wa")

@@ -1,7 +1,7 @@
 class_name SharpnessModifier
 extends CardModifier
 
-var damage_amp = 0.07
+var damage_amp = 0.3
 
 func before_damage_dealt(context: DamageContext, battle_context: BattleContext, controller: BattleController):
 	if context.source == _owner:

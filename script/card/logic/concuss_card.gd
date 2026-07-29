@@ -1,7 +1,7 @@
 class_name ConcussCard
 extends Card
 
-var status_buildup : int = 4
+var status_buildup : int = 3
 var status_id : String = "daze_status"
 
 func play(context: BattleContext, controller: BattleController):
