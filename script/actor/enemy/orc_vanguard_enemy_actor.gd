@@ -11,8 +11,8 @@ var might_stacks : int = 2
 func _init(data):
 	super._init(data)
 
-	moveset.add_move(AttackActorPremove.new(70, id, self))
-	moveset.add_move(ArmorAttackActorPremove.new(40, id, self, 40))
+	moveset.add_move(AttackActorPremove.new(60, id, self))
+	moveset.add_move(MultiAttackActorPremove.new(20, 2, id, self))
 	moveset.add_move((BuffActorPremove.new(might_stacks, id, self,
 		func(t): 
 				return FlatDamageBonusStatusEffect.new(status_id_buff, 

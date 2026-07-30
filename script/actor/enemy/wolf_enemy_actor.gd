@@ -7,7 +7,7 @@ func _init(data):
 	super._init(data)
 	
 	moveset.add_move(AttackActorPremove.new(35, "wolf_enemy", self))
-	moveset.add_move(AttackActorPremove.new(45, "wolf_enemy", self))
+	moveset.add_move(MultiAttackActorPremove.new(20, 2, "wolf_enemy", self))
 	moveset.add_move(DefendActorPremove.new(100, self))
 
 func get_speed() -> float:

@@ -172,13 +172,27 @@ func update_ally_targets(indicies: Array[int]):
 	clear_ally_targets()
 	if current_card == null:
 		return
+		
+	var armor_preview_dictionary = current_card.preview_armor(
+		_battle_controller.get_context(),
+		_battle_controller )
+		
 	for i in range(indicies.size()):
 		ally_ui_array[indicies[i]].set_target_visibility(true, 
 			buff_target_texture)
 			
+		var armor_preview_text = ""
+		
+		if armor_preview_dictionary.has(ally_ui_array[indicies[i]].actor):
+			armor_preview_text = armor_preview_dictionary[ally_ui_array[indicies[i]].actor]
+		
+		ally_ui_array[indicies[i]].set_number_preview_visibility(true, 
+			armor_preview_text)
+			
 func clear_ally_targets():
 	for i in range(ally_ui_array.size()):
 		ally_ui_array[i].set_target_visibility(false)
+		ally_ui_array[i].set_number_preview_visibility(false)
 
 func get_ui_for_actor(actor) -> ActorUI:
 	var actor_ui_array = enemy_ui_array + ally_ui_array

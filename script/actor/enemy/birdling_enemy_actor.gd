@@ -10,8 +10,8 @@ func _init(data):
 	super._init(data)
 	
 	moveset.add_move(ShuffleWoundPremove.new(wound_amount, wound_id, self))
-	moveset.add_move(AttackActorPremove.new(70, "birdling_enemy", self))
-	moveset.add_move(AttackActorPremove.new(70, "birdling_enemy", self))
+	moveset.add_move(MultiAttackActorPremove.new(35, 2, "birdling_enemy", self))
+	moveset.add_move(MultiAttackActorPremove.new(35, 2, "birdling_enemy", self))
 
 func get_speed() -> float:
 	return fixed_speed_temp

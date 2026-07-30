@@ -14,7 +14,7 @@ func _init(data):
 				return DamageAmplificationStatusEffect.new(status_id, 
 				status_turns, DamageAmplificationStatusEffect.weakened_percent_bonus)))
 	moveset.add_first_move(first_move)		
-	moveset.add_move(AttackActorPremove.new(50, "goblin_enemy", self))
+	moveset.add_move(MultiAttackActorPremove.new(25, 2, "goblin_enemy", self))
 
 func get_speed() -> float:
 	return fixed_speed_temp

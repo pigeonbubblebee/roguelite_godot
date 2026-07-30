@@ -10,7 +10,7 @@ var _override_source: String = ""
 
 var _tags: Array[String] = []
 
-var _steps: Array = []
+var _groups: Array = []
 
 var _required_alive_targets: Array[Actor] = []
 
@@ -19,11 +19,17 @@ var _custom_action: BattleVisualAction = null
 var _owner = null
 
 var _damage_contexts: Array[DamageContext] = []
+var _armor_contexts: Array[ArmorGainContext] = []
 
 func _init(_context: BattleContext, _controller: BattleController, card: Card = null):
 	context = _context
 	controller = _controller
 	_card = card
+
+	_groups.append([])
+	
+func _current_group() -> Array:
+	return _groups.back()
 	
 func as_card(card: Card) -> EffectSequenceBuilder:
 	_card = card
@@ -61,7 +67,7 @@ func set_owner(owner) -> EffectSequenceBuilder:
 	return self
 	
 func step(visual: BattleVisualAction, logic: Callable) -> EffectSequenceBuilder:
-	_steps.append({
+	_current_group().append({
 		"visual": visual,
 		"logic": logic
 	})
@@ -89,6 +95,11 @@ func _get_owner():
 	return _owner
 	
 # Effect Helpers
+func delay() -> EffectSequenceBuilder:
+	if not _current_group().is_empty():
+		_groups.append([])
+	return self
+
 func damage(
 	target: Actor,
 	amount: int,
@@ -192,10 +203,15 @@ func armor(target: Actor, amount: int) -> EffectSequenceBuilder:
 		_get_owner()
 	)
 	
+	_armor_contexts.append(armor_ctx)
+	
 	return step(
 		PlayParticleEffectAction.new(target, "armor"),
 		func(): controller.apply_armor(armor_ctx)
 	)
+	
+func get_armor_contexts() -> Array:
+	return _armor_contexts
 
 func apply_status(target: Actor, effect: StatusEffect) -> EffectSequenceBuilder:
 	if target == null:
@@ -306,37 +322,56 @@ func enqueue() -> void:
 	# Skip if ALL required targets are dead
 	if not _required_alive_targets.is_empty():
 		var any_alive := false
+
 		for t in _required_alive_targets:
 			if not t._processing_death:
 				any_alive = true
 				break
-		
+
 		if not any_alive:
 			return
+
+	_enqueue_group(0)
 	
+func _enqueue_group(index: int) -> void:
+
+	if index >= _groups.size():
+		_groups.clear()
+		_groups.append([])
+
+		_tags.clear()
+
+		return
+
 	var action: BattleVisualAction = _custom_action
+
 	if action == null:
-		action = BattleRuntimeHelper.generate_basic_attack_action(context, _get_owner())
-	
+		action = BattleRuntimeHelper.generate_basic_attack_action(
+			context,
+			_get_owner()
+		)
+
+	var steps = _groups[index]
+
 	# Build visuals
-	for s in _steps:
+	for s in steps:
 		if s.visual:
 			if action is ParallelAction:
 				action.append_action(s.visual)
 			else:
 				push_warning("Visual action for EffectBuilder not parallel action")
 				controller.enqueue_action(s.visual)
-	
-	# Attach logic
+
+	# Execute logic
 	action.started.connect(func():
-		for s in _steps:
+		for s in steps:
 			if s.logic:
 				s.logic.call()
 	)
-	
+
+	# Move to the next group when this one finishes
 	action.finished.connect(func():
-		_steps.clear()
-		_tags.clear()
-	)
-	
+		_enqueue_group(index + 1)
+	, CONNECT_ONE_SHOT)
+
 	controller.enqueue_action(action)

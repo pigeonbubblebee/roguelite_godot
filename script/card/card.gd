@@ -121,6 +121,52 @@ func preview_damage(context: BattleContext, controller: BattleController) -> Dic
 		result[actor] = "+".join(parts)
 		
 	return result
+
+func preview_armor(context: BattleContext, controller: BattleController) -> Dictionary:
+	var sequence = build_sequence(context, controller, true)
+	
+	if not sequence:
+		return {}
+	
+	var result = {}
+	var armor_contexts = sequence.get_armor_contexts()
+	
+	if armor_contexts.size() == 0:
+		return result
+	
+	var counts := {} 
+	
+	for ctx in armor_contexts:
+		var preview = controller.preview_armor(ctx)
+		var actor = ctx.actor
+
+		if !counts.has(actor):
+			counts[actor] = {}
+
+		if !counts[actor].has(preview):
+			counts[actor][preview] = 0
+
+		counts[actor][preview] += 1
+
+	# STR format
+	for actor in counts:
+		var parts: Array[String] = []
+
+		var damages = counts[actor].keys()
+		damages.sort()
+
+		for damage in damages:
+			var hits = counts[actor][damage]
+
+			if hits == 1:
+				parts.append(str(damage))
+			else:
+				parts.append("%dx%d" % [hits, damage])
+
+		result[actor] = "+".join(parts)
+		
+	return result
+	
 	
 func get_keywords() -> Array[String]:
 	return keywords

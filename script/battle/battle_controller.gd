@@ -335,6 +335,14 @@ func preview_damage(ctx: DamageContext):
 	var damage_dictionary = ctx.calculate_damage()
 	return damage_dictionary
 	
+func preview_armor(ctx: ArmorGainContext):
+	ctx.is_preview = true
+	
+	_battle_context.event_bus.before_armor_applied.emit(ctx, _battle_context, self)
+	
+	var armor = ctx.calculate_armor()
+	return armor
+	
 func apply_armor(ctx: ArmorGainContext):
 	_battle_context.event_bus.before_armor_applied.emit(ctx, _battle_context, self)
 	

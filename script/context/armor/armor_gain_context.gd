@@ -9,6 +9,8 @@ var armor_gained : int = 0
 
 var armor_percent : float = 0
 
+var is_preview : bool = false
+
 func _init(_actor, _amount, _source = null):
 	actor = _actor
 	amount = _amount
