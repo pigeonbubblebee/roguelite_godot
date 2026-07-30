@@ -1,8 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1ynugb3e8na6"]
+[gd_scene format=3 uid="uid://d1ynugb3e8na6"]
 
-[ext_resource type="Script" path="res://script/ui/actor/enemy_actor_ui.gd" id="1_q5t74"]
+[ext_resource type="Script" uid="uid://cbpoguvo504b" path="res://script/ui/actor/enemy_actor_ui.gd" id="1_q5t74"]
 [ext_resource type="PackedScene" uid="uid://cy6wrp2uhuvia" path="res://scenes/damage_number.tscn" id="2_e3st8"]
-[ext_resource type="Texture2D" uid="uid://bh7g6iqi7ldwe" path="res://assets/ui/actor_sprites/wolf_sprite.png" id="3_flswq"]
+[ext_resource type="Texture2D" uid="uid://01u5bpqhe70f" path="res://assets/ui/actor_sprites/orc_guardsman_sprite.png" id="3_aa6ca"]
 [ext_resource type="Texture2D" uid="uid://dchwacvnpfc5s" path="res://assets/target.png" id="3_hf8h6"]
 [ext_resource type="Texture2D" uid="uid://jao2y28ny783" path="res://assets/ui/armor_bar_progress.png" id="5_4ob34"]
 [ext_resource type="Texture2D" uid="uid://f35k1od0fyv7" path="res://assets/ui/bar_background.png" id="6_m7gf2"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://clfddyu5ap45x" path="res://assets/ui/enemy_moves/armor_move.png" id="7_xu261"]
 [ext_resource type="FontFile" uid="uid://b23c0njeg0avg" path="res://data/PixelPurl8x8 (1).ttf" id="12_ihbrq"]
 
-[node name="enemy_actor" type="Control"]
+[node name="enemy_actor" type="Control" unique_id=813496487]
 texture_filter = 1
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 3
@@ -24,10 +24,11 @@ _move_amount_path = NodePath("Control/move_display/move_amount")
 _health_bar_path = NodePath("Control/health_bar")
 _armor_bar_path = NodePath("Control/armor_bar")
 _target_path = NodePath("Control/target")
+_number_preview_path = NodePath("Control/damage_preview")
 _status_icon_container_path = NodePath("status_effects")
 damage_number_scene = ExtResource("2_e3st8")
 
-[node name="status_effects" type="HBoxContainer" parent="."]
+[node name="status_effects" type="HBoxContainer" parent="." unique_id=1155199413]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -41,7 +42,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 2
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1026373599]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -52,15 +53,15 @@ offset_bottom = 70.0
 grow_horizontal = 2
 mouse_filter = 2
 
-[node name="sprite" type="TextureRect" parent="Control"]
+[node name="sprite" type="TextureRect" parent="Control" unique_id=94342055]
 layout_mode = 0
 offset_left = 64.0
 offset_right = 128.0
 offset_bottom = 64.0
 scale = Vector2(-1, 1)
-texture = ExtResource("3_flswq")
+texture = ExtResource("3_aa6ca")
 
-[node name="target" type="TextureRect" parent="Control"]
+[node name="target" type="TextureRect" parent="Control" unique_id=68770465]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -79,7 +80,7 @@ pivot_offset = Vector2(16, 16)
 mouse_filter = 2
 texture = ExtResource("3_hf8h6")
 
-[node name="armor_bar" type="TextureProgressBar" parent="Control"]
+[node name="armor_bar" type="TextureProgressBar" parent="Control" unique_id=870334198]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -96,7 +97,7 @@ value = 100.0
 nine_patch_stretch = true
 texture_progress = ExtResource("5_4ob34")
 
-[node name="health_bar" type="TextureProgressBar" parent="Control"]
+[node name="health_bar" type="TextureProgressBar" parent="Control" unique_id=577901891]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -113,7 +114,7 @@ nine_patch_stretch = true
 texture_under = ExtResource("6_m7gf2")
 texture_progress = ExtResource("7_qulbj")
 
-[node name="move_display" type="Control" parent="Control"]
+[node name="move_display" type="Control" parent="Control" unique_id=504351549]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -126,7 +127,7 @@ grow_horizontal = 2
 pivot_offset = Vector2(40, 0)
 mouse_filter = 1
 
-[node name="move_visual" type="TextureRect" parent="Control/move_display"]
+[node name="move_visual" type="TextureRect" parent="Control/move_display" unique_id=903270308]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -139,7 +140,7 @@ pivot_offset = Vector2(8, 8)
 mouse_filter = 2
 texture = ExtResource("7_xu261")
 
-[node name="move_amount" type="Label" parent="Control/move_display"]
+[node name="move_amount" type="Label" parent="Control/move_display" unique_id=339828696]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -150,3 +151,22 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("12_ihbrq")
 text = "310"
 horizontal_alignment = 2
+
+[node name="damage_preview" type="Label" parent="Control" unique_id=1260771767]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.88235295, 0.25882354, 0.25882354, 1)
+theme_override_fonts/font = ExtResource("12_ihbrq")
+text = "120"
+horizontal_alignment = 1

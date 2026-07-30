@@ -5,18 +5,17 @@
 
 [node name="enemy_actor" unique_id=518870761 instance=ExtResource("1_gyg0x")]
 offset_right = 128.0
-offset_bottom = 128.0
 
-[node name="status_effects" parent="." index="0"]
+[node name="status_effects" parent="." index="0" unique_id=1155199413]
 offset_top = -55.0
 offset_bottom = -47.0
 
-[node name="sprite" parent="Control" index="0"]
+[node name="sprite" parent="Control" parent_id_path=PackedInt32Array(1026373599) index="0" unique_id=94342055]
 offset_left = 96.0
 offset_top = -64.0
 offset_right = 224.0
 texture = ExtResource("2_v3yxp")
 
-[node name="move_display" parent="Control" index="4"]
+[node name="move_display" parent="Control" parent_id_path=PackedInt32Array(1026373599) index="4" unique_id=504351549]
 offset_top = -69.0
 offset_bottom = -50.0

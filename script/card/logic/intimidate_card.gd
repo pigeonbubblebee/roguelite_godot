@@ -7,18 +7,15 @@ var status_id : String = "vulnerable_status"
 func effect_on_resolve(context, controller):
 	return ResolveEffect.REMOVE
 
-func play(context: BattleContext, controller: BattleController):
-	super.play(context, controller)
+func build_sequence(context: BattleContext, controller: BattleController, preview:= false) -> EffectSequenceBuilder:
+	var hit_actors = context.get_selected_enemies_aoe(preview)
 	
-	var hit_actors = context.get_selected_enemies_aoe()
-	
-	EffectSequenceBuilder.new(context, controller)\
+	return EffectSequenceBuilder.new(context, controller)\
 		.as_card(self)\
 		.apply_status_multi(hit_actors, func(t): 
 			return DamageTakenAmplificationStatusEffect.new(
 			status_id, 
-			status_turns))\
-		.enqueue()
+			status_turns))
 		
 func get_target_index(total_targets: int, target_index: int) -> Array[int]:
 	return get_index_aoe(total_targets, target_index)

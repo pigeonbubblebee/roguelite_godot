@@ -3,8 +3,6 @@ extends EnemyActor
 
 var fixed_speed_temp = 99
 
-var moveset := ActorCycleMoveset.new()
-
 var status_id : String = "weakened_status"
 var status_turns : int = 2
 var id : String = "demi_human_chief_enemy"

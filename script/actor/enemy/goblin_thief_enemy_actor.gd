@@ -2,8 +2,6 @@ class_name GoblinThiefEnemyActor
 extends EnemyActor
 
 var fixed_speed_temp = 99
-
-var moveset := ActorCycleMoveset.new()
 var id : String = "goblin_thief_enemy"
 
 var gold_taken : int = 0

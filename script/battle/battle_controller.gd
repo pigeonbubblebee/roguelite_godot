@@ -30,6 +30,8 @@ signal battle_finished()
 signal player_data_change_request(effect)
 signal queue_battle_won(ctx)
 
+signal premove_refresh(controller, ctx)
+
 @export var log_card_play := false
 
 func _input(event: InputEvent) -> void:
@@ -97,6 +99,7 @@ func _create_actors(actors: Array) -> Array:
 		
 		actor_instance.died.connect(on_actor_death)
 		actor_instance.armor_reset_request.connect(on_armor_reset_request)
+		premove_refresh.connect(actor_instance.refresh_premove_amount)
 		
 		actor_instance.reset_health()
 		
@@ -159,6 +162,7 @@ func _start_battle():
 	_turn_manager.progress_turn_order()
 	battle_started.emit()
 	for actor in _battle_context.get_actors_of_faction(Faction.Type.ENEMY):
+		actor.refresh_premove_amount(self, _battle_context)
 		actor.generate_next_move(_battle_context)
 	
 ############################
@@ -323,6 +327,14 @@ func apply_damage(ctx: DamageContext):
 		
 	_battle_context.event_bus.damage_dealt.emit(ctx, _battle_context, self)
 	
+func preview_damage(ctx: DamageContext):
+	ctx.is_preview = true
+	
+	_battle_context.event_bus.before_damage_dealt.emit(ctx, _battle_context, self)
+	
+	var damage_dictionary = ctx.calculate_damage()
+	return damage_dictionary
+	
 func apply_armor(ctx: ArmorGainContext):
 	_battle_context.event_bus.before_armor_applied.emit(ctx, _battle_context, self)
 	
@@ -336,6 +348,8 @@ func apply_armor(ctx: ArmorGainContext):
 func apply_status(context: StatusEffectApplicationContext):
 	context.status.set_owner(context.actor)
 	context.actor.apply_status(context.status, _battle_context, self)
+		
+	premove_refresh.emit(self, _battle_context)
 	
 func draw_card(amt: int = 1):
 	for i in range(amt):

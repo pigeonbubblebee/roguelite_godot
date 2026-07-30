@@ -69,7 +69,58 @@ func can_play(context: BattleContext) -> bool:
 
 func play(context: BattleContext, controller: BattleController):
 	emit_signal("played")
+	build_sequence(context, controller).enqueue()
 	pass
+	
+func build_sequence(context: BattleContext, controller: BattleController, preview: bool = false) -> EffectSequenceBuilder:
+	return null
+	
+func preview_damage(context: BattleContext, controller: BattleController) -> Dictionary:
+	var sequence = build_sequence(context, controller, true)
+	
+	if not sequence:
+		return {}
+	
+	var result = {}
+	var damage_contexts = sequence.get_damage_contexts()
+	
+	if damage_contexts.size() == 0:
+		return result
+	
+	var counts := {} 
+	
+	for ctx in damage_contexts:
+		var preview = controller.preview_damage(ctx)
+
+		for actor in preview:
+			var damage: int = preview[actor]
+
+			if !counts.has(actor):
+				counts[actor] = {}
+
+			if !counts[actor].has(damage):
+				counts[actor][damage] = 0
+
+			counts[actor][damage] += 1
+
+	# STR format
+	for actor in counts:
+		var parts: Array[String] = []
+
+		var damages = counts[actor].keys()
+		damages.sort()
+
+		for damage in damages:
+			var hits = counts[actor][damage]
+
+			if hits == 1:
+				parts.append(str(damage))
+			else:
+				parts.append("%dx%d" % [hits, damage])
+
+		result[actor] = "+".join(parts)
+		
+	return result
 	
 func get_keywords() -> Array[String]:
 	return keywords

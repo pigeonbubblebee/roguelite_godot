@@ -3,8 +3,6 @@ extends EnemyActor
 
 var fixed_speed_temp = 99
 
-var moveset := ActorCycleMoveset.new()
-
 func _init(data):
 	super._init(data)
 	

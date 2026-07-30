@@ -64,6 +64,8 @@ func set_hovered_actor(actor: Actor):
 	if hovered_enemy == actor:
 		return
 	
+	print("hover change")
+	
 	hovered_enemy = actor
 	emit_signal("hovered_actor_changed", hovered_enemy)
 	
@@ -78,8 +80,12 @@ func on_energy_change(amt) -> void:
 	energy = amt
 	
 # index 0 = center
-func get_selected_enemies_blast() -> Array[Actor]:
-	if not selected_actor:
+func get_selected_enemies_blast(preview := false) -> Array[Actor]:
+	var target = selected_actor
+	if preview:
+		target = hovered_enemy
+	
+	if not target:
 		return []
 		
 	var enemies = get_actors_of_faction(Faction.Type.ENEMY)
@@ -87,9 +93,9 @@ func get_selected_enemies_blast() -> Array[Actor]:
 		return []
 	
 	var result: Array[Actor] = []
-	var selected_pos = selected_actor.get_team_position()
+	var selected_pos = target.get_team_position()
 	
-	result.append(selected_actor)
+	result.append(target)
 	
 	# Add the adjacent enemies if they exist
 	for enemy in enemies:
@@ -100,8 +106,12 @@ func get_selected_enemies_blast() -> Array[Actor]:
 	return result
 	
 # index 0 = selected
-func get_selected_enemies_aoe() -> Array[Actor]:
-	if not selected_actor:
+func get_selected_enemies_aoe(preview := false) -> Array[Actor]:
+	var target = selected_actor
+	if preview:
+		target = hovered_enemy
+	
+	if not target:
 		return []
 		
 	var enemies = get_actors_of_faction(Faction.Type.ENEMY)
@@ -111,16 +121,18 @@ func get_selected_enemies_aoe() -> Array[Actor]:
 	var result: Array[Actor] = []
 	# var selected_pos = selected_actor.get_team_position()
 	
-	result.append(selected_actor)
+	result.append(target)
 	
 	# Add the adjacent enemies if they exist
 	for enemy in enemies:
-		if not enemy == selected_actor:
+		if not enemy == target:
 			result.append(enemy)
 	
 	return result
 
-func get_selected_enemy() -> EnemyActor:
+func get_selected_enemy(preview := false) -> EnemyActor:
+	if preview:
+		return hovered_enemy
 	return selected_actor
 
 func get_hovered_enemy() -> EnemyActor:

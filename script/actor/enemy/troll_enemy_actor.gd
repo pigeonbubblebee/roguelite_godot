@@ -3,8 +3,6 @@ extends EnemyActor
 
 var fixed_speed_temp = 99
 
-var moveset := ActorCycleMoveset.new()
-
 var status_id = "vulnerable_status"
 var status_turns : int = 5
 

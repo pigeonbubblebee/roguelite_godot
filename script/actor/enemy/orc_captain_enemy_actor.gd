@@ -3,8 +3,6 @@ extends EnemyActor
 
 var fixed_speed_temp = 99
 
-var moveset := ActorCycleMoveset.new()
-
 var id : String = "orc_captain_enemy"
 
 var status_id_buff : String = "empowered_status"
@@ -33,7 +31,7 @@ func _init(data):
 				debuff_stacks, ArmorAmplificationStatusEffect.unsteady_percent_bonus))
 		])
 	)
-	moveset.add_move(ArmorAttackActorPremove.new(55, id, self, 55))
+	moveset.add_move(ArmorAttackActorPremove.new(25, id, self, 25))
 	
 	var buff_move : BuffActorPremove = (BuffActorPremove.new(status_stacks, id, self,
 		func(t): 

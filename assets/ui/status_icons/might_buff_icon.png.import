@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bg3gj8to4gikv"
-path="res://.godot/imported/troll_sprite.png-3f73c814764f71d9de80a536b696a04f.ctex"
+uid="uid://cqxls8f8ri0ux"
+path="res://.godot/imported/might_buff_icon.png-2297905d4e7b43bb5915957a381b1d2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/actor_sprites/troll_sprite.png"
-dest_files=["res://.godot/imported/troll_sprite.png-3f73c814764f71d9de80a536b696a04f.ctex"]
+source_file="res://assets/ui/status_icons/might_buff_icon.png"
+dest_files=["res://.godot/imported/might_buff_icon.png-2297905d4e7b43bb5915957a381b1d2c.ctex"]
 
 [params]
 

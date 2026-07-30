@@ -13,6 +13,9 @@ func add_move(move_instance: RefCounted) -> void:
 func add_first_move(move_instance: RefCounted) -> void:
 	first_move = move_instance
 
+func get_moves() -> Array:
+	return _moves
+
 func randomize_index():
 	current_index = randi_range(0, _moves.size() - 1)
 

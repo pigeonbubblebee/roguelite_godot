@@ -4,17 +4,13 @@ extends Card
 var damage : int = 90
 var status_buildup : int = 2
 var status_id : String = "daze_status"
-var damage_type : DamageType.Type = DamageType.Type.PHYSICAL
 
-func play(context: BattleContext, controller: BattleController):
-	super.play(context, controller)
-	
-	var target = context.get_selected_enemy()
+func build_sequence(context: BattleContext, controller: BattleController, preview:= false) -> EffectSequenceBuilder:
+	var target = context.get_selected_enemy(preview)
 
 	var effect = DazeStatusEffect.new(status_id, context.get_player(), status_buildup)
 	
-	EffectSequenceBuilder.new(context, controller)\
+	return EffectSequenceBuilder.new(context, controller)\
 		.as_card(self)\
-		.damage(target, damage, damage_type)\
-		.apply_status(target, effect)\
-		.enqueue()
+		.damage(target, damage)\
+		.apply_status(target, effect)

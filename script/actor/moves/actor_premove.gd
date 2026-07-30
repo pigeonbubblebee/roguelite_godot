@@ -17,6 +17,9 @@ const BUFF_ICON := preload("res://assets/ui/enemy_moves/buff_move.png")
 const WOUND_ICON := preload("res://assets/ui/enemy_moves/shuffe_wound_move.png")
 const ESCAPE_ICON := preload("res://assets/ui/enemy_moves/escape_move.png")
 
+func refresh_amount(controller, context):
+	pass
+
 func get_amount():
 	return str(amount)
 	

@@ -65,6 +65,9 @@ func get_actor_id() -> String:
 func set_premove(index : int):
 	pass
 	
+func refresh_premove_amount(controller, context):
+	pass	
+
 func on_battle_join(controller, context):
 	pass
 

@@ -3,12 +3,9 @@ extends Card
 
 var damage : int = 50
 
-func play(context: BattleContext, controller: BattleController):
-	super.play(context, controller)
+func build_sequence(context: BattleContext, controller: BattleController, preview:= false) -> EffectSequenceBuilder:
+	var target = context.get_selected_enemy(preview)
 	
-	var target = context.get_selected_enemy()
-	
-	EffectSequenceBuilder.new(context, controller)\
+	return EffectSequenceBuilder.new(context, controller)\
 		.as_card(self)\
-		.damage(target, damage)\
-		.enqueue()
+		.damage(target, damage)

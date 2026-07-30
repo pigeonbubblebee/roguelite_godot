@@ -939,7 +939,7 @@
 	},
 	"might_status": {
 	  "STATUS_NAME": "Might",
-	  "ICON_TYPE": "damage_percent_buff",
+	  "ICON_TYPE": "might_buff",
 	  "DESCRIPTION": "Deal {10*STACKS} additional flat damage.",
 	  "STATUS_TYPE": "Buff"
 	},

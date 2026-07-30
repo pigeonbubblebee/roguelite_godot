@@ -9,7 +9,7 @@
 
 [resource]
 script = ExtResource("1_ex163")
-starting_deck = Array[ExtResource("2_73mca")]([ExtResource("3_mh8vv"), ExtResource("3_mh8vv"), ExtResource("3_mh8vv"), ExtResource("3_mh8vv"), ExtResource("4_gjpec"), ExtResource("4_gjpec"), ExtResource("4_gjpec"), ExtResource("4_gjpec"), ExtResource("5_mu4h3"), ExtResource("6_n08jj")])
+starting_deck = Array[ExtResource("2_73mca")]([ExtResource("3_mh8vv"), ExtResource("3_mh8vv"), ExtResource("3_mh8vv"), ExtResource("4_gjpec"), ExtResource("4_gjpec"), ExtResource("4_gjpec"), ExtResource("5_mu4h3"), ExtResource("6_n08jj")])
 base_strength = 11
 base_dexterity = 9
 base_intelligence = 6

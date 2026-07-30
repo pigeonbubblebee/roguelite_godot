@@ -23,6 +23,8 @@ var tags : Array[String]
 var damage_dealt : Dictionary
 var armor_damage_dealt : Dictionary
 
+var is_preview : bool = false
+
 func _init():
 	modifiers = DamageModifiers.new()
 	

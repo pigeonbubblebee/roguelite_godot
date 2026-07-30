@@ -9,6 +9,8 @@ var actor: Actor
 @onready var armor_bar = get_node(_armor_bar_path)
 @export var _target_path: NodePath
 @onready var target = get_node(_target_path)
+@export var _number_preview_path: NodePath
+@onready var number_preview = get_node(_number_preview_path)
 
 @export var _status_icon_container_path: NodePath
 @onready var status_icon_container = get_node(_status_icon_container_path)
@@ -44,12 +46,22 @@ func _ready():
 	tween.tween_property(target, "modulate:a", 0.3, 0.6)
 	tween.tween_property(target, "modulate:a", 1.0, 0.6)
 	
+	var tween2 = create_tween()
+	tween2.set_loops()
+
+	tween2.tween_property(number_preview, "modulate:a", 0.3, 0.6)
+	tween2.tween_property(number_preview, "modulate:a", 1.0, 0.6)
+	
 	mouse_entered.connect(_mouse_entered)
 	mouse_exited.connect(_mouse_exited)
 
 func set_target_visibility(visible: bool, texture: Texture2D = null):
 	target.visible = visible
 	target.texture = texture
+	
+func set_number_preview_visibility(visible: bool, value : String = ""):
+	number_preview.visible = visible
+	number_preview.text = value
 	
 func update_health_bar():
 	health_bar.value = float(actor._health) / actor.actor_data.max_health * 100

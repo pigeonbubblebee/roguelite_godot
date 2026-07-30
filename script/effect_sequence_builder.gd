@@ -18,6 +18,8 @@ var _custom_action: BattleVisualAction = null
 
 var _owner = null
 
+var _damage_contexts: Array[DamageContext] = []
+
 func _init(_context: BattleContext, _controller: BattleController, card: Card = null):
 	context = _context
 	controller = _controller
@@ -121,6 +123,8 @@ func damage(
 	
 	for tag in _tags:
 		dmg.add_tag(tag)
+		
+	_damage_contexts.append(dmg)
 	
 	return step(
 		PlayParticleEffectAction.new(target),
@@ -162,6 +166,8 @@ func multi_damage(
 	
 	for tag in _tags:
 		dmg.add_tag(tag)
+		
+	_damage_contexts.append(dmg)
 	
 	# visuals only for alive targets
 	for t in targets:
@@ -172,6 +178,9 @@ func multi_damage(
 	step(null, func(): controller.apply_damage(dmg))
 	
 	return self
+	
+func get_damage_contexts() -> Array[DamageContext]:
+	return _damage_contexts.duplicate()
 	
 func armor(target: Actor, amount: int) -> EffectSequenceBuilder:
 	if target == null:

@@ -5,6 +5,9 @@ signal move_updated(move: ActorPremove)
 signal turn_finished(actor: Actor)
 
 var next_move : ActorPremove
+var moveset := ActorCycleMoveset.new()
+
+signal premove_refreshed(move)
 
 func get_next_move():
 	return next_move
@@ -14,9 +17,17 @@ func take_action(context: BattleContext, controller: BattleController) -> void:
 	if next_move:
 		next_move.finished.connect(_on_move_finish, CONNECT_ONE_SHOT)
 		move_updated.emit(null)
-		
-		next_move.execute(context, controller)
 	
+		next_move.execute(context, controller)
+		
+func refresh_premove_amount(controller, context):
+	for move in moveset.get_moves():
+		move.refresh_amount(controller, context)
+	
+	if next_move:
+		next_move.refresh_amount(controller, context)
+	
+	premove_refreshed.emit(next_move)
 
 func get_remaining_av() -> float:
 	return _remaining_av

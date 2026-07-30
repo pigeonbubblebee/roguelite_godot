@@ -2,9 +2,6 @@ class_name SlimeActor
 extends EnemyActor
 
 var fixed_speed_temp = 99
-
-var moveset := ActorCycleMoveset.new()
-
 var status_id = "weakened_status"
 var status_turns : int = 2
 

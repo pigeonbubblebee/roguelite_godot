@@ -14,6 +14,7 @@ var general_buff_icon = preload("res://assets/ui/status_icons/general_buff_icon.
 var rage_buff_icon = preload("res://assets/ui/status_icons/rage_buff_icon.png")
 var armor_percent_buff_icon = preload("res://assets/ui/status_icons/armor_percent_buff_icon.png")
 var armor_percent_debuff_icon = preload("res://assets/ui/status_icons/armor_percent_debuff_icon.png")
+var might_buff_icon = preload("res://assets/ui/status_icons/might_buff_icon.png")
 
 var status_icon_scene : PackedScene = preload("res://scenes/status_label.tscn")
 
@@ -32,5 +33,6 @@ var status_texture_map: Dictionary = {
 	"general_buff": general_buff_icon,
 	"rage_buff": rage_buff_icon,
 	"armor_percent_buff": armor_percent_buff_icon,
-	"armor_percent_debuff": armor_percent_debuff_icon
+	"armor_percent_debuff": armor_percent_debuff_icon,
+	"might_buff": might_buff_icon
 }

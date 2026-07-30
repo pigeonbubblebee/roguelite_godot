@@ -13,7 +13,11 @@ func _ready():
 	
 	if actor:
 		actor.connect("move_updated", Callable(self, "update_move_display"))
+		actor.premove_refreshed.connect(on_premove_refreshed)
 		update_move_display(actor.get_next_move())
+
+func on_premove_refreshed(current_move):
+	move_amount.text = str(current_move.get_amount())
 	
 func update_move_display(move: ActorPremove):
 	if not move:
@@ -31,3 +35,4 @@ func update_move_display(move: ActorPremove):
 	
 	move_visual.texture = move.get_icon()
 	move_amount.text = str(move.get_amount())
+	

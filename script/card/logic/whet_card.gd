@@ -3,9 +3,7 @@ extends Card
 
 var armor : int = 60
 
-func play(context: BattleContext, controller: BattleController):
-	super.play(context, controller)
-	
+func build_sequence(context: BattleContext, controller: BattleController, preview:= false) -> EffectSequenceBuilder:
 	var hand = controller.get_hand_manager().get_hand()
 	var card_arr : Array[Card] = []
 	for card in hand:
@@ -14,12 +12,11 @@ func play(context: BattleContext, controller: BattleController):
 	var custom_action = BattleRuntimeHelper.generate_light_camera_shake_action()
 	var player = context.get_player()
 	
-	EffectSequenceBuilder.new(context, controller)\
+	return EffectSequenceBuilder.new(context, controller)\
 		.as_card(self)\
 		.use_action(custom_action)\
 		.modify_cards(card_arr, func(t): 
-				return SharpnessModifier.new("sharpness_modifier"))\
-		.enqueue()
+				return SharpnessModifier.new("sharpness_modifier"))
 
 func get_buff_target_index(total_targets: int) -> Array[int]:
 	return get_index_buff_single_target(total_targets)

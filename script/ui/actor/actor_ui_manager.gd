@@ -20,13 +20,18 @@ signal hovered_enemy_change(hover)
 signal hovered_actor_change(actor)
 signal hovered_status_icon_change(actor, status_effect)
 
-func _ready() -> void:
-	self.connect("hovered_enemy_change", Callable(self, "on_hovered_enemy_changed"))
+var _battle_controller : BattleController
 
 func bind(controller: BattleController):
+	_battle_controller = controller
+	
+	_battle_controller.get_context().hovered_actor_changed.connect(on_hovered_enemy_changed)
+	
 	var turn_manager = controller.get_turn_manager()
 	turn_manager.active_actors_updated.connect(update_ui)
 	update_ui(turn_manager.get_active_actors())
+	
+	
 	
 func update_ui(active_actors: Array[Actor]):
 	var actor_ui_array = enemy_ui_array + ally_ui_array
@@ -140,13 +145,28 @@ func update_enemy_targets(indicies: Array[int]):
 	clear_enemy_targets()
 	if current_card == null or hovered_enemy == null:
 		return
+	
+	var damage_preview_dictionary = current_card.preview_damage(
+		_battle_controller.get_context(),
+		_battle_controller )
+	
 	for i in range(indicies.size()):
-		enemy_ui_array[indicies[i]].set_target_visibility(true, 
+		var current_enemy = enemy_ui_array[indicies[i]]
+		current_enemy.set_target_visibility(true, 
 			target_texture if i == 0 else blast_target_texture)
+		
+		var damage_preview_text = ""
+		
+		if damage_preview_dictionary.has(current_enemy.actor):
+			damage_preview_text = damage_preview_dictionary[current_enemy.actor]
+		
+		current_enemy.set_number_preview_visibility(true, 
+			damage_preview_text)
 
 func clear_enemy_targets():
 	for i in range(enemy_ui_array.size()):
 		enemy_ui_array[i].set_target_visibility(false)
+		enemy_ui_array[i].set_number_preview_visibility(false)
 
 func update_ally_targets(indicies: Array[int]):
 	clear_ally_targets()
