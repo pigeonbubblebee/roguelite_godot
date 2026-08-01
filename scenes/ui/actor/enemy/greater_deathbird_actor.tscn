@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dc50on2g416j3"]
+
+[ext_resource type="PackedScene" uid="uid://d1ynugb3e8na6" path="res://scenes/ui/actor/enemy/enemy_actor.tscn" id="1_w3hfw"]
+[ext_resource type="Texture2D" uid="uid://b2ocvj0psfmk3" path="res://assets/ui/actor_sprites/greater_deathbird_sprite.png" id="2_yp1kj"]
+
+[node name="enemy_actor" unique_id=813496487 instance=ExtResource("1_w3hfw")]
+custom_minimum_size = Vector2(128, 64)
+
+[node name="sprite" parent="Control" parent_id_path=PackedInt32Array(1026373599) index="0" unique_id=94342055]
+offset_left = 96.0
+offset_right = 224.0
+texture = ExtResource("2_yp1kj")
+
+[node name="move_display" parent="Control" parent_id_path=PackedInt32Array(1026373599) index="4" unique_id=504351549]
+offset_top = -19.0
+offset_bottom = 0.0

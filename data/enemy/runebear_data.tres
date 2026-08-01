@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://bg1omrls8u63e"]
+
+[ext_resource type="Script" uid="uid://cbexi743s5vth" path="res://script/actor/actor_data.gd" id="1_5mib0"]
+[ext_resource type="Script" uid="uid://ytr6vk1a5frg" path="res://script/actor/enemy/runebear_enemy_actor.gd" id="1_xtvbi"]
+[ext_resource type="Texture2D" uid="uid://cexnsksr5xd2j" path="res://assets/wolf_icon.png" id="2_evhxd"]
+[ext_resource type="PackedScene" uid="uid://dqju3cfkc77jc" path="res://scenes/ui/actor/enemy/runebear_actor.tscn" id="4_lqxed"]
+
+[resource]
+script = ExtResource("1_5mib0")
+name = "RunebearEnemy"
+icon_texture = ExtResource("2_evhxd")
+actor_script = ExtResource("1_xtvbi")
+ui_scene = ExtResource("4_lqxed")
+max_health = 840
+metadata/_custom_type_script = "uid://cbexi743s5vth"

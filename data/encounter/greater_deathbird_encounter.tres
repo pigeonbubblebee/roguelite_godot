@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EncounterData" format=3 uid="uid://pimc045qqtmq"]
+
+[ext_resource type="Script" uid="uid://cbexi743s5vth" path="res://script/actor/actor_data.gd" id="1_huwee"]
+[ext_resource type="Script" uid="uid://bsgscmar6ilnf" path="res://script/encounter_data.gd" id="2_hid2k"]
+[ext_resource type="Resource" uid="uid://hovl15caom3h" path="res://data/enemy/greater_deathbird_enemy.tres" id="2_u2p2r"]
+
+[resource]
+script = ExtResource("2_hid2k")
+enemies = Array[ExtResource("1_huwee")]([ExtResource("2_u2p2r")])
+metadata/_custom_type_script = "uid://bsgscmar6ilnf"

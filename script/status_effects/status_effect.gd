@@ -37,6 +37,7 @@ func add_stacks(amt : int):
 func on_apply(_context: BattleContext, _controller: BattleController):
 	_battle_context = weakref(_context)
 	_battle_context.get_ref().event_bus.before_damage_dealt.connect(before_damage_dealt)
+	_battle_context.get_ref().event_bus.damage_dealt.connect(damage_dealt)
 	_battle_context.get_ref().event_bus.before_armor_applied.connect(before_armor_applied)
 	_battle_context.get_ref().event_bus.armor_applied.connect(armor_applied)
 	_battle_context.get_ref().event_bus.turn_ended.connect(on_turn_end)
@@ -45,6 +46,7 @@ func on_apply(_context: BattleContext, _controller: BattleController):
 	
 func cleanup():
 	_battle_context.get_ref().event_bus.before_damage_dealt.disconnect(before_damage_dealt)
+	_battle_context.get_ref().event_bus.damage_dealt.disconnect(damage_dealt)
 	_battle_context.get_ref().event_bus.before_armor_applied.disconnect(before_armor_applied)
 	_battle_context.get_ref().event_bus.armor_applied.disconnect(armor_applied)
 	_battle_context.get_ref().event_bus.turn_ended.disconnect(on_turn_end)
@@ -55,6 +57,9 @@ func stacks_updated(_context: BattleContext, _controller: BattleController):
 	pass
 	
 func before_damage_dealt(_context: DamageContext, battle_context: BattleContext, controller: BattleController):
+	pass
+	
+func damage_dealt(_context: DamageContext, battle_context: BattleContext, controller: BattleController):
 	pass
 	
 func before_armor_applied(_context: ArmorGainContext, battle_context: BattleContext, controller: BattleController):
@@ -89,6 +94,14 @@ func get_is_turn_based() -> bool:
 	
 func get_stacks() -> int:
 	return _stacks
+	
+func set_stacks(amount : int):
+	_stacks = amount
+	
+	if(_stacks <= 0):
+		expired.emit(self)
+	else:
+		stacks_changed.emit(_stacks)
 	
 func get_name():
 	return status_name

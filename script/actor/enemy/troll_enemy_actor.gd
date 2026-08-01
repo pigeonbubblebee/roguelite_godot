@@ -19,8 +19,8 @@ func _init(data):
 				return DamageTakenAmplificationStatusEffect.new(status_id, 
 				status_turns))))
 	moveset.add_first_move(first_move)		
-	moveset.add_move(AttackActorPremove.new(110, id, self))
-	moveset.add_move(ArmorAttackActorPremove.new(80, id, self, 80))
+	moveset.add_move(AttackActorPremove.new(90, id, self))
+	moveset.add_move(ArmorAttackActorPremove.new(60, id, self, 60))
 	moveset.add_move((BuffActorPremove.new(might_stacks, id, self,
 		func(t): 
 				return FlatDamageBonusStatusEffect.new(status_id_buff, 

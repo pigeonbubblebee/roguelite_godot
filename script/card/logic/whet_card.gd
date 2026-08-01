@@ -1,7 +1,7 @@
 class_name WhetCard
 extends Card
 
-var armor : int = 60
+var armor : int = 40
 
 func build_sequence(context: BattleContext, controller: BattleController, preview:= false) -> EffectSequenceBuilder:
 	var hand = controller.get_hand_manager().get_hand()
@@ -15,6 +15,7 @@ func build_sequence(context: BattleContext, controller: BattleController, previe
 	return EffectSequenceBuilder.new(context, controller)\
 		.as_card(self)\
 		.use_action(custom_action)\
+		.armor(player, armor)\
 		.modify_cards(card_arr, func(t): 
 				return SharpnessModifier.new("sharpness_modifier"))
 

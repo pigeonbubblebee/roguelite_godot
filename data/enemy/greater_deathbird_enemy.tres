@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://hovl15caom3h"]
+
+[ext_resource type="Script" uid="uid://cbexi743s5vth" path="res://script/actor/actor_data.gd" id="1_pwo8q"]
+[ext_resource type="Script" uid="uid://lb22idxa6gll" path="res://script/actor/enemy/greater_deathbird_enemy_actor.gd" id="1_t0nlb"]
+[ext_resource type="Texture2D" uid="uid://cexnsksr5xd2j" path="res://assets/wolf_icon.png" id="2_4if11"]
+[ext_resource type="PackedScene" uid="uid://dc50on2g416j3" path="res://scenes/ui/actor/enemy/greater_deathbird_actor.tscn" id="4_thv4f"]
+
+[resource]
+script = ExtResource("1_pwo8q")
+name = "Greater Deathbird"
+icon_texture = ExtResource("2_4if11")
+actor_script = ExtResource("1_t0nlb")
+ui_scene = ExtResource("4_thv4f")
+max_health = 790
+metadata/_custom_type_script = "uid://cbexi743s5vth"

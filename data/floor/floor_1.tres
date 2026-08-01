@@ -18,10 +18,12 @@
 [ext_resource type="Resource" uid="uid://drrsw16pvv0s8" path="res://data/encounter/goblin_thief_encounter.tres" id="11_axakk"]
 [ext_resource type="Resource" uid="uid://ccmaxyhy54y2q" path="res://data/encounter/orc_slime_encounter.tres" id="12_wiw2w"]
 [ext_resource type="Resource" uid="uid://b0sako0rdqmiw" path="res://data/encounter/orc_trio_encounter.tres" id="17_ahwv2"]
+[ext_resource type="Resource" uid="uid://pimc045qqtmq" path="res://data/encounter/greater_deathbird_encounter.tres" id="18_hkw35"]
+[ext_resource type="Resource" uid="uid://c5fijpkiy1640" path="res://data/encounter/runebear_encounter.tres" id="19_rxygq"]
 
 [resource]
 script = ExtResource("2_q6uit")
 encounter_pool = Array[ExtResource("1_dfxr7")]([ExtResource("3_2qctx"), ExtResource("5_fxofw"), ExtResource("4_4ae3g"), ExtResource("5_vbux2"), ExtResource("6_syyg2"), ExtResource("7_w2jig"), ExtResource("8_wk8ni"), ExtResource("9_asrwe"), ExtResource("10_c604g"), ExtResource("11_axakk"), ExtResource("12_wiw2w")])
 encounter_pool_easy = Array[ExtResource("1_dfxr7")]([ExtResource("2_e0n5l"), ExtResource("6_4ckib"), ExtResource("7_wga3g"), ExtResource("4_covq4")])
-encounter_pool_elite = Array[ExtResource("1_dfxr7")]([ExtResource("17_ahwv2")])
+encounter_pool_elite = Array[ExtResource("1_dfxr7")]([ExtResource("17_ahwv2"), ExtResource("18_hkw35"), ExtResource("19_rxygq")])
 max_easy_pools = 3
