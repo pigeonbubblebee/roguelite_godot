@@ -55,7 +55,13 @@ func _process_next() -> void:
 		queue_started.emit()
 
 	current_action = _action_queue.pop_front()
-	current_action.finished.connect(_process_next)
+	current_action.finished.connect(_on_action_finished, CONNECT_ONE_SHOT)
+
 	if _log_actions:
 		print("BATTLE ACTION MANAGER: EXECUTING ACTION: " + str(current_action))
+
 	current_action.execute(_scene)
+	
+func _on_action_finished():
+	current_action = null
+	_process_next()

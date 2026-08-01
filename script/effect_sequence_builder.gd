@@ -350,7 +350,9 @@ func _enqueue_group(index: int) -> void:
 			context.get_ref(),
 			_get_owner()
 		)
-
+		
+	_custom_action = null
+		
 	var steps = _groups[index]
 
 	# Build visuals

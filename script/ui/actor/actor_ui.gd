@@ -31,8 +31,9 @@ func _process(delta: float) -> void:
 	if actor:
 		if actor.get_actor_name() == "Player":
 			for status in (actor.get_status_manager().get_active_status()):
-				print(status.get_name())
-				print(status.get_reference_count())
+				#print(status.get_name())
+				#print(status.get_reference_count())
+				pass
 
 func _ready():
 	if actor:
