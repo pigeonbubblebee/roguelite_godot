@@ -1,7 +1,7 @@
 class_name EffectSequenceBuilder
 extends RefCounted
 
-var context: BattleContext
+var context: WeakRef
 var controller: BattleController
 
 var _card: Card = null
@@ -22,7 +22,7 @@ var _damage_contexts: Array[DamageContext] = []
 var _armor_contexts: Array[ArmorGainContext] = []
 
 func _init(_context: BattleContext, _controller: BattleController, card: Card = null):
-	context = _context
+	context = weakref(_context)
 	controller = _controller
 	_card = card
 
@@ -91,7 +91,7 @@ func _get_source_name() -> String:
 
 func _get_owner():
 	if not _owner:
-		return context.get_player()
+		return context.get_ref().get_player()
 	return _owner
 	
 # Effect Helpers
@@ -256,7 +256,7 @@ func discard_card(
 		)
 	
 	var selection_context = BattleRuntimeHelper.generate_discard_card_selection_context(
-		context, 
+		context.get_ref(), 
 		controller, 
 		source_cards,
 		amount)
@@ -278,7 +278,7 @@ func modify_card_select(
 	
 	var selection_context = BattleRuntimeHelper.generate_modify_card_selection_context(
 		modifier_factory,
-		context, 
+		context.get_ref(), 
 		controller,
 		source_cards)
 	return step(
@@ -292,7 +292,7 @@ func modify_cards(
 	return step(
 		null,  # visual
 		func(): BattleRuntimeHelper.handle_card_modifiers_sequence(
-			targets, context, controller, modifier_factory)
+			targets, context.get_ref(), controller, modifier_factory)
 	)
 	
 
@@ -347,7 +347,7 @@ func _enqueue_group(index: int) -> void:
 
 	if action == null:
 		action = BattleRuntimeHelper.generate_basic_attack_action(
-			context,
+			context.get_ref(),
 			_get_owner()
 		)
 

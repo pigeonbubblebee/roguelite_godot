@@ -14,3 +14,7 @@ func _init(id: String, _stacks: int = 1, _damage_percent_bonus: float = empowere
 func before_damage_dealt(context: DamageContext, battle_context: BattleContext, controller: BattleController):
 	if context.damage_owner == _owner:
 		context.add_damage_percent(damage_percent_bonus)
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_PREDELETE:
+		print("RefCounted object is being deleted!")

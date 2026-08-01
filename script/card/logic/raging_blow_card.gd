@@ -3,7 +3,7 @@ extends Card
 
 var status_stacks : int = 3
 var status_id : String = "rage_status"
-var damage : int = 190
+var damage : int = 160
 
 func build_sequence(context: BattleContext, controller: BattleController, preview:= false) -> EffectSequenceBuilder:
 	var target = context.get_selected_enemy(preview)

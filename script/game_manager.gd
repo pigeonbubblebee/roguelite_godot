@@ -8,9 +8,6 @@ extends Node
 var _current_scene
 var _current_battle_controller: BattleController
 var _current_map_controller : MapController
-var _current_turn_manager
-var _current_hand_manager
-var _current_battle_context
 
 @export var player_actor: ActorData
 var player_data : PlayerData
@@ -117,6 +114,8 @@ func process_room_enter(room : MapNode) -> void:
 func on_battle_finished(): #TBD make a global func for processing node clears for all node types
 	transition(func():
 		_current_scene.queue_free()
+		_current_battle_controller.queue_free()
+
 		_current_map_controller.finish_current_node()
 
 		load_map(false)

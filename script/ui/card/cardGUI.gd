@@ -42,7 +42,7 @@ const ARC_POINTS := 8
 
 const DRAG_ZONE_DISTANCE := 30
 
-var context : BattleContext
+var context : WeakRef
 
 var current_card_state : CardUIState
 @onready var idle_state : CardUIIdleState = CardUIIdleState.new(self)
@@ -94,8 +94,8 @@ func _process(_delta):
 		arc.visible = true
 		arc.points = _get_points()
 		
-		if context:
-			if context.get_hovered_enemy():
+		if context.get_ref():
+			if context.get_ref().get_hovered_enemy():
 				arc.default_color = Color.RED
 			else:
 				arc.default_color = Color.WHITE

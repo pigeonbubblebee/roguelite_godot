@@ -64,8 +64,6 @@ func set_hovered_actor(actor: Actor):
 	if hovered_enemy == actor:
 		return
 	
-	print("hover change")
-	
 	hovered_enemy = actor
 	emit_signal("hovered_actor_changed", hovered_enemy)
 	

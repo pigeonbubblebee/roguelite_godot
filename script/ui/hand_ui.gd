@@ -74,7 +74,7 @@ func update_ui(hand: Array[Card]):
 			card_ui_container.add_child(card)
 			cards_ui_array.append(card)
 			
-			card.context = context
+			card.context = weakref(context)
 			card.input_type = current_input_type
 			
 			card.drag_started.connect(_on_card_drag_started)

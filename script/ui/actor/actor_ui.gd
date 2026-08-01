@@ -27,6 +27,13 @@ signal hover_ended(actorUI)
 signal status_icon_hover_started(actorUI, status_effect)
 signal status_icon_hover_ended(actorUI, status_effect)
 
+func _process(delta: float) -> void:
+	if actor:
+		if actor.get_actor_name() == "Player":
+			for status in (actor.get_status_manager().get_active_status()):
+				print(status.get_name())
+				print(status.get_reference_count())
+
 func _ready():
 	if actor:
 		actor.connect("health_updated", Callable(self, "update_health_bar"))

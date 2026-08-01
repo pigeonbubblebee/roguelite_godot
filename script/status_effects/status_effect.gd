@@ -9,6 +9,8 @@ var status_type : String
 var _description : String
 var _icon_type : String
 
+var _battle_context : WeakRef
+
 signal expired(status: StatusEffect)
 signal stacks_changed(stacks: int)
 
@@ -33,12 +35,21 @@ func add_stacks(amt : int):
 	stacks_changed.emit(_stacks)
 
 func on_apply(_context: BattleContext, _controller: BattleController):
-	_context.event_bus.before_damage_dealt.connect(before_damage_dealt)
-	_context.event_bus.before_armor_applied.connect(before_armor_applied)
-	_context.event_bus.armor_applied.connect(armor_applied)
-	_context.event_bus.turn_ended.connect(on_turn_end)
-	_context.event_bus.turn_started.connect(on_turn_start)
-	_context.event_bus.actor_died.connect(on_actor_died)
+	_battle_context = weakref(_context)
+	_battle_context.get_ref().event_bus.before_damage_dealt.connect(before_damage_dealt)
+	_battle_context.get_ref().event_bus.before_armor_applied.connect(before_armor_applied)
+	_battle_context.get_ref().event_bus.armor_applied.connect(armor_applied)
+	_battle_context.get_ref().event_bus.turn_ended.connect(on_turn_end)
+	_battle_context.get_ref().event_bus.turn_started.connect(on_turn_start)
+	_battle_context.get_ref().event_bus.actor_died.connect(on_actor_died)
+	
+func cleanup():
+	_battle_context.get_ref().event_bus.before_damage_dealt.disconnect(before_damage_dealt)
+	_battle_context.get_ref().event_bus.before_armor_applied.disconnect(before_armor_applied)
+	_battle_context.get_ref().event_bus.armor_applied.disconnect(armor_applied)
+	_battle_context.get_ref().event_bus.turn_ended.disconnect(on_turn_end)
+	_battle_context.get_ref().event_bus.turn_started.disconnect(on_turn_start)
+	_battle_context.get_ref().event_bus.actor_died.disconnect(on_actor_died)
 
 func stacks_updated(_context: BattleContext, _controller: BattleController):
 	pass

@@ -22,6 +22,8 @@ func apply_status(status : StatusEffect, context: BattleContext, controller: Bat
 func on_status_expired(status: StatusEffect):
 	_active_status_effects.erase(status)
 	
+	status.cleanup()
+
 	status_updated.emit(_active_status_effects)
 
 func get_active_status() -> Array[StatusEffect]:
