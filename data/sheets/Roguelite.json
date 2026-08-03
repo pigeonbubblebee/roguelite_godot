@@ -240,6 +240,66 @@
 	  "UPGRADED_KEYWORDS": null,
 	  "UPGRADED": null
 	},
+	"blind_rage_card": {
+	  "CARD_NAME": "Blind Rage",
+	  "COST": 0,
+	  "DESCRIPTION": "Gain 12 RAGE and 2 UNSTEADY.",
+	  "RARITY": "RARE",
+	  "TYPE": "BUFF",
+	  "KEYWORDS": "unsteady;rage;beserkers_fury_card",
+	  "FORCE_TARGET_DRAG": null,
+	  "NOT_DRAFTABLE": null,
+	  "UPGRADED_KEYWORDS": null,
+	  "UPGRADED": null
+	},
+	"forge_anew_card": {
+	  "CARD_NAME": "Forge Anew",
+	  "COST": 1,
+	  "DESCRIPTION": "Gain 5 RAGE. SHARPEN Beserker's Fury.",
+	  "RARITY": "RARE",
+	  "TYPE": "BUFF",
+	  "KEYWORDS": "sharpen;rage;beserkers_fury_card",
+	  "FORCE_TARGET_DRAG": null,
+	  "NOT_DRAFTABLE": null,
+	  "UPGRADED_KEYWORDS": null,
+	  "UPGRADED": null
+	},
+	"bash_card": {
+	  "CARD_NAME": "Bash",
+	  "COST": 1,
+	  "DESCRIPTION": "Deal 75 DMG. Gain 75 ARMOR and 7 RAGE.",
+	  "RARITY": "RARE",
+	  "TYPE": "ATTACK",
+	  "KEYWORDS": "armor;rage;beserkers_fury_card",
+	  "FORCE_TARGET_DRAG": null,
+	  "NOT_DRAFTABLE": null,
+	  "UPGRADED_KEYWORDS": null,
+	  "UPGRADED": null
+	},
+	"armaments_card": {
+	  "CARD_NAME": "Armament",
+	  "COST": 1,
+	  "DESCRIPTION": "Whenever you play a card, gain 20 ARMOR for each time it's been SHARPENED. EPHEMERAL.",
+	  "RARITY": "RARE",
+	  "TYPE": "BUFF",
+	  "KEYWORDS": "armor;sharpen;ephemeral",
+	  "FORCE_TARGET_DRAG": null,
+	  "NOT_DRAFTABLE": null,
+	  "UPGRADED_KEYWORDS": null,
+	  "UPGRADED": null
+	},
+	"grind_card": {
+	  "CARD_NAME": "Grind",
+	  "COST": 1,
+	  "DESCRIPTION": "SHARPEN an attack in your hand 3 times.",
+	  "RARITY": "RARE",
+	  "TYPE": "BUFF",
+	  "KEYWORDS": "sharpen",
+	  "FORCE_TARGET_DRAG": null,
+	  "NOT_DRAFTABLE": null,
+	  "UPGRADED_KEYWORDS": null,
+	  "UPGRADED": null
+	},
 	"": {
 	  "CARD_NAME": null,
 	  "COST": null,
@@ -754,6 +814,69 @@
 	  "INT": null,
 	  "ARC": null,
 	  "FTH": null
+	},
+	"bash_card": {
+	  "STR": 40,
+	  "DEX": null,
+	  "VIG": null,
+	  "DEF": null,
+	  "INT": null,
+	  "ARC": null,
+	  "FTH": null
+	},
+	"armaments_card": {
+	  "STR": 23,
+	  "DEX": null,
+	  "VIG": null,
+	  "DEF": null,
+	  "INT": null,
+	  "ARC": null,
+	  "FTH": null
+	},
+	"forge_anew_card": {
+	  "STR": 19,
+	  "DEX": null,
+	  "VIG": null,
+	  "DEF": null,
+	  "INT": null,
+	  "ARC": null,
+	  "FTH": null
+	},
+	"blind_rage_card": {
+	  "STR": 30,
+	  "DEX": null,
+	  "VIG": null,
+	  "DEF": null,
+	  "INT": null,
+	  "ARC": null,
+	  "FTH": null
+	},
+	"deaths_call_card": {
+	  "STR": null,
+	  "DEX": null,
+	  "VIG": null,
+	  "DEF": null,
+	  "INT": null,
+	  "ARC": null,
+	  "FTH": null
+	},
+	"gash_card": {
+	  "STR": null,
+	  "DEX": null,
+	  "VIG": null,
+	  "DEF": null,
+	  "INT": null,
+	  "ARC": null,
+	  "FTH": null
+	},
+	"rot_card": {
+	  "STR": null,
+	  "DEX": null,
+	  "VIG": null,
+	  "DEF": null,
+	  "INT": null,
+	  "ARC": null,
+	  "FTH": null
 	}
   },
   "Keywords": {
@@ -844,6 +967,10 @@
 	"sharpen": {
 	  "KEYWORD_NAME": "Sharpen",
 	  "DESCRIPTION": "Deals 30% more damage for each time its been sharpened this combat."
+	},
+	"unsteady": {
+	  "KEYWORD_NAME": "Unsteady",
+	  "DESCRIPTION": "Gain 25% less ARMOR."
 	}
   },
   "StatusEffects": {
@@ -977,6 +1104,12 @@
 	  "STATUS_NAME": "Rune of Healing",
 	  "ICON_TYPE": "general_buff",
 	  "DESCRIPTION": "If this doesn't take damage with {STACKS} turns, it heals 50 HP.",
+	  "STATUS_TYPE": "Buff"
+	},
+	"armaments_status": {
+	  "STATUS_NAME": "Armament",
+	  "ICON_TYPE": "fortitude_buff",
+	  "DESCRIPTION": "Whenever you play a card, gain {8*STACKS} ARMOR for each time it's been sharpened.",
 	  "STATUS_TYPE": "Buff"
 	}
   },

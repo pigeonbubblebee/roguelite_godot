@@ -77,7 +77,7 @@ func load_cards(path: String):
 				if value == null:
 					card["SCALING"][stat] = 0
 				else:
-					card["SCALING"][stat] = value
+					card["SCALING"][stat] = int(value)
 					
 		# Loads card art
 		var art_path = ART_PATH + card_id + ".png"

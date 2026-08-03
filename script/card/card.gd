@@ -268,3 +268,6 @@ func add_modifier(modifier : CardModifier, context:BattleContext, controller:Bat
 	modifiers.append(modifier)
 	modifier.set_owner(self)
 	modifier.on_apply(self, context, controller)
+
+func get_modifiers():
+	return modifiers

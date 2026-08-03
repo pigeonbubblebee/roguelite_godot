@@ -36,7 +36,7 @@ func load_keywords(path: String):
 		var keyword = {
 			"KEYWORD_ID": card_id,
 			"KEYWORD_NAME": info["CARD_NAME"],
-			"DESCRIPTION": "(%s). %s" % [info["COST"],
+			"DESCRIPTION": "(%s). %s" % [int(str(info["COST"])),
 				info["DESCRIPTION"]] 
 		}
 			

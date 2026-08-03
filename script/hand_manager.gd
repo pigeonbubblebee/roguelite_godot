@@ -88,6 +88,19 @@ func card_in_discard_pile(card_id: String) -> Card:
 		if card.id == card_id:
 			return card
 	return null
+	
+func get_card_in_play(card_id: String) -> Card:
+	var c = card_in_hand(card_id)
+	
+	if c:
+		return c
+	c = card_in_deck(card_id)
+	if c:
+		return c
+	c = card_in_discard_pile(card_id)
+	if c:
+		return c
+	return null
 
 func draw_card(card: Card):
 	hand.append(card)

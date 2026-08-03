@@ -43,6 +43,7 @@ func on_apply(_context: BattleContext, _controller: BattleController):
 	_battle_context.get_ref().event_bus.turn_ended.connect(on_turn_end)
 	_battle_context.get_ref().event_bus.turn_started.connect(on_turn_start)
 	_battle_context.get_ref().event_bus.actor_died.connect(on_actor_died)
+	_battle_context.get_ref().event_bus.on_card_played.connect(on_card_played)
 	
 func cleanup():
 	_battle_context.get_ref().event_bus.before_damage_dealt.disconnect(before_damage_dealt)
@@ -52,6 +53,10 @@ func cleanup():
 	_battle_context.get_ref().event_bus.turn_ended.disconnect(on_turn_end)
 	_battle_context.get_ref().event_bus.turn_started.disconnect(on_turn_start)
 	_battle_context.get_ref().event_bus.actor_died.disconnect(on_actor_died)
+	_battle_context.get_ref().event_bus.on_card_played.disconnect(on_card_played)
+
+func on_card_played(card: Card, context: BattleContext, controller: BattleController):
+	pass
 
 func stacks_updated(_context: BattleContext, _controller: BattleController):
 	pass

@@ -21,12 +21,7 @@ func add_rage(_context: BattleContext, _controller: BattleController):
 		(not hand_manager.card_in_deck(rage_card_id)) and
 		(not hand_manager.card_in_discard_pile(rage_card_id))):
 		
-		var custom_action = BattleRuntimeHelper.generate_light_camera_shake_action()
-
-		EffectSequenceBuilder.new(_context, _controller)\
-			.use_action(custom_action)\
-			.add_card_to_hand(rage_card_id)\
-			.enqueue()
+		_controller.add_card_to_hand(rage_card_id)
 			
 func get_is_turn_based() -> bool:
 	return false

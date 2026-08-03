@@ -9,8 +9,8 @@ var gold_taken : int = 0
 func _init(data):
 	super._init(data)
 	
+	moveset.add_move(AttackActorPremove.new(40, id, self))
 	moveset.add_move(AttackActorPremove.new(50, id, self))
-	moveset.add_move(AttackActorPremove.new(60, id, self))
 	moveset.add_move(MultiAttackActorPremove.new(30, 2, id, self))
 	moveset.add_move(DefendActorPremove.new(60, self))
 	moveset.add_move(EscapeActorPremove.new(1, self))

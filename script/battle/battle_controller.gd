@@ -303,9 +303,10 @@ func resolve_card(card: Card):
 		
 	_energy_manager.use_energy(card.get_cost())
 	card_played.emit(card)
-	_battle_context.event_bus.on_card_played.emit(card, _battle_context, self)
 	
 	card.play(_battle_context, self)
+	
+	_battle_context.event_bus.on_card_played.emit(card, _battle_context, self)
 	
 func remove_card_from_hand(card: Card):
 	_hand_manager.remove_card_from_play(card)
