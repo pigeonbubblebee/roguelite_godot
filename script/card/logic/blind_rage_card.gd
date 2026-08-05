@@ -6,6 +6,9 @@ var status_id_unsteady : String = "unsteady_status"
 var rage_status_stacks : int = 12
 var status_id_rage : String = "rage_status"
 
+func effect_on_resolve(context, controller):
+	return ResolveEffect.REMOVE
+
 func build_sequence(context: BattleContext, controller: BattleController, preview: bool = false) -> EffectSequenceBuilder:
 	var player = context.get_player()
 	var unsteady_effect = ArmorAmplificationStatusEffect.new(status_id_unsteady, 

@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://assets/Background.png" id="6_gfjv8"]
 [ext_resource type="Texture2D" uid="uid://i6mo4sxaq7as" path="res://assets/card_color.png" id="7_34k6h"]
 [ext_resource type="Texture2D" uid="uid://bga5pxyite2ig" path="res://assets/bar.png" id="7_r2cjo"]
+[ext_resource type="FontFile" uid="uid://cgih62i6o6aul" path="res://data/PixelPurl.ttf" id="9_we8pq"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6jqjf"]
 
@@ -151,9 +152,9 @@ offset_top = 5.0
 offset_right = 64.0
 offset_bottom = 29.0
 theme_override_constants/line_spacing = -2
-theme_override_fonts/font = ExtResource("5_jqs8i")
+theme_override_fonts/font = ExtResource("9_we8pq")
 theme_override_font_sizes/font_size = 0
-text = "Beserker Fury"
+text = "Aggression"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

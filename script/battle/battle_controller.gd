@@ -303,6 +303,7 @@ func resolve_card(card: Card):
 		
 	_energy_manager.use_energy(card.get_cost())
 	card_played.emit(card)
+	_battle_context.event_bus.before_card_played.emit(card, _battle_context, self)
 	
 	card.play(_battle_context, self)
 	
@@ -433,6 +434,7 @@ func gain_energy(amt: int = 1):
 	_energy_manager.gain_energy(amt)
 	
 func add_card_modifier(card: Card, modifier: CardModifier):
+	_battle_context.event_bus.before_modifier_applied.emit(card, modifier, _battle_context, self)
 	card.add_modifier(modifier, _battle_context, self)
 	
 func check_battle_finished():
@@ -450,6 +452,9 @@ func add_actors(actors: Array):
 	var instances = _create_actors(actors)	
 	for actor in instances:
 		actor.generate_next_move(_battle_context)
+		
+func move_card_to_hand(card : Card):
+	_hand_manager.move_card_to_hand(card)
 	
 ###################
 ##### GETTERS #####

@@ -144,6 +144,18 @@ func return_all_from_discard():
 		
 	discard_pile.clear()
 	discard_pile_updated.emit(discard_pile)
+	
+func move_card_to_hand(card: Card):
+	if discard_pile.has(card):
+		discard_pile.erase(card)
+		discard_pile_updated.emit(discard_pile)
+		hand.append(card)
+		hand_updated.emit(hand)
+	if deck.has(card):
+		deck.erase(card)
+		deck_updated.emit(deck)
+		hand.append(card)
+		hand_updated.emit(hand)
 
 func is_ready_to_end_selection() -> bool:
 	if current_card_selection_context.selected_cards.size() == current_card_selection_context.amount:

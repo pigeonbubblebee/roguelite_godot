@@ -44,6 +44,9 @@ func on_apply(_context: BattleContext, _controller: BattleController):
 	_battle_context.get_ref().event_bus.turn_started.connect(on_turn_start)
 	_battle_context.get_ref().event_bus.actor_died.connect(on_actor_died)
 	_battle_context.get_ref().event_bus.on_card_played.connect(on_card_played)
+	_battle_context.get_ref().event_bus.before_modifier_applied.connect(before_modifier_applied)
+	_battle_context.get_ref().event_bus.card_cost_request.connect(card_cost_request)
+	_battle_context.get_ref().event_bus.before_card_played.connect(before_card_played)
 	
 func cleanup():
 	_battle_context.get_ref().event_bus.before_damage_dealt.disconnect(before_damage_dealt)
@@ -54,8 +57,20 @@ func cleanup():
 	_battle_context.get_ref().event_bus.turn_started.disconnect(on_turn_start)
 	_battle_context.get_ref().event_bus.actor_died.disconnect(on_actor_died)
 	_battle_context.get_ref().event_bus.on_card_played.disconnect(on_card_played)
+	_battle_context.get_ref().event_bus.before_modifier_applied.disconnect(before_modifier_applied)
+	_battle_context.get_ref().event_bus.card_cost_request.disconnect(card_cost_request)
+	_battle_context.get_ref().event_bus.before_card_played.disconnect(before_card_played)
+
+func card_cost_request(ctx: CardCostRequestContext):
+	pass
+	
+func before_modifier_applied(card: Card, mod: CardModifier, context: BattleContext, controller: BattleController):
+	pass
 
 func on_card_played(card: Card, context: BattleContext, controller: BattleController):
+	pass
+	
+func before_card_played(card: Card, context: BattleContext, controller: BattleController):
 	pass
 
 func stacks_updated(_context: BattleContext, _controller: BattleController):

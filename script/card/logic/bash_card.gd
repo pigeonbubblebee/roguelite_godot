@@ -1,10 +1,10 @@
 class_name BashCard
 extends Card
 
-var damage : int = 75
-var armor : int = 75
+var damage : int = 50
+var armor : int = 50
 var status_id : String = "rage_status"
-var status_stacks : int = 7
+var status_stacks : int = 5
 
 func build_sequence(context: BattleContext, controller: BattleController, preview:= false) -> EffectSequenceBuilder:
 	var target = context.get_selected_enemy(preview)

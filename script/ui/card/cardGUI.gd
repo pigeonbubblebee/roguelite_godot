@@ -140,6 +140,9 @@ func update_card_logic(card: Card) -> void:
 	_card_frame_bg.modulate = KeywordFormatter.get_keyword_color(card.rarity)
 	
 	change_state(idle_state)
+	
+func reset_cost_text():
+	cost_text.text = str(card_logic.get_cost())
 		
 # Makes card hover when highlighting
 func _on_mouse_enter():

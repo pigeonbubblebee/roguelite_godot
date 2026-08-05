@@ -6,15 +6,10 @@
 [ext_resource type="Resource" uid="uid://bkmhojxsij3ux" path="res://data/card/guard_card.tres" id="4_gjpec"]
 [ext_resource type="Resource" uid="uid://b3byj6acav5mo" path="res://data/card/heavy_slash_card.tres" id="5_mu4h3"]
 [ext_resource type="Resource" uid="uid://dqhw806v30myy" path="res://data/card/focus_card.tres" id="6_n08jj"]
-[ext_resource type="Resource" uid="uid://px8pjjr61c5j" path="res://data/card/blind_rage_card.tres" id="7_fpimf"]
-[ext_resource type="Resource" uid="uid://jmobnk7u06w3" path="res://data/card/forge_anew_card.tres" id="8_ni48t"]
-[ext_resource type="Resource" uid="uid://bitfdymoi2xcr" path="res://data/card/bash_card.tres" id="9_7c2l5"]
-[ext_resource type="Resource" uid="uid://db3sbdombc4b5" path="res://data/card/armaments_card.tres" id="10_c6i6h"]
-[ext_resource type="Resource" uid="uid://dfcx5vvxpxlsn" path="res://data/card/grind_card.tres" id="11_x7rpw"]
 
 [resource]
 script = ExtResource("1_ex163")
-starting_deck = Array[ExtResource("2_73mca")]([ExtResource("3_mh8vv"), ExtResource("3_mh8vv"), ExtResource("3_mh8vv"), ExtResource("4_gjpec"), ExtResource("4_gjpec"), ExtResource("4_gjpec"), ExtResource("5_mu4h3"), ExtResource("6_n08jj"), ExtResource("7_fpimf"), ExtResource("8_ni48t"), ExtResource("9_7c2l5"), ExtResource("10_c6i6h"), ExtResource("11_x7rpw")])
+starting_deck = Array[ExtResource("2_73mca")]([ExtResource("3_mh8vv"), ExtResource("3_mh8vv"), ExtResource("3_mh8vv"), ExtResource("4_gjpec"), ExtResource("4_gjpec"), ExtResource("4_gjpec"), ExtResource("5_mu4h3"), ExtResource("6_n08jj")])
 base_strength = 11
 base_dexterity = 9
 base_intelligence = 6

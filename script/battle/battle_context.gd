@@ -10,6 +10,8 @@ var event_bus : BattleEventBus
 signal hovered_actor_changed(actor: Actor)
 signal selected_actor_changed(actor: Actor)
 
+signal hand_ui_cost_changed
+
 var hovered_enemy: Actor = null
 var selected_actor: Actor = null
 
@@ -37,6 +39,9 @@ func get_actors_of_faction(faction: Faction.Type) -> Array[Actor]:
 	
 func get_active_actors() -> Array[Actor]:
 	return _turn_manager.get_active_actors()
+
+func reset_hand_ui_cost():
+	hand_ui_cost_changed.emit()
 
 func get_player() -> Actor:
 	var active_actors = _turn_manager.get_active_actors()

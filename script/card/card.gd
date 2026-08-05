@@ -30,7 +30,7 @@ func _init(_id : String):
 	texture = card["TEXTURE"]
 	type = card["TYPE"]
 	rarity = card["RARITY"]
-	target_drag = (type == CardType.ATTACK)
+	target_drag = (type == CardType.ATTACK or type == CardType.DEBUFF)
 	if card["FORCE_TARGET_DRAG"]:
 		target_drag = true
 	title = card["CARD_NAME"]
@@ -180,6 +180,14 @@ func get_buff_target_index(total_targets: int) -> Array[int]:
 	return []
 	
 func get_cost() -> int:
+	var ctx = CardCostRequestContext.new()
+	ctx.card = self
+	ctx.cost = _cost
+	if event_bus:
+		event_bus.card_cost_request.emit(ctx)
+	return ctx.cost
+	
+func get_base_cost() -> int:
 	return _cost
 	
 func display_cost() -> bool:
@@ -226,6 +234,10 @@ static func get_card_type_as_string(type: CardType) -> String:
 			return "Defense"
 		CardType.WOUND:
 			return "Wound"
+		CardType.DEBUFF:
+			return "Debuff"
+		CardType.ENCHANTMENT:
+			return "Enchant"
 	return "Cannot Find Type"
 	
 static func get_string_as_card_type(string) -> CardType:
@@ -238,13 +250,19 @@ static func get_string_as_card_type(string) -> CardType:
 			return CardType.DEFENSE
 		"WOUND":
 			return CardType.WOUND
+		"DEBUFF":
+			return CardType.DEBUFF
+		"ENCHANT":
+			return CardType.ENCHANTMENT
 	return CardType.ATTACK
 
 enum CardType {
 	ATTACK,
 	BUFF,
 	DEFENSE,
-	WOUND
+	WOUND,
+	DEBUFF,
+	ENCHANTMENT
 }
 
 func get_primary_attribute():

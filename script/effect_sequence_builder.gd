@@ -304,6 +304,14 @@ func add_card_to_hand(
 		func(): controller.add_card_to_hand(id)
 	)
 	
+func move_card_to_hand(
+	card: Card
+)  -> EffectSequenceBuilder:
+	return step(
+		null,
+		func(): controller.move_card_to_hand(card)
+	)
+	
 func shuffle_card_to_deck(
 	id : String = "strike_card", # Change Default to smth else,
 	amt : int = 1

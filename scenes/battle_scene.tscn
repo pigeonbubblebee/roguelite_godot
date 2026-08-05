@@ -244,13 +244,14 @@ offset_bottom = -2.0
 mouse_filter = 1
 
 [node name="card_view" type="Node2D" parent="." unique_id=1680770154]
-visible = false
 script = ExtResource("16_5tote")
 _ui_path = NodePath("card_view_ui")
 card_ui_scene = ExtResource("5_34irb")
 _card_ui_container_path = NodePath("card_view_ui/card_ui_container2/card_ui_container")
+show_all_valid = true
 
 [node name="card_view_ui" type="Control" parent="card_view" unique_id=513142580]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

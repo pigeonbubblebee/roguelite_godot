@@ -20,10 +20,13 @@ var columns : float = 6
 var h_spacing = 72
 var v_spacing = 104
 
+@export var show_all_valid := false
+
 func _ready():
 	card_view_ui.visible = false
 	
-	# display_cards(CardDatabase.get_all_valid_cards())
+	if show_all_valid:
+		display_cards(CardDatabase.get_all_valid_cards())
 	
 func _input(event: InputEvent) -> void:
 	if not scrollable:

@@ -48,6 +48,7 @@ func bind(controller: BattleController):
 	var hand_manager = controller.get_hand_manager()
 	
 	controller.turn_started.connect(_on_turn_started)
+	context.hand_ui_cost_changed.connect(reset_hand_ui_cost)
 	# connect signal to update action bar
 	
 	hand_manager.connect("hand_updated", Callable(self, "update_ui"))
@@ -201,3 +202,7 @@ func _on_turn_started(actor : Actor):
 		
 		if(card_ui.current_card_state == card_ui.drag_state):
 			card_ui.current_card_state.force_drag_end()
+
+func reset_hand_ui_cost():
+	for card_ui in cards_ui_array:
+		card_ui.reset_cost_text()

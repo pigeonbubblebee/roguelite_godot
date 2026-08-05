@@ -2,7 +2,7 @@ class_name DazeStatusEffect
 extends StatusEffect
 
 var damage_owner
-var dot_damage : int = 8
+var dot_damage : int = 5
 var weakened_percent_bonus = -0.20
 
 func _init(id: String, _dmg_owner, stacks: int = 1):
