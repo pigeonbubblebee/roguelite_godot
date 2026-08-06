@@ -15,7 +15,7 @@ func build_sequence(context: BattleContext, controller: BattleController, previe
 		.use_action(custom_action)\
 		.multi_damage(hit_actors, damage, blast_damage)\
 		.apply_status_multi(hit_actors, func(t): 
-				return DazeStatusEffect.new(status_id, status_turns))
+				return DazeStatusEffect.new(status_id,context.get_player(), status_turns))
 	
 func get_target_index(total_targets: int, target_index: int) -> Array[int]:
 	return get_index_blast(total_targets, target_index)

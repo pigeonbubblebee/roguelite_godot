@@ -8,7 +8,7 @@ func get_is_turn_based() -> bool:
 
 func damage_dealt(_context: DamageContext, battle_context: BattleContext, controller: BattleController):
 	if not _context.source_name == "beserkers_fury_card":
-		pass
+		return
 	
 	var hit_actors = _context.hit_actors
 	var custom_action = BattleRuntimeHelper.generate_light_camera_shake_action()
@@ -17,5 +17,5 @@ func damage_dealt(_context: DamageContext, battle_context: BattleContext, contro
 		.as_status(self)\
 		.use_action(custom_action)\
 		.apply_status_multi(hit_actors, func(t): 
-				return DazeStatusEffect.new(status_id, _stacks*HeavyAxeCard.DAZE_AMOUNT))\
+				return DazeStatusEffect.new(status_id, battle_context.get_player(), _stacks*HeavyAxeCard.DAZE_AMOUNT))\
 		.enqueue()

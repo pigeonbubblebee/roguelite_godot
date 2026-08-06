@@ -14,7 +14,7 @@ var INPUT_TYPE = HandUI.InputType.VIEW
 
 const SCROLL_SPEED = 5
 
-var scrollable : bool = true
+@export var scrollable : bool = false
 
 var columns : float = 6
 var h_spacing = 72

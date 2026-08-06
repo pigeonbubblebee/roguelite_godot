@@ -1,7 +1,7 @@
 class_name MightyArmorCard
 extends Card
 
-var armor : int = 60
+var armor : int = 75
 var status_turns : int = 2
 var status_id : String = "empowered_status"
 

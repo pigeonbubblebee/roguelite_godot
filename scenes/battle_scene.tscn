@@ -248,6 +248,7 @@ script = ExtResource("16_5tote")
 _ui_path = NodePath("card_view_ui")
 card_ui_scene = ExtResource("5_34irb")
 _card_ui_container_path = NodePath("card_view_ui/card_ui_container2/card_ui_container")
+scrollable = true
 show_all_valid = true
 
 [node name="card_view_ui" type="Control" parent="card_view" unique_id=513142580]

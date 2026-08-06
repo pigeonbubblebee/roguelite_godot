@@ -75,7 +75,7 @@
 	"mighty_armor_card": {
 	  "CARD_NAME": "Mighty Armor",
 	  "COST": 1,
-	  "DESCRIPTION": "Gain 60 ARMOR. Gain 2 EMPOWERED.",
+	  "DESCRIPTION": "Gain 75 ARMOR. Gain 2 EMPOWERED.",
 	  "RARITY": "COMMON",
 	  "TYPE": "DEFENSE",
 	  "KEYWORDS": "armor;empowered",

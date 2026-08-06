@@ -4,6 +4,7 @@ extends Card
 var status_stacks : int = 5
 var status_id : String = "rage_status"
 var rage_card_id = "beserkers_fury_card"
+var armor = 50
 
 func build_sequence(context: BattleContext, controller: BattleController, preview:= false) -> EffectSequenceBuilder:
 	var player = context.get_player()
@@ -25,6 +26,7 @@ func build_sequence(context: BattleContext, controller: BattleController, previe
 	return EffectSequenceBuilder.new(context, controller)\
 		.as_card(self)\
 		.use_action(custom_action)\
+		.armor(player, armor)
 		.move_card_to_hand(controller.get_hand_manager().get_card_in_play(rage_card_id))
 
 func get_buff_target_index(total_targets: int) -> Array[int]:
