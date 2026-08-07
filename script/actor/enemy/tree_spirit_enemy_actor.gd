@@ -15,7 +15,7 @@ func _init(data):
 	super._init(data)
 	
 	moveset.add_first_move(ShuffleWoundPremove.new(3, wound_id, self))
-	moveset.add_move(AttackActorPremove.new(120, id, self))
+	moveset.add_move(AttackActorPremove.new(110, id, self))
 	moveset.add_move(DefendActorPremove.new(100, self))
 	moveset.add_move (DebuffActorPremove.new(status_turns, id, self,
 		func(t): 

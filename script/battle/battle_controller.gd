@@ -79,7 +79,10 @@ func _create_context():
 	
 	if _battle_data.room_type == MapNode.RoomType.ELITE:
 		battle_won_context.original_gold_reward_variance += 15
-		battle_won_context.added_rare_pool_chance += 0.6
+		battle_won_context.added_rare_pool_chance += 1
+		
+	if _battle_data.room_type == MapNode.RoomType.KEY:
+		battle_won_context.key_rewards += 1
 	
 	_battle_context = BattleContext.new(_turn_manager, self)
 	
@@ -105,6 +108,8 @@ func _create_actors(actors: Array) -> Array:
 		actor_instance.reset_health()
 		
 		actor_instance.set_premove(actor.premove_index)
+		
+		actor_instance.get_status_manager().status_updated.connect(func(t): refresh_actor_preview_amount())
 		
 		if faction == Faction.Type.ENEMY:
 			actor_instance.turn_finished.connect(_on_enemy_turn_finish)
@@ -387,6 +392,9 @@ func shuffle_card_to_deck(card_id : String, amt : int = 1):
 func discard_card(card: Card):
 	_hand_manager.discard_card(card)
 	card.on_discard(_battle_context, self)
+		
+func refresh_actor_preview_amount():
+	premove_refresh.emit(self, _battle_context)
 		
 func free_actor(actor: Actor):
 	print(actor.actor_data.name + " DIED! PROCESSING REMOVAL")

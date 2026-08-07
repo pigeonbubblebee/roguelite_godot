@@ -47,14 +47,22 @@ func on_reward_button_pressed(type, amount):
 		open_card_rewards()
 	elif type == RewardButton.RewardType.GOLD:
 		process_gold_reward(amount)
+	elif type == RewardButton.RewardType.KEY:
+		process_key_reward()
+	#elif type == RewardButton.RewardType.ITEM:
+		#process_item_reward()
 	
 func bind_context(ctx : BattleWonContext):
 	battle_won_context = ctx
 	
-	add_reward_button(RewardButton.RewardType.CARD)
+	if ctx.has_card_reward:
+		add_reward_button(RewardButton.RewardType.CARD)
 	add_reward_button(RewardButton.RewardType.GOLD, 15 + ctx.original_gold_reward_variance)
 	if ctx.bonus_gold_reward > 0:
 		add_reward_button(RewardButton.RewardType.GOLD, ctx.bonus_gold_reward)
+	if ctx.key_rewards > 0:
+		for i in ctx.key_rewards:
+			add_reward_button(RewardButton.RewardType.KEY)
 
 func process_card_reward(card):
 	var context = RewardRequestContext.new()
@@ -67,5 +75,19 @@ func process_card_reward(card):
 func process_gold_reward(gold):
 	var context = RewardRequestContext.new()
 	context.gold_reward = gold
+	
+	request_reward.emit(context)
+	
+func process_key_reward():
+	var context = RewardRequestContext.new()
+	context.key_reward = true
+	
+	request_reward.emit(context)
+
+func process_item_reward(item):
+	var context = RewardRequestContext.new()
+	context.item_reward = item
+
+	#_item_reward_ui.finish_rewards()
 	
 	request_reward.emit(context)

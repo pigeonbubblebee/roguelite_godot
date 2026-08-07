@@ -5,3 +5,6 @@ var deck : Array
 var health : int
 var max_health : int
 var gold : int
+var keys : int
+var weapon
+var items : Array

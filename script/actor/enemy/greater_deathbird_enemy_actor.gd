@@ -8,7 +8,7 @@ var wound_id : String = "deaths_call_card"
 var status_id_buff : String = "might_status"
 var status_id_debuff : String = "weakened_status"
 var debuff_stacks : int = 2
-var might_stacks : int = 3
+var might_stacks : int = 2
 
 var id : String = "greater_deathbird_enemy"
 
@@ -19,7 +19,7 @@ func _init(data):
 		func(t): 
 				return DamageAmplificationStatusEffect.new(status_id_debuff, 
 				debuff_stacks, DamageAmplificationStatusEffect.weakened_percent_bonus)))
-	moveset.add_move(MultiAttackActorPremove.new(60, 2, id, self))
+	moveset.add_move(MultiAttackActorPremove.new(50, 2, id, self))
 	moveset.add_move(MultiAttackActorPremove.new(10, 3, id, self))
 	moveset.add_move(CompositeActorPremove.new(self, [
 		ShuffleWoundPremove.new(wound_amount, wound_id, self),

@@ -4,6 +4,7 @@ extends Node
 @export var battle_scene: PackedScene
 @export var map_scene : PackedScene
 @export var transition_scene : PackedScene
+@export var treasure_scene : PackedScene
 
 var _current_scene
 var _current_battle_controller: BattleController
@@ -56,6 +57,22 @@ func load_map(create_new_map : bool = true) -> void:
 	map_instance.bind_controller(_current_map_controller)
 	map_instance.bind_game_manager(self)
 	
+func load_treasure() -> void:
+	var treasure_instance := treasure_scene.instantiate() as TreasureScene
+	add_child(treasure_instance)
+	_current_scene = treasure_instance
+	
+	var controller = TreasureController.new()
+	
+	controller.bind_player_data(player_data)
+	treasure_instance.bind_controller(controller)
+	
+	treasure_instance.exit_requested.connect(on_treasure_exit)
+	
+	controller.player_data_change_request.connect(apply_player_data_change)
+
+	treasure_instance.bind_game_manager(self)
+	
 func _ready() -> void:
 	_current_floor_manager = FloorManager.new()
 	_current_floor_manager.load_floor_data(test_floor)
@@ -69,11 +86,7 @@ func transition(action: Callable) -> void:
 	var transition := transition_scene.instantiate() as TransitionScene
 	add_child(transition)
 	
-	print("straRTED")
-	
 	await transition.covered
-	
-	print("covered")
 
 	action.call()
 	
@@ -81,6 +94,12 @@ func transition(action: Callable) -> void:
 	await transition.tree_exited
 	
 func process_room_enter(room : MapNode) -> void:
+	if room.type == MapNode.RoomType.TREASURE:
+		transition(func():	
+			_current_scene.queue_free()
+
+			load_treasure()
+		)
 	if (room.type == MapNode.RoomType.COMBAT 
 		or room.type == MapNode.RoomType.KEY 
 		or room.type == MapNode.RoomType.ELITE):
@@ -121,6 +140,16 @@ func on_battle_finished(): #TBD make a global func for processing node clears fo
 		load_map(false)
 	)
 
+func on_treasure_exit(treasure_done): #TBD make a global func for processing node clears for all node types
+	transition(func():
+		_current_scene.queue_free()
+		
+		if treasure_done:
+			_current_map_controller.finish_current_node()
+
+		load_map(false)
+	)
+
 func instantiate_test_battle_data() -> BattleData:
 	var data = BattleData.new()
 	
@@ -137,6 +166,8 @@ func load_player_data():
 	player_data.health = player_actor.max_health
 	player_data.max_health = player_actor.max_health
 	player_data.gold = 100
+	player_data.keys = 0
+	
 	for card in test_character.starting_deck:
 		player_data.deck.append(CardDatabase.get_card(card.card_id))
 

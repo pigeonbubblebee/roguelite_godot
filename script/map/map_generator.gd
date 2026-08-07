@@ -31,7 +31,7 @@ func initialize():
 	decorate_path()
 	add_random_connections(0.15)
 	render_dungeon()
-	
+
 func decorate_path():
 	set_room(
 		critical_path[0],
@@ -41,7 +41,7 @@ func decorate_path():
 		critical_path[1],
 		MapNode.RoomType.REST
 	)
-	
+
 	var rest_candidates = branch_paths.keys()
 	
 	var branch = rest_candidates.pick_random()
@@ -145,6 +145,9 @@ func add_random_connections(chance: float):
 					continue
 					
 				if node.type == MapNode.RoomType.BOSS or other.type == MapNode.RoomType.BOSS:
+					continue
+				
+				if critical_path.has(node) and critical_path.has(other):
 					continue
 
 				if randf() < chance:

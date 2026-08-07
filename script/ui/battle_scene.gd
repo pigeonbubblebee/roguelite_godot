@@ -148,3 +148,6 @@ func process_reward_request(reward):
 	if reward.gold_reward:
 		var effect = GoldChangePlayerDataEffect.new(reward.gold_reward)
 		_controller.request_player_data_modification(effect)
+	if reward.key_reward:
+		var effect = KeyChangePlayerDataEffect.new(1)
+		_controller.request_player_data_modification(effect)

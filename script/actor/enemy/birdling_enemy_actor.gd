@@ -3,7 +3,7 @@ extends EnemyActor
 
 var fixed_speed_temp = 99
 
-var wound_amount : int = 2
+var wound_amount : int = 1
 var wound_id : String = "deaths_call_card"
 
 func _init(data):
