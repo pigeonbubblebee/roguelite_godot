@@ -27,13 +27,14 @@ var controller : TreasureController
 
 func bind_controller(c : TreasureController):
 	controller = c
+	reward.request_reward.connect(controller.process_reward)
 	
 func _ready():
 	exit_button.pressed.connect(exit)	
 	finished_button.pressed.connect(func(): exit_requested.emit(true))
 	
 	_init_reward_screen()
-	reward.request_reward.connect(process_reward_request)
+	
 	open_button.pressed.connect(_on_chest_open)
 	
 func bind_game_manager(game_manager: GameManager):
@@ -60,14 +61,3 @@ func _on_chest_open():
 	
 	reward_ui.visible = true
 	reward.bind_context(controller.create_battle_won_context())
-	
-func process_reward_request(reward):
-	if reward.card_reward:
-		var effect = AddCardPlayerDataEffect.new(reward.card_reward.id)
-		controller.request_player_data_modification(effect)
-	if reward.gold_reward:
-		var effect = GoldChangePlayerDataEffect.new(reward.gold_reward)
-		controller.request_player_data_modification(effect)
-	if reward.key_reward:
-		var effect = KeyChangePlayerDataEffect.new(1)
-		controller.request_player_data_modification(effect)

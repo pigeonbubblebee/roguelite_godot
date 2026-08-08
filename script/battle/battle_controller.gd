@@ -32,6 +32,8 @@ signal queue_battle_won(ctx)
 
 signal premove_refresh(controller, ctx)
 
+var reward_handler: RewardHandler
+
 @export var log_card_play := false
 
 func _input(event: InputEvent) -> void:
@@ -69,6 +71,7 @@ func _create_managers():
 	add_child(_energy_manager)
 	
 	_rewards_manager = BattleRewardsManager.new()
+	reward_handler = RewardHandler.new()
 	
 ###################
 ##### CONTEXT #####
@@ -157,6 +160,10 @@ func _setup_connections():
 	_energy_manager.energy_change.connect(_on_energy_change)
 	_energy_manager.energy_change.connect(_battle_context.on_energy_change)
 	
+	reward_handler.player_data_change_request.connect(
+		request_player_data_modification
+	)
+	
 ############################
 ##### STARTER FUNCTION #####
 ############################
@@ -222,6 +229,9 @@ func on_actor_death(actor: Actor):
 	
 func on_armor_reset_request(context: ArmorResetContext):
 	_battle_context.event_bus.on_armor_reset_request.emit(context, _battle_context, self)
+
+func process_reward(reward) -> void:
+	reward_handler.process_reward(reward)
 
 ## UI CONNECTIONS
 	

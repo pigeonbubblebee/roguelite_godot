@@ -46,7 +46,7 @@ func bind_controller(controller: BattleController) -> void:
 	_controller = controller
 	
 	_init_battle_won_screen()
-	battle_finished.request_reward.connect(process_reward_request)
+	battle_finished.request_reward.connect(controller.process_reward)
 	
 	# Init battle action visual manager
 	
@@ -140,14 +140,3 @@ func _on_battle_won(ctx):
 	
 	battle_finished_ui.visible = true
 	battle_finished.bind_context(ctx)
-
-func process_reward_request(reward):
-	if reward.card_reward:
-		var effect = AddCardPlayerDataEffect.new(reward.card_reward.id)
-		_controller.request_player_data_modification(effect)
-	if reward.gold_reward:
-		var effect = GoldChangePlayerDataEffect.new(reward.gold_reward)
-		_controller.request_player_data_modification(effect)
-	if reward.key_reward:
-		var effect = KeyChangePlayerDataEffect.new(1)
-		_controller.request_player_data_modification(effect)
