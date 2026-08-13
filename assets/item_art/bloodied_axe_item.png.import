@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cv5bhdfw14f8n"
-path="res://.godot/imported/long_sword_item.png-4166df6c0bf88d33e88a9d50dfca2fc6.ctex"
+uid="uid://b8ivy6wb4o3o7"
+path="res://.godot/imported/bloodied_axe_item.png-3d306427628f2dc2b1803c14f0f7564b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/item_art/long_sword_item.png"
-dest_files=["res://.godot/imported/long_sword_item.png-4166df6c0bf88d33e88a9d50dfca2fc6.ctex"]
+source_file="res://assets/item_art/bloodied_axe_item.png"
+dest_files=["res://.godot/imported/bloodied_axe_item.png-3d306427628f2dc2b1803c14f0f7564b.ctex"]
 
 [params]
 

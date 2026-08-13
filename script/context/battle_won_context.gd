@@ -9,3 +9,4 @@ var weapon_rewards : int = 0
 var item_rewards : int = 0
 var has_card_reward : bool = true
 var has_item_reward : bool = false
+var has_weapon_reward : bool = false

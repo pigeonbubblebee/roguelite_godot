@@ -225,22 +225,24 @@ func on_treasure_exit(treasure_done) -> void:
 ###########################
 
 func instantiate_test_battle_data() -> BattleData:
-	var data := BattleData.new()
+	var battle_data := BattleData.new()
 
-	data.actors.append({
+	battle_data.actors.append({
 		"data": player_actor,
 		"premove_index": 0
 	})
 
-	data.player_health = player_data.health
+	battle_data.player_health = player_data.health
 
 	for card in player_data.deck:
-		data.deck.append(card["CARD_ID"])
+		battle_data.deck.append(card["CARD_ID"])
 		
 	for item in player_data.items:
-		data.items.append(item["ITEM_ID"])
+		battle_data.items.append(item["ITEM_ID"])
+		
+	battle_data.weapon = player_data.weapon["ITEM_ID"]
 
-	return data
+	return battle_data
 
 func load_player_data() -> void:
 	player_data = PlayerData.new()
@@ -248,7 +250,7 @@ func load_player_data() -> void:
 	player_data.health = player_actor.max_health
 	player_data.max_health = player_actor.max_health
 	player_data.gold = 100
-	player_data.keys = 0
+	player_data.keys = 1
 
 	for card in test_character.starting_deck:
 		player_data.deck.append(
@@ -259,6 +261,8 @@ func load_player_data() -> void:
 		player_data.items.append(
 			ItemDatabase.get_item(item.item_id)
 	)
+
+	player_data.weapon = ItemDatabase.get_item("longsword_item")
 
 func apply_player_data_change(effect) -> void:
 	effect.apply(player_data)

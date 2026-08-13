@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_tyvit")
-item_id = "scarlet_feather_item"
+item_id = "potion_of_flame_item"
 metadata/_custom_type_script = "uid://b784pjvn5r4wt"

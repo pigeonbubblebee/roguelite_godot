@@ -32,6 +32,7 @@ func load_items(path: String):
 			"NOT_DRAFTABLE": true if info["NOT_DRAFTABLE"] else false,
 			"SCALING": {},
 			"TEXTURE": null,
+			"WEAPON": true if info["WEAPON"] else false,
 			"SCRIPT": null
 		}
 		

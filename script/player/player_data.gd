@@ -6,7 +6,7 @@ var health : int
 var max_health : int
 var gold : int
 var keys : int
-var weapon
+var weapon : Dictionary
 var items : Array
 var max_items : int = 4
 

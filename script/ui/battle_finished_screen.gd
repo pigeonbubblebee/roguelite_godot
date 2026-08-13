@@ -60,6 +60,12 @@ func open_item_rewards():
 	
 	_item_reward_ui.init_rewards(rewards_manager.generate_item_rewards(battle_won_context))
 	
+func open_weapon_rewards():
+	_item_reward_ui.mouse_filter = _item_reward_ui.MOUSE_FILTER_STOP
+	_item_reward_ui.visible = true
+	
+	_item_reward_ui.init_rewards(rewards_manager.generate_weapon_rewards(battle_won_context))
+	
 func _on_reward_interaction_requested(request : ItemReplacementRequestContext):
 	_item_replace_ui.mouse_filter = _item_replace_ui.MOUSE_FILTER_STOP
 	_item_replace_ui.visible = true
@@ -78,15 +84,22 @@ func on_reward_button_pressed(type, amount):
 		process_key_reward()
 	elif type == RewardButton.RewardType.ITEM:
 		open_item_rewards()
+	elif type == RewardButton.RewardType.WEAPON:
+		open_weapon_rewards()
 	
 func bind_context(ctx : BattleWonContext):
 	battle_won_context = ctx
 	
 	if ctx.has_card_reward:
 		add_reward_button(RewardButton.RewardType.CARD)
+		
+	add_reward_button(RewardButton.RewardType.GOLD, 15 + ctx.original_gold_reward_variance)
+		
 	if ctx.has_item_reward:
 		add_reward_button(RewardButton.RewardType.ITEM)
-	add_reward_button(RewardButton.RewardType.GOLD, 15 + ctx.original_gold_reward_variance)
+	if ctx.has_weapon_reward:
+		add_reward_button(RewardButton.RewardType.WEAPON)
+	
 	if ctx.bonus_gold_reward > 0:
 		add_reward_button(RewardButton.RewardType.GOLD, ctx.bonus_gold_reward)
 	if ctx.key_rewards > 0:

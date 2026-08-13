@@ -5,7 +5,7 @@ extends Control
 @onready var label = get_node(label_path)
 
 var reward_type : RewardType
-enum RewardType { CARD, GOLD, KEY, ITEM }
+enum RewardType { CARD, GOLD, KEY, ITEM, WEAPON }
 
 var reward_amount = 0
 
@@ -20,6 +20,8 @@ func change_text():
 		label.text = "Add a Key"
 	elif reward_type == RewardType.ITEM:
 		label.text = "Add a Item"
+	elif reward_type == RewardType.WEAPON:
+		label.text = "Swap Weapon"
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:

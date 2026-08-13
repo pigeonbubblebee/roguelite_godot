@@ -1,7 +1,7 @@
 class_name TreasureController
 extends RefCounted
 
-var data
+var _player_data
 
 signal player_data_change_request(data)
 var reward_handler: RewardHandler
@@ -17,12 +17,12 @@ func _init() -> void:
 func get_reward_manager():
 	return reward_manager
 
-func bind_player_data(d):
-	data = d
-	reward_manager.bind_items(d.items)
+func bind_player_data(player_data : PlayerData):
+	_player_data = player_data
+	reward_manager.bind_items(player_data.items, player_data.weapon)
 
 func can_open():
-	if data.keys >= 1:
+	if _player_data.keys >= 1:
 		return true
 	return false
 

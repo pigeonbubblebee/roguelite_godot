@@ -49,5 +49,7 @@ func on_battle_start(context: BattleContext, controller: BattleController) -> vo
 	
 func apply_item_status(context, controller):
 	var effect = create_status(context, controller)
+	if not effect:
+		return
 	var ctx = StatusEffectApplicationContext.new(context.get_player(), effect, self)
 	controller.apply_status(ctx)

@@ -34,6 +34,7 @@ deck_view_path = NodePath("card_view")
 view_deck_button_path = NodePath("view_deck_button")
 view_deck_button_label_path = NodePath("view_deck_button/texture/Label")
 item_view_path = NodePath("item_container")
+weapon_slot_path = NodePath("item_slot_weapon")
 
 [node name="hp_label" type="Label" parent="." unique_id=1940041298]
 layout_mode = 1
@@ -104,6 +105,13 @@ text = "Items"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="item_slot_weapon" parent="." unique_id=379475060 instance=ExtResource("9_kycdt")]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 294.5
+offset_right = 188.0
+offset_bottom = 330.5
+
 [node name="item_container" type="GridContainer" parent="." unique_id=2128765716]
 layout_mode = 1
 anchors_preset = 8
@@ -121,7 +129,7 @@ theme_override_constants/h_separation = 2
 theme_override_constants/v_separation = 2
 columns = 2
 
-[node name="item_slot_1" parent="item_container" unique_id=379475060 instance=ExtResource("9_kycdt")]
+[node name="item_slot_1" parent="item_container" unique_id=1530206847 instance=ExtResource("9_kycdt")]
 layout_mode = 2
 
 [node name="item_slot_2" parent="item_container" unique_id=1351483735 instance=ExtResource("9_kycdt")]

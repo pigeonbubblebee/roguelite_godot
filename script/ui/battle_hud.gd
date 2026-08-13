@@ -28,6 +28,9 @@ extends Control
 @onready var item_container = get_node(_item_container_path)
 var item_icons : Array
 
+@export var _weapon_icon_path: NodePath
+@onready var weapon_icon = get_node(_weapon_icon_path)
+
 var _currently_connected_actor : Actor
 var _currently_connected_status : StatusEffect
 
@@ -55,6 +58,8 @@ func bind(controller: BattleController):
 		else:
 			i.set_item(null)
 		index += 1
+		
+	weapon_icon.set_item(controller.get_item_manager().get_weapon())
 
 func on_card_hover_started(card: Card):
 	#var desc = KeywordFormatter.format_text(card.description)

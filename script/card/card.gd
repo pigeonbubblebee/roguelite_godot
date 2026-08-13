@@ -185,7 +185,7 @@ func get_cost() -> int:
 	ctx.cost = _cost
 	if event_bus:
 		event_bus.card_cost_request.emit(ctx)
-	return ctx.cost
+	return max(0, ctx.cost)
 	
 func get_base_cost() -> int:
 	return _cost

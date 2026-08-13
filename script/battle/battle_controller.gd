@@ -61,7 +61,7 @@ func load_battle(battle_data: BattleData):
 	_create_actors(battle_data.actors)
 	_init_player_actor(battle_data)
 	_initialize_deck(battle_data.deck)
-	_initialize_items(battle_data.items)
+	_initialize_items(battle_data.items, battle_data.weapon)
 	_setup_connections()
 	_start_battle()
 	
@@ -81,7 +81,7 @@ func _create_managers():
 	
 	_rewards_manager = BattleRewardsManager.new()
 	if _player_data:
-		_rewards_manager.bind_items(_player_data.items)
+		_rewards_manager.bind_items(_player_data.items, _player_data.weapon)
 	reward_handler = RewardHandler.new()
 	
 ###################
@@ -160,8 +160,9 @@ func _initialize_deck(deck: Array[String]):
 ##### ITEM LOGIC #####
 ######################
 
-func _initialize_items(items: Array[String]):
+func _initialize_items(items: Array[String], weapon : String):
 	_items_manager.create_items(items, _battle_context, self)
+	_items_manager.create_weapon(weapon, _battle_context, self)
 	
 ###################
 ##### SIGNALS #####

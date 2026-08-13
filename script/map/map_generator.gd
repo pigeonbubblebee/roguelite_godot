@@ -19,7 +19,7 @@ var current_combat_rooms = 0
 var critical_path : Array[MapNode]
 var branch_paths : Dictionary = {}
 
-var testing_room := false
+var testing_room := true
 
 func initialize():
 	generate_map()
@@ -47,7 +47,7 @@ func decorate_path():
 	if testing_room:
 		set_room(
 			critical_path[critical_path.size() - 1],
-			MapNode.RoomType.ELITE
+			MapNode.RoomType.TREASURE
 		)
 
 	var rest_candidates = branch_paths.keys()

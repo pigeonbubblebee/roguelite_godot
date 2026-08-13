@@ -14,6 +14,7 @@ func create_treasure_battle_won_context() -> BattleWonContext:
 
 	ctx.original_gold_reward_variance += 30
 	ctx.has_card_reward = false
+	ctx.has_weapon_reward = true
 	ctx.has_item_reward = true
 
 	return ctx

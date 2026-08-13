@@ -3,6 +3,8 @@ extends ItemStatusEffect
 var triggered := false
 
 func damage_dealt(context: DamageContext, battle_context: BattleContext, controller: BattleController):
+	if not context.damage_owner == _owner:
+		return
 	if (not context.hit_actors.size() == 1) or triggered:
 		return
 		
@@ -18,6 +20,7 @@ func damage_dealt(context: DamageContext, battle_context: BattleContext, control
 			hit_actors.append(actor)
 			
 	if hit_actors.size() == 0:
+		print("return")
 		return
 			
 	var custom_action = BattleRuntimeHelper.generate_basic_attack_action(battle_context)

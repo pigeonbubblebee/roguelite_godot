@@ -19,6 +19,8 @@ extends Control
 
 @export var item_view_path : NodePath
 @onready var item_view = get_node(item_view_path)
+@export var weapon_slot_path : NodePath
+@onready var weapon_slot = get_node(weapon_slot_path)
 
 func _ready():
 	view_deck_button.pressed.connect(open_deck_view)
@@ -53,4 +55,9 @@ func update_hud(player_data):
 		else:
 			i.set_item(null)
 		index += 1
+	
+	if player_data.weapon:
+		weapon_slot.set_item(player_data.weapon["SCRIPT"].new(player_data.weapon["ITEM_ID"]))
+	else:
+		weapon_slot.set_item(null)
 	

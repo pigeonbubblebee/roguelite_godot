@@ -9,19 +9,25 @@ func _init(item : String, _slot = slot):
 	slot = _slot
 
 func apply(player_data : PlayerData):
+	var item = ItemDatabase.get_item(item_id)
+	
+	if item["WEAPON"]:
+		player_data.weapon = item
+		return
+	
 	if slot > -1 and slot < player_data.max_items:
-		player_data.items[slot] = ItemDatabase.get_item(item_id)
+		player_data.items[slot] = item
 		return
 		
 	if not player_data.has_item_capacity():
 		var request := ItemReplacementRequestContext.new(
-			ItemDatabase.get_item(item_id),
+			item,
 			player_data.items
 		)
 
 		interaction_requested.emit(request)
 		return
 	
-	player_data.items.append(ItemDatabase.get_item(item_id))
+	player_data.items.append(item)
 	
 	
