@@ -112,6 +112,9 @@ func on_turn_start(actor: Actor, battle_context: BattleContext, controller: Batt
 func get_is_turn_based() -> bool:
 	return true
 	
+func get_is_visible() -> bool:
+	return true
+	
 func get_stacks() -> int:
 	return _stacks
 	

@@ -195,6 +195,7 @@ func get_damage_contexts() -> Array[DamageContext]:
 	
 func armor(target: Actor, amount: int) -> EffectSequenceBuilder:
 	if target == null:
+		
 		return self
 	
 	var armor_ctx = ArmorGainContext.new(

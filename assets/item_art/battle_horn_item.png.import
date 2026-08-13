@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmwqv7yjunt5f"
-path="res://.godot/imported/claymore_item.png-d521791069103614e9d565b74ce008de.ctex"
+uid="uid://m1602ahiqxkg"
+path="res://.godot/imported/battle_horn_item.png-d05f4e5516c43c7ff52cddf6ad6ec8cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/item/claymore_item.png"
-dest_files=["res://.godot/imported/claymore_item.png-d521791069103614e9d565b74ce008de.ctex"]
+source_file="res://assets/item_art/battle_horn_item.png"
+dest_files=["res://.godot/imported/battle_horn_item.png-d05f4e5516c43c7ff52cddf6ad6ec8cf.ctex"]
 
 [params]
 

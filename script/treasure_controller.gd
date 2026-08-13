@@ -5,15 +5,21 @@ var data
 
 signal player_data_change_request(data)
 var reward_handler: RewardHandler
+var reward_manager : BattleRewardsManager
 
 func _init() -> void:
 	reward_handler = RewardHandler.new()
 	reward_handler.player_data_change_request.connect(
 		func(t): player_data_change_request.emit(t)
 	)
+	reward_manager = BattleRewardsManager.new()
+
+func get_reward_manager():
+	return reward_manager
 
 func bind_player_data(d):
 	data = d
+	reward_manager.bind_items(d.items)
 
 func can_open():
 	if data.keys >= 1:

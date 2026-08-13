@@ -99,10 +99,10 @@
 	"honed_edge_card": {
 	  "CARD_NAME": "Honed Edge",
 	  "COST": 1,
-	  "DESCRIPTION": "Deal 70 DMG. SHARPEN this attack.",
+	  "DESCRIPTION": "Deal 50 DMG. Gain ARMOR equal to damage dealt.",
 	  "RARITY": "COMMON",
 	  "TYPE": "ATTACK",
-	  "KEYWORDS": "sharpen",
+	  "KEYWORDS": "armor",
 	  "FORCE_TARGET_DRAG": null,
 	  "NOT_DRAFTABLE": null,
 	  "UPGRADED_KEYWORDS": null,
@@ -282,7 +282,7 @@
 	  "DESCRIPTION": "Whenever you play a card, gain 20 ARMOR for each time it's been SHARPENED.",
 	  "RARITY": "RARE",
 	  "TYPE": "ENCHANT",
-	  "KEYWORDS": "armor;sharpen;ephemeral",
+	  "KEYWORDS": "armor;sharpen",
 	  "FORCE_TARGET_DRAG": null,
 	  "NOT_DRAFTABLE": null,
 	  "UPGRADED_KEYWORDS": null,
@@ -306,7 +306,7 @@
 	  "DESCRIPTION": "Whenever you SHARPEN, SHARPEN 1 additional time.",
 	  "RARITY": "RARE",
 	  "TYPE": "ENCHANT",
-	  "KEYWORDS": "sharpen;ephemeral",
+	  "KEYWORDS": "sharpen",
 	  "FORCE_TARGET_DRAG": null,
 	  "NOT_DRAFTABLE": null,
 	  "UPGRADED_KEYWORDS": null,
@@ -355,7 +355,7 @@
 	  "RARITY": "RARE",
 	  "TYPE": "ATTACK",
 	  "KEYWORDS": "vulnerable",
-	  "FORCE_TARGET_DRAG": null,
+	  "FORCE_TARGET_DRAG": 1,
 	  "NOT_DRAFTABLE": null,
 	  "UPGRADED_KEYWORDS": null,
 	  "UPGRADED": null
@@ -367,7 +367,7 @@
 	  "RARITY": "RARE",
 	  "TYPE": "DEFENSE",
 	  "KEYWORDS": "armor;daze",
-	  "FORCE_TARGET_DRAG": 1,
+	  "FORCE_TARGET_DRAG": null,
 	  "NOT_DRAFTABLE": null,
 	  "UPGRADED_KEYWORDS": null,
 	  "UPGRADED": null
@@ -450,7 +450,7 @@
 	  "DESCRIPTION": "Whenever you play a card with base cost 2 or more, gain 40 ARMOR and 1 EMPOWERED.",
 	  "RARITY": "RARE",
 	  "TYPE": "ENCHANT",
-	  "KEYWORDS": "armor;empowered",
+	  "KEYWORDS": "armor",
 	  "FORCE_TARGET_DRAG": null,
 	  "NOT_DRAFTABLE": null,
 	  "UPGRADED_KEYWORDS": null,
@@ -1171,6 +1171,68 @@
 	  "INT": null,
 	  "ARC": null,
 	  "FTH": null
+	}
+  },
+  "ItemFinal": {
+	"iron_helm_item": {
+	  "ITEM_NAME": "Iron Helm",
+	  "DESCRIPTION": "The first time you gain ARMOR each turn, increase that amount by 40%.",
+	  "NOT_DRAFTABLE": true,
+	  "WEAPON": null
+	},
+	"whetstone_item": {
+	  "ITEM_NAME": "Whetstone",
+	  "DESCRIPTION": "SHARPEN all attacks in your opening hand.",
+	  "NOT_DRAFTABLE": null,
+	  "WEAPON": null
+	},
+	"target_dummy_item": {
+	  "ITEM_NAME": "Target Dummy",
+	  "DESCRIPTION": "Cards with \"Strike\" in their name deal 20% more DMG.",
+	  "NOT_DRAFTABLE": null,
+	  "WEAPON": null
+	},
+	"heros_hilt_item": {
+	  "ITEM_NAME": "Hero's Hilt",
+	  "DESCRIPTION": "Deal 70 DMG to all enemies on battle start.",
+	  "NOT_DRAFTABLE": null,
+	  "WEAPON": null
+	},
+	"heros_glove_item": {
+	  "ITEM_NAME": "Hero's Glove",
+	  "DESCRIPTION": "Draw two additional cards on battle start.",
+	  "NOT_DRAFTABLE": null,
+	  "WEAPON": null
+	},
+	"raven_feather_item": {
+	  "ITEM_NAME": "Raven Feather",
+	  "DESCRIPTION": "Gain 10 additional GOLD after each combat.",
+	  "NOT_DRAFTABLE": null,
+	  "WEAPON": null
+	},
+	"battle_horn_item": {
+	  "ITEM_NAME": "Battle Horn",
+	  "DESCRIPTION": "Start each battle with 5 RAGE.",
+	  "NOT_DRAFTABLE": null,
+	  "WEAPON": null
+	},
+	"heavy_gauntlet_item": {
+	  "ITEM_NAME": "Heavy Gauntlet",
+	  "DESCRIPTION": "2 cost cards apply 1 DAZE.",
+	  "NOT_DRAFTABLE": null,
+	  "WEAPON": null
+	},
+	"heros_shield_item": {
+	  "ITEM_NAME": "Hero's Shield",
+	  "DESCRIPTION": "Gain 80 ARMOR on battle start.",
+	  "NOT_DRAFTABLE": null,
+	  "WEAPON": null
+	},
+	"heros_crest_item": {
+	  "ITEM_NAME": "Hero's Crest",
+	  "DESCRIPTION": "On battle start items trigger an additional time.",
+	  "NOT_DRAFTABLE": null,
+	  "WEAPON": null
 	}
   },
   "Keywords": {

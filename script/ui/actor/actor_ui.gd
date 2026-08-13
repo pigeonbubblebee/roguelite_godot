@@ -99,6 +99,9 @@ func _on_status_update(status_effects : Array[StatusEffect]):
 	var active_status_set := {}
 
 	for status in status_effects:
+		if not status.get_is_visible():
+			continue
+		
 		active_status_set[status] = true
 
 		var icon : StatusEffectIcon

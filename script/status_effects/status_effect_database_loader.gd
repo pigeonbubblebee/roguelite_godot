@@ -31,5 +31,20 @@ func load_status(path: String):
 
 		status_effects[status_id] = status
 		
+	var item_info = parsed["ItemFinal"]
+
+	for item_id in item_info.keys():
+		var info = item_info[item_id]
+
+		var status = {
+			"STATUS_EFFECT_ID": item_id + "_status",
+			"STATUS_EFFECT_NAME": info["ITEM_NAME"],
+			"DESCRIPTION": info["DESCRIPTION"],
+			"ICON_TYPE": "general_buff",
+			"STATUS_TYPE": "Buff"
+		}
+
+		status_effects[item_id + "_status"] = status
+		
 func get_status_effect(status_id: String) -> Dictionary:
 	return status_effects.get(status_id, null)

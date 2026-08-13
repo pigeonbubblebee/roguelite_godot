@@ -65,9 +65,12 @@ func load_battle(battle_data: BattleData) -> void:
 	_current_battle_controller.player_data_change_request.connect(
 		apply_player_data_change
 	)
+	controller.bind_player_data(player_data)
 
 	controller.load_battle(battle_data)
 	battle_instance.bind_controller(controller)
+	
+	controller.battle_started.emit()
 
 
 func load_map(create_new_map: bool = true) -> void:
@@ -233,6 +236,9 @@ func instantiate_test_battle_data() -> BattleData:
 
 	for card in player_data.deck:
 		data.deck.append(card["CARD_ID"])
+		
+	for item in player_data.items:
+		data.items.append(item["ITEM_ID"])
 
 	return data
 
@@ -247,6 +253,11 @@ func load_player_data() -> void:
 	for card in test_character.starting_deck:
 		player_data.deck.append(
 			CardDatabase.get_card(card.card_id)
+	)
+	
+	for item in test_character.starting_items:
+		player_data.items.append(
+			ItemDatabase.get_item(item.item_id)
 	)
 
 func apply_player_data_change(effect) -> void:

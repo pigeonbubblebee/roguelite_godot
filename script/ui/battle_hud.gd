@@ -24,6 +24,10 @@ extends Control
 @export var _actor_label_path: NodePath
 @onready var actor_label = get_node(_actor_label_path)
 
+@export var _item_container_path: NodePath
+@onready var item_container = get_node(_item_container_path)
+var item_icons : Array
+
 var _currently_connected_actor : Actor
 var _currently_connected_status : StatusEffect
 
@@ -39,6 +43,18 @@ func bind(controller: BattleController):
 	
 	attribute_label.text = KeywordFormatter.format_text(attribute_label.text)
 	attribute_label_2.text = KeywordFormatter.format_text(attribute_label_2.text)
+	
+	var items = controller.get_item_manager().get_items()
+	var index = 0
+	
+	for i in item_container.get_children():
+		item_icons.append(i)
+		
+		if index < items.size():
+			i.set_item(items[index])
+		else:
+			i.set_item(null)
+		index += 1
 
 func on_card_hover_started(card: Card):
 	#var desc = KeywordFormatter.format_text(card.description)
@@ -107,11 +123,11 @@ func update_actor_hud_info(armor = 0):
 		status_text += "%s\n" % status.get_description()
 	else:
 		var active_status = _currently_connected_actor.get_status_manager().get_active_status()
-		
-		if active_status.size() > 0:
+		var active_status_visible = active_status.filter(func(s): return s.get_is_visible())
+		if active_status_visible.size() > 0:
 			status_text += "STATUS:\n"
 		
-		for status in active_status:
+		for status in active_status_visible:			
 			var turns_text = " TURN" if status.get_stacks() == 1 else " TURNS"
 			var stack_text = ("x" + str(status.get_stacks())) if not status.get_is_turn_based() else (str(status.get_stacks()) + turns_text)
 			var text = status.get_name() + " (" + stack_text + ")\n"

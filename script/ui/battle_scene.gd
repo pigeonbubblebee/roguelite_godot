@@ -60,7 +60,7 @@ func bind_controller(controller: BattleController) -> void:
 	hand_ui.bind(controller)
 	actor_ui.bind(controller)
 	battle_hud.bind(controller)
-	battle_finished.bind(controller)
+	battle_finished.bind(controller.get_reward_manager(), controller.reward_handler)
 	
 	controller.request_card_selection.connect(_on_request_card_selection)
 	controller.card_selection_finished.connect(_on_card_selection_finished)

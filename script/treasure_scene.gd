@@ -28,6 +28,7 @@ var controller : TreasureController
 func bind_controller(c : TreasureController):
 	controller = c
 	reward.request_reward.connect(controller.process_reward)
+	reward.bind(c.get_reward_manager(), c.reward_handler)
 	
 func _ready():
 	exit_button.pressed.connect(exit)	

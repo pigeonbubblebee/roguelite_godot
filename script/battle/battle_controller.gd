@@ -7,6 +7,7 @@ var _battle_context: BattleContext
 var _battle_data: BattleData
 var _energy_manager: EnergyManager
 var _rewards_manager: BattleRewardsManager
+var _items_manager: BattleItemManager
 
 var battle_won_context : BattleWonContext
 
@@ -34,6 +35,8 @@ signal premove_refresh(controller, ctx)
 
 var reward_handler: RewardHandler
 
+var _player_data : PlayerData
+
 @export var log_card_play := false
 
 func _input(event: InputEvent) -> void:
@@ -41,6 +44,9 @@ func _input(event: InputEvent) -> void:
 		print("Debug: Killing Enemy!")
 		if(_battle_context.get_hovered_enemy()):
 			free_actor(_battle_context.get_hovered_enemy())
+
+func bind_player_data(data : PlayerData):
+	_player_data = data
 
 ########################
 ##### LOADS BATTLE #####
@@ -55,6 +61,7 @@ func load_battle(battle_data: BattleData):
 	_create_actors(battle_data.actors)
 	_init_player_actor(battle_data)
 	_initialize_deck(battle_data.deck)
+	_initialize_items(battle_data.items)
 	_setup_connections()
 	_start_battle()
 	
@@ -69,8 +76,12 @@ func _create_managers():
 	add_child(_hand_manager)
 	_energy_manager = EnergyManager.new()
 	add_child(_energy_manager)
+	_items_manager = BattleItemManager.new()
+	add_child(_items_manager)
 	
 	_rewards_manager = BattleRewardsManager.new()
+	if _player_data:
+		_rewards_manager.bind_items(_player_data.items)
 	reward_handler = RewardHandler.new()
 	
 ###################
@@ -83,6 +94,7 @@ func _create_context():
 	if _battle_data.room_type == MapNode.RoomType.ELITE:
 		battle_won_context.original_gold_reward_variance += 15
 		battle_won_context.added_rare_pool_chance += 1
+		battle_won_context.has_item_reward = true
 		
 	if _battle_data.room_type == MapNode.RoomType.KEY:
 		battle_won_context.key_rewards += 1
@@ -144,6 +156,13 @@ func _initialize_deck(deck: Array[String]):
 		_hand_manager.add_to_deck(entry, _battle_context.event_bus)
 	_hand_manager.shuffle_deck()
 	
+######################
+##### ITEM LOGIC #####
+######################
+
+func _initialize_items(items: Array[String]):
+	_items_manager.create_items(items, _battle_context, self)
+	
 ###################
 ##### SIGNALS #####
 ###################
@@ -173,7 +192,8 @@ func _setup_connections():
 func _start_battle():
 	_energy_manager.reset_energy()
 	_turn_manager.progress_turn_order()
-	battle_started.emit()
+	_items_manager.initialize_items(_battle_context, self)
+	
 	for actor in _battle_context.get_actors_of_faction(Faction.Type.ENEMY):
 		actor.refresh_premove_amount(self, _battle_context)
 		actor.generate_next_move(_battle_context)
@@ -493,3 +513,6 @@ func get_energy_manager() -> EnergyManager:
 	
 func get_reward_manager() -> BattleRewardsManager:
 	return _rewards_manager
+
+func get_item_manager() -> BattleItemManager:
+	return _items_manager

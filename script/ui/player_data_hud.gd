@@ -17,8 +17,12 @@ extends Control
 @export var view_deck_button_label_path : NodePath
 @onready var view_deck_button_label = get_node(view_deck_button_label_path)
 
+@export var item_view_path : NodePath
+@onready var item_view = get_node(item_view_path)
+
 func _ready():
 	view_deck_button.pressed.connect(open_deck_view)
+	item_view.visible = true
 	
 func bind_game_manager(game_manager: GameManager):
 	var player_data = game_manager.player_data
@@ -39,3 +43,14 @@ func update_hud(player_data):
 	hp_label.text = "HP: %s/%s" % [player_data.health, player_data.max_health]
 	gold_label.text = "GOLD: %s" % [player_data.gold]
 	key_label.text = "KEYS: %s" % [player_data.keys]
+	
+	var items = player_data.items
+	var index = 0
+	
+	for i in item_view.get_children():
+		if index < items.size():
+			i.set_item(items[index]["SCRIPT"].new(items[index]["ITEM_ID"]))
+		else:
+			i.set_item(null)
+		index += 1
+	

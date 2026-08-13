@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://c1iejnsehgbyd" path="res://script/ui/ui_button.gd" id="6_iphs0"]
 [ext_resource type="Texture2D" uid="uid://bga5pxyite2ig" path="res://assets/bar.png" id="7_xqdp3"]
 [ext_resource type="Script" uid="uid://bj1nnj552ytgq" path="res://script/ui/tooltip/tooltip_manager.gd" id="8_8c80g"]
+[ext_resource type="PackedScene" uid="uid://tpchggrp5wl0" path="res://scenes/item_slot.tscn" id="9_kycdt"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pbvic"]
 
@@ -32,6 +33,7 @@ deck_view_ui_path = NodePath("card_view/card_view_ui")
 deck_view_path = NodePath("card_view")
 view_deck_button_path = NodePath("view_deck_button")
 view_deck_button_label_path = NodePath("view_deck_button/texture/Label")
+item_view_path = NodePath("item_container")
 
 [node name="hp_label" type="Label" parent="." unique_id=1940041298]
 layout_mode = 1
@@ -84,6 +86,53 @@ theme_override_fonts/font = ExtResource("2_kycdt")
 text = "Keys: 100"
 vertical_alignment = 1
 
+[node name="item_label" type="Label" parent="." unique_id=1884263599]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 72.0
+offset_top = 258.0
+offset_right = -490.0
+offset_bottom = -89.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_kycdt")
+text = "Items"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="item_container" type="GridContainer" parent="." unique_id=2128765716]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = 95.0
+offset_right = -172.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 2
+
+[node name="item_slot_1" parent="item_container" unique_id=379475060 instance=ExtResource("9_kycdt")]
+layout_mode = 2
+
+[node name="item_slot_2" parent="item_container" unique_id=1351483735 instance=ExtResource("9_kycdt")]
+layout_mode = 2
+
+[node name="item_slot_3" parent="item_container" unique_id=214843070 instance=ExtResource("9_kycdt")]
+layout_mode = 2
+
+[node name="item_slot_4" parent="item_container" unique_id=603781145 instance=ExtResource("9_kycdt")]
+layout_mode = 2
+
 [node name="card_view" type="Control" parent="." unique_id=1124489103]
 layout_mode = 1
 anchors_preset = 15
@@ -99,6 +148,7 @@ _card_ui_container_path = NodePath("card_view_ui/card_ui_container2/card_ui_cont
 scrollable = true
 
 [node name="card_view_ui" type="Control" parent="card_view" unique_id=1698206871]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

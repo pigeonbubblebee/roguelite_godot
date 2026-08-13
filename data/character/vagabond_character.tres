@@ -6,10 +6,13 @@
 [ext_resource type="Resource" uid="uid://bkmhojxsij3ux" path="res://data/card/guard_card.tres" id="4_gjpec"]
 [ext_resource type="Resource" uid="uid://b3byj6acav5mo" path="res://data/card/heavy_slash_card.tres" id="5_mu4h3"]
 [ext_resource type="Resource" uid="uid://dqhw806v30myy" path="res://data/card/focus_card.tres" id="6_n08jj"]
+[ext_resource type="Script" uid="uid://b784pjvn5r4wt" path="res://script/item/item_resource.gd" id="7_ni48t"]
+[ext_resource type="Resource" uid="uid://dhnflr5deeyvb" path="res://data/items/iron_helm_item.tres" id="8_7c2l5"]
 
 [resource]
 script = ExtResource("1_ex163")
 starting_deck = Array[ExtResource("2_73mca")]([ExtResource("3_mh8vv"), ExtResource("3_mh8vv"), ExtResource("3_mh8vv"), ExtResource("4_gjpec"), ExtResource("4_gjpec"), ExtResource("4_gjpec"), ExtResource("5_mu4h3"), ExtResource("6_n08jj")])
+starting_items = Array[ExtResource("7_ni48t")]([ExtResource("8_7c2l5")])
 base_strength = 11
 base_dexterity = 9
 base_intelligence = 6

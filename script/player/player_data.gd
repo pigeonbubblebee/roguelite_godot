@@ -8,3 +8,7 @@ var gold : int
 var keys : int
 var weapon
 var items : Array
+var max_items : int = 4
+
+func has_item_capacity() -> bool:
+	return items.size() < max_items

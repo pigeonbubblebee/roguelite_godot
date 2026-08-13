@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ItemResource" format=3 uid="uid://dhnflr5deeyvb"]
+
+[ext_resource type="Script" uid="uid://b784pjvn5r4wt" path="res://script/item/item_resource.gd" id="1_3jpst"]
+
+[resource]
+script = ExtResource("1_3jpst")
+item_id = "iron_helm_item"
+metadata/_custom_type_script = "uid://b784pjvn5r4wt"
