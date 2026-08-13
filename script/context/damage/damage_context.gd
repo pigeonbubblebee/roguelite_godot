@@ -36,8 +36,11 @@ func add_damage_percent(amp: float):
 			modifiers.damage_percent_dictionary[actor] = amp
 			
 func add_damage_flat(amp: int):
-	damage += amp
-	blast_damage += amp
+	for actor in hit_actors:
+		if actor in modifiers.flat_damage_dictionary:
+			modifiers.flat_damage_dictionary[actor] += amp
+		else:
+			modifiers.flat_damage_dictionary[actor] = amp
 			
 func add_vulnerable(amp: float, target: Actor):
 	if target in modifiers.vulnerability_dictionary:
@@ -64,14 +67,19 @@ func calculate_damage() -> Dictionary:
 		var position_damage = float_damage	if i == 0 else float_blast_damage
 		var vuln_bonus = 0
 		var damage_percent_bonus = 0
+		var flat_damage_bonus = 0
 		var hit_actor = hit_actors[i]
 		
+		if hit_actor in modifiers.flat_damage_dictionary:
+			flat_damage_bonus = modifiers.flat_damage_dictionary[hit_actor]
 		if hit_actor in modifiers.damage_percent_dictionary:
 			damage_percent_bonus = modifiers.damage_percent_dictionary[hit_actor]
 		if hit_actor in modifiers.vulnerability_dictionary:
 			vuln_bonus = modifiers.vulnerability_dictionary[hit_actor]
 		
-		var final_damage = position_damage * (damage_percent_bonus + 1) * (vuln_bonus + 1)
+		var final_damage = ((position_damage + flat_damage_bonus) 
+							* (damage_percent_bonus + 1) 
+							* (vuln_bonus + 1))
 				
 		final_damage_dictionary[hit_actor] = max(0, int(ceil(final_damage)))
 		

@@ -10,7 +10,7 @@ func _init(id: String, _stacks: int = 1):
 
 func before_armor_applied(_context: ArmorGainContext, battle_context: BattleContext, controller: BattleController):
 	if _context.actor == _owner and not triggered:
-		_context.add_armor_percent(armor_percent_bonus)
+		_context.add_armor_percent(armor_percent_bonus * _stacks)
 		if not _context.is_preview:
 			triggered = true
 		

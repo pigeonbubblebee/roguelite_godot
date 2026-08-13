@@ -399,9 +399,13 @@ func apply_armor(ctx: ArmorGainContext):
 	
 func apply_status(context: StatusEffectApplicationContext):
 	context.status.set_owner(context.actor)
+	
+	_battle_context.event_bus.before_status_applied.emit(context, _battle_context, self)
 	context.actor.apply_status(context.status, _battle_context, self)
-		
+	
 	premove_refresh.emit(self, _battle_context)
+	_battle_context.event_bus.status_applied.emit(context, _battle_context, self)
+		
 	
 func draw_card(amt: int = 1):
 	for i in range(amt):

@@ -12,6 +12,9 @@ func _init(_id : String, _stacks : int = 1):
 	
 func get_stacks():
 	return stacks
+	
+func get_id():
+	return id
 
 func set_owner(owner : Card):
 	_owner = owner

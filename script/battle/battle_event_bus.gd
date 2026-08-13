@@ -22,4 +22,7 @@ signal actor_died(actor: Actor, context: BattleContext, controller: BattleContro
 
 signal before_modifier_applied(card: Card, mod: CardModifier, context: BattleContext, controller: BattleController)
 
+signal before_status_applied(ctx: StatusEffectApplicationContext, context: BattleContext, controller: BattleController)
+signal status_applied(ctx: StatusEffectApplicationContext, context: BattleContext, controller: BattleController)
+
 signal card_cost_request(ctx: CardCostRequestContext)

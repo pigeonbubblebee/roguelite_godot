@@ -7,7 +7,7 @@ func on_apply(_context: BattleContext, _controller: BattleController):
 	super.on_apply(_context, _controller)
 	
 	var effect = RageStatusEffect.new(status_id, 
-		status_stacks)
+		status_stacks * _stacks)
 	var custom_action = BattleRuntimeHelper.generate_light_camera_shake_action()
 	
 	EffectSequenceBuilder.new(_context, _controller)\

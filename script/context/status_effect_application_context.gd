@@ -4,6 +4,7 @@ extends RefCounted
 var actor: Actor
 var status: StatusEffect
 var source
+var is_preview := false
 
 func _init(_actor, _status, _source = null):
 	actor = _actor

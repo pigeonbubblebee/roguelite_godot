@@ -47,6 +47,8 @@ func on_apply(_context: BattleContext, _controller: BattleController):
 	_battle_context.get_ref().event_bus.before_modifier_applied.connect(before_modifier_applied)
 	_battle_context.get_ref().event_bus.card_cost_request.connect(card_cost_request)
 	_battle_context.get_ref().event_bus.before_card_played.connect(before_card_played)
+	_battle_context.get_ref().event_bus.status_applied.connect(status_applied)
+	_battle_context.get_ref().event_bus.before_status_applied.connect(before_status_applied)
 	
 func cleanup():
 	_battle_context.get_ref().event_bus.before_damage_dealt.disconnect(before_damage_dealt)
@@ -60,8 +62,16 @@ func cleanup():
 	_battle_context.get_ref().event_bus.before_modifier_applied.disconnect(before_modifier_applied)
 	_battle_context.get_ref().event_bus.card_cost_request.disconnect(card_cost_request)
 	_battle_context.get_ref().event_bus.before_card_played.disconnect(before_card_played)
-
+	_battle_context.get_ref().event_bus.status_applied.disconnect(status_applied)
+	_battle_context.get_ref().event_bus.before_status_applied.disconnect(before_status_applied)
+	
 func card_cost_request(ctx: CardCostRequestContext):
+	pass
+	
+func status_applied(ctx: StatusEffectApplicationContext, context: BattleContext, controller: BattleController):
+	pass
+	
+func before_status_applied(ctx: StatusEffectApplicationContext, context: BattleContext, controller: BattleController):
 	pass
 	
 func before_modifier_applied(card: Card, mod: CardModifier, context: BattleContext, controller: BattleController):

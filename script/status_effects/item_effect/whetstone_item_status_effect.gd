@@ -16,5 +16,5 @@ func on_apply(_context: BattleContext, _controller: BattleController):
 		.as_status(self)\
 		.use_action(custom_action)\
 		.modify_cards(card_arr, func(t): 
-				return SharpnessModifier.new("sharpness_modifier"))\
+				return SharpnessModifier.new("sharpness_modifier", _stacks))\
 		.enqueue()

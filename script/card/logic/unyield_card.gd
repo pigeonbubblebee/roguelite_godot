@@ -19,15 +19,20 @@ func build_sequence(context: BattleContext, controller: BattleController, previe
 			.as_card(self)\
 			.use_action(custom_action)\
 			.apply_status(player, effect)\
+			.armor(player, armor)\
 			.enqueue()
 	
 	custom_action = BattleRuntimeHelper.generate_light_camera_shake_action()
 		
-	return EffectSequenceBuilder.new(context, controller)\
+	var esb = EffectSequenceBuilder.new(context, controller)\
 		.as_card(self)\
 		.use_action(custom_action)\
-		.armor(player, armor)\
 		.move_card_to_hand(controller.get_hand_manager().get_card_in_play(rage_card_id))
-
+		
+	if preview:
+		esb.armor(player, armor)
+		
+	return esb
+	
 func get_buff_target_index(total_targets: int) -> Array[int]:
 	return get_index_buff_single_target(total_targets)
