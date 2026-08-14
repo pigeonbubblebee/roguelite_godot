@@ -44,11 +44,11 @@ func decorate_path():
 		MapNode.RoomType.REST
 	)
 	
-	if testing_room:
-		set_room(
-			critical_path[critical_path.size() - 1],
-			MapNode.RoomType.TREASURE
-		)
+	#if testing_room:
+	#	set_room(
+	#		critical_path[critical_path.size() - 1],
+	#		MapNode.RoomType.TREASURE
+	#	)
 
 	var rest_candidates = branch_paths.keys()
 	

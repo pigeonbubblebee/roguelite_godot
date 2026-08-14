@@ -250,7 +250,7 @@ func load_player_data() -> void:
 	player_data.health = player_actor.max_health
 	player_data.max_health = player_actor.max_health
 	player_data.gold = 100
-	player_data.keys = 1
+	player_data.keys = 0
 
 	for card in test_character.starting_deck:
 		player_data.deck.append(
