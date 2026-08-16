@@ -24,6 +24,9 @@ signal energy_changed(new_energy: int)
 
 signal request_visual_action_enqueue(action: BattleVisualAction)
 
+var _card_selection_queue: Array[CardSelectionContext] = []
+var _current_card_selection: CardSelectionContext = null
+
 signal request_card_selection(ctx : CardSelectionContext)
 signal card_selection_finished(ctx : CardSelectionContext)
 
@@ -264,11 +267,24 @@ func on_battle_finished_pressed():
 	battle_finished.emit()
 		
 func on_confirm_selection_pressed():
-	if _hand_manager.is_ready_to_end_selection():
-		card_selection_finished.emit(_hand_manager.current_card_selection_context)
-		_hand_manager.current_card_selection_context.finish()
-		
-		_hand_manager.current_card_selection_context = null
+	if not _current_card_selection:
+		return
+	
+	if not _hand_manager.is_ready_to_end_selection():
+		return
+	
+	var finished_context := _current_card_selection
+	
+	# Finish the current selection first.
+	finished_context.finish()
+	
+	_hand_manager.current_card_selection_context = null
+	_current_card_selection = null
+	
+	card_selection_finished.emit(finished_context)
+	
+	# Start the next selection, if one is waiting.
+	_start_next_card_selection()
 	
 func on_hovered_enemy_change(actorUI: EnemyActorUI):
 	if(not actorUI):
@@ -468,8 +484,24 @@ func load_next_actor_turn():
 	_turn_manager.start_turn()
 
 func start_card_selection(context: CardSelectionContext):
-	_hand_manager.current_card_selection_context = context
-	request_card_selection.emit(context)
+	_card_selection_queue.append(context)
+	
+	# Don't interrupt an existing selection.
+	if _current_card_selection:
+		return
+	
+	_start_next_card_selection()
+
+func _start_next_card_selection():
+	if _card_selection_queue.is_empty():
+		_current_card_selection = null
+		_hand_manager.current_card_selection_context = null
+		return
+	
+	_current_card_selection = _card_selection_queue.pop_front()
+	_hand_manager.current_card_selection_context = _current_card_selection
+	
+	request_card_selection.emit(_current_card_selection)
 
 func enqueue_action(action: BattleVisualAction):
 	request_visual_action_enqueue.emit(action)
@@ -480,6 +512,7 @@ func gain_energy(amt: int = 1):
 func add_card_modifier(card: Card, modifier: CardModifier):
 	_battle_context.event_bus.before_modifier_applied.emit(card, modifier, _battle_context, self)
 	card.add_modifier(modifier, _battle_context, self)
+	_battle_context.event_bus.modifier_applied.emit(card, modifier, _battle_context, self)
 	
 func check_battle_finished():
 	var allies = _battle_context.get_actors_of_faction(Faction.Type.ALLY)

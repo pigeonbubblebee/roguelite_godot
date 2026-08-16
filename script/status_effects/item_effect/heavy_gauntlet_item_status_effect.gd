@@ -9,7 +9,7 @@ func get_is_turn_based() -> bool:
 func damage_dealt(_context: DamageContext, battle_context: BattleContext, controller: BattleController):
 	if not _context.source is Card:
 		return
-	if _context.source.get_cost() < 2:
+	if _context.source.get_base_cost() < 2:
 		return
 	
 	var hit_actors = _context.hit_actors

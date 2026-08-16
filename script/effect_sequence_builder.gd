@@ -6,6 +6,7 @@ var controller: BattleController
 
 var _card: Card = null
 var _fua: FollowUp = null
+var _status : StatusEffect = null
 var _override_source: String = ""
 
 var _tags: Array[String] = []
@@ -47,6 +48,7 @@ func as_follow_up(fua: FollowUp) -> EffectSequenceBuilder:
 	return self
 	
 func as_status(status: StatusEffect) -> EffectSequenceBuilder:
+	_status = status
 	add_tag(DamageContext.TAG_STATUS_EFFECT)
 	return self
 	
@@ -129,6 +131,8 @@ func damage(
 		dmg.source = _card
 	elif _fua:
 		dmg.source = _fua
+	elif _status:
+		dmg.source = _status
 	elif _owner:
 		dmg.source = _owner
 	
@@ -172,6 +176,8 @@ func multi_damage(
 		dmg.source = _card
 	elif _fua:
 		dmg.source = _fua
+	elif _status:
+		dmg.source = _status
 	elif _owner:
 		dmg.source = _owner
 	

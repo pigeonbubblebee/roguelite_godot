@@ -2,7 +2,7 @@ class_name DazeStatusEffect
 extends StatusEffect
 
 var damage_owner
-var dot_damage : int = 5
+var dot_damage : int = 30
 var weakened_percent_bonus = -0.20
 
 func _init(id: String, _dmg_owner, stacks: int = 1):
@@ -22,7 +22,7 @@ func on_turn_start(actor: Actor, context: BattleContext, controller: BattleContr
 		return
 		
 	var target = actor
-	var base_damage = dot_damage * get_stacks()
+	var base_damage = dot_damage
 	var custom_action = ParallelAction.new([
 		PlayParticleEffectAction.new(actor),
 		ShakeCameraAction.new(0.65)

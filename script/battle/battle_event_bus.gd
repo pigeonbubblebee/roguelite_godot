@@ -21,6 +21,7 @@ signal before_card_played(card : Card, context: BattleContext, controller: Battl
 signal actor_died(actor: Actor, context: BattleContext, controller: BattleController)
 
 signal before_modifier_applied(card: Card, mod: CardModifier, context: BattleContext, controller: BattleController)
+signal modifier_applied(card: Card, mod: CardModifier, context: BattleContext, controller: BattleController)
 
 signal before_status_applied(ctx: StatusEffectApplicationContext, context: BattleContext, controller: BattleController)
 signal status_applied(ctx: StatusEffectApplicationContext, context: BattleContext, controller: BattleController)

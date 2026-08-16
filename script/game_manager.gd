@@ -263,6 +263,9 @@ func load_player_data() -> void:
 	)
 
 	player_data.weapon = ItemDatabase.get_item("longsword_item")
+	
+	player_data.weapon = ItemDatabase.get_item("bearclaw_item")
+	player_data.deck.append(CardDatabase.get_card("war_armor_card"))
 
 func apply_player_data_change(effect) -> void:
 	effect.apply(player_data)
