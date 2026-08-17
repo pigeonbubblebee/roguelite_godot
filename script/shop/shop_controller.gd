@@ -12,6 +12,8 @@ var cards : Dictionary = {}
 signal cards_updated(cards : Array)
 var items : Dictionary = {}
 signal items_updated(cards : Array)
+var weapons : Dictionary = {}
+signal weapons_updated(cards : Array)
 
 func _init() -> void:
 	reward_handler = RewardHandler.new()
@@ -28,6 +30,8 @@ func set_rewards(shop_data : ShopData):
 	cards_updated.emit(cards.keys())
 	items = shop_data.items
 	items_updated.emit(items.keys())
+	weapons = shop_data.weapons
+	weapons_updated.emit(weapons.keys())
 	
 func generate_rewards():
 	var ctx = BattleWonContext.new()
@@ -55,8 +59,8 @@ func generate_rewards():
 		items[item] = randi_range(item_price_range.x, item_price_range.y)
 	for key in weapon_keys:
 		var item = key["SCRIPT"].new(key["ITEM_ID"])
-		items[item] = randi_range(weapon_price_range.x, weapon_price_range.y)	
-		
+		weapons[item] = randi_range(weapon_price_range.x, weapon_price_range.y)	
+	weapons_updated.emit(weapons.keys())
 	items_updated.emit(items.keys())
 	
 func get_cards() -> Array:
@@ -65,11 +69,16 @@ func get_cards() -> Array:
 func get_items() -> Array:
 	return items.keys()
 	
+func get_weapons() -> Array:
+	return weapons.keys()
+	
 func get_price_of_card(card):
 	return cards[card]
 	
-func get_price_of_item(card):
-	return items[card]
+func get_price_of_item(item):
+	if item.is_weapon:
+		return weapons[item]
+	return items[item]
 	
 func process_reward(reward) -> void:
 	reward_handler.process_reward(reward)
@@ -104,8 +113,12 @@ func request_purchase_item(item: Item):
 	
 	reward_handler.process_reward(context)
 	
-	items.erase(item)
-	items_updated.emit(items.keys())
+	if item.is_weapon:
+		weapons.erase(item)
+		weapons_updated.emit(weapons.keys())
+	else:
+		items.erase(item)
+		items_updated.emit(items.keys())
 	
 func process_item_replace(slot, item):
 	var context = RewardRequestContext.new()

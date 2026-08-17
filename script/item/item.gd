@@ -9,6 +9,7 @@ var attributes_data_as_dic
 var title : String
 var texture : Texture2D
 var description : String
+var is_weapon : bool
 
 const SCRIPT_PATH := "res://script/status_effects/item_effect/"
 
@@ -22,6 +23,7 @@ func _init(_id : String):
 	texture = item["TEXTURE"]
 	title = item["ITEM_NAME"]
 	description = item["DESCRIPTION"]
+	is_weapon = item["WEAPON"]
 	
 func get_item_id() -> String:
 	return _item_id

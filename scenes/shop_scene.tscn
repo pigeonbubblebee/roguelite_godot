@@ -23,6 +23,7 @@ exit_button_path = NodePath("CanvasLayer/exit_battle_button")
 hud_path = NodePath("CanvasLayer/HUD")
 card_view_ui_path = NodePath("CanvasLayer/card/card_view")
 item_view_ui_path = NodePath("CanvasLayer/item/item_view")
+weaoon_view_ui_path = NodePath("CanvasLayer/item/weapon_view")
 _item_replace_ui_path = NodePath("CanvasLayer/item_replace_screen")
 
 [node name="background" type="Sprite2D" parent="." unique_id=441851387]
@@ -124,7 +125,7 @@ offset_bottom = 40.0
 [node name="item_view" type="Control" parent="CanvasLayer/item" unique_id=1220334887]
 anchors_preset = 0
 offset_top = 228.0
-offset_right = 640.0
+offset_right = 450.0
 offset_bottom = 324.0
 mouse_filter = 2
 script = ExtResource("9_cl78e")
@@ -149,7 +150,37 @@ offset_right = 160.0
 offset_bottom = -2.0
 mouse_filter = 1
 
+[node name="weapon_view" type="Control" parent="CanvasLayer/item" unique_id=688482848]
+anchors_preset = 0
+offset_left = 190.0
+offset_top = 228.0
+offset_right = 640.0
+offset_bottom = 324.0
+mouse_filter = 2
+script = ExtResource("9_cl78e")
+_ui_path = NodePath(".")
+item_ui_scene = ExtResource("10_ljega")
+_item_ui_container_path = NodePath("item_ui_container")
+
+[node name="item_ui_container" type="Control" parent="CanvasLayer/item/weapon_view" unique_id=1044204415]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="card_starting_position" type="Control" parent="CanvasLayer/item/weapon_view" unique_id=1761341128]
+anchors_preset = 0
+offset_left = 160.0
+offset_top = -2.0
+offset_right = 160.0
+offset_bottom = -2.0
+mouse_filter = 1
+
 [node name="item_replace_screen" type="Control" parent="CanvasLayer" unique_id=1620251315]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 320.0

@@ -61,12 +61,18 @@ func load_battle(battle_data: BattleData):
 	_create_managers()
 	_create_context()
 	_battle_context.setup_event_bus()
-	_create_actors(battle_data.actors)
+	_create_actors(battle_data.actors, false)
 	_init_player_actor(battle_data)
 	_initialize_deck(battle_data.deck)
 	_initialize_items(battle_data.items, battle_data.weapon)
 	_setup_connections()
 	_start_battle()
+	
+func trigger_battle_start_effects():
+	for actor in _turn_manager.get_active_actors():
+		actor.on_battle_join(self, _battle_context)
+	
+	_items_manager.initialize_items(_battle_context, self)
 	
 ####################
 ##### MANAGERS #####
@@ -108,7 +114,7 @@ func _create_context():
 ##### ACTOR LOGIC #####
 #######################
 
-func _create_actors(actors: Array) -> Array:
+func _create_actors(actors: Array, trigger_battle_join := true) -> Array:
 	var instances : Array
 	
 	for actor in actors:
@@ -132,7 +138,8 @@ func _create_actors(actors: Array) -> Array:
 		if faction == Faction.Type.ENEMY:
 			actor_instance.turn_finished.connect(_on_enemy_turn_finish)
 			
-		actor_instance.on_battle_join(self, _battle_context)
+		if trigger_battle_join:
+			actor_instance.on_battle_join(self, _battle_context)
 			
 	return instances
 		
@@ -196,7 +203,6 @@ func _setup_connections():
 func _start_battle():
 	_energy_manager.reset_energy()
 	_turn_manager.progress_turn_order()
-	_items_manager.initialize_items(_battle_context, self)
 	
 	for actor in _battle_context.get_actors_of_faction(Faction.Type.ENEMY):
 		actor.refresh_premove_amount(self, _battle_context)

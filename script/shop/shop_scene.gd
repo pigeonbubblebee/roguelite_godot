@@ -11,6 +11,8 @@ extends Node
 @onready var card_view_ui = get_node(card_view_ui_path)
 @export var item_view_ui_path : NodePath
 @onready var item_view_ui = get_node(item_view_ui_path)
+@export var weaoon_view_ui_path : NodePath
+@onready var weaoon_view_ui = get_node(weaoon_view_ui_path)
 
 @export var _item_replace_ui_path: NodePath
 @onready var _item_replace_ui = get_node(_item_replace_ui_path)
@@ -23,9 +25,11 @@ func bind_controller(c : ShopController):
 	controller = c
 	controller.cards_updated.connect(on_cards_updated)
 	controller.items_updated.connect(on_items_updated)
+	controller.weapons_updated.connect(on_weapons_updated)
 	
 	on_cards_updated(controller.get_cards()) 
 	on_items_updated(controller.get_items())
+	on_weapons_updated(controller.get_weapons())
 	
 	c.reward_handler.reward_interaction_requested.connect(_on_reward_interaction_requested)
 	
@@ -69,6 +73,23 @@ func on_items_updated(awards : Array):
 	item_view_ui.visible = true
 	
 	for item_ui in item_view_ui.item_ui_array:
+		item_ui.show_price(controller.get_price_of_item(item_ui.get_item()))
+	#	index+=1
+		item_ui.can_be_purchased = true
+		item_ui.can_be_selected = false
+		if not item_ui.purchase_requested.is_connected(on_purchase_requested_item):
+			item_ui.purchase_requested.connect(on_purchase_requested_item)
+			
+func on_weapons_updated(awards : Array):
+	weaoon_view_ui.columns = awards.size()
+
+	weaoon_view_ui.scrollable = false
+
+	weaoon_view_ui.display_items_from_refcounted(awards)
+	
+	weaoon_view_ui.visible = true
+	
+	for item_ui in weaoon_view_ui.item_ui_array:
 		item_ui.show_price(controller.get_price_of_item(item_ui.get_item()))
 	#	index+=1
 		item_ui.can_be_purchased = true

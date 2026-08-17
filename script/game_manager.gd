@@ -73,9 +73,6 @@ func load_battle(battle_data: BattleData) -> void:
 
 	controller.load_battle(battle_data)
 	battle_instance.bind_controller(controller)
-	
-	controller.battle_started.emit()
-
 
 func load_map(create_new_map: bool = true) -> void:
 	var map_instance := map_scene.instantiate() as MapScene
@@ -133,6 +130,7 @@ func load_shop() -> void:
 		controller.generate_rewards()
 		shop_data.cards = controller.cards
 		shop_data.items = controller.items
+		shop_data.weapons = controller.weapons
 
 		shop_data.has_been_generated = true
 	else:
@@ -142,7 +140,7 @@ func load_shop() -> void:
 ##### TRANSITION #####
 ######################
 
-func transition(action: Callable) -> void:
+func transition(action: Callable, after_action: Callable = Callable()) -> void:
 	var transition := transition_scene.instantiate() as TransitionScene
 	add_child(transition)
 
@@ -153,6 +151,9 @@ func transition(action: Callable) -> void:
 	transition.uncover()
 
 	await transition.tree_exited
+	
+	if after_action.is_valid():
+		after_action.call()
 
 ###########################
 ##### ROOM PROCESSING #####
@@ -179,12 +180,14 @@ func _is_battle_room(room_type: MapNode.RoomType) -> bool:
 	)
 
 func _enter_treasure_room() -> void:
+	_current_scene.movement_enabled = false
 	transition(func():
 		_current_scene.queue_free()
 		load_treasure()
 	)
 
 func _enter_shop_room() -> void:
+	_current_scene.movement_enabled = false
 	transition(func():
 		_current_scene.queue_free()
 		load_shop()
@@ -197,7 +200,10 @@ func _enter_battle_room(room: MapNode) -> void:
 		_current_scene.queue_free()
 
 		var battle := _create_battle_for_room(room)
-		load_battle(battle)
+		load_battle(battle),
+		func():
+			_current_battle_controller.trigger_battle_start_effects()
+			_current_battle_controller.battle_started.emit()
 	)
 
 func _create_battle_for_room(room: MapNode) -> BattleData:
@@ -265,6 +271,7 @@ func on_shop_exit() -> void:
 		
 		shop_data.cards = _current_shop_controller.cards
 		shop_data.items = _current_shop_controller.items
+		shop_data.weapons = _current_shop_controller.weapons
 		_current_shop_controller = null
 		load_map(false)
 	)

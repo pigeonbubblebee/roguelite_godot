@@ -15,7 +15,7 @@ const SCROLL_SPEED = 5
 @export var scrollable : bool = false
 
 var columns : float = 6
-var h_spacing = 60
+var h_spacing = 45
 var v_spacing = 38
 
 @export var show_all_valid := false

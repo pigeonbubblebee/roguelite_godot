@@ -19,7 +19,7 @@ var current_combat_rooms = 0
 var critical_path : Array[MapNode]
 var branch_paths : Dictionary = {}
 
-var testing_room := true
+var testing_room := false
 var testing_room_tyoe := MapNode.RoomType.SHOP
 
 func initialize():
