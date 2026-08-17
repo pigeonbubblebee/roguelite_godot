@@ -34,7 +34,8 @@ signal card_ui_play_request(cardGUI, card_logic)
 enum InputType {
 	BATTLE,
 	SELECTION,
-	VIEW
+	VIEW,
+	SHOP
 }
 
 # TEMP
@@ -54,7 +55,7 @@ func bind(controller: BattleController):
 	hand_manager.connect("hand_updated", Callable(self, "update_ui"))
 	update_ui(hand_manager.get_hand()) 
 	
-	layout_hand()
+	# layout_hand()
 	
 	change_input_type(InputType.BATTLE)
 	

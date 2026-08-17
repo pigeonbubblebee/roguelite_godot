@@ -311,6 +311,7 @@ size_flags_horizontal = 3
 mouse_filter = 2
 
 [node name="battle_finished_screen" parent="." unique_id=371436554 instance=ExtResource("17_j0cvo")]
+visible = false
 
 [node name="tooltip_manager" type="Node2D" parent="." unique_id=1061778929]
 script = ExtResource("17_prs2y")

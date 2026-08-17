@@ -132,6 +132,7 @@ offset_right = 32.0
 offset_bottom = 106.0
 mouse_filter = 2
 script = ExtResource("6_7lfx3")
+one_shot = true
 
 [node name="texture" type="TextureRect" parent="battle_finished_ui/finish_battle_button" unique_id=1298708278]
 layout_mode = 1
@@ -234,6 +235,7 @@ offset_bottom = 54.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_7lfx3")
+one_shot = true
 
 [node name="texture" type="TextureRect" parent="battle_finished_ui/card_reward_screen/card_selection_ui/confirm_selection" unique_id=339225245]
 layout_mode = 1
@@ -379,6 +381,7 @@ offset_bottom = 54.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_7lfx3")
+one_shot = true
 
 [node name="texture" type="TextureRect" parent="battle_finished_ui/item_reward_screen/item_selection_ui/confirm_selection" unique_id=718911507]
 layout_mode = 1
@@ -525,6 +528,7 @@ offset_bottom = 54.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("6_7lfx3")
+one_shot = true
 
 [node name="texture" type="TextureRect" parent="battle_finished_ui/item_replace_screen/item_selection_ui/confirm_selection" unique_id=1015870046]
 layout_mode = 1

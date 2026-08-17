@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://c8hjjotu0p86s" path="res://data/character/player_actor.tres" id="3_yi8io"]
 [ext_resource type="PackedScene" uid="uid://brs5lch3d2nkg" path="res://scenes/transition_scene.tscn" id="4_mik07"]
 [ext_resource type="PackedScene" uid="uid://dtji5xv3fio83" path="res://scenes/treasure_scene.tscn" id="5_k4jhu"]
+[ext_resource type="PackedScene" uid="uid://o6jl62q22j1a" path="res://scenes/shop_scene.tscn" id="6_frtjd"]
 [ext_resource type="Resource" uid="uid://bejhbquponaf5" path="res://data/encounter/goblin_orc_encounter.tres" id="6_wn4et"]
 [ext_resource type="Resource" uid="uid://chvr7yhqp20xh" path="res://data/character/vagabond_character.tres" id="7_psd6g"]
 [ext_resource type="Resource" uid="uid://cydsrhu0cqoep" path="res://data/floor/floor_1.tres" id="8_jdad8"]
@@ -17,6 +18,7 @@ battle_scene = ExtResource("2_s2qa7")
 map_scene = ExtResource("3_axqe3")
 transition_scene = ExtResource("4_mik07")
 treasure_scene = ExtResource("5_k4jhu")
+shop_scene = ExtResource("6_frtjd")
 player_actor = ExtResource("3_yi8io")
 test_encounter = ExtResource("6_wn4et")
 test_character = ExtResource("7_psd6g")

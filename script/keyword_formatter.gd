@@ -72,6 +72,9 @@ static var DAMAGE_TYPE_COLORS := {
 }
 
 static var ARMOR_COLOR = C_ColorPalette.CYAN
+static var HEAL_COLOR = C_ColorPalette.GREEN
+static var BUFF_COLOR = C_ColorPalette.CYAN
+static var DEBUFF_COLOR = C_ColorPalette.RED
 
 static func format_text(text: String) -> String:
 	for keyword in KEYWORDS.keys():
@@ -99,6 +102,18 @@ static func format_damage_text(label: Label, ctx: DamageContext):
 
 static func format_armor_text(label: Label):
 	var color = ARMOR_COLOR
+	label.add_theme_color_override("font_color", color)
+	
+static func format_heal_text(label: Label):
+	var color = HEAL_COLOR
+	label.add_theme_color_override("font_color", color)
+	
+static func format_status_text(label: Label, status : StatusEffect):
+	var color = DEBUFF_COLOR
+	
+	if status.status_type == "Buff":
+		color = BUFF_COLOR
+	
 	label.add_theme_color_override("font_color", color)
 	
 static func format_status_description(template: String, stacks: int) -> String:

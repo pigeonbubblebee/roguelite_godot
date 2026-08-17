@@ -1,7 +1,7 @@
 class_name IronHelmStatusEffect
 extends ItemStatusEffect
 
-var armor_percent_bonus = 0.4
+var armor_percent_bonus = 0.2
 var triggered := false
 
 # empowered by default

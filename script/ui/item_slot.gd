@@ -16,17 +16,25 @@ var empty_texture := preload("res://assets/item_art/empty_item.png")
 signal tooltip_hide_request
 
 var can_be_selected : bool = false
+var can_be_purchased : bool = false
 
 var is_selected = false
 
 signal deselected(item)
 signal selected(item)
 
+signal purchase_requested(item)
+
+@export var _price_path: NodePath
+@onready var price = get_node(_price_path)
+
 func _ready():
 	mouse_entered.connect(_on_mouse_enter)
 	mouse_exited.connect(_on_mouse_exit)
 	
 	select_texture.visible = false
+	
+	price.visible = false
 
 func get_item() -> Item:
 	return _item
@@ -63,6 +71,9 @@ func _gui_input(event):
 					is_selected = true
 				else:
 					deselect()
+					
+			if can_be_purchased:
+				purchase_requested.emit(_item)
 			
 func deselect():
 	select_texture.visible = false
@@ -75,3 +86,7 @@ func _on_mouse_enter():
 func _on_mouse_exit():
 	if _item:
 		hide_tooltip()
+				
+func show_price(amount:int):
+	price.text = str(amount) + " GOLD"
+	price.visible = true

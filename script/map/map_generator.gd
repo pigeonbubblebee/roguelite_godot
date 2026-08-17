@@ -20,6 +20,7 @@ var critical_path : Array[MapNode]
 var branch_paths : Dictionary = {}
 
 var testing_room := true
+var testing_room_tyoe := MapNode.RoomType.SHOP
 
 func initialize():
 	generate_map()
@@ -44,11 +45,11 @@ func decorate_path():
 		MapNode.RoomType.REST
 	)
 	
-	#if testing_room:
-	#	set_room(
-	#		critical_path[critical_path.size() - 1],
-	#		MapNode.RoomType.TREASURE
-	#	)
+	if testing_room:
+		set_room(
+			critical_path[critical_path.size() - 1],
+			testing_room_tyoe
+		)
 
 	var rest_candidates = branch_paths.keys()
 	

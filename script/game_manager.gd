@@ -9,6 +9,7 @@ extends Node
 @export var map_scene: PackedScene
 @export var transition_scene: PackedScene
 @export var treasure_scene: PackedScene
+@export var shop_scene: PackedScene
 
 #######################
 ##### PLAYER DATA #####
@@ -17,6 +18,7 @@ extends Node
 @export var player_actor: ActorData
 
 var player_data: PlayerData
+var shop_data : ShopData
 
 signal player_data_updated(data: PlayerData)
 
@@ -36,12 +38,14 @@ var _current_scene
 var _current_battle_controller: BattleController
 var _current_map_controller: MapController
 var _current_floor_manager: FloorManager
+var _current_shop_controller : ShopController
 
 func _ready() -> void:
 	_current_floor_manager = FloorManager.new()
 	_current_floor_manager.load_floor_data(test_floor)
 
 	load_player_data()
+	shop_data = ShopData.new()
 	load_map()
 	# load_battle(data)
 	
@@ -107,7 +111,32 @@ func load_treasure() -> void:
 	controller.player_data_change_request.connect(apply_player_data_change)
 
 	treasure_instance.bind_game_manager(self)
+	
+func load_shop() -> void:
+	var shop_instance := shop_scene.instantiate() as ShopScene
+	add_child(shop_instance)
+	_current_scene = shop_instance
 
+	var controller := ShopController.new()
+	
+	_current_shop_controller = controller
+
+	controller.bind_player_data(player_data)
+	shop_instance.bind_controller(controller)
+
+	shop_instance.exit_requested.connect(on_shop_exit)
+	controller.player_data_change_request.connect(apply_player_data_change)
+
+	shop_instance.bind_game_manager(self)
+	
+	if not shop_data.has_been_generated:
+		controller.generate_rewards()
+		shop_data.cards = controller.cards
+		shop_data.items = controller.items
+
+		shop_data.has_been_generated = true
+	else:
+		controller.set_rewards(shop_data)
 
 ######################
 ##### TRANSITION #####
@@ -133,6 +162,10 @@ func process_room_enter(room: MapNode) -> void:
 	if room.type == MapNode.RoomType.TREASURE:
 		_enter_treasure_room()
 		return
+		
+	if room.type == MapNode.RoomType.SHOP:
+		_enter_shop_room()
+		return
 
 	if _is_battle_room(room.type):
 		_enter_battle_room(room)
@@ -145,11 +178,16 @@ func _is_battle_room(room_type: MapNode.RoomType) -> bool:
 		or room_type == MapNode.RoomType.ELITE
 	)
 
-
 func _enter_treasure_room() -> void:
 	transition(func():
 		_current_scene.queue_free()
 		load_treasure()
+	)
+
+func _enter_shop_room() -> void:
+	transition(func():
+		_current_scene.queue_free()
+		load_shop()
 	)
 
 func _enter_battle_room(room: MapNode) -> void:
@@ -207,7 +245,6 @@ func on_battle_finished() -> void:
 		load_map(false)
 	)
 
-
 func on_treasure_exit(treasure_done) -> void:
 	# TODO: Make a global function for processing node clears
 	#       for all node types.
@@ -217,6 +254,18 @@ func on_treasure_exit(treasure_done) -> void:
 		if treasure_done:
 			_current_map_controller.finish_current_node()
 
+		load_map(false)
+	)
+	
+func on_shop_exit() -> void:
+	# TODO: Make a global function for processing node clears
+	#       for all node types.
+	transition(func():
+		_current_scene.queue_free()
+		
+		shop_data.cards = _current_shop_controller.cards
+		shop_data.items = _current_shop_controller.items
+		_current_shop_controller = null
 		load_map(false)
 	)
 
@@ -263,9 +312,6 @@ func load_player_data() -> void:
 	)
 
 	player_data.weapon = ItemDatabase.get_item("longsword_item")
-	
-	player_data.weapon = ItemDatabase.get_item("bearclaw_item")
-	player_data.deck.append(CardDatabase.get_card("war_armor_card"))
 
 func apply_player_data_change(effect) -> void:
 	effect.apply(player_data)

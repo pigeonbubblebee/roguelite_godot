@@ -15,6 +15,7 @@ func _ready() -> void:
 	_confirm_reward_button.pressed.connect(request_reward_confirmation)
 
 func init_rewards(awards : Array):
+	_confirm_reward_button.disabled = false
 	item_view_ui.columns = awards.size()
 
 	item_view_ui.scrollable = false
@@ -39,3 +40,4 @@ func request_reward_confirmation():
 func finish_rewards():
 	visible = false
 	item_view_ui.clear_ui()
+	selected_item = null

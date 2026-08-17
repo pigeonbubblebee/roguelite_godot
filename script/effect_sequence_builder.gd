@@ -272,6 +272,36 @@ func discard_card(
 		func(): controller.start_card_selection(selection_context)
 	)
 	
+func discard_without_selection(
+	card : Card
+) -> EffectSequenceBuilder:
+	
+	if not card:
+		return step(
+			null,
+			func(): pass
+		)
+	
+	return step(
+		null,  # visual
+		func(): controller.discard_card(card)
+	)
+	
+func remove_without_selection(
+	card : Card
+) -> EffectSequenceBuilder:
+	
+	if not card:
+		return step(
+			null,
+			func(): pass
+		)
+	
+	return step(
+		null,  # visual
+		func(): controller.remove_card_from_hand(card)
+	)
+	
 func modify_card_select(
 	modifier_factory : Callable,
 	source_cards : Array[Card]

@@ -27,6 +27,13 @@ signal hover_ended(actorUI)
 signal status_icon_hover_started(actorUI, status_effect)
 signal status_icon_hover_ended(actorUI, status_effect)
 
+# Floating number queue
+var _damage_number_queue: Array[Dictionary] = []
+var _processing_damage_numbers := false
+
+# How long to wait before showing the next number.
+@export var damage_number_delay := 0.15
+
 func _process(delta: float) -> void:
 	if actor:
 		if actor.get_actor_name() == "Player":
@@ -41,6 +48,8 @@ func _ready():
 		actor.connect("armor_updated", Callable(self, "update_armor_bar"))
 		actor.damage_taken.connect(_on_damage_taken)
 		actor.armor_gained.connect(_on_armor_gain)
+		actor.get_status_manager().status_added.connect(_on_status_added)
+		actor.health_healed.connect(_on_health_healed)
 		
 		actor.get_status_manager().status_updated.connect(_on_status_update)
 		_on_status_update(actor.get_status_manager().get_active_status())
@@ -76,24 +85,6 @@ func update_health_bar():
 	
 func update_armor_bar(armor: int):
 	armor_bar.value = float(armor) / actor.actor_data.max_health * 100
-	
-func _on_armor_gain(amt):
-	if not damage_number_scene:
-		return
-	
-	var damage_number_instance = damage_number_scene.instantiate()
-	damage_number_instance.bind_armor(amt)
-	damage_number_instance.global_position = global_position + Vector2(size.x / 2 - 5, size.y / 2 - 20)
-	get_tree().current_scene.call_deferred("add_child", damage_number_instance)
-
-func _on_damage_taken(amt, ctx):
-	if not damage_number_scene:
-		return
-	
-	var damage_number_instance = damage_number_scene.instantiate()
-	damage_number_instance.bind(amt, ctx)
-	damage_number_instance.global_position = global_position + Vector2(size.x / 2 - 5, size.y / 2 - 20)
-	get_tree().current_scene.call_deferred("add_child", damage_number_instance)
 
 func _on_status_update(status_effects : Array[StatusEffect]):
 	var active_status_set := {}
@@ -149,3 +140,86 @@ func _on_status_icon_mouse_entered(status):
 	
 func _on_status_icon_mouse_exited(status):
 	status_icon_hover_ended.emit(self, status)
+	
+	
+# DMG NUMBER Q
+
+func _queue_damage_number(type: String, value = null, context = null):
+	if not damage_number_scene:
+		return
+	
+	_damage_number_queue.append({
+		"type": type,
+		"value": value,
+		"context": context
+	})
+	
+	if not _processing_damage_numbers:
+		_process_damage_number_queue()
+
+func _process_damage_number_queue() -> void:
+	if _damage_number_queue.is_empty():
+		_processing_damage_numbers = false
+		return
+	
+	_processing_damage_numbers = true
+	
+	var entry: Dictionary = _damage_number_queue.pop_front()
+	_spawn_damage_number(entry)
+	
+	await get_tree().create_timer(damage_number_delay).timeout
+	
+	_process_damage_number_queue()
+
+func _spawn_damage_number(entry: Dictionary) -> void:
+	var damage_number_instance = damage_number_scene.instantiate()
+	
+	match entry["type"]:
+		"damage":
+			damage_number_instance.bind(
+				entry["value"],
+				entry["context"]
+			)
+			
+		"armor":
+			damage_number_instance.bind_armor(
+				entry["value"]
+			)
+			
+		"heal":
+			damage_number_instance.bind_healing(
+				entry["value"]
+			)
+			
+		"status":
+			damage_number_instance.bind_status(
+				entry["value"]
+			)
+	
+	damage_number_instance.global_position = _get_damage_number_position()
+	
+	get_tree().current_scene.call_deferred(
+		"add_child",
+		damage_number_instance
+	)
+
+func _get_damage_number_position() -> Vector2:
+	return global_position + Vector2(
+		size.x / 2.0 - 5.0,
+		size.y / 2.0 - 20.0
+	)
+
+func _on_damage_taken(amt, ctx):
+	_queue_damage_number("damage", amt, ctx)
+
+func _on_armor_gain(amt):
+	_queue_damage_number("armor", amt)
+
+func _on_health_healed(amt):
+	_queue_damage_number("heal", amt)
+
+func _on_status_added(status: StatusEffect):
+	if not status.get_is_visible():
+		return
+	
+	_queue_damage_number("status", status)

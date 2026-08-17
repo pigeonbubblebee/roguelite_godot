@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://assets/Background.png" id="2_ps388"]
 [ext_resource type="Texture2D" uid="uid://bga5pxyite2ig" path="res://assets/bar.png" id="3_30wnl"]
 [ext_resource type="Texture2D" uid="uid://ccb0v4o2fxyvp" path="res://assets/item_art/iron_helm_item.png" id="4_lvora"]
+[ext_resource type="FontFile" uid="uid://b23c0njeg0avg" path="res://data/PixelPurl8x8 (1).ttf" id="6_30wnl"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_m6bb4"]
 
@@ -15,6 +16,7 @@ anchors_preset = 0
 script = ExtResource("1_fa8gv")
 _texture_path = NodePath("TextureRect5/TextureRect")
 _select_texture_path = NodePath("select")
+_price_path = NodePath("price")
 
 [node name="select" type="TextureRect" parent="." unique_id=1561826326]
 modulate = Color(0.37254903, 0.77254903, 0.95686275, 1)
@@ -79,3 +81,17 @@ offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_lvora")
+
+[node name="price" type="Label" parent="." unique_id=1816175871]
+visible = false
+layout_mode = 0
+offset_left = -4.0
+offset_top = 28.0
+offset_right = 40.0
+offset_bottom = 57.0
+theme_override_fonts/font = ExtResource("6_30wnl")
+theme_override_font_sizes/font_size = 0
+text = "50 GOLD"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

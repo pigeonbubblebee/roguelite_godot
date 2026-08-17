@@ -15,6 +15,7 @@ var _armor : int
 signal health_updated
 signal damage_taken(dmg, ctx)
 signal armor_updated(armor)
+signal health_healed(heal)
 signal died(actor: Actor)
 signal armor_gained(amount)
 signal armor_reset_request(context: ArmorResetContext)
@@ -70,6 +71,11 @@ func refresh_premove_amount(controller, context):
 
 func on_battle_join(controller, context):
 	pass
+
+func heal(amt : int):
+	var healed = mini(amt, get_max_health() - get_health())
+	set_health(get_health() + healed)
+	health_healed.emit(healed)
 
 # return value: Health/Armor Lost
 func take_damage(damage: int, context: DamageContext)-> Array[int] :

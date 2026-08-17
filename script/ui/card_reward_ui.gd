@@ -15,6 +15,7 @@ func _ready() -> void:
 	_confirm_reward_button.pressed.connect(request_reward_confirmation)
 
 func init_rewards(awards : Array):
+	_confirm_reward_button.disabled = false
 	card_view_ui.columns = awards.size()
 	
 	card_view_ui.INPUT_TYPE = HandUI.InputType.SELECTION

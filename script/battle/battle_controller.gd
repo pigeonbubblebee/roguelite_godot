@@ -383,7 +383,7 @@ func apply_damage(ctx: DamageContext):
 	_battle_context.event_bus.damage_dealt.emit(ctx, _battle_context, self)
 	
 func heal_actor(actor : Actor, amount: int):
-	actor.set_health(mini(actor.get_health() + amount, actor.get_max_health()))
+	actor.heal(amount)
 
 	if actor.get_actor_name() == "Player":
 			request_player_data_modification(HealthChangePlayerDataEffect.new(actor.get_health()))

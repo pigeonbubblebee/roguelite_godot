@@ -7,7 +7,7 @@ var triggered := false
 func before_damage_dealt(_context: DamageContext, battle_context: BattleContext, controller: BattleController):
 	if not _context.tags.has(DamageContext.TAG_CARD):
 		return
-	if _context.actor == _owner and not triggered:
+	if _context.damage_owner == _owner and not triggered:
 		_context.add_damage_percent(damage_percent_bonus * _stacks)
 		if not _context.is_preview:
 			triggered = true

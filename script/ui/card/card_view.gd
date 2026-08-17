@@ -20,6 +20,8 @@ var columns : float = 6
 var h_spacing = 72
 var v_spacing = 104
 
+@export var card_size := Vector2(70, 102)
+
 @export var show_all_valid := false
 
 func _ready():
@@ -54,6 +56,9 @@ func display_cards(cards_dic : Array):
 	for dic in cards_dic:
 		cards.append(dic["SCRIPT"].new(dic["CARD_ID"]))
 	
+	display_cards_from_refcounted(cards)
+	
+func display_cards_from_refcounted(cards : Array):
 	for i in range(cards.size()):
 		if i >= cards_ui_array.size():
 			var card = card_ui_scene.instantiate()
@@ -75,33 +80,39 @@ func display_cards(cards_dic : Array):
 	calculate_positions()
 		
 func calculate_positions():
-	var start_x = card_ui_container.global_position.x + card_ui_container.size.x / 2
-	start_x -= columns/2 * h_spacing
+	var column_count := int(columns)
+	var total_cards := cards_ui_array.size()
 	
-	var start = Vector2(start_x, card_ui_container.global_position.y)
+	# Width of the entire grid, including the actual card sizes
+	# and the gaps between cards.
+	var grid_width = (
+		column_count * card_size.x
+		+ (column_count - 1) * (h_spacing - card_size.x)
+	)
 	
-	for i in range(cards_ui_array.size()):
+	var start_x = card_ui_container.global_position.x \
+		+ (card_ui_container.size.x - grid_width) / 2.0
+	
+	for i in range(total_cards):
 		var card_ui = cards_ui_array[i]
 		
-		var row = floor(i / columns)
-		var column = i % int(columns)
-			
-		var offset : Vector2 = Vector2(h_spacing * column, v_spacing * row)
-			
+		var row := i / column_count
+		var column := i % column_count
+		
+		var position := Vector2(
+			start_x + column * h_spacing,
+			card_ui_container.global_position.y + row * v_spacing
+		)
+		
 		card_ui.drag_original_position = card_ui.hover_base_position
 		
 		card_ui.change_state(card_ui.idle_state)
-		card_ui.hover_base_position = start + offset
 		
 		if card_ui.hover_tween:
 			card_ui.hover_tween.kill()
-		card_ui.global_position = card_ui.hover_base_position
 		
-	var total_rows = ceil(float(cards_ui_array.size()) / columns)
-	#card_ui_container.custom_minimum_size.y = total_rows * v_spacing
-	
-	var content_height = total_rows * v_spacing
-	var visible_height = card_ui_container.get_viewport_rect().size.y
+		card_ui.hover_base_position = position
+		card_ui.global_position = position
 	
 func clear_ui():
 	for card in cards_ui_array:

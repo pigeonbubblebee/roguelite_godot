@@ -4,6 +4,7 @@ extends RefCounted
 var _active_status_effects : Array[StatusEffect]
 
 signal status_updated(status_effects: Array[StatusEffect])
+signal status_added(status : StatusEffect)
 
 func apply_status(status : StatusEffect, context: BattleContext, controller: BattleController):
 	for _status in _active_status_effects:
@@ -16,6 +17,8 @@ func apply_status(status : StatusEffect, context: BattleContext, controller: Bat
 	status.stacks_changed.connect(on_stacks_changed)
 	status.expired.connect(on_status_expired)
 	status.on_apply(context, controller)
+	
+	status_added.emit(status)
 	
 	status_updated.emit(_active_status_effects)
 	

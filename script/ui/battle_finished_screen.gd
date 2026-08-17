@@ -24,6 +24,7 @@ var rewards_handler : RewardHandler
 var battle_won_context : BattleWonContext
 
 func _ready():
+	self.visible = true
 	finished_ui.visible = false
 	_card_reward_ui.mouse_filter = _card_reward_ui.MOUSE_FILTER_IGNORE
 	

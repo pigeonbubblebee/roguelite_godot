@@ -15,7 +15,7 @@ func can_play(context: BattleContext) -> bool:
 	return false
 
 func on_turn_end(actor: Actor, context: BattleContext, controller: BattleController):
-	if actor.get_actor_name() == "Player":
+	if actor == context.get_player():
 		var hand = controller.get_hand_manager().get_hand()
 		
 		if not hand.has(self):
@@ -25,12 +25,11 @@ func on_turn_end(actor: Actor, context: BattleContext, controller: BattleControl
 		
 		var custom_action = BattleRuntimeHelper.generate_light_camera_shake_action()
 		
-		controller.discard_card(self)
-		
 		EffectSequenceBuilder.new(context, controller)\
 			.as_wound(self)\
 			.use_action(custom_action)\
 			.damage(target, damage)\
+			.discard_without_selection(self)\
 			.enqueue()
 			
 		await context.await_battle_actions()

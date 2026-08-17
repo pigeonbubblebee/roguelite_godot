@@ -1,0 +1,336 @@
+[gd_scene format=3 uid="uid://o6jl62q22j1a"]
+
+[ext_resource type="Script" uid="uid://btrcxn7lrdgst" path="res://script/shop/shop_scene.gd" id="1_tvdqs"]
+[ext_resource type="PackedScene" uid="uid://prnhw6kneqmu" path="res://scenes/card.tscn" id="2_27noo"]
+[ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://assets/Background.png" id="2_bk5ov"]
+[ext_resource type="Script" uid="uid://c1iejnsehgbyd" path="res://script/ui/ui_button.gd" id="3_27noo"]
+[ext_resource type="Texture2D" uid="uid://pmtbvaw8jtdm" path="res://assets/end_turn.png" id="4_pptjr"]
+[ext_resource type="FontFile" uid="uid://b23c0njeg0avg" path="res://data/PixelPurl8x8 (1).ttf" id="5_cl78e"]
+[ext_resource type="PackedScene" uid="uid://q3irvst4v0hu" path="res://scenes/map/hud.tscn" id="6_ljega"]
+[ext_resource type="Script" uid="uid://bre52ldoo35bh" path="res://script/ui/card/card_view.gd" id="8_27noo"]
+[ext_resource type="Script" uid="uid://bc2c5gsgs2ar6" path="res://script/ui/item_view.gd" id="9_cl78e"]
+[ext_resource type="Script" uid="uid://cwr6w7vlb0w3p" path="res://script/ui/item_replace_ui.gd" id="10_feetc"]
+[ext_resource type="PackedScene" uid="uid://tpchggrp5wl0" path="res://scenes/item_slot.tscn" id="10_ljega"]
+[ext_resource type="Texture2D" uid="uid://bga5pxyite2ig" path="res://assets/bar.png" id="11_4tk23"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nsn86"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fuohu"]
+
+[node name="shop_scene" type="Node2D" unique_id=463102670]
+script = ExtResource("1_tvdqs")
+exit_button_path = NodePath("CanvasLayer/exit_battle_button")
+hud_path = NodePath("CanvasLayer/HUD")
+card_view_ui_path = NodePath("CanvasLayer/card/card_view")
+item_view_ui_path = NodePath("CanvasLayer/item/item_view")
+_item_replace_ui_path = NodePath("CanvasLayer/item_replace_screen")
+
+[node name="background" type="Sprite2D" parent="." unique_id=441851387]
+z_index = -2
+scale = Vector2(64, 36)
+texture = ExtResource("2_bk5ov")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=951225142]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1445104544]
+
+[node name="exit_battle_button" type="Control" parent="CanvasLayer" unique_id=1894242421]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 288.0
+offset_top = 314.0
+offset_right = 352.0
+offset_bottom = 346.0
+script = ExtResource("3_27noo")
+
+[node name="texture" type="TextureRect" parent="CanvasLayer/exit_battle_button" unique_id=152390885]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_pptjr")
+
+[node name="Label" type="Label" parent="CanvasLayer/exit_battle_button/texture" unique_id=1297823330]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_cl78e")
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=2092391705]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 39.0
+offset_right = 320.0
+offset_bottom = 62.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_cl78e")
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="card" type="Control" parent="CanvasLayer" unique_id=229555633]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="card_view" type="Control" parent="CanvasLayer/card" unique_id=1869328217]
+anchors_preset = 0
+offset_top = 109.0
+offset_right = 640.0
+offset_bottom = 205.0
+mouse_filter = 2
+script = ExtResource("8_27noo")
+_ui_path = NodePath(".")
+card_ui_scene = ExtResource("2_27noo")
+_card_ui_container_path = NodePath("card_ui_container")
+
+[node name="card_ui_container" type="Control" parent="CanvasLayer/card/card_view" unique_id=646711057]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="card_starting_position" type="Control" parent="CanvasLayer/card/card_view" unique_id=1076074131]
+anchors_preset = 0
+offset_left = 160.0
+offset_top = -2.0
+offset_right = 160.0
+offset_bottom = -2.0
+mouse_filter = 1
+
+[node name="item" type="Control" parent="CanvasLayer" unique_id=1281192658]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="item_view" type="Control" parent="CanvasLayer/item" unique_id=1220334887]
+anchors_preset = 0
+offset_top = 228.0
+offset_right = 640.0
+offset_bottom = 324.0
+mouse_filter = 2
+script = ExtResource("9_cl78e")
+_ui_path = NodePath(".")
+item_ui_scene = ExtResource("10_ljega")
+_item_ui_container_path = NodePath("item_ui_container")
+
+[node name="item_ui_container" type="Control" parent="CanvasLayer/item/item_view" unique_id=1453134572]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="card_starting_position" type="Control" parent="CanvasLayer/item/item_view" unique_id=223669050]
+anchors_preset = 0
+offset_left = 160.0
+offset_top = -2.0
+offset_right = 160.0
+offset_bottom = -2.0
+mouse_filter = 1
+
+[node name="item_replace_screen" type="Control" parent="CanvasLayer" unique_id=1620251315]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 320.0
+offset_top = 180.0
+offset_right = 360.0
+offset_bottom = 220.0
+script = ExtResource("10_feetc")
+current_item_view_ui_path = NodePath("item_view_current")
+selected_item_view_ui_path = NodePath("item_view_new_item")
+_confirm_reward_button_path = NodePath("item_selection_ui/confirm_selection")
+
+[node name="item_selection_ui" type="Control" parent="CanvasLayer/item_replace_screen" unique_id=940025274]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="background" type="Control" parent="CanvasLayer/item_replace_screen/item_selection_ui" unique_id=454693075]
+anchors_preset = 0
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="background" type="TextureRect" parent="CanvasLayer/item_replace_screen/item_selection_ui/background" unique_id=251770387]
+modulate = Color(1, 1, 1, 0.545098)
+material = SubResource("CanvasItemMaterial_nsn86")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("2_bk5ov")
+expand_mode = 1
+
+[node name="background2" type="TextureRect" parent="CanvasLayer/item_replace_screen/item_selection_ui" unique_id=908270696]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -180.0
+offset_top = -125.0
+offset_right = 140.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_bk5ov")
+
+[node name="borders" type="NinePatchRect" parent="CanvasLayer/item_replace_screen/item_selection_ui/background2" unique_id=851295920]
+material = SubResource("CanvasItemMaterial_fuohu")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_4tk23")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="confirm_selection" type="Control" parent="CanvasLayer/item_replace_screen/item_selection_ui" unique_id=2080901215]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = 22.0
+offset_right = 12.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_27noo")
+one_shot = true
+
+[node name="texture" type="TextureRect" parent="CanvasLayer/item_replace_screen/item_selection_ui/confirm_selection" unique_id=1848576664]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_pptjr")
+
+[node name="Label" type="Label" parent="CanvasLayer/item_replace_screen/item_selection_ui/confirm_selection/texture" unique_id=1052984966]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_cl78e")
+text = "Confirm"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/item_replace_screen/item_selection_ui" unique_id=1193609840]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -214.0
+offset_top = -112.0
+offset_right = 174.0
+offset_bottom = -89.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_cl78e")
+text = "Choose an Item to Replace"
+horizontal_alignment = 1
+
+[node name="item_view_current" type="Control" parent="CanvasLayer/item_replace_screen" unique_id=868957180]
+anchors_preset = 0
+offset_left = -193.0
+offset_top = -93.0
+offset_right = 193.0
+offset_bottom = 3.0
+mouse_filter = 2
+script = ExtResource("9_cl78e")
+_ui_path = NodePath(".")
+item_ui_scene = ExtResource("10_ljega")
+_item_ui_container_path = NodePath("item_ui_container")
+
+[node name="item_ui_container" type="Control" parent="CanvasLayer/item_replace_screen/item_view_current" unique_id=355571859]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="card_starting_position" type="Control" parent="CanvasLayer/item_replace_screen/item_view_current" unique_id=1161234267]
+anchors_preset = 0
+offset_left = 160.0
+offset_top = -2.0
+offset_right = 160.0
+offset_bottom = -2.0
+mouse_filter = 1
+
+[node name="item_view_new_item" type="Control" parent="CanvasLayer/item_replace_screen" unique_id=884045959]
+anchors_preset = 0
+offset_left = -193.0
+offset_top = -3.0
+offset_right = 193.0
+offset_bottom = 93.0
+mouse_filter = 2
+script = ExtResource("9_cl78e")
+_ui_path = NodePath(".")
+item_ui_scene = ExtResource("10_ljega")
+_item_ui_container_path = NodePath("item_ui_container")
+
+[node name="item_ui_container" type="Control" parent="CanvasLayer/item_replace_screen/item_view_new_item" unique_id=1683524121]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="card_starting_position" type="Control" parent="CanvasLayer/item_replace_screen/item_view_new_item" unique_id=1604647289]
+anchors_preset = 0
+offset_left = 160.0
+offset_top = -2.0
+offset_right = 160.0
+offset_bottom = -2.0
+mouse_filter = 1
+
+[node name="HUD" parent="CanvasLayer" unique_id=1590885326 instance=ExtResource("6_ljega")]
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+mouse_filter = 2

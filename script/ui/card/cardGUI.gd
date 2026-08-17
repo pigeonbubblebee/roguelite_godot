@@ -21,6 +21,8 @@ var original_z := 0
 @onready var highlight = get_node(_highlight_path)
 @export var _energy_bg_path: NodePath
 @onready var energy_bg = get_node(_energy_bg_path)
+@export var _price_path: NodePath
+@onready var price = get_node(_price_path)
 
 @export var hover_vertical_offset : float
 @onready var hover_offset := Vector2(0, -hover_vertical_offset)
@@ -54,6 +56,7 @@ var current_card_state : CardUIState
 
 # TEMP TBD: Make tooltip logic recursive
 @onready var tooltip_offset = Vector2(0, -70)
+@onready var tooltip_offset_left = Vector2(-71, 0)
 @onready var tooltip_base_offset = Vector2(3, 55)
 
 var mouse_on : bool
@@ -68,6 +71,7 @@ signal hover_ended(card)
 signal attempt_card_play(cardGUI, cardLogic)
 signal entered_drop_zone(card)
 signal exited_drop_zone(card)
+signal purchase_requested(card)
 
 signal tooltip_hide_request
 
@@ -81,6 +85,8 @@ func _ready():
 	
 	mouse_entered.connect(_on_mouse_enter)
 	mouse_exited.connect(_on_mouse_exit)
+	
+	price.visible = false
 	
 	is_in_drop_zone = false
 
@@ -170,6 +176,9 @@ func emit_selection_started():
 	
 func emit_selection_ended():
 	selection_ended.emit(card_logic)
+
+func emit_purchase_request():
+	purchase_requested.emit(card_logic)
 	
 func start_hover_tween():
 	if (return_to_hand_tween):
@@ -294,12 +303,24 @@ func ease_out_cubic(number : float) -> float:
 func show_tooltip():
 	var base_position = hover_base_position + tooltip_base_offset
 	var desc = KeywordFormatter.format_text(card_logic.get_description())
-	TooltipRequestBus.request_tooltip(TooltipData.new()\
-		.add_description(desc)\
-		.add_starting_position(base_position)\
-		.add_offset(tooltip_offset)\
-		.add_hide_event(self, "tooltip_hide_request")\
-		.add_keywords(card_logic.get_keywords()))
+	
+	var viewport_width = get_viewport_rect().size.x
+	var screen_position = get_global_transform_with_canvas().origin
+	
+	var adjusted_offset = tooltip_offset
+	
+	if screen_position.x > viewport_width / 2.0:
+		#adjusted_offset.x = -abs(tooltip_offset_left.x)
+		base_position.x  += -abs(tooltip_offset_left.x)
+	
+	TooltipRequestBus.request_tooltip(
+		TooltipData.new()\
+			.add_description(desc)\
+			.add_starting_position(base_position)\
+			.add_offset(adjusted_offset)\
+			.add_hide_event(self, "tooltip_hide_request")\
+			.add_keywords(card_logic.get_keywords())
+	)
 	
 func hide_tooltip():
 	tooltip_hide_request.emit()
@@ -312,3 +333,7 @@ func hide_highlight():
 func force_deselect():
 	if current_card_state == self.selected_state:
 		selected_state.deselect()
+		
+func show_price(amount:int):
+	price.text = str(amount) + " GOLD"
+	price.visible = true

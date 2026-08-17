@@ -11,6 +11,9 @@ func gui_input(event):
 			elif card_ui.input_type == HandUI.InputType.SELECTION:
 				card_ui.emit_selection_started()
 				card_ui.change_state(card_ui.selected_state)
+			elif card_ui.input_type == HandUI.InputType.SHOP:
+				card_ui.emit_purchase_request()
+				#card_ui.change_state(card_ui.selected_state)
 
 			# Check if card is locked
 			# Otherwise, switch to darg
