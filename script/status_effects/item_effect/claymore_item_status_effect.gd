@@ -8,9 +8,7 @@ var vuln_bonus := 0.25
 func _init(id: String, _stacks: int = 1):
 	super._init(id, _stacks)
 	
-func on_apply(_context: BattleContext, _controller: BattleController):
-	super.on_apply(_context, _controller)
-	
+func on_battle_start(_context: BattleContext, _controller: BattleController):
 	EffectSequenceBuilder.new(_context, _controller)\
 		.as_status(self)\
 		.shuffle_card_to_deck(card_id, card_amt)\

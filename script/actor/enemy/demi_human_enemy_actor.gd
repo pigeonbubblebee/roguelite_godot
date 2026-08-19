@@ -15,7 +15,7 @@ func _init(data):
 				status_turns)))
 	)
 	moveset.add_move(AttackActorPremove.new(60, "demi_human_enemy", self))
-	moveset.add_move(ArmorAttackActorPremove.new(40, "demi_human_enemy", self, 40))
+	moveset.add_move(ArmorAttackActorPremove.new(50, "demi_human_enemy", self, 50))
 
 func get_speed() -> float:
 	return fixed_speed_temp

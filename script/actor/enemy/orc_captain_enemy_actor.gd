@@ -31,7 +31,7 @@ func _init(data):
 				debuff_stacks, ArmorAmplificationStatusEffect.unsteady_percent_bonus))
 		])
 	)
-	moveset.add_move(ArmorAttackActorPremove.new(25, id, self, 25))
+	moveset.add_move(ArmorAttackActorPremove.new(50, id, self, 59))
 	
 	var buff_move : BuffActorPremove = (BuffActorPremove.new(status_stacks, id, self,
 		func(t): 

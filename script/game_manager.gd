@@ -358,6 +358,11 @@ func load_player_data() -> void:
 	)
 
 	player_data.weapon = ItemDatabase.get_item("longsword_item")
+	
+	player_data.weapon = ItemDatabase.get_item("forge_hammer_item")
+	player_data.items.append(ItemDatabase.get_item("whetstone_item"))
+	#player_data.items.append(
+	#		ItemDatabase.get_item(item.item_id)
 
 func apply_player_data_change(effect) -> void:
 	effect.apply(player_data)

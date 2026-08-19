@@ -19,8 +19,8 @@ func _init(data):
 		func(t): 
 				return DamageAmplificationStatusEffect.new(status_id_debuff, 
 				debuff_stacks, DamageAmplificationStatusEffect.weakened_percent_bonus)))
-	moveset.add_move(MultiAttackActorPremove.new(50, 2, id, self))
-	moveset.add_move(MultiAttackActorPremove.new(10, 3, id, self))
+	moveset.add_move(MultiAttackActorPremove.new(80, 2, id, self))
+	moveset.add_move(MultiAttackActorPremove.new(30, 3, id, self))
 	moveset.add_move(CompositeActorPremove.new(self, [
 		ShuffleWoundPremove.new(wound_amount, wound_id, self),
 		BuffActorPremove.new(might_stacks, id, self,

@@ -11,4 +11,4 @@ name = "Troll"
 icon_texture = ExtResource("2_474bj")
 actor_script = ExtResource("1_5ggjg")
 ui_scene = ExtResource("4_1nlrt")
-max_health = 760
+max_health = 770

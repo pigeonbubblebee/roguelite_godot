@@ -11,4 +11,4 @@ name = "TreeSpiritEnemy"
 icon_texture = ExtResource("2_lfwy1")
 actor_script = ExtResource("1_i7b8c")
 ui_scene = ExtResource("4_sml86")
-max_health = 560
+max_health = 580

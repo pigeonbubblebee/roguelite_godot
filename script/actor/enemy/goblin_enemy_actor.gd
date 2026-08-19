@@ -6,8 +6,8 @@ var fixed_speed_temp = 99
 func _init(data):
 	super._init(data)
 	
-	moveset.add_move(AttackActorPremove.new(50, "goblin_enemy", self))
 	moveset.add_move(AttackActorPremove.new(60, "goblin_enemy", self))
+	moveset.add_move(AttackActorPremove.new(70, "goblin_enemy", self))
 
 func get_speed() -> float:
 	return fixed_speed_temp

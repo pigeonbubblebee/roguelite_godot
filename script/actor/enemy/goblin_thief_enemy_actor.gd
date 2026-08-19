@@ -16,7 +16,7 @@ func _init(data):
 	moveset.add_move(EscapeActorPremove.new(1, self))
 	
 func on_battle_join(controller, context):
-	var effect = ThievingStatusEffect.new("thieving_status", 5)
+	var effect = ThievingStatusEffect.new("thieving_status", 10)
 
 	var ctx : StatusEffectApplicationContext = StatusEffectApplicationContext.new(self, 
 		effect, id)

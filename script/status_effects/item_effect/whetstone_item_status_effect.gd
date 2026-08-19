@@ -1,9 +1,7 @@
 extends ItemStatusEffect
 
 # empowered by default
-func on_apply(_context: BattleContext, _controller: BattleController):
-	super.on_apply(_context, _controller)
-	
+func on_battle_start(_context: BattleContext, _controller: BattleController):
 	var hand = _controller.get_hand_manager().get_hand()
 	var card_arr : Array[Card] = []
 	for card in hand:

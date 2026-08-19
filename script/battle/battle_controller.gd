@@ -50,6 +50,9 @@ func _input(event: InputEvent) -> void:
 
 func bind_player_data(data : PlayerData):
 	_player_data = data
+	
+func get_player_data():
+	return _player_data
 
 ########################
 ##### LOADS BATTLE #####
@@ -231,6 +234,7 @@ func _on_turn_started(actor: Actor):
 	actor.take_action(_battle_context, self)	
 	
 	turn_started.emit(actor)
+	_battle_context.event_bus.turn_started_after_action.emit(actor, _battle_context, self)
 	
 func _on_enemy_turn_finish(actor: Actor):
 	await _battle_context.await_battle_actions()

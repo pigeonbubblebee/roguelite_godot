@@ -6,13 +6,13 @@ var fixed_speed_temp = 99
 var id : String = "orc_vanguard_enemy"
 
 var status_id_buff : String = "might_status"
-var might_stacks : int = 2
+var might_stacks : int = 4
 
 func _init(data):
 	super._init(data)
 
-	moveset.add_move(AttackActorPremove.new(60, id, self))
-	moveset.add_move(MultiAttackActorPremove.new(20, 2, id, self))
+	moveset.add_move(AttackActorPremove.new(80, id, self))
+	moveset.add_move(MultiAttackActorPremove.new(30, 2, id, self))
 	moveset.add_move((BuffActorPremove.new(might_stacks, id, self,
 		func(t): 
 				return FlatDamageBonusStatusEffect.new(status_id_buff, 

@@ -5,7 +5,7 @@ var fixed_speed_temp = 99
 
 var status_id_buff : String = "might_status"
 var status_id_debuff : String = "unsteady_status"
-var debuff_stacks : int = 1
+var debuff_stacks : int = 2
 var might_stacks : int = 4
 var id : String = "runebear_enemy"
 
@@ -20,14 +20,14 @@ func _init(data):
 				return ArmorAmplificationStatusEffect.new(status_id_debuff, 
 				debuff_stacks, ArmorAmplificationStatusEffect.unsteady_percent_bonus))
 	)
-	moveset.add_move(ArmorAttackActorPremove.new(70, id, self, 70))
 	moveset.add_move(ArmorAttackActorPremove.new(110, id, self, 110))
+	moveset.add_move(DefendActorPremove.new(210, self))
 	moveset.add_move(CompositeActorPremove.new(self, [
 		BuffActorPremove.new(might_stacks, id, self,
 		func(t): 
 				return FlatDamageBonusStatusEffect.new(status_id_buff, 
 				might_stacks)),
-		DefendActorPremove.new(70, self)
+		DefendActorPremove.new(110, self)
 		])
 	)
 	

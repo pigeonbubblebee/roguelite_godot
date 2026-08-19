@@ -11,6 +11,8 @@ var texture : Texture2D
 var description : String
 var is_weapon : bool
 
+var current_status : StatusEffect
+
 const SCRIPT_PATH := "res://script/status_effects/item_effect/"
 
 func _init(_id : String):
@@ -47,11 +49,20 @@ func on_battle_start(context: BattleContext, controller: BattleController) -> vo
 	if not _item_id:
 		return
 		
-	controller.battle_started.connect(func(): apply_item_status(context, controller))
+	controller.battle_started.connect(func(): trigger_battle_start(context, controller))
+	
+func trigger_battle_start(context: BattleContext, controller: BattleController):
+	#print(current_status)
+	if current_status:
+		current_status.on_battle_start(context, controller)
 	
 func apply_item_status(context, controller):
+	#print("apply")
 	var effect = create_status(context, controller)
 	if not effect:
 		return
+		
+	current_status = effect
+	#print(current_status)
 	var ctx = StatusEffectApplicationContext.new(context.get_player(), effect, self)
 	controller.apply_status(ctx)

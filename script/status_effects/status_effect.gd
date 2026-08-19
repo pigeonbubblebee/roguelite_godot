@@ -42,6 +42,7 @@ func on_apply(_context: BattleContext, _controller: BattleController):
 	_battle_context.get_ref().event_bus.armor_applied.connect(armor_applied)
 	_battle_context.get_ref().event_bus.turn_ended.connect(on_turn_end)
 	_battle_context.get_ref().event_bus.turn_started.connect(on_turn_start)
+	_battle_context.get_ref().event_bus.turn_started_after_action.connect(on_turn_started_after_action)
 	_battle_context.get_ref().event_bus.actor_died.connect(on_actor_died)
 	_battle_context.get_ref().event_bus.on_card_played.connect(on_card_played)
 	_battle_context.get_ref().event_bus.modifier_applied.connect(modifier_applied)
@@ -58,6 +59,7 @@ func cleanup():
 	_battle_context.get_ref().event_bus.armor_applied.disconnect(armor_applied)
 	_battle_context.get_ref().event_bus.turn_ended.disconnect(on_turn_end)
 	_battle_context.get_ref().event_bus.turn_started.disconnect(on_turn_start)
+	_battle_context.get_ref().event_bus.turn_started_after_action.disconnect(on_turn_started_after_action)
 	_battle_context.get_ref().event_bus.actor_died.disconnect(on_actor_died)
 	_battle_context.get_ref().event_bus.on_card_played.disconnect(on_card_played)
 	_battle_context.get_ref().event_bus.modifier_applied.disconnect(modifier_applied)
@@ -104,6 +106,9 @@ func armor_applied(_context: ArmorGainContext, battle_context: BattleContext, co
 	pass
 	
 func on_actor_died(actor: Actor, context: BattleContext, controller: BattleController):
+	pass
+	
+func on_turn_started_after_action(actor: Actor, battle_context: BattleContext, controller: BattleController):
 	pass
 	
 func on_turn_end(actor: Actor, battle_context: BattleContext, controller: BattleController):

@@ -11,5 +11,5 @@ name = "OrcVanguardEnemy"
 icon_texture = ExtResource("2_60n2k")
 actor_script = ExtResource("1_ri5f3")
 ui_scene = ExtResource("4_uwi38")
-max_health = 260
+max_health = 360
 metadata/_custom_type_script = "uid://cbexi743s5vth"

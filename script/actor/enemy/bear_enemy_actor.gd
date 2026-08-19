@@ -7,7 +7,7 @@ var status_id_buff : String = "might_status"
 var status_id_debuff_one : String = "weakened_status"
 var status_id_debuff_two : String = "unsteady_status"
 var debuff_stacks : int = 1
-var might_stacks : int = 2
+var might_stacks : int = 4
 
 func _init(data):
 	super._init(data)
@@ -29,7 +29,7 @@ func _init(data):
 				debuff_stacks, ArmorAmplificationStatusEffect.unsteady_percent_bonus))
 		])
 	)
-	moveset.add_move(AttackActorPremove.new(110, "bear_enemy", self))
+	moveset.add_move(AttackActorPremove.new(140, "bear_enemy", self))
 	moveset.add_move((BuffActorPremove.new(might_stacks, "bear_enemy", self,
 		func(t): 
 				return FlatDamageBonusStatusEffect.new(status_id_buff, 

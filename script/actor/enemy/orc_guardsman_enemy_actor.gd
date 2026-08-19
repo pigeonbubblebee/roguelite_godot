@@ -8,7 +8,7 @@ var id : String = "orc_guardsman_enemy"
 func _init(data):
 	super._init(data)
 	
-	moveset.add_move(DefendActorPremove.new(50, self))
+	moveset.add_move(DefendActorPremove.new(60, self))
 	moveset.add_move(DefendActorPremove.new(70, self))
 	moveset.add_move(ArmorAttackActorPremove.new(60, id, self, 60))
 

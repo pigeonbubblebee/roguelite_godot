@@ -6,7 +6,7 @@ var status_id = "rage_status"
 func get_is_turn_based() -> bool:
 	return false
 
-func on_turn_start(actor: Actor, context: BattleContext, controller: BattleController):
+func on_turn_started_after_action(actor: Actor, context: BattleContext, controller: BattleController):
 	if not actor == _owner:
 		return
 		

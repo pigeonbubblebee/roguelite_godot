@@ -19,8 +19,8 @@ func _init(data):
 				return DamageAmplificationStatusEffect.new(status_id, 
 				status_turns, DamageAmplificationStatusEffect.weakened_percent_bonus)))
 	moveset.add_first_move(first_move)		
-	moveset.add_move(AttackActorPremove.new(30, id, self))
-	moveset.add_move(AttackActorPremove.new(40, id, self))
+	moveset.add_move(AttackActorPremove.new(50, id, self))
+	moveset.add_move(AttackActorPremove.new(60, id, self))
 	moveset.add_move((BuffActorPremove.new(might_stacks, id, self,
 		func(t): 
 				return FlatDamageBonusStatusEffect.new(status_id_buff, 

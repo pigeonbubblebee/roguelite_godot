@@ -7,7 +7,7 @@ var status_id : String = "weakened_status"
 var status_turns : int = 2
 var id : String = "demi_human_chief_enemy"
 var status_id_buff : String = "might_status"
-var might_stacks : int = 1
+var might_stacks : int = 2
 
 func _init(data):
 	super._init(data)

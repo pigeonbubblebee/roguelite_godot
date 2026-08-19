@@ -15,6 +15,11 @@ signal items_updated(cards : Array)
 var weapons : Dictionary = {}
 signal weapons_updated(cards : Array)
 
+var price_range = Vector2i(40, 50)
+var rare_price_range = Vector2i(55, 65)
+var item_price_range = Vector2i(65, 75)
+var weapon_price_range = Vector2i(95, 105)
+
 func _init() -> void:
 	reward_handler = RewardHandler.new()
 	reward_handler.player_data_change_request.connect(
@@ -37,11 +42,6 @@ func generate_rewards():
 	var ctx = BattleWonContext.new()
 	ctx.added_rare_pool_chance = 4
 	var keys = reward_manager.generate_card_rewards(ctx, 8)
-	var price_range = Vector2i(40, 50)
-	var rare_price_range = Vector2i(50, 60)
-	
-	var item_price_range = Vector2i(45, 55)
-	var weapon_price_range = Vector2i(65, 75)
 	
 	for key in keys:
 		var card = key["SCRIPT"].new(key["CARD_ID"])

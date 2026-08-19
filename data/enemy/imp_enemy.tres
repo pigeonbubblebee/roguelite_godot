@@ -11,4 +11,4 @@ name = "ImpEnemy"
 icon_texture = ExtResource("2_caddc")
 actor_script = ExtResource("1_rtfau")
 ui_scene = ExtResource("4_ht3eo")
-max_health = 225
+max_health = 250

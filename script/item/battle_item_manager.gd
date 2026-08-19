@@ -23,6 +23,11 @@ func initialize_items(context: BattleContext, controller:BattleController):
 		item_instance.on_battle_start(context, controller)
 	
 	_weapon.on_battle_start(context, controller)
+	
+	for item_instance in _items:
+		item_instance.apply_item_status(context, controller)
+		
+	_weapon.apply_item_status(context, controller)
 
 func get_items() -> Array[Item]:
 	return _items

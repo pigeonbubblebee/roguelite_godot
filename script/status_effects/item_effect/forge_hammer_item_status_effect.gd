@@ -1,6 +1,6 @@
 extends ItemStatusEffect
 
-var damage : int = 40
+var damage : int = 30
 var status_id: String = "daze_status"
 var status_buildup : int = 1
 
