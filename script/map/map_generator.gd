@@ -20,7 +20,7 @@ var critical_path : Array[MapNode]
 var branch_paths : Dictionary = {}
 
 var testing_room := false
-var testing_room_tyoe := MapNode.RoomType.SHOP
+var testing_room_tyoe := MapNode.RoomType.REST
 
 func initialize():
 	generate_map()

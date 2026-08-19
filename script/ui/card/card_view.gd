@@ -34,19 +34,18 @@ func _input(event: InputEvent) -> void:
 	if not scrollable:
 		return
 	
-	if event.is_pressed() and event is InputEventKey and event.keycode == KEY_UP:
-		card_ui_container.global_position += Vector2(0, SCROLL_SPEED)
-		calculate_positions()
-	if event.is_pressed() and event is InputEventKey and event.keycode == KEY_DOWN:
-		card_ui_container.global_position += Vector2(0, -SCROLL_SPEED)
-		calculate_positions()
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_UP:
-		card_ui_container.global_position += Vector2(0, SCROLL_SPEED)
-		calculate_positions()
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-		card_ui_container.global_position += Vector2(0, -SCROLL_SPEED)
-		calculate_positions()
-		
+	if event.is_pressed() and event is InputEventKey:
+		if event.keycode == KEY_UP:
+			scroll(SCROLL_SPEED)
+		elif event.keycode == KEY_DOWN:
+			scroll(-SCROLL_SPEED)
+	
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			scroll(SCROLL_SPEED)
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			scroll(-SCROLL_SPEED)
+	
 	if event.is_pressed() and event is InputEventKey and event.keycode == KEY_K:
 		card_view_ui.visible = not card_view_ui.visible
 		
@@ -106,16 +105,50 @@ func calculate_positions():
 		
 		card_ui.drag_original_position = card_ui.hover_base_position
 		
-		card_ui.change_state(card_ui.idle_state)
+		if card_ui.current_card_state != card_ui.selected_state:
+			card_ui.change_state(card_ui.idle_state)
 		
 		if card_ui.hover_tween:
 			card_ui.hover_tween.kill()
 		
 		card_ui.hover_base_position = position
-		card_ui.global_position = position
+		
+		# Keep selected cards at their selected offset.
+		if card_ui.current_card_state == card_ui.selected_state:
+			card_ui.global_position = position + card_ui.selected_offset
+		else:
+			card_ui.global_position = position
 	
 func clear_ui():
 	for card in cards_ui_array:
 		card.queue_free()
 		
 	cards_ui_array.clear()
+	
+func get_min_scroll_y() -> float:
+	var total_rows = ceil(float(cards_ui_array.size()) / float(columns))
+	var content_height = total_rows * v_spacing - (v_spacing - card_size.y)
+	
+	var view_bottom = card_view_ui.global_position.y + card_view_ui.size.y
+	
+	return view_bottom - content_height
+
+
+func get_max_scroll_y() -> float:
+	return card_view_ui.global_position.y - 50
+	
+func scroll(amount: float) -> void:
+	var min_y := get_min_scroll_y()
+	var max_y := get_max_scroll_y()
+	
+	# Don't scroll if all cards already fit inside the view.
+	if min_y > max_y:
+		min_y = max_y
+	
+	card_ui_container.global_position.y = clamp(
+		card_ui_container.global_position.y + amount,
+		min_y,
+		max_y
+	)
+	
+	calculate_positions()

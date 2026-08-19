@@ -1,0 +1,323 @@
+[gd_scene format=3 uid="uid://bl0mimko27rgk"]
+
+[ext_resource type="Script" uid="uid://ljfgc5xxiuao" path="res://script/rest_scene.gd" id="1_hqsux"]
+[ext_resource type="Texture2D" uid="uid://bdwgsps7msohv" path="res://assets/Background.png" id="2_hqsux"]
+[ext_resource type="Script" uid="uid://c1iejnsehgbyd" path="res://script/ui/ui_button.gd" id="3_gmoh5"]
+[ext_resource type="Texture2D" uid="uid://drmy86yxmbhrm" path="res://assets/ui/fireplace_sprite.png" id="3_ilx2o"]
+[ext_resource type="Texture2D" uid="uid://pmtbvaw8jtdm" path="res://assets/end_turn.png" id="4_ilx2o"]
+[ext_resource type="FontFile" uid="uid://b23c0njeg0avg" path="res://data/PixelPurl8x8 (1).ttf" id="5_epgi0"]
+[ext_resource type="Script" uid="uid://bre52ldoo35bh" path="res://script/ui/card/card_view.gd" id="6_62hhf"]
+[ext_resource type="PackedScene" uid="uid://prnhw6kneqmu" path="res://scenes/card.tscn" id="7_dcy2q"]
+[ext_resource type="PackedScene" uid="uid://q3irvst4v0hu" path="res://scenes/map/hud.tscn" id="8_cukpn"]
+[ext_resource type="Texture2D" uid="uid://bga5pxyite2ig" path="res://assets/bar.png" id="9_hqsux"]
+[ext_resource type="Script" uid="uid://bj1nnj552ytgq" path="res://script/ui/tooltip/tooltip_manager.gd" id="10_gmoh5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gmoh5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cmsra"]
+
+[node name="rest_scene" type="Node2D" unique_id=463102670]
+texture_filter = 1
+script = ExtResource("1_hqsux")
+exit_button_path = NodePath("CanvasLayer/exit_battle_button")
+heal_button_path = NodePath("CanvasLayer/heal_button")
+remove_button_path = NodePath("CanvasLayer/remove_button")
+card_view_ui_path = NodePath("CanvasLayer/card_view_ui")
+_confirm_reward_button_path = NodePath("CanvasLayer/card_view_ui/exit_battle_button")
+hud_path = NodePath("CanvasLayer/HUD")
+
+[node name="background" type="Sprite2D" parent="." unique_id=441851387]
+z_index = -2
+scale = Vector2(64, 36)
+texture = ExtResource("2_hqsux")
+
+[node name="background2" type="Sprite2D" parent="." unique_id=764363894]
+z_index = -2
+position = Vector2(0, 46)
+texture = ExtResource("3_ilx2o")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=951225142]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1445104544]
+
+[node name="exit_battle_button" type="Control" parent="CanvasLayer" unique_id=1894242421]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = 288.0
+offset_top = 314.0
+offset_right = 352.0
+offset_bottom = 346.0
+script = ExtResource("3_gmoh5")
+
+[node name="texture" type="TextureRect" parent="CanvasLayer/exit_battle_button" unique_id=152390885]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ilx2o")
+
+[node name="Label" type="Label" parent="CanvasLayer/exit_battle_button/texture" unique_id=1297823330]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_epgi0")
+text = "Exit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=2092391705]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 39.0
+offset_right = 320.0
+offset_bottom = 62.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_epgi0")
+text = "Rest"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=1162809374]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 83.0
+offset_right = 320.0
+offset_bottom = 106.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_epgi0")
+text = "OR"
+horizontal_alignment = 1
+
+[node name="heal_button" type="Control" parent="CanvasLayer" unique_id=1766514440]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = 180.0
+offset_top = 78.0
+offset_right = 300.0
+offset_bottom = 110.0
+script = ExtResource("3_gmoh5")
+
+[node name="texture" type="TextureRect" parent="CanvasLayer/heal_button" unique_id=832915890]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hqsux")
+
+[node name="Label" type="Label" parent="CanvasLayer/heal_button/texture" unique_id=1485144979]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("5_epgi0")
+text = "Heal 200 HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="borders" type="NinePatchRect" parent="CanvasLayer/heal_button/texture" unique_id=1324138762]
+material = SubResource("CanvasItemMaterial_gmoh5")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_hqsux")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="remove_button" type="Control" parent="CanvasLayer" unique_id=197193955]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = 340.0
+offset_top = 78.0
+offset_right = 460.0
+offset_bottom = 110.0
+script = ExtResource("3_gmoh5")
+
+[node name="texture" type="TextureRect" parent="CanvasLayer/remove_button" unique_id=758518555]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hqsux")
+
+[node name="Label" type="Label" parent="CanvasLayer/remove_button/texture" unique_id=1824954310]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("5_epgi0")
+text = "Remove a Card"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="borders" type="NinePatchRect" parent="CanvasLayer/remove_button/texture" unique_id=2028102203]
+material = SubResource("CanvasItemMaterial_gmoh5")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_hqsux")
+region_rect = Rect2(0, 0, 32, 32)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="HUD" parent="CanvasLayer" unique_id=1590885326 instance=ExtResource("8_cukpn")]
+texture_filter = 1
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+mouse_filter = 2
+
+[node name="tooltip_manager" parent="CanvasLayer/HUD" index="8" unique_id=1946877231]
+process_mode = 4
+visible = false
+
+[node name="card_view_ui" type="Control" parent="CanvasLayer" unique_id=1613388384]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 320.0
+offset_top = 180.0
+offset_right = 360.0
+offset_bottom = 220.0
+mouse_filter = 2
+script = ExtResource("6_62hhf")
+_ui_path = NodePath(".")
+card_ui_scene = ExtResource("7_dcy2q")
+_card_ui_container_path = NodePath("card_ui_container2/card_ui_container")
+scrollable = true
+
+[node name="background" type="Control" parent="CanvasLayer/card_view_ui" unique_id=1288287761]
+anchors_preset = 0
+offset_left = -320.0
+offset_top = -180.0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="background" type="TextureRect" parent="CanvasLayer/card_view_ui/background" unique_id=951824145]
+modulate = Color(1, 1, 1, 0.545098)
+material = SubResource("CanvasItemMaterial_cmsra")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("2_hqsux")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/card_view_ui/background" unique_id=387554651]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -194.0
+offset_top = 86.0
+offset_right = 194.0
+offset_bottom = 109.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_epgi0")
+text = "Remove a Card"
+horizontal_alignment = 1
+
+[node name="card_ui_container2" type="Control" parent="CanvasLayer/card_view_ui" unique_id=505056807]
+clip_contents = true
+anchors_preset = 0
+offset_left = -320.0
+offset_top = -80.0
+offset_right = 320.0
+offset_bottom = 179.0
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="card_ui_container" type="Control" parent="CanvasLayer/card_view_ui/card_ui_container2" unique_id=1067060598]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="exit_battle_button" type="Control" parent="CanvasLayer/card_view_ui" unique_id=718709371]
+anchors_preset = 0
+offset_left = -32.0
+offset_top = 134.0
+offset_right = 32.0
+offset_bottom = 166.0
+script = ExtResource("3_gmoh5")
+
+[node name="texture" type="TextureRect" parent="CanvasLayer/card_view_ui/exit_battle_button" unique_id=1881058857]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ilx2o")
+
+[node name="Label" type="Label" parent="CanvasLayer/card_view_ui/exit_battle_button/texture" unique_id=1794210022]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_epgi0")
+text = "Confirm"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="tooltip_manager" type="Node2D" parent="CanvasLayer" unique_id=295769595]
+script = ExtResource("10_gmoh5")
+use_canvas_layer = true
+
+[editable path="CanvasLayer/HUD"]

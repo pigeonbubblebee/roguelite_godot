@@ -10,6 +10,7 @@ extends Node
 @export var transition_scene: PackedScene
 @export var treasure_scene: PackedScene
 @export var shop_scene: PackedScene
+@export var rest_scene : PackedScene
 
 #######################
 ##### PLAYER DATA #####
@@ -136,6 +137,21 @@ func load_shop() -> void:
 	else:
 		controller.set_rewards(shop_data)
 
+func load_rest() -> void:
+	var rest_instance := rest_scene.instantiate() as RestScene
+	add_child(rest_instance)
+	_current_scene = rest_instance
+
+	var controller := RestController.new()
+
+	controller.bind_player_data(player_data)
+	rest_instance.bind_controller(controller)
+
+	rest_instance.exit_requested.connect(on_rest_exit)
+	controller.player_data_change_request.connect(apply_player_data_change)
+
+	rest_instance.bind_game_manager(self)
+	
 ######################
 ##### TRANSITION #####
 ######################
@@ -167,6 +183,10 @@ func process_room_enter(room: MapNode) -> void:
 	if room.type == MapNode.RoomType.SHOP:
 		_enter_shop_room()
 		return
+		
+	if room.type == MapNode.RoomType.REST:
+		_enter_rest_room()
+		return
 
 	if _is_battle_room(room.type):
 		_enter_battle_room(room)
@@ -191,6 +211,13 @@ func _enter_shop_room() -> void:
 	transition(func():
 		_current_scene.queue_free()
 		load_shop()
+	)
+
+func _enter_rest_room() -> void:
+	_current_scene.movement_enabled = false
+	transition(func():
+		_current_scene.queue_free()
+		load_rest()
 	)
 
 func _enter_battle_room(room: MapNode) -> void:
@@ -258,6 +285,18 @@ func on_treasure_exit(treasure_done) -> void:
 		_current_scene.queue_free()
 
 		if treasure_done:
+			_current_map_controller.finish_current_node()
+
+		load_map(false)
+	)
+	
+func on_rest_exit(rest_done) -> void:
+	# TODO: Make a global function for processing node clears
+	#       for all node types.
+	transition(func():
+		_current_scene.queue_free()
+
+		if rest_done:
 			_current_map_controller.finish_current_node()
 
 		load_map(false)
