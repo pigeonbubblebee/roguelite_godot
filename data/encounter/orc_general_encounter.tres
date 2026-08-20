@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EncounterData" format=3 uid="uid://cngig3fro6rbk"]
+
+[ext_resource type="Script" uid="uid://cbexi743s5vth" path="res://script/actor/actor_data.gd" id="1_fuixh"]
+[ext_resource type="Resource" uid="uid://cdrj8c61carnb" path="res://data/enemy/orc_general_enemy.tres" id="2_4boe1"]
+[ext_resource type="Script" uid="uid://bsgscmar6ilnf" path="res://script/encounter_data.gd" id="2_b02ue"]
+
+[resource]
+script = ExtResource("2_b02ue")
+enemies = Array[ExtResource("1_fuixh")]([ExtResource("2_4boe1")])
+metadata/_custom_type_script = "uid://bsgscmar6ilnf"

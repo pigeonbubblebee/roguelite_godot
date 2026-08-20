@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ActorData" format=3 uid="uid://cdrj8c61carnb"]
+
+[ext_resource type="Script" uid="uid://dpwy1gil1vsmv" path="res://script/actor/enemy/orc_general_enemy_actor.gd" id="1_71qdu"]
+[ext_resource type="Texture2D" uid="uid://cexnsksr5xd2j" path="res://assets/wolf_icon.png" id="2_6qnpl"]
+[ext_resource type="Script" uid="uid://cbexi743s5vth" path="res://script/actor/actor_data.gd" id="3_ds7us"]
+[ext_resource type="PackedScene" uid="uid://c06d53dvbjn5m" path="res://scenes/ui/actor/enemy/orc_general_actor.tscn" id="4_sryn5"]
+
+[resource]
+script = ExtResource("3_ds7us")
+name = "General Borbsnop"
+icon_texture = ExtResource("2_6qnpl")
+actor_script = ExtResource("1_71qdu")
+ui_scene = ExtResource("4_sryn5")
+max_health = 1900
+metadata/_custom_type_script = "uid://cbexi743s5vth"

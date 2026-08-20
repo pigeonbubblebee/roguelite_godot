@@ -430,9 +430,11 @@ func apply_status(context: StatusEffectApplicationContext):
 	_battle_context.event_bus.before_status_applied.emit(context, _battle_context, self)
 	context.actor.apply_status(context.status, _battle_context, self)
 	
-	premove_refresh.emit(self, _battle_context)
+	request_premove_refresh()
 	_battle_context.event_bus.status_applied.emit(context, _battle_context, self)
 		
+func request_premove_refresh():
+	premove_refresh.emit(self, _battle_context)
 	
 func draw_card(amt: int = 1):
 	for i in range(amt):
@@ -449,6 +451,7 @@ func shuffle_card_to_deck(card_id : String, amt : int = 1):
 		var card = _hand_manager.init_card_script_from_id(card_id)
 		card.bind_event_bus(_battle_context.event_bus)
 		_hand_manager.shuffle_card_to_deck(card)
+		_battle_context.event_bus.on_card_added_to_deck.emit(card, _battle_context, self)
 		
 func discard_card(card: Card):
 	_hand_manager.discard_card(card)

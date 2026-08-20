@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5waqv60nqmog"
-path="res://.godot/imported/boss_icon.png-5ddf447f4920417058a89286fcd7a04e.ctex"
+uid="uid://dlrgwkvyoug2v"
+path="res://.godot/imported/orc_general_sprite.png-636345f6c80a5adac0c90fc5710c6b09.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/map/room_icons/boss_icon.png"
-dest_files=["res://.godot/imported/boss_icon.png-5ddf447f4920417058a89286fcd7a04e.ctex"]
+source_file="res://assets/ui/actor_sprites/orc_general_sprite.png"
+dest_files=["res://.godot/imported/orc_general_sprite.png-636345f6c80a5adac0c90fc5710c6b09.ctex"]
 
 [params]
 

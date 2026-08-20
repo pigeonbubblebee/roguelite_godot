@@ -179,3 +179,10 @@ func deselect_card(card):
 		return
 	
 	current_card_selection_context.selected_cards.erase(card)
+	
+func get_all_cards_in_play() -> Array[Card]:
+	var all_cards: Array[Card] = []
+	all_cards.append_array(hand)
+	all_cards.append_array(discard_pile)
+	all_cards.append_array(deck)
+	return all_cards

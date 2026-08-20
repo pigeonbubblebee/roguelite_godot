@@ -4,14 +4,17 @@ extends RefCounted
 var encounter_pool: Array[EncounterData]
 var encounter_candidates : Array[EncounterData]
 var encounter_candidates_elite : Array[EncounterData]
+var encounter_candidates_boss : Array[EncounterData]
 var encounter_pool_easy : Array[EncounterData]
 var encounter_pool_elite : Array[EncounterData]
+var encounter_pool_boss : Array[EncounterData]
 var max_easy_pools : int
 var current_easy_pools : int = 0
 
 func load_floor_data(data : MapFloorData):
 	encounter_pool = data.encounter_pool
 	encounter_pool_easy = data.encounter_pool_easy
+	encounter_pool_boss = data.encounter_pool_boss
 	max_easy_pools = data.max_easy_pools
 	encounter_pool_elite = data.encounter_pool_elite
 
@@ -41,5 +44,15 @@ func load_encounter_elite() -> EncounterData:
 	
 	var result = encounter_candidates_elite.pick_random()
 	encounter_candidates_elite.erase(result)
+
+	return result
+	
+func load_encounter_boss() -> EncounterData:
+	if encounter_candidates_boss.size() == 0:
+		for e in encounter_pool_boss:
+			encounter_candidates_boss.append(e)
+	
+	var result = encounter_candidates_boss.pick_random()
+	encounter_candidates_boss.erase(result)
 
 	return result

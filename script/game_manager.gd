@@ -197,6 +197,7 @@ func _is_battle_room(room_type: MapNode.RoomType) -> bool:
 		room_type == MapNode.RoomType.COMBAT
 		or room_type == MapNode.RoomType.KEY
 		or room_type == MapNode.RoomType.ELITE
+		or room_type == MapNode.RoomType.BOSS
 	)
 
 func _enter_treasure_room() -> void:
@@ -241,6 +242,9 @@ func _create_battle_for_room(room: MapNode) -> BattleData:
 
 	if room.type == MapNode.RoomType.ELITE:
 		encounter = _current_floor_manager.load_encounter_elite()
+		
+	if room.type == MapNode.RoomType.BOSS:
+		encounter = _current_floor_manager.load_encounter_boss()
 
 	_add_encounter_actors_to_battle(battle, encounter)
 
@@ -359,8 +363,8 @@ func load_player_data() -> void:
 
 	player_data.weapon = ItemDatabase.get_item("longsword_item")
 	
-	player_data.weapon = ItemDatabase.get_item("forge_hammer_item")
-	player_data.items.append(ItemDatabase.get_item("whetstone_item"))
+	#player_data.weapon = ItemDatabase.get_item("forge_hammer_item")
+	#player_data.items.append(ItemDatabase.get_item("whetstone_item"))
 	#player_data.items.append(
 	#		ItemDatabase.get_item(item.item_id)
 

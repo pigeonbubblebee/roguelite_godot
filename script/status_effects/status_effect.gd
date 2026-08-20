@@ -51,6 +51,7 @@ func on_apply(_context: BattleContext, _controller: BattleController):
 	_battle_context.get_ref().event_bus.before_card_played.connect(before_card_played)
 	_battle_context.get_ref().event_bus.status_applied.connect(status_applied)
 	_battle_context.get_ref().event_bus.before_status_applied.connect(before_status_applied)
+	_battle_context.get_ref().event_bus.on_card_added_to_deck.connect(on_card_added_to_deck)
 	
 func cleanup():
 	_battle_context.get_ref().event_bus.before_damage_dealt.disconnect(before_damage_dealt)
@@ -68,6 +69,7 @@ func cleanup():
 	_battle_context.get_ref().event_bus.before_card_played.disconnect(before_card_played)
 	_battle_context.get_ref().event_bus.status_applied.disconnect(status_applied)
 	_battle_context.get_ref().event_bus.before_status_applied.disconnect(before_status_applied)
+	_battle_context.get_ref().event_bus.on_card_added_to_deck.disconnect(on_card_added_to_deck)
 	
 func card_cost_request(ctx: CardCostRequestContext):
 	pass
@@ -88,6 +90,9 @@ func on_card_played(card: Card, context: BattleContext, controller: BattleContro
 	pass
 	
 func before_card_played(card: Card, context: BattleContext, controller: BattleController):
+	pass
+	
+func on_card_added_to_deck(card: Card, context: BattleContext, controller: BattleController):
 	pass
 
 func stacks_updated(_context: BattleContext, _controller: BattleController):

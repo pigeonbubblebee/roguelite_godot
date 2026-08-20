@@ -15,6 +15,7 @@ signal armor_applied(ctx: ArmorGainContext, context: BattleContext, controller: 
 signal on_armor_reset_request(ctx: ArmorResetContext, context: BattleController, controller: BattleController)
 
 signal on_card_discarded(card : Card, context: BattleContext, controller: BattleController)
+signal on_card_added_to_deck(card : Card, context: BattleContext, controller: BattleController)
 
 signal on_card_played(card : Card, context: BattleContext, controller: BattleController)
 signal before_card_played(card : Card, context: BattleContext, controller: BattleController)

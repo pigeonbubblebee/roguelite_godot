@@ -1430,7 +1430,7 @@
     },
     "sharpen": {
       "KEYWORD_NAME": "Sharpen",
-      "DESCRIPTION": "Deals 30% more damage for each time its been sharpened this combat."
+      "DESCRIPTION": "Deals 25% more damage for each time its been sharpened this combat."
     },
     "unsteady": {
       "KEYWORD_NAME": "Unsteady",
@@ -1614,6 +1614,12 @@
       "STATUS_NAME": "Invigorate",
       "ICON_TYPE": "general_buff",
       "DESCRIPTION": "Whenever you play a card with base cost 2 or more, gain 40 ARMOR and 1 EMPOWERED.",
+      "STATUS_TYPE": "Buff"
+    },
+    "grievous_wounds_status": {
+      "STATUS_NAME": "Grievous Wounds",
+      "ICON_TYPE": "general_buff",
+      "DESCRIPTION": "Deal {10*STACKS} additional flat damage for each WOUND in your deck.",
       "STATUS_TYPE": "Buff"
     }
   }
