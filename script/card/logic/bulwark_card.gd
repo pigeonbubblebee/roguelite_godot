@@ -1,7 +1,7 @@
 class_name BulwarkCard
 extends Card
 
-var armor : int = 75
+var armor : int = 120
 
 func play(context: BattleContext, controller: BattleController):
 	super.play(context, controller)
@@ -14,12 +14,12 @@ func play(context: BattleContext, controller: BattleController):
 		.armor(context.get_player(), armor)\
 		.enqueue()
 
-func on_discard(context: BattleContext, controller: BattleController):
-	super.on_discard(context, controller)
+#func on_discard(context: BattleContext, controller: BattleController):
+#	super.on_discard(context, controller)
 	
-	var fua = CardPlayFollowUp.new(play, self.id)
+#	var fua = CardPlayFollowUp.new(play, self.id)
 	
-	fua.execute(context, controller)	
+#	fua.execute(context, controller)	
 
 func get_buff_target_index(total_targets: int) -> Array[int]:
 	return get_index_buff_single_target(total_targets)

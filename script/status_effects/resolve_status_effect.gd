@@ -1,4 +1,4 @@
-class_name FortitudeStatusEffect
+class_name ResolveStatusEffect
 extends StatusEffect
 
 func _init(id: String, _stacks: int = 1):

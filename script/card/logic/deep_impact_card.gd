@@ -11,7 +11,7 @@ func build_sequence(context: BattleContext, controller: BattleController, previe
 	var amt = status_buildup
 	
 	for s in target.get_status_manager().get_active_status():
-		if s.id == "daze_status":
+		if s.get_status_id() == "daze_status":
 			amt += additional_status_buildup
 
 	var effect = DazeStatusEffect.new(status_id, context.get_player(), amt)

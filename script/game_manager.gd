@@ -30,6 +30,7 @@ signal player_data_updated(data: PlayerData)
 @export var test_encounter: EncounterData
 @export var test_character: StartingCharacter
 @export var test_floor: MapFloorData
+@export var testing_cards : bool = true
 
 #########################
 ##### CURRENT STATE #####
@@ -354,17 +355,25 @@ func load_player_data() -> void:
 	for card in test_character.starting_deck:
 		player_data.deck.append(
 			CardDatabase.get_card(card.card_id)
-	)
+		)
 	
 	for item in test_character.starting_items:
 		player_data.items.append(
 			ItemDatabase.get_item(item.item_id)
-	)
+		)
 
 	player_data.weapon = ItemDatabase.get_item("longsword_item")
 	
-	#player_data.weapon = ItemDatabase.get_item("forge_hammer_item")
-	#player_data.items.append(ItemDatabase.get_item("whetstone_item"))
+	if testing_cards:
+		for card in CardDatabase.get_all_valid_cards():
+			if not card["NOT_DRAFTABLE"]:
+				player_data.deck.append(
+					card
+				)
+
+	
+	#player_data.weapon = ItemDatabase.get_item("crushing_gauntlets_item")
+	#player_data.items.append(ItemDatabase.get_item("battle_horn_item"))
 	#player_data.items.append(
 	#		ItemDatabase.get_item(item.item_id)
 

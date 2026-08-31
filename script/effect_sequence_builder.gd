@@ -334,11 +334,12 @@ func modify_cards(
 	
 
 func add_card_to_hand(
-	id : String = "strike_card" # Change Default to smth else
+	id : String = "strike_card", # Change Default to smth else
+	amount : int = 1
 )  -> EffectSequenceBuilder:
 	return step(
 		null,
-		func(): controller.add_card_to_hand(id)
+		func(): controller.add_card_to_hand(id, amount)
 	)
 	
 func move_card_to_hand(

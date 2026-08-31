@@ -10,7 +10,7 @@ func play(context: BattleContext, controller: BattleController):
 
 	var player = context.get_player()
 	var custom_action = BattleRuntimeHelper.generate_basic_defense_action(context)
-	var effect = FortitudeStatusEffect.new(status_id, 
+	var effect = ResolveStatusEffect.new(status_id, 
 		status_stacks)
 		
 	EffectSequenceBuilder.new(context, controller)\

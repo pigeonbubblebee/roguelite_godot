@@ -27,7 +27,13 @@ func _ready() -> void:
 	pass
 	
 func draw_to_max():
-	var card_count = max_hand_size - hand.size()
+	var hand_size = hand.size()
+	
+	for card in hand:
+		if not card.get_takes_max_hand_space():
+			hand_size -= 1	
+	
+	var card_count = max_hand_size - hand_size
 	if card_count < 0:
 		card_count = 0
 	draw_from_top(card_count)

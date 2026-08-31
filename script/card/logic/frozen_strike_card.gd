@@ -13,7 +13,7 @@ func play(context: BattleContext, controller: BattleController):
 	var target = context.get_selected_enemy()
 	
 	var player = context.get_player()
-	var effect = FortitudeStatusEffect.new(status_id, 
+	var effect = ResolveStatusEffect.new(status_id, 
 		status_stacks)
 	
 	EffectSequenceBuilder.new(context, controller)\

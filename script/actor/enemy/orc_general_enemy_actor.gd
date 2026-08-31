@@ -2,7 +2,7 @@ extends EnemyActor
 
 var fixed_speed_temp = 99
 
-var wound_amount : int = 2
+var wound_amount : int = 4
 var wound_id : String = "gash_card"
 
 var id : String = "orc_general_enemy"

@@ -72,6 +72,7 @@ func play(context: BattleContext, controller: BattleController):
 	build_sequence(context, controller).enqueue()
 	pass
 	
+# preview field is for if its a dmg preview or a armor preview or something	
 func build_sequence(context: BattleContext, controller: BattleController, preview: bool = false) -> EffectSequenceBuilder:
 	return null
 	
@@ -191,6 +192,9 @@ func get_base_cost() -> int:
 	return _cost
 	
 func display_cost() -> bool:
+	return true
+	
+func get_takes_max_hand_space() -> bool:
 	return true
 
 # Callable by subclass

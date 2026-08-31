@@ -2,7 +2,7 @@ class_name ArmorAmplificationStatusEffect
 extends StatusEffect
 
 var armor_percent_bonus
-static var sturdy_percent_bonus = 0.25
+static var fortitude_percent_bonus = 0.25
 static var unsteady_percent_bonus = -0.25
 
 # empowered by default

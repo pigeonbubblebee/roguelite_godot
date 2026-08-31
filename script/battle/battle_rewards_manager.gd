@@ -4,7 +4,7 @@ extends RefCounted
 var current_items : Array
 var current_weapon
 
-func generate_card_rewards(ctx, amount := 3) -> Array:
+func generate_card_rewards(ctx, amount := 4) -> Array:
 	var pool = CardDatabase.get_all_valid_cards()
 	var c_pool = pool.filter(func(dict):
 		return dict["RARITY"] == "COMMON" and (not dict["NOT_DRAFTABLE"])
@@ -34,7 +34,7 @@ func generate_card_rewards(ctx, amount := 3) -> Array:
 
 	return reward_pool
 
-func generate_item_rewards(ctx) -> Array:
+func generate_item_rewards(ctx, amt := 3) -> Array:
 	var pool = ItemDatabase.get_all_valid_items()
 	var filtered_pool = pool.filter(func(dict): 
 		var contains := false
@@ -44,9 +44,9 @@ func generate_item_rewards(ctx) -> Array:
 		return (not contains) and (not dict["NOT_DRAFTABLE"]) and (not dict["WEAPON"])
 	)
 	filtered_pool.shuffle()
-	return filtered_pool.slice(0, 3)
+	return filtered_pool.slice(0, amt)
 
-func generate_weapon_rewards(ctx) -> Array:
+func generate_weapon_rewards(ctx, amt := 3) -> Array:
 	var pool = ItemDatabase.get_all_valid_items()
 	var filtered_pool = pool.filter(func(dict): 
 		return ((not current_weapon["ITEM_ID"] == dict["ITEM_ID"]) 
@@ -54,7 +54,7 @@ func generate_weapon_rewards(ctx) -> Array:
 				and (dict["WEAPON"]))
 	)
 	filtered_pool.shuffle()
-	return filtered_pool.slice(0, 3)
+	return filtered_pool.slice(0, amt)
 
 func bind_items(arr : Array, weapon):
 	current_items = arr

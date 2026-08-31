@@ -15,6 +15,9 @@ var rage_buff_icon = preload("res://assets/ui/status_icons/rage_buff_icon.png")
 var armor_percent_buff_icon = preload("res://assets/ui/status_icons/armor_percent_buff_icon.png")
 var armor_percent_debuff_icon = preload("res://assets/ui/status_icons/armor_percent_debuff_icon.png")
 var might_buff_icon = preload("res://assets/ui/status_icons/might_buff_icon.png")
+var resolve_buff_icon = preload("res://assets/ui/status_icons/resolve_buff_icon.png")
+var prayer_buff_icon = preload("res://assets/ui/status_icons/prayer_buff_icon.png")
+var blessing_buff_icon = preload("res://assets/ui/status_icons/blessing_buff_icon.png")
 
 var status_icon_scene : PackedScene = preload("res://scenes/status_label.tscn")
 
@@ -34,5 +37,8 @@ var status_texture_map: Dictionary = {
 	"rage_buff": rage_buff_icon,
 	"armor_percent_buff": armor_percent_buff_icon,
 	"armor_percent_debuff": armor_percent_debuff_icon,
-	"might_buff": might_buff_icon
+	"might_buff": might_buff_icon,
+	"resolve_buff": resolve_buff_icon,
+	"prayer_buff": prayer_buff_icon,
+	"blessing_buff": blessing_buff_icon
 }
