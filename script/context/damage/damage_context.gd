@@ -23,6 +23,8 @@ var tags : Array[String]
 var damage_dealt : Dictionary
 var armor_damage_dealt : Dictionary
 
+var critical_chance : float
+
 var is_preview : bool = false
 
 func _init():
@@ -48,6 +50,9 @@ func add_vulnerable(amp: float, target: Actor):
 	else:
 		modifiers.vulnerability_dictionary[target] = amp
 
+func add_critical_chance(chance: float):
+	critical_chance += chance
+
 func get_damage_modifiers() -> DamageModifiers:
 	return modifiers
 	
@@ -57,7 +62,7 @@ func add_tag(tag: String):
 func has_tag(tag: String) -> bool:
 	return tags.has(tag)
 	
-func calculate_damage() -> Dictionary:
+func calculate_damage(preview := false) -> Dictionary:
 	var float_damage = float(damage)
 	var float_blast_damage = float(blast_damage)
 	
@@ -76,6 +81,8 @@ func calculate_damage() -> Dictionary:
 			damage_percent_bonus = modifiers.damage_percent_dictionary[hit_actor]
 		if hit_actor in modifiers.vulnerability_dictionary:
 			vuln_bonus = modifiers.vulnerability_dictionary[hit_actor]
+		if randf() < critical_chance:
+			damage_percent_bonus += 1
 		
 		var final_damage = ((position_damage + flat_damage_bonus) 
 							* (damage_percent_bonus + 1) 

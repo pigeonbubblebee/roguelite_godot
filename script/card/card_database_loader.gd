@@ -93,6 +93,7 @@ func load_cards(path: String):
 		if ResourceLoader.exists(script_path):
 			card["SCRIPT"] = load(script_path)
 		else:
+			card["SCRIPT"] = load("res://script/card/card.gd")
 			push_warning("Missing card script for: " + card_id)
 			
 		# Loads card resource

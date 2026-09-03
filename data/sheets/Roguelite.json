@@ -1181,632 +1181,956 @@
     "strike_card": {
       "STR": null,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "guard_card": {
       "STR": null,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "heavy_slash_card": {
       "STR": 5,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "focus_card": {
       "STR": null,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": 5
+      "FTH": 5,
+      "VIG": null,
+      "DEF": null
     },
     "thrust_card": {
       "STR": 10,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "sundering_strike_card": {
       "STR": 20,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "mighty_armor_card": {
       "STR": 10,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "raging_blow_card": {
       "STR": 20,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "honed_edge_card": {
       "STR": 20,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "intimidate_card": {
       "STR": 10,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "concuss_card": {
       "STR": 10,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "war_armor_card": {
       "STR": 10,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "cleave_card": {
       "STR": 10,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "whet_card": {
       "STR": 20,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "sweeping_wave_card": {
       "STR": 10,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "surging_slash_card": {
       "STR": 30,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "beserkers_fury_card": {
       "STR": 10,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "bash_card": {
       "STR": 40,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "armaments_card": {
       "STR": 30,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "forge_anew_card": {
       "STR": 10,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "blind_rage_card": {
       "STR": 30,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "hardened_blades_card": {
       "STR": 30,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "unyield_card": {
       "STR": 40,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "devastate_card": {
       "STR": 30,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "breaching_shield_card": {
       "STR": 20,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "blast_zone_card": {
       "STR": 10,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "knock_down_card": {
       "STR": 10,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "stagger_card": {
       "STR": 30,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "critical_strike_card": {
       "STR": 30,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "skull_smash_card": {
       "STR": 10,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "deep_impact_card": {
       "STR": 20,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "aggression_card": {
       "STR": 20,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "heavy_axe_card": {
       "STR": 20,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "invigoration_card": {
       "STR": 10,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "grind_card": {
       "STR": 10,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "deaths_call_card": {
       "STR": null,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "gash_card": {
       "STR": null,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "rot_card": {
       "STR": null,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "blessed_shield_card": {
       "STR": null,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": 10
+      "FTH": 10,
+      "VIG": null,
+      "DEF": null
     },
     "grant_me_strength_card": {
       "STR": null,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": 20
+      "FTH": 20,
+      "VIG": null,
+      "DEF": null
     },
     "greater_barrier_card": {
       "STR": null,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": 10
+      "FTH": 10,
+      "VIG": null,
+      "DEF": null
     },
     "ward_card": {
       "STR": null,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": 20
+      "FTH": 20,
+      "VIG": null,
+      "DEF": null
     },
     "bulwark_card": {
       "STR": null,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": 20
+      "FTH": 20,
+      "VIG": null,
+      "DEF": null
     },
     "shield_bash_card": {
       "STR": null,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": 10
+      "FTH": 10,
+      "VIG": null,
+      "DEF": null
     },
     "defiant_blow_card": {
       "STR": null,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": 10
+      "FTH": 10,
+      "VIG": null,
+      "DEF": null
     },
     "angelic_chorus_card": {
       "STR": null,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": 20
+      "FTH": 20,
+      "VIG": null,
+      "DEF": null
     },
     "divine_guard_card": {
       "STR": null,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": 10
+      "FTH": 10,
+      "VIG": null,
+      "DEF": null
     },
     "purify_card": {
       "STR": null,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": 10
+      "FTH": 10,
+      "VIG": null,
+      "DEF": null
     },
     "holy_beam_card": {
       "STR": null,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": 10
+      "FTH": 10,
+      "VIG": null,
+      "DEF": null
     },
     "vivid_strike_card": {
       "STR": null,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": 10
+      "FTH": 10,
+      "VIG": null,
+      "DEF": null
     },
     "smite_card": {
       "STR": null,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": 10
+      "FTH": 10,
+      "VIG": null,
+      "DEF": null
     },
     "whetstone_item": {
       "STR": 5,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "heros_hilt_item": {
       "STR": 5,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "battle_horn_item": {
       "STR": 5,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "heavy_gauntlet_item": {
       "STR": 5,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "kite_shield_item": {
       "STR": 5,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "caltrops_item": {
       "STR": 5,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "stone_hammer_item": {
       "STR": 5,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "potion_of_flame_item": {
       "STR": 5,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "scarlet_feather_item": {
       "STR": 5,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "claymore_item": {
       "STR": 40,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "cloud_smasher_item": {
       "STR": 40,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "bloodied_axe_item": {
       "STR": 40,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "star_fists_item": {
       "STR": 40,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "greatsword_item": {
       "STR": 40,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "forge_hammer_item": {
       "STR": 40,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "bearclaw_item": {
       "STR": 40,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "crushing_gauntlets_item": {
       "STR": 40,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "forgotten_lance_item": {
       "STR": 40,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     },
     "assault_gear_item": {
       "STR": 40,
       "DEX": null,
-      "VIG": null,
-      "DEF": null,
       "INT": null,
       "ARC": null,
-      "FTH": null
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "support_fire_card": {
+      "STR": null,
+      "DEX": 10,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "sleight_of_hand_card": {
+      "STR": null,
+      "DEX": 10,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "discharge_card": {
+      "STR": null,
+      "DEX": 20,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "hidden_slice_card": {
+      "STR": null,
+      "DEX": 20,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "dodge_past_card": {
+      "STR": null,
+      "DEX": 20,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "quick_strike_card": {
+      "STR": null,
+      "DEX": 20,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "weak_spot_card": {
+      "STR": null,
+      "DEX": 10,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "parrying_dagger_card": {
+      "STR": null,
+      "DEX": 10,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "shock_armor_card": {
+      "STR": null,
+      "DEX": 10,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "wild_barrage_card": {
+      "STR": null,
+      "DEX": 10,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "bladed_blow_card": {
+      "STR": null,
+      "DEX": 10,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "uppercut_card": {
+      "STR": null,
+      "DEX": 10,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "magic_missile_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 10,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "mage_armor_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 10,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "eldritch_blast_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 20,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "mana_explosion_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 20,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "divination_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 10,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "arcane_insight_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 10,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "omenshield_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 10,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "abjuration_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 10,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "mages_greatbow_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 10,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "channel_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 20,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "song_of_protection_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 10,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "song_of_war_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 10,
+      "ARC": null,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "bleeding_strike_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 10,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "tear_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 10,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "blood_writing_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 20,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "drain_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 20,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "rancerous_bolt_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 20,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "wicked_blow_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 10,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "bone_shield_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 10,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "miasmic_armor_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 10,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "screech_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 10,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "spiked_guard_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 10,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "taint_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 20,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
+    },
+    "dark_star_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 10,
+      "FTH": null,
+      "VIG": null,
+      "DEF": null
     }
   },
   "ItemFinal": {
