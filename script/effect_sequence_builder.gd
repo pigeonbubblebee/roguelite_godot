@@ -105,7 +105,7 @@ func delay() -> EffectSequenceBuilder:
 func damage(
 	target: Actor,
 	amount: int,
-	damage_type : DamageType.Type = DamageType.Type.PHYSICAL
+	crit_chance : float = 0
 ) -> EffectSequenceBuilder:
 	if target == null:
 		return self
@@ -124,8 +124,7 @@ func damage(
 	if source != "":
 		dmg.source_name = source
 	
-	if damage_type != null:
-		dmg.damage_type = damage_type
+	dmg.damage_type = DamageType.Type.PHYSICAL
 		
 	if _card:
 		dmg.source = _card
@@ -139,6 +138,8 @@ func damage(
 	for tag in _tags:
 		dmg.add_tag(tag)
 		
+	dmg.add_critical_chance(crit_chance)
+		
 	_damage_contexts.append(dmg)
 	
 	return step(
@@ -150,7 +151,7 @@ func multi_damage(
 	targets: Array[Actor],
 	main_damage: int,
 	blast_damage := 0,
-	damage_type : DamageType.Type = DamageType.Type.PHYSICAL,
+	crit_chance : float = 0
 ) -> EffectSequenceBuilder:
 	
 	if targets.is_empty():
@@ -169,8 +170,7 @@ func multi_damage(
 	if source != "":
 		dmg.source_name = source
 	
-	if damage_type != null:
-		dmg.damage_type = damage_type
+	dmg.damage_type = DamageType.Type.PHYSICAL
 		
 	if _card:
 		dmg.source = _card
@@ -183,6 +183,8 @@ func multi_damage(
 	
 	for tag in _tags:
 		dmg.add_tag(tag)
+		
+	dmg.add_critical_chance(crit_chance)
 		
 	_damage_contexts.append(dmg)
 	

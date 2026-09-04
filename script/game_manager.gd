@@ -30,7 +30,7 @@ signal player_data_updated(data: PlayerData)
 @export var test_encounter: EncounterData
 @export var test_character: StartingCharacter
 @export var test_floor: MapFloorData
-@export var testing_cards : bool = true
+@export var testing_cards : bool = false
 
 #########################
 ##### CURRENT STATE #####
@@ -345,6 +345,7 @@ func instantiate_test_battle_data() -> BattleData:
 	return battle_data
 
 func load_player_data() -> void:
+	print("loading p data")
 	player_data = PlayerData.new()
 
 	player_data.health = player_actor.max_health
@@ -370,13 +371,24 @@ func load_player_data() -> void:
 				player_data.deck.append(
 					card
 				)
+				
+	#player_data.deck.append(
+	#	CardDatabase.get_card("parrying_dagger_card")
+	#)
+	
+	#player_data.deck.append(
+	#	CardDatabase.get_card("bladed_blow_card")
+	#)
 
 	
 	#player_data.weapon = ItemDatabase.get_item("crushing_gauntlets_item")
 	#player_data.items.append(ItemDatabase.get_item("battle_horn_item"))
 	#player_data.items.append(
 	#		ItemDatabase.get_item(item.item_id)
+	
+	player_data.update_attributes()
 
 func apply_player_data_change(effect) -> void:
 	effect.apply(player_data)
+	player_data.update_attributes()
 	player_data_updated.emit(player_data)

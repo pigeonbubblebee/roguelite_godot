@@ -8,7 +8,14 @@ func gui_input(event):
 			card_ui.request_attempt_card_play()
 			end_drag()
 			pass
-	elif event is InputEventMouseMotion:
+			
+	if event is InputEventKey and event.keycode == KEY_0:
+		if event.pressed:
+			card_ui.change_state(card_ui.play_process_state)
+			card_ui.request_attempt_card_play()
+			end_drag()
+			
+	if event is InputEventMouseMotion:
 		card_ui.drag(event.global_position)
 		
 func end_drag():

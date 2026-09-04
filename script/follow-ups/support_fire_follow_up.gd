@@ -2,6 +2,7 @@ class_name SupportFireFollowUp
 extends FollowUp
 
 var damage : int = 40
+var crit_chance : float = 0.5
 
 var source_id : String = "support_fire_follow_up"
 
@@ -10,8 +11,7 @@ func execute(dmg_context: DamageContext, context: BattleContext, controller: Bat
 	
 	EffectSequenceBuilder.new(context, controller)\
 		.as_follow_up(self)\
-		.damage(target, damage)\
-		#.apply_status(target, effect)\
+		.damage(target, damage, crit_chance)\
 		.enqueue()
 
 func get_follow_up_id() -> String:

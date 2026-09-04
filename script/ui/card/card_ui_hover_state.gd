@@ -2,11 +2,18 @@ class_name CardUIHoverState
 extends CardUIState
 
 func gui_input(event):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+	#print(event is InputEventKey)
+	if ((event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT) or 
+		(event is InputEventKey and event.keycode == KEY_0)):
 		if event.pressed:
 			if card_ui.input_type == HandUI.InputType.BATTLE:
 				if card_ui.can_drag:
-					card_ui.start_drag(event.global_position)
+					var drag_position := card_ui.get_global_mouse_position()
+
+					if event is InputEventMouseButton:
+						drag_position = event.global_position
+
+					card_ui.start_drag(drag_position)
 					card_ui.change_state(card_ui.drag_state)
 			elif card_ui.input_type == HandUI.InputType.SELECTION:
 				card_ui.emit_selection_started()
@@ -18,7 +25,7 @@ func gui_input(event):
 			# Check if card is locked
 			# Otherwise, switch to darg
 			pass
-			
+		
 func enter():
 	card_ui.z_index = 500
 	card_ui.show_tooltip()

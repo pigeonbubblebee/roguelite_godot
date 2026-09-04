@@ -1,25 +1,17 @@
-class_name SupportFireCard
+class_name SleightOfHandCard
 extends Card
 
-const SUPPORT_FIRE_DAMAGE_SOURCE_NAME = "support_fire_card"
-
-var stacks : int = 2
-var status_id : String = "support_fire_status"
-var event_hook_name : String = "damage_dealt"
+var draw_amt := 2
+var discard_amt := 2
 
 func build_sequence(context: BattleContext, controller: BattleController, preview: bool = false) -> EffectSequenceBuilder:
-	var player = context.get_player()
-	var effect = SupportFireStatusEffect.new(
-		status_id, 
-		context.event_bus, 
-		event_hook_name, 
-		stacks)
 	var custom_action = BattleRuntimeHelper.generate_light_camera_shake_action()
 	
 	return EffectSequenceBuilder.new(context, controller)\
 		.as_card(self)\
 		.use_action(custom_action)\
-		.apply_status(player, effect)
+		.draw_card(2)\
+		.discard_card(2)
 	
 func get_buff_target_index(total_targets: int) -> Array[int]:
 	return get_index_buff_single_target(total_targets)

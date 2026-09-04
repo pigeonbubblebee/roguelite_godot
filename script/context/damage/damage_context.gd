@@ -27,6 +27,8 @@ var critical_chance : float
 
 var is_preview : bool = false
 
+var landed_critical : bool = false
+
 func _init():
 	modifiers = DamageModifiers.new()
 	
@@ -81,8 +83,9 @@ func calculate_damage(preview := false) -> Dictionary:
 			damage_percent_bonus = modifiers.damage_percent_dictionary[hit_actor]
 		if hit_actor in modifiers.vulnerability_dictionary:
 			vuln_bonus = modifiers.vulnerability_dictionary[hit_actor]
-		if randf() < critical_chance:
+		if randf() < critical_chance and not preview:
 			damage_percent_bonus += 1
+			landed_critical = true
 		
 		var final_damage = ((position_damage + flat_damage_bonus) 
 							* (damage_percent_bonus + 1) 

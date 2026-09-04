@@ -131,6 +131,8 @@ func change_state(state : CardUIState):
 func _gui_input(event):
 	current_card_state.gui_input(event)
 
+func _unhandled_key_input(event: InputEvent) -> void:
+	current_card_state.gui_input(event)
 		
 func update_card_logic(card: Card) -> void:
 	card_logic = card

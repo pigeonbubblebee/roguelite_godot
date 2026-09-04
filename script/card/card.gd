@@ -11,6 +11,7 @@ var description : String
 var scaling_data : String # String of scaling data, i e STR (A), DEX (B)
 var scaling_data_as_dic
 var rarity
+var primary_stat : String
 
 var keywords : Array[String]
 var modifiers : Array[CardModifier]
@@ -25,6 +26,7 @@ func _init(_id : String):
 	id = card["CARD_ID"]
 	
 	_cost = card["COST"]
+	primary_stat = card["PRIMARY_STAT"]
 	scaling_data = CardDatabase.get_all_scaling(id)
 	scaling_data_as_dic = CardDatabase.get_scaling_as_dic(id)
 	texture = card["TEXTURE"]

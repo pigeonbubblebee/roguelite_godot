@@ -2473,7 +2473,7 @@
     "discharge_status": {
       "STATUS_NAME": "Discharge",
       "ICON_TYPE": "general_debuff",
-      "DESCRIPTION": "Lose 3 Storm on turn end.",
+      "DESCRIPTION": "Lose {STACKS} STORM on turn end.",
       "STATUS_TYPE": "Debuff"
     },
     "war_armor_status": {
@@ -2593,7 +2593,19 @@
     "resolve_status": {
       "STATUS_NAME": "Resolve",
       "ICON_TYPE": "resolve_buff",
-      "DESCRIPTION": "Keeps up to {10*STACKS} Armor between turns. Loses 1 Resolve on turn start.",
+      "DESCRIPTION": "Keeps up to {10*STACKS} ARMOR between turns. Loses 1 RESOLVE on turn start.",
+      "STATUS_TYPE": "Buff"
+    },
+    "shock_armor_status": {
+      "STATUS_NAME": "Shock Armor",
+      "ICON_TYPE": "general_debuff",
+      "DESCRIPTION": "Lose {STACKS} STORM on turn end.",
+      "STATUS_TYPE": "Debuff"
+    },
+    "parrying_dagger_status": {
+      "STATUS_NAME": "Parrying Dagger",
+      "ICON_TYPE": "general_buff",
+      "DESCRIPTION": "Your next attack card has a bonus 50% CRIT CHANCE.",
       "STATUS_TYPE": "Buff"
     }
   }

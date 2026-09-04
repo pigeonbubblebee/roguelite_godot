@@ -4,7 +4,6 @@ extends FollowUp
 var damage : int = 8
 const DAMAGE_SOURCE_NAME : String = "storm_follow_up"
 var stacks : int = 1
-var damage_type : DamageType.Type = DamageType.Type.LIGHTNING
 
 func _init(_stacks : int):
 	stacks = _stacks
@@ -20,7 +19,7 @@ func execute(dmg_context: DamageContext, context: BattleContext, controller: Bat
 		.as_follow_up(self)\
 		.use_action(custom_action)\
 		.multi_damage(targets, final_damage, 
-			damage_type, final_damage)\
+			final_damage)\
 		.enqueue()
 
 func get_follow_up_id() -> String:

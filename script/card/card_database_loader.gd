@@ -34,6 +34,7 @@ func load_cards(path: String):
 			"COST": info["COST"],
 			"RARITY": info["RARITY"],
 			"SCALING": {},
+			"PRIMARY_STAT": "",
 			"TYPE": Card.get_string_as_card_type(info["TYPE"]),
 			"TEXTURE": null,
 			"SCRIPT": null,
@@ -71,6 +72,7 @@ func load_cards(path: String):
 		# Scaling Data
 
 		if scaling_data.has(card_id):
+			var max = 0
 			for stat in scaling_data[card_id].keys():
 				var value = scaling_data[card_id][stat]
 
@@ -78,6 +80,9 @@ func load_cards(path: String):
 					card["SCALING"][stat] = 0
 				else:
 					card["SCALING"][stat] = int(value)
+					if int(value) > max:
+						max = int(value)
+						card["PRIMARY_STAT"] = stat
 					
 		# Loads card art
 		var art_path = ART_PATH + card_id + ".png"
@@ -85,6 +90,7 @@ func load_cards(path: String):
 		if ResourceLoader.exists(art_path):
 			card["TEXTURE"] = load(art_path)
 		else:
+			#card["TEXTURE"] = load(ART_PATH + "empty_art.png")
 			push_warning("Missing card art for: " + card_id)
 
 		# Loads card script

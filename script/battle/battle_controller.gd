@@ -94,6 +94,7 @@ func _create_managers():
 	_rewards_manager = BattleRewardsManager.new()
 	if _player_data:
 		_rewards_manager.bind_items(_player_data.items, _player_data.weapon)
+		_rewards_manager.bind_attributes(_player_data.attributes)
 	reward_handler = RewardHandler.new()
 	
 ###################
@@ -403,7 +404,7 @@ func preview_damage(ctx: DamageContext):
 	
 	_battle_context.event_bus.before_damage_dealt.emit(ctx, _battle_context, self)
 	
-	var damage_dictionary = ctx.calculate_damage()
+	var damage_dictionary = ctx.calculate_damage(true)
 	return damage_dictionary
 	
 func preview_armor(ctx: ArmorGainContext):
