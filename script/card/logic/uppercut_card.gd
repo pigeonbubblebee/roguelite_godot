@@ -1,7 +1,7 @@
 class_name UppercutCard
 extends Card
 
-var damage : int = 90
+var damage : int = 80
 
 func build_sequence(context: BattleContext, controller: BattleController, preview:= false) -> EffectSequenceBuilder:
 	var target = context.get_selected_enemy(preview)

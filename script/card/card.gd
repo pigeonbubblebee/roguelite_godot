@@ -119,7 +119,7 @@ func preview_damage(context: BattleContext, controller: BattleController) -> Dic
 			if hits == 1:
 				parts.append(str(damage))
 			else:
-				parts.append("%dx%d" % [hits, damage])
+				parts.append("%dx%d" % [damage, hits])
 
 		result[actor] = "+".join(parts)
 		

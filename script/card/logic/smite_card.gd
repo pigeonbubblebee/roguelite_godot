@@ -1,7 +1,7 @@
 class_name SmiteCard
 extends Card
 
-var damage : int = 130
+var damage : int = 90
 
 func get_takes_max_hand_space() -> bool:
 	return false

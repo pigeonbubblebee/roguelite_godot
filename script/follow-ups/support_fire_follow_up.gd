@@ -1,7 +1,7 @@
 class_name SupportFireFollowUp
 extends FollowUp
 
-var damage : int = 40
+var damage : int = 20
 var crit_chance : float = 0.5
 
 var source_id : String = "support_fire_follow_up"

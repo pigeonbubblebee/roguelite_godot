@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw2id44q43ufm"
-path="res://.godot/imported/eldritch_blast_card.png-6adbfdfaa93858af730570c32025cce9.ctex"
+uid="uid://crw8hi0o3tf82"
+path="res://.godot/imported/omenshield_card.png-f4bffc87829e93d3cb4b079c5bc25b9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card_art/eldritch_blast_card.png"
-dest_files=["res://.godot/imported/eldritch_blast_card.png-6adbfdfaa93858af730570c32025cce9.ctex"]
+source_file="res://assets/card_art/omenshield_card.png"
+dest_files=["res://.godot/imported/omenshield_card.png-f4bffc87829e93d3cb4b079c5bc25b9f.ctex"]
 
 [params]
 

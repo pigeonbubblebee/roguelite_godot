@@ -373,11 +373,11 @@ func load_player_data() -> void:
 				)
 				
 	#player_data.deck.append(
-	#	CardDatabase.get_card("parrying_dagger_card")
+	#	CardDatabase.get_card("hidden_slice_card")
 	#)
 	
 	#player_data.deck.append(
-	#	CardDatabase.get_card("bladed_blow_card")
+	#	CardDatabase.get_card("sleight_of_hand_card")
 	#)
 
 	

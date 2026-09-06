@@ -10,7 +10,7 @@ var status_id_discharge : String = "shock_armor_status"
 
 func build_sequence(context: BattleContext, controller: BattleController, preview: bool = false) -> EffectSequenceBuilder:
 	var player = context.get_player()
-	var target = context.get_selected_enemy()
+
 	var effect_storm = StormStatusEffect.new(
 		status_id_storm, 
 		context.event_bus, 

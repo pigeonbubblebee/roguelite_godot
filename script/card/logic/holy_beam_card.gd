@@ -2,7 +2,7 @@ class_name HolyBeamCard
 extends Card
 
 var smite_card_id : String = "smite_card"
-var damage : int = 70
+var damage : int = 40
 
 func build_sequence(context: BattleContext, controller: BattleController, preview:= false) -> EffectSequenceBuilder:
 	var hit_actors = context.get_selected_enemies_aoe(preview)

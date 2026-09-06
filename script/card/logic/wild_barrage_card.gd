@@ -5,7 +5,7 @@ var damage : int = 20
 var multistrike_amount : int = 2
 
 func build_sequence(context: BattleContext, controller: BattleController, preview: bool = false) -> EffectSequenceBuilder:
-	var hit_actors = context.get_selected_enemies_aoe()
+	var hit_actors = context.get_selected_enemies_aoe(preview)
 	
 	var sequence = EffectSequenceBuilder.new(context, controller)\
 		.as_card(self)

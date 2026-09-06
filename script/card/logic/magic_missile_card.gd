@@ -3,23 +3,26 @@ extends Card
 
 var damage : int = 45
 var multistrike_amount : int = 3
-var damage_type : DamageType.Type = DamageType.Type.MAGIC
 
-func play(context: BattleContext, controller: BattleController):
-	super.play(context, controller)
+func build_sequence(context: BattleContext, controller: BattleController, preview: bool = false) -> EffectSequenceBuilder:
+	var selected_enemys = context.get_selected_enemies_aoe(preview)
 	
-	var selected_enemys = context.get_selected_enemies_aoe()
+	if preview:
+		return EffectSequenceBuilder.new(context, controller)\
+			.as_card(self)\
+			.multi_damage(selected_enemys, damage, damage)
 	
+	var sequence = EffectSequenceBuilder.new(context, controller)\
+		.as_card(self)
+		
 	for i in range(multistrike_amount):
 		var target = selected_enemys.pick_random()
-		
-		EffectSequenceBuilder.new(context, controller)\
-			.as_card(self)\
-			.damage(target, damage, damage_type)\
-			.enqueue()
+		sequence.damage(target, damage)
 		
 		if i < multistrike_amount - 1:
-			await context.await_battle_actions()
-
+			sequence.delay()
+			
+	return sequence
+		
 func get_target_index(total_targets: int, target_index: int) -> Array[int]:
 	return get_index_aoe(total_targets, target_index)

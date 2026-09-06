@@ -1,7 +1,7 @@
 class_name ParryingDaggerCard
 extends Card
 
-var armor : int = 70
+var armor : int = 50
 var status_stacks : int = 1
 var status_id : String = "parrying_dagger_status"
 

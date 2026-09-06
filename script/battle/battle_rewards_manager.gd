@@ -127,6 +127,8 @@ func generate_weapon_rewards(ctx, amt := 3) -> Array:
 
 func bind_attributes(attributes : Dictionary):
 	current_attributes = attributes
+	if current_attributes.has("WLD"):
+		current_attributes.erase("WLD")
 
 func bind_items(arr : Array, weapon):
 	current_items = arr

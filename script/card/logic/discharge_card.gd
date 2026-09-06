@@ -1,7 +1,7 @@
 class_name DischargeCard
 extends Card
 
-var damage : int = 40
+var damage : int = 50
 var stacks_storm : int = 3
 var status_id_storm : String = "storm_status"
 

@@ -6,7 +6,7 @@ extends Card
 func build_sequence(context: BattleContext, controller: BattleController, preview: bool = false) -> EffectSequenceBuilder:
 	var damage = context.get_player().get_armor()
 	
-	var target = context.get_selected_enemy()
+	var target = context.get_selected_enemy(preview)
 	
 	return EffectSequenceBuilder.new(context, controller)\
 		.as_card(self)\
