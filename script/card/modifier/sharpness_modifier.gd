@@ -9,3 +9,6 @@ func before_damage_dealt(context: DamageContext, battle_context: BattleContext, 
 
 func get_name():
 	return "Sharpened"
+
+func get_selection_prompt():
+	return CardSelectionContext.SHARPEN_PROMPT

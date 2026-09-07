@@ -531,7 +531,7 @@
 	"eldritch_blast_card": {
 	  "CARD_NAME": "Eldritch Blast",
 	  "COST": 1,
-	  "DESCRIPTION": "Deal 70 DMG, add a MANA CRYSTAL to your hand and a MANA BURN to your discard",
+	  "DESCRIPTION": "Deal 70 DMG, add a MANA CRYSTAL to your hand and a MANA BURN to your deck.",
 	  "RARITY": "COMMON",
 	  "TYPE": "ATTACK",
 	  "KEYWORDS": "mana_crystal_card;mana_burn_card",
@@ -1059,12 +1059,12 @@
 	"mana_burn_card": {
 	  "CARD_NAME": "Mana Burn",
 	  "COST": 1,
-	  "DESCRIPTION": "EPHEMERAL. FRAGILE.",
+	  "DESCRIPTION": "UNPLAYABLE. FRAGILE.",
 	  "RARITY": "WOUND",
 	  "TYPE": "WOUND",
 	  "KEYWORDS": "ephemeral;fragile",
 	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
+	  "NOT_DRAFTABLE": true,
 	  "UPGRADED_KEYWORDS": null,
 	  "UPGRADED": null
 	},
@@ -2562,6 +2562,12 @@
 	  "STATUS_NAME": "Parrying Dagger",
 	  "ICON_TYPE": "general_buff",
 	  "DESCRIPTION": "Your next attack card has a bonus 50% CRIT CHANCE.",
+	  "STATUS_TYPE": "Buff"
+	},
+	"symphony_status": {
+	  "STATUS_NAME": "Symphony",
+	  "ICON_TYPE": "symphony_buff",
+	  "DESCRIPTION": "Deals {20*STACKS} to all enemies on turn end, then loses all SYMPHONY.",
 	  "STATUS_TYPE": "Buff"
 	}
   }

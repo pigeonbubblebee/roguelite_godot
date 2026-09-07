@@ -454,6 +454,9 @@ func shuffle_card_to_deck(card_id : String, amt : int = 1):
 		_hand_manager.shuffle_card_to_deck(card)
 		_battle_context.event_bus.on_card_added_to_deck.emit(card, _battle_context, self)
 		
+func move_to_top_of_deck(card: Card):
+	_hand_manager.move_card_to_top(card)
+		
 func discard_card(card: Card):
 	_hand_manager.discard_card(card)
 	card.on_discard(_battle_context, self)

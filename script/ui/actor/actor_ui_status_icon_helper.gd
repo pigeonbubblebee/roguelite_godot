@@ -18,6 +18,7 @@ var might_buff_icon = preload("res://assets/ui/status_icons/might_buff_icon.png"
 var resolve_buff_icon = preload("res://assets/ui/status_icons/resolve_buff_icon.png")
 var prayer_buff_icon = preload("res://assets/ui/status_icons/prayer_buff_icon.png")
 var blessing_buff_icon = preload("res://assets/ui/status_icons/blessing_buff_icon.png")
+var symphony_buff_icon = preload("res://assets/ui/status_icons/symphony_buff_icon.png")
 
 var status_icon_scene : PackedScene = preload("res://scenes/status_label.tscn")
 
@@ -40,5 +41,6 @@ var status_texture_map: Dictionary = {
 	"might_buff": might_buff_icon,
 	"resolve_buff": resolve_buff_icon,
 	"prayer_buff": prayer_buff_icon,
-	"blessing_buff": blessing_buff_icon
+	"blessing_buff": blessing_buff_icon,
+	"symphony_buff": symphony_buff_icon
 }

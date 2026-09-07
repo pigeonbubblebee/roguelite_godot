@@ -1,11 +1,12 @@
-class_name DivinationCard
+class_name MagesGreatbowCard
 extends Card
 
+var damage : int = 140
+
 func build_sequence(context: BattleContext, controller: BattleController, preview:= false) -> EffectSequenceBuilder:
+	var target = context.get_selected_enemy(preview)
+	
 	return EffectSequenceBuilder.new(context, controller)\
 		.as_card(self)\
-		.draw_card(4)\
-		.move_card_to_top_of_deck_from_hand()
-
-func get_buff_target_index(total_targets: int) -> Array[int]:
-	return get_index_buff_single_target(total_targets)
+		.damage(target, damage)\
+		.draw_card(3)

@@ -72,7 +72,7 @@ static func generate_modify_card_selection_context(
 	amount : int = 1) -> CardSelectionContext:
 	
 	var result = generate_card_selection_context(context, controller, 
-		CardSelectionContext.SHARPEN_PROMPT, source_cards, amount)
+		modifier_factory.call(null).get_selection_prompt(), source_cards, amount)
 		
 	result.finished.connect(func(selected_cards):
 		if selected_cards:

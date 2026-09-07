@@ -108,6 +108,25 @@ func get_card_in_play(card_id: String) -> Card:
 	if c:
 		return c
 	return null
+	
+func move_card_to_top(card: Card):
+	for c in hand:
+		if c == card:
+			hand.erase(c)
+			deck.push_front(c)
+			hand_updated.emit(hand)
+			deck_updated.emit(deck)
+	for c in discard_pile:
+		if c == card:
+			discard_pile.erase(c)
+			deck.push_front(c)
+			discard_pile_updated.emit(discard_pile)
+			deck_updated.emit(deck)
+	for c in deck:
+		if c == card:
+			deck.erase(c)
+			deck.push_front(c)
+			deck_updated.emit(deck)		
 
 func draw_card(card: Card):
 	hand.append(card)

@@ -40,6 +40,9 @@ func as_card(card: Card) -> EffectSequenceBuilder:
 func as_actor(actor: Actor) -> EffectSequenceBuilder:
 	set_owner(actor)
 	return self
+
+func as_modifier(modifier: CardModifier) -> EffectSequenceBuilder:
+	return self
 	
 func as_follow_up(fua: FollowUp) -> EffectSequenceBuilder:
 	_fua = fua
