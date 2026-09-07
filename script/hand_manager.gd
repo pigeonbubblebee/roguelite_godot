@@ -76,6 +76,7 @@ func add_card_to_deck(card: Card):
 func shuffle_card_to_deck(card: Card):
 	var random_index = randi_range(0, deck.size())
 	deck.insert(random_index, card)
+	deck_updated.emit(deck)
 	
 func card_in_hand(card_id: String) -> Card:
 	for card in hand:

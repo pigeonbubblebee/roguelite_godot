@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://or2c4m6nipwa"
-path="res://.godot/imported/rancorous_bolt_card.png-bf77a7036847f0f89de015a677c8eeae.ctex"
+uid="uid://dkoabnaaymro0"
+path="res://.godot/imported/drain_card.png-f33bb7ea25eeb7819be2f32e170a5580.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card_art/rancorous_bolt_card.png"
-dest_files=["res://.godot/imported/rancorous_bolt_card.png-bf77a7036847f0f89de015a677c8eeae.ctex"]
+source_file="res://assets/card_art/drain_card.png"
+dest_files=["res://.godot/imported/drain_card.png-f33bb7ea25eeb7819be2f32e170a5580.ctex"]
 
 [params]
 

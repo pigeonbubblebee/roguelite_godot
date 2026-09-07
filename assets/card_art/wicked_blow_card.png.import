@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://or2c4m6nipwa"
-path="res://.godot/imported/rancorous_bolt_card.png-bf77a7036847f0f89de015a677c8eeae.ctex"
+uid="uid://c37yi7w6g4kq3"
+path="res://.godot/imported/wicked_blow_card.png-b1ba7af0d37ca4e0852a06f9ae0399cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card_art/rancorous_bolt_card.png"
-dest_files=["res://.godot/imported/rancorous_bolt_card.png-bf77a7036847f0f89de015a677c8eeae.ctex"]
+source_file="res://assets/card_art/wicked_blow_card.png"
+dest_files=["res://.godot/imported/wicked_blow_card.png-b1ba7af0d37ca4e0852a06f9ae0399cb.ctex"]
 
 [params]
 

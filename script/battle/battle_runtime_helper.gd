@@ -81,6 +81,22 @@ static func generate_modify_card_selection_context(
 	
 	return result
 	
+static func generate_move_to_top_card_selection_context(context: BattleContext, 
+	controller: BattleController, 
+	source_cards : Array[Card] = controller.get_hand_manager().get_hand(),
+	amount : int = 1) -> CardSelectionContext:
+	
+	var result = generate_card_selection_context(context, controller, 
+		CardSelectionContext.MOVE_TO_TOP_PROMPT, controller.get_hand_manager().get_hand(),
+		amount)
+		
+	result.finished.connect(func(selected_cards):
+		if selected_cards:
+			_handle_move_to_top_sequence(selected_cards, context, controller)
+	)
+	
+	return result
+	
 static func _handle_discard_sequence(selected_cards, context, controller):
 	for selected_card in selected_cards:
 		controller.discard_card(selected_card)
@@ -89,6 +105,11 @@ static func _handle_discard_sequence(selected_cards, context, controller):
 static func handle_card_modifiers_sequence(selected_cards, context, controller, factory):
 	for selected_card in selected_cards:
 		controller.add_card_modifier(selected_card, factory.call(selected_card))
+		await context.await_battle_actions()
+		
+static func _handle_move_to_top_sequence(selected_cards, context, controller):
+	for selected_card in selected_cards:
+		controller.move_to_top_of_deck(selected_card)
 		await context.await_battle_actions()
 
 static func generate_card_selection_context(context: BattleContext, controller: BattleController, 

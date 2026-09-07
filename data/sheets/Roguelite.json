@@ -696,8 +696,8 @@
 	  "UPGRADED_KEYWORDS": null,
 	  "UPGRADED": null
 	},
-	"rancerous_bolt_card": {
-	  "CARD_NAME": "Rancerous Bolt",
+	"rancorous_bolt_card": {
+	  "CARD_NAME": "Rancorous Bolt",
 	  "COST": 2,
 	  "DESCRIPTION": "Deal 100 DMG. Apply 2 VULNERABLE.",
 	  "RARITY": "COMMON",
@@ -1974,7 +1974,7 @@
 	  "FTH": null,
 	  "WLD": null
 	},
-	"rancerous_bolt_card": {
+	"rancorous_bolt_card": {
 	  "STR": null,
 	  "DEX": null,
 	  "INT": null,
@@ -2053,6 +2053,22 @@
 	  "ARC": null,
 	  "FTH": null,
 	  "WLD": 20
+	},
+	"mana_crystal_card": {
+	  "STR": null,
+	  "DEX": null,
+	  "INT": 2,
+	  "ARC": null,
+	  "FTH": null,
+	  "WLD": null
+	},
+	"mana_burn_card": {
+	  "STR": null,
+	  "DEX": null,
+	  "INT": 3,
+	  "ARC": null,
+	  "FTH": null,
+	  "WLD": null
 	}
   },
   "ItemFinal": {
@@ -2244,9 +2260,9 @@
 	  "KEYWORD_NAME": "Daze",
 	  "DESCRIPTION": "Dazed enemies deal 20% less DMG and take 30 DMG on turn start."
 	},
-	"burn": {
-	  "KEYWORD_NAME": "Burn",
-	  "DESCRIPTION": "Deals DMG on turn start."
+	"bleed": {
+	  "KEYWORD_NAME": "Bleed",
+	  "DESCRIPTION": "Deals 10 DMG on turn start for each BLEED, then loses 1 BLEED."
 	},
 	"mana_crystal": {
 	  "KEYWORD_NAME": "Mana Crystal",
@@ -2327,6 +2343,14 @@
 	"symphony": {
 	  "KEYWORD_NAME": "Symphony",
 	  "DESCRIPTION": "When you play a card with SYMPHONY, remove all SYMPHONY and add 20 DMG to an end of turn attack."
+	},
+	"weakened": {
+	  "KEYWORD_NAME": "Weakened",
+	  "DESCRIPTION": "Deals 25% less DMG."
+	},
+	"corrupted": {
+	  "KEYWORD_NAME": "Corrupted",
+	  "DESCRIPTION": "Gains 20% less ARMOR and takes 20% more DMG."
 	}
   },
   "StatusEffects": {

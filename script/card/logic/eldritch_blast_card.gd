@@ -3,16 +3,13 @@ extends Card
 
 var damage : int = 90
 var mana_crystal_card_id : String = "mana_crystal_card"
-var damage_type : DamageType.Type = DamageType.Type.MAGIC
+var mana_burn_card_id : String = "mana_burn_card"
 
-func play(context: BattleContext, controller: BattleController):
-	super.play(context, controller)
+func build_sequence(context: BattleContext, controller: BattleController, preview:= false) -> EffectSequenceBuilder:
+	var target = context.get_selected_enemy(preview)
 	
-	var target = context.get_selected_enemy()
-	
-	EffectSequenceBuilder.new(context, controller)\
+	return EffectSequenceBuilder.new(context, controller)\
 		.as_card(self)\
-		.damage(target, damage, damage_type)\
+		.damage(target, damage)\
 		.add_card_to_hand(mana_crystal_card_id)\
-		.discard_card()\
-		.enqueue()
+		.shuffle_card_to_deck(mana_burn_card_id)

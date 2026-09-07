@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://or2c4m6nipwa"
-path="res://.godot/imported/rancorous_bolt_card.png-bf77a7036847f0f89de015a677c8eeae.ctex"
+uid="uid://c14e6s4p2ckuc"
+path="res://.godot/imported/dark_star_card.png-8b977d64ef2d302713d1ee8431bc9994.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card_art/rancorous_bolt_card.png"
-dest_files=["res://.godot/imported/rancorous_bolt_card.png-bf77a7036847f0f89de015a677c8eeae.ctex"]
+source_file="res://assets/card_art/dark_star_card.png"
+dest_files=["res://.godot/imported/dark_star_card.png-8b977d64ef2d302713d1ee8431bc9994.ctex"]
 
 [params]
 

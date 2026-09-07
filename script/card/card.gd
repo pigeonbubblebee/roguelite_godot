@@ -75,8 +75,12 @@ func play(context: BattleContext, controller: BattleController):
 	pass
 	
 # preview field is for if its a dmg preview or a armor preview or something	
-func build_sequence(context: BattleContext, controller: BattleController, preview: bool = false) -> EffectSequenceBuilder:
-	return null
+func build_sequence(context: BattleContext, controller: BattleController, preview:= false) -> EffectSequenceBuilder:
+	var custom_action = BattleRuntimeHelper.generate_light_camera_shake_action()
+	
+	return EffectSequenceBuilder.new(context, controller)\
+		.as_card(self)\
+		.use_action(custom_action)
 	
 func preview_damage(context: BattleContext, controller: BattleController) -> Dictionary:
 	var sequence = build_sequence(context, controller, true)

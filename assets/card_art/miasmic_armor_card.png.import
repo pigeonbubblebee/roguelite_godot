@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://or2c4m6nipwa"
-path="res://.godot/imported/rancorous_bolt_card.png-bf77a7036847f0f89de015a677c8eeae.ctex"
+uid="uid://gqhkgyd3l8l2"
+path="res://.godot/imported/miasmic_armor_card.png-ffe26a0cd0c31feb02fcc0ed28ed8ca7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/card_art/rancorous_bolt_card.png"
-dest_files=["res://.godot/imported/rancorous_bolt_card.png-bf77a7036847f0f89de015a677c8eeae.ctex"]
+source_file="res://assets/card_art/miasmic_armor_card.png"
+dest_files=["res://.godot/imported/miasmic_armor_card.png-ffe26a0cd0c31feb02fcc0ed28ed8ca7.ctex"]
 
 [params]
 

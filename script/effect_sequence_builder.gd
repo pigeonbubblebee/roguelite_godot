@@ -274,6 +274,26 @@ func discard_card(
 		func(): controller.start_card_selection(selection_context)
 	)
 	
+func move_card_to_top_of_deck_from_hand(
+	amount : int = 1,
+	source_cards : Array[Card] = controller.get_hand_manager().get_hand()
+) -> EffectSequenceBuilder:
+	if source_cards.size() == 0:
+		return step(
+			null,
+			func(): pass
+		)
+	
+	var selection_context = BattleRuntimeHelper.generate_move_to_top_card_selection_context(
+		context.get_ref(), 
+		controller, 
+		source_cards,
+		amount)
+	return step(
+		CardSelectionAction.new(selection_context),  # visual
+		func(): controller.start_card_selection(selection_context)
+	)
+	
 func discard_without_selection(
 	card : Card
 ) -> EffectSequenceBuilder:

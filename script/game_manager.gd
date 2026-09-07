@@ -372,9 +372,7 @@ func load_player_data() -> void:
 					card
 				)
 				
-	#player_data.deck.append(
-	#	CardDatabase.get_card("hidden_slice_card")
-	#)
+	#player_data.deck.append(CardDatabase.get_card("eldritch_blast_card"))
 	
 	#player_data.deck.append(
 	#	CardDatabase.get_card("sleight_of_hand_card")

@@ -1,27 +1,20 @@
 class_name ArcaneInsightCard
 extends Card
 
-var damage_percent_gain : float = -0.3
-var turns : int = 1
-var status_id : String = "arcane_insight_status"
+var mana_burn_card_id = "mana_burn_card"
+var turns : int = 3
+var status_id : String = "empowered_status"
+var armor : int = 40
 
-func play(context: BattleContext, controller: BattleController):
-	super.play(context, controller)
-	
+func build_sequence(context: BattleContext, controller: BattleController, preview:= false) -> EffectSequenceBuilder:
 	var player = context.get_player()
-	var hit_actors = context.get_selected_enemies_aoe()
 	var effect = DamageAmplificationStatusEffect.new(status_id, 
-		turns, damage_percent_gain)
+		turns)
 	var custom_action = BattleRuntimeHelper.generate_light_camera_shake_action()
 	
-	EffectSequenceBuilder.new(context, controller)\
+	return EffectSequenceBuilder.new(context, controller)\
 		.as_card(self)\
 		.use_action(custom_action)\
-		.apply_status_multi(hit_actors, func(t): 
-			return DamageAmplificationStatusEffect.new(status_id, 
-			turns, damage_percent_gain))\
-		.draw_card()\
-		.enqueue()
-	
-func get_target_index(total_targets: int, target_index: int) -> Array[int]:
-	return get_index_aoe(total_targets, target_index)
+		.apply_status(player, effect)\
+		.armor(player, armor)\
+		.shuffle_card_to_deck(mana_burn_card_id)
