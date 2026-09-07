@@ -663,7 +663,7 @@
 	"tear_card": {
 	  "CARD_NAME": "Tear",
 	  "COST": 1,
-	  "DESCRIPTION": "Deal 20 DMG to all enemies apply 2 BLEED.",
+	  "DESCRIPTION": "Deal 40 DMG to all enemies apply 2 BLEED.",
 	  "RARITY": "COMMON",
 	  "TYPE": "ATTACK",
 	  "KEYWORDS": "bleed",
@@ -2366,10 +2366,10 @@
 	  "DESCRIPTION": "Takes 50% more DMG.",
 	  "STATUS_TYPE": "Debuff"
 	},
-	"burn_status": {
-	  "STATUS_NAME": "Burn",
-	  "ICON_TYPE": "burn_debuff",
-	  "DESCRIPTION": "Deals {10*STACKS} Fire DMG on turn start, then loses 1 Burn.",
+	"bleed_status": {
+	  "STATUS_NAME": "Bleed",
+	  "ICON_TYPE": "bleed_debuff",
+	  "DESCRIPTION": "Deals {10*STACKS} on turn start, then loses 1 BLEED.",
 	  "STATUS_TYPE": "Debuff"
 	},
 	"support_fire_status": {
