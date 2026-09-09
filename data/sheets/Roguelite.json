@@ -2569,6 +2569,12 @@
 	  "ICON_TYPE": "symphony_buff",
 	  "DESCRIPTION": "Deals {20*STACKS} to all enemies on turn end, then loses all SYMPHONY.",
 	  "STATUS_TYPE": "Buff"
+	},
+	"ritual_status": {
+	  "STATUS_NAME": "Ritual",
+	  "ICON_TYPE": "ritual_buff",
+	  "DESCRIPTION": "Enemies take {2*STACKS}% more DMG. At 20 RITUAL, lose all RITUAL and deal 100 DMG to all enemies.",
+	  "STATUS_TYPE": "Buff"
 	}
   }
 }

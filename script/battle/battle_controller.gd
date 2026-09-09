@@ -526,6 +526,12 @@ func enqueue_action(action: BattleVisualAction):
 func gain_energy(amt: int = 1):
 	_energy_manager.gain_energy(amt)
 	
+func lose_life(actor, amt: int = 10):
+	actor.lose_life(amt)
+		
+	if actor.get_actor_name() == "Player":
+		request_player_data_modification(HealthChangePlayerDataEffect.new(actor.get_health()))
+	
 func add_card_modifier(card: Card, modifier: CardModifier):
 	_battle_context.event_bus.before_modifier_applied.emit(card, modifier, _battle_context, self)
 	card.add_modifier(modifier, _battle_context, self)

@@ -48,6 +48,7 @@ func _ready():
 		actor.connect("armor_updated", Callable(self, "update_armor_bar"))
 		actor.damage_taken.connect(_on_damage_taken)
 		actor.armor_gained.connect(_on_armor_gain)
+		actor.life_lost.connect(_on_life_lost)
 		actor.get_status_manager().status_added.connect(_on_status_added)
 		actor.health_healed.connect(_on_health_healed)
 		
@@ -214,6 +215,9 @@ func _on_damage_taken(amt, ctx):
 
 func _on_armor_gain(amt):
 	_queue_damage_number("armor", amt)
+	
+func _on_life_lost(amt):
+	_queue_damage_number("damage", amt)
 
 func _on_health_healed(amt):
 	_queue_damage_number("heal", amt)

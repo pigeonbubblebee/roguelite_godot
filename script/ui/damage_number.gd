@@ -15,8 +15,9 @@ func _ready() -> void:
 
 func bind(amt, ctx):
 	text = str(amt)
-	if ctx.landed_critical:
-		text = "CRIT! " + text
+	if ctx:
+		if ctx.landed_critical:
+			text = "CRIT! " + text
 	KeywordFormatter.format_damage_text(self, ctx)
 
 func bind_armor(amt):

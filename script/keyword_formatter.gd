@@ -96,7 +96,11 @@ static func get_keyword_color(keyword: String):
 	return KEYWORDS[keyword].color
 
 static func format_damage_text(label: Label, ctx: DamageContext):
-	var color = DAMAGE_TYPE_COLORS[ctx.damage_type].color
+	var color
+	if ctx:
+		color = DAMAGE_TYPE_COLORS[ctx.damage_type].color
+	else:
+		color = C_ColorPalette.RED
 	
 	label.add_theme_color_override("font_color", color)
 

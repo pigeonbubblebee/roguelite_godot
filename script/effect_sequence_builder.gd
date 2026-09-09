@@ -240,6 +240,15 @@ func apply_status(target: Actor, effect: StatusEffect) -> EffectSequenceBuilder:
 		func(): controller.apply_status(status_ctx)
 	)
 	
+func lose_life(target: Actor, amount: int) -> EffectSequenceBuilder:
+	if target == null:
+		return self
+	
+	return step(
+		null,
+		func(): controller.lose_life(target, amount)
+	)
+	
 func apply_status_multi(targets: Array[Actor], effect_factory: Callable) -> EffectSequenceBuilder:
 	for t in targets:
 		if t._processing_death:

@@ -18,6 +18,7 @@ signal armor_updated(armor)
 signal health_healed(heal)
 signal died(actor: Actor)
 signal armor_gained(amount)
+signal life_lost(amount)
 signal armor_reset_request(context: ArmorResetContext)
 
 var _processing_death = false
@@ -104,6 +105,14 @@ func take_damage(damage: int, context: DamageContext)-> Array[int] :
 	damage_taken.emit(damage, context)
 	
 	return [health_lost, armor_lost]
+	
+func lose_life(amount: int):
+	_health -= amount
+	# print(actor_data.name + " HIT! DAMAGE: " + str(damage) + ", HEALTH: " + str(_health))
+	emit_signal("health_updated")
+	#damage_taken.emit(damage, context)
+	life_lost.emit(amount)
+	#return [health_lost, armor_lost]
 
 func request_death():
 	if not _processing_death:

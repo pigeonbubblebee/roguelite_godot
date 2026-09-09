@@ -372,7 +372,7 @@ func load_player_data() -> void:
 					card
 				)
 				
-	player_data.deck.append(CardDatabase.get_card("bleeding_strike_card"))
+	player_data.deck.append(CardDatabase.get_card("blood_writing_card"))
 	
 	#player_data.deck.append(
 	#	CardDatabase.get_card("sleight_of_hand_card")
