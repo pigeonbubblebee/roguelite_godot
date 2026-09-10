@@ -19,6 +19,8 @@ var resolve_buff_icon = preload("res://assets/ui/status_icons/resolve_buff_icon.
 var prayer_buff_icon = preload("res://assets/ui/status_icons/prayer_buff_icon.png")
 var blessing_buff_icon = preload("res://assets/ui/status_icons/blessing_buff_icon.png")
 var symphony_buff_icon = preload("res://assets/ui/status_icons/symphony_buff_icon.png")
+var ritual_buff_icon = preload("res://assets/ui/status_icons/ritual_buff_icon.png")
+var corrupted_debuff_icon = preload("res://assets/ui/status_icons/corrupted_debuff_icon.png")
 
 var status_icon_scene : PackedScene = preload("res://scenes/status_label.tscn")
 
@@ -42,5 +44,7 @@ var status_texture_map: Dictionary = {
 	"resolve_buff": resolve_buff_icon,
 	"prayer_buff": prayer_buff_icon,
 	"blessing_buff": blessing_buff_icon,
-	"symphony_buff": symphony_buff_icon
+	"symphony_buff": symphony_buff_icon,
+	"ritual_buff" : ritual_buff_icon,
+	"corrupted_debuff" : corrupted_debuff_icon
 }

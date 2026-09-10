@@ -3,19 +3,14 @@ extends Card
 
 var damage : int = 130
 var status_turns : int = 2
-var status_id : String = "rancorous_bolt_status"
-var vuln_percent : float = 0.4
-var damage_type : DamageType.Type = DamageType.Type.COLD
+var status_id : String = "vulnerable_status"
 
-func play(context: BattleContext, controller: BattleController):
-	super.play(context, controller)
-	
+func build_sequence(context: BattleContext, controller: BattleController, preview:= false) -> EffectSequenceBuilder:
 	var target = context.get_selected_enemy()
 	var effect = DamageTakenAmplificationStatusEffect.new(status_id, 
-		status_turns, vuln_percent)
+		status_turns)
 	
-	EffectSequenceBuilder.new(context, controller)\
+	return EffectSequenceBuilder.new(context, controller)\
 		.as_card(self)\
-		.damage(target, damage, damage_type)\
-		.apply_status(target, effect)\
-		.enqueue()
+		.damage(target, damage)\
+		.apply_status(target, effect)

@@ -2575,6 +2575,12 @@
 	  "ICON_TYPE": "ritual_buff",
 	  "DESCRIPTION": "Enemies take {2*STACKS}% more DMG. At 20 RITUAL, lose all RITUAL and deal 100 DMG to all enemies.",
 	  "STATUS_TYPE": "Buff"
+	},
+	"corrupted_status": {
+	  "STATUS_NAME": "Corrupted",
+	  "ICON_TYPE": "corrupted_debuff",
+	  "DESCRIPTION": "Gains 20% less ARMOR and takes 20% more DMG.",
+	  "STATUS_TYPE": "Debuff"
 	}
   }
 }
