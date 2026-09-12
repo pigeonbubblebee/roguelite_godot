@@ -1,2586 +1,2820 @@
 {
   "CardFinal": {
-	"strike_card": {
-	  "CARD_NAME": "Strike",
-	  "COST": 1,
-	  "DESCRIPTION": "Deal 50 DMG.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": null,
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"guard_card": {
-	  "CARD_NAME": "Guard",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 50 ARMOR.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"heavy_slash_card": {
-	  "CARD_NAME": "Heavy Slash",
-	  "COST": 2,
-	  "DESCRIPTION": "Deal 120 DMG and 80 to adjacent enemies.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": null,
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"focus_card": {
-	  "CARD_NAME": "Focus",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 2 EMPOWERED.",
-	  "RARITY": "COMMON",
-	  "TYPE": "BUFF",
-	  "KEYWORDS": "empowered",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"thrust_card": {
-	  "CARD_NAME": "Thrust",
-	  "COST": 1,
-	  "DESCRIPTION": "Deal 60 DMG. Apply 2 VULNERABLE.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "vulnerable",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"sundering_strike_card": {
-	  "CARD_NAME": "Sundering Strike",
-	  "COST": 1,
-	  "DESCRIPTION": "Deal 70 DMG. Apply 2 DAZE.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "daze",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"mighty_armor_card": {
-	  "CARD_NAME": "Mighty Armor",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 75 ARMOR. Gain 2 EMPOWERED.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor;empowered",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"raging_blow_card": {
-	  "CARD_NAME": "Raging Blow",
-	  "COST": 2,
-	  "DESCRIPTION": "Deal 160 DMG. Gain 3 RAGE.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "rage;beserkers_fury_card",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"honed_edge_card": {
-	  "CARD_NAME": "Honed Edge",
-	  "COST": 1,
-	  "DESCRIPTION": "Deal 50 DMG. Gain ARMOR equal to damage dealt.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "armor",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"intimidate_card": {
-	  "CARD_NAME": "Intimidate",
-	  "COST": 0,
-	  "DESCRIPTION": "Apply 1 VULNERABLE to all enemies. EPHEMERAL.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEBUFF",
-	  "KEYWORDS": "vulnerable;ephemeral",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"concuss_card": {
-	  "CARD_NAME": "Concuss",
-	  "COST": 1,
-	  "DESCRIPTION": "Apply 3 DAZE.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEBUFF",
-	  "KEYWORDS": "daze",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"war_armor_card": {
-	  "CARD_NAME": "War Armor",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 80 ARMOR. SHARPEN an attack in your hand.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor;sharpen",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"cleave_card": {
-	  "CARD_NAME": "Cleave",
-	  "COST": 2,
-	  "DESCRIPTION": "Deal 180 DMG. Discard a card.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": null,
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"whet_card": {
-	  "CARD_NAME": "Whet",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 40 ARMOR. SHARPEN all attacks in your hand.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor;sharpen",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"sweeping_wave_card": {
-	  "CARD_NAME": "Sweeping Wave",
-	  "COST": 1,
-	  "DESCRIPTION": "Deal 70 DMG to all enemies. Gain 5 RAGE.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "rage;beserkers_fury_card",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"surging_slash_card": {
-	  "CARD_NAME": "Surging Slash",
-	  "COST": 2,
-	  "DESCRIPTION": "Deal 100 DMG. Gain 100 ARMOR.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "armor",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"beserkers_fury_card": {
-	  "CARD_NAME": "Beserker Fury",
-	  "COST": 2,
-	  "DESCRIPTION": "Deal 100 DMG. Deal 10 additional DMG for each Rage you have.",
-	  "RARITY": "HEROIC",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "rage",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"blessed_shield_card": {
-	  "CARD_NAME": "Blessed Shield",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 60 ARMOR and 2 PRAYER.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor;prayer;blessing",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"grant_me_strength_card": {
-	  "CARD_NAME": "Grant Me Strength",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 3 EMPOWERED. Discard a card.",
-	  "RARITY": "COMMON",
-	  "TYPE": "BUFF",
-	  "KEYWORDS": "empowered",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"greater_barrier_card": {
-	  "CARD_NAME": "Greater Barrier",
-	  "COST": 2,
-	  "DESCRIPTION": "Gain 140 ARMOR. Gain 2 RESOLVE.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor;resolve",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"ward_card": {
-	  "CARD_NAME": "Ward",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 75 ARMOR and 1 FORTITUDE.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor;fortitude",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"bulwark_card": {
-	  "CARD_NAME": "Bulwark",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 120 ARMOR.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"shield_bash_card": {
-	  "CARD_NAME": "Shield Bash",
-	  "COST": 1,
-	  "DESCRIPTION": "Deal DMG equal to your current ARMOR.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "armor",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"defiant_blow_card": {
-	  "CARD_NAME": "Defiant Blow",
-	  "COST": 1,
-	  "DESCRIPTION": "Deal 70 DMG. Gain 2 RESOLVE.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "resolve",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"angelic_chorus_card": {
-	  "CARD_NAME": "Angelic Chorus",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 4 PRAYER.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ENCHANT",
-	  "KEYWORDS": "prayer;blessing",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"divine_guard_card": {
-	  "CARD_NAME": "Divine Guard",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 60 ARMOR. Add a SMITE to your hand.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor;smite_card",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"purify_card": {
-	  "CARD_NAME": "Purify",
-	  "COST": 0,
-	  "DESCRIPTION": "Add 3 SMITE to your hand.",
-	  "RARITY": "COMMON",
-	  "TYPE": "BUFF",
-	  "KEYWORDS": "smite_card",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"holy_beam_card": {
-	  "CARD_NAME": "Holy Beam",
-	  "COST": 1,
-	  "DESCRIPTION": "Deal 40 DMG to all enemies. Add a SMITE to your hand.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "smite_card",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"vivid_strike_card": {
-	  "CARD_NAME": "Vivid Strike",
-	  "COST": 1,
-	  "DESCRIPTION": "Deal 70 DMG. Gain 1 EMPOWERED.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "empowered",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"smite_card": {
-	  "CARD_NAME": "Smite",
-	  "COST": 1,
-	  "DESCRIPTION": "Deal 90 DMG. LIGHT.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "light",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"support_fire_card": {
-	  "CARD_NAME": "Support Fire",
-	  "COST": 1,
-	  "DESCRIPTION": "The next 2 times you deal DMG with a card, deal 20 DMG with a 50% CRIT CHANCE.",
-	  "RARITY": "COMMON",
-	  "TYPE": "BUFF",
-	  "KEYWORDS": "crit",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"sleight_of_hand_card": {
-	  "CARD_NAME": "Sleight of Hand",
-	  "COST": 1,
-	  "DESCRIPTION": "Draw 2 cards. Discard 2 cards.",
-	  "RARITY": "COMMON",
-	  "TYPE": "BUFF",
-	  "KEYWORDS": null,
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"discharge_card": {
-	  "CARD_NAME": "Discharge",
-	  "COST": 1,
-	  "DESCRIPTION": "Deal 50 DMG. Gain 3 STORM this turn",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "storm",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"hidden_slice_card": {
-	  "CARD_NAME": "Hidden Slice",
-	  "COST": 1,
-	  "DESCRIPTION": "MULTISTRIKE 2. Deal 30 DMG. Play this for free when discarded.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "multistrike",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"dodge_past_card": {
-	  "CARD_NAME": "Dodge Past",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 70 ARMOR. Play this for free when discarded.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"quick_strike_card": {
-	  "CARD_NAME": "Quick Strike",
-	  "COST": 1,
-	  "DESCRIPTION": "MULTISTRIKE 3. Deal 30 DMG.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "multistrike",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"weak_spot_card": {
-	  "CARD_NAME": "Weak Spot",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 60 ARMOR, apply 1 VULNERABLE.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor;vulnerable",
-	  "FORCE_TARGET_DRAG": 1,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"parrying_dagger_card": {
-	  "CARD_NAME": "Parrying Dagger",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 50 ARMOR. Your next attack card has +50% CRIT CHANCE.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor;crit",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"shock_armor_card": {
-	  "CARD_NAME": "Shock Armor",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 40 ARMOR. Gain 2 STORM this turn.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor;storm",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"wild_barrage_card": {
-	  "CARD_NAME": "Wild Barrage",
-	  "COST": 0,
-	  "DESCRIPTION": "MULTISTRIKE 2. Deal 20 DMG to all enemies.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "multistrike",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"bladed_blow_card": {
-	  "CARD_NAME": "Bladed Blow",
-	  "COST": 1,
-	  "DESCRIPTION": "Deal 70 DMG with a 70% CRIT CHANCE.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "crit",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"uppercut_card": {
-	  "CARD_NAME": "Uppercut",
-	  "COST": 1,
-	  "DESCRIPTION": "Deal 80 DMG. Discard a card",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": null,
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"magic_missile_card": {
-	  "CARD_NAME": "Magic Missile",
-	  "COST": 2,
-	  "DESCRIPTION": "MULTISTRIKE 3. Deal 45 DMG. Each time, deal DMG to a random enemy.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": null,
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"mage_armor_card": {
-	  "CARD_NAME": "Mage Armor",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 60 ARMOR. Add a MANA CRYSTAL to your hand.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor;mana_crystal_card",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"eldritch_blast_card": {
-	  "CARD_NAME": "Eldritch Blast",
-	  "COST": 1,
-	  "DESCRIPTION": "Deal 70 DMG, add a MANA CRYSTAL to your hand and a MANA BURN to your deck.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "mana_crystal_card;mana_burn_card",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"mana_explosion_card": {
-	  "CARD_NAME": "Mana Explosion",
-	  "COST": 3,
-	  "DESCRIPTION": "Deal 150 DMG to all enemies.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": null,
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"divination_card": {
-	  "CARD_NAME": "Divination",
-	  "COST": 1,
-	  "DESCRIPTION": "Draw 4 cards. Put a card from your hand on top of your deck",
-	  "RARITY": "COMMON",
-	  "TYPE": "BUFF",
-	  "KEYWORDS": null,
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"arcane_insight_card": {
-	  "CARD_NAME": "Arcane Insight",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 3 EMPOWERED and 40 ARMOR. Add a MANA BURN to your deck.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor;empowered;mana_burn_card",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"omenshield_card": {
-	  "CARD_NAME": "Omenshield",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 75 ARMOR. Put a card from your hand on top of your deck.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"abjuration_card": {
-	  "CARD_NAME": "Abjuration",
-	  "COST": 2,
-	  "DESCRIPTION": "Gain 180 ARMOR. Discard a card.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"mages_greatbow_card": {
-	  "CARD_NAME": "Mage's Greatbow",
-	  "COST": 2,
-	  "DESCRIPTION": "Deal 140 DMG. Draw 3 cards.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": null,
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"channel_card": {
-	  "CARD_NAME": "Channel",
-	  "COST": 1,
-	  "DESCRIPTION": "Add 2 MANA CRYSTAL to your hand.",
-	  "RARITY": "COMMON",
-	  "TYPE": "BUFF",
-	  "KEYWORDS": "mana_crystal_card",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"song_of_protection_card": {
-	  "CARD_NAME": "Song of Protection",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 60 ARMOR. Distribute 4 SYMPHONY randomly among cards in your hand.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor;symphony",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"song_of_wrath_card": {
-	  "CARD_NAME": "Song of Wrath",
-	  "COST": 1,
-	  "DESCRIPTION": "Deal 80 DMG to all enemies. Add 2 SYMPHONY to a card in your hand.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "symphony",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"bleeding_strike_card": {
-	  "CARD_NAME": "Bleeding Strike",
-	  "COST": 1,
-	  "DESCRIPTION": "Deal 60 DMG. Apply 4 BLEED.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "bleed",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"tear_card": {
-	  "CARD_NAME": "Tear",
-	  "COST": 1,
-	  "DESCRIPTION": "Deal 40 DMG to all enemies apply 2 BLEED.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "bleed",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"blood_writing_card": {
-	  "CARD_NAME": "Blood Writing",
-	  "COST": 1,
-	  "DESCRIPTION": "Draw 2 cards and gain 6 RITUAL. Lose 20 HP.",
-	  "RARITY": "COMMON",
-	  "TYPE": "BUFF",
-	  "KEYWORDS": "ritual",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"drain_card": {
-	  "CARD_NAME": "Drain",
-	  "COST": 1,
-	  "DESCRIPTION": "Apply 1 VULNERABLE and 1 WEAKENED. Discard a card.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEBUFF",
-	  "KEYWORDS": "vulnerable;weakened",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"rancorous_bolt_card": {
-	  "CARD_NAME": "Rancorous Bolt",
-	  "COST": 2,
-	  "DESCRIPTION": "Deal 100 DMG. Apply 2 VULNERABLE.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "vulnerable",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"wicked_blow_card": {
-	  "CARD_NAME": "Wicked Blow",
-	  "COST": 1,
-	  "DESCRIPTION": "Deal 80 DMG. Gain 8 RITUAL.",
-	  "RARITY": "COMMON",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "ritual",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"bone_shield_card": {
-	  "CARD_NAME": "Bone Shield",
-	  "COST": 2,
-	  "DESCRIPTION": "Gain 170 Armor. Lose 10 HP.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"miasmic_armor_card": {
-	  "CARD_NAME": "Miasmic Armor",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 70 ARMOR. Deal 30 DMG to all enemies.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor",
-	  "FORCE_TARGET_DRAG": 1,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"screech_card": {
-	  "CARD_NAME": "Screech",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 70 Armor. Apply 1 WEAKENED.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor;weakened",
-	  "FORCE_TARGET_DRAG": 1,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"spiked_guard_card": {
-	  "CARD_NAME": "Spiked Guard",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 60 Armor. Apply 2 BLEED.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "bleed",
-	  "FORCE_TARGET_DRAG": 1,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"taint_card": {
-	  "CARD_NAME": "Taint",
-	  "COST": 0,
-	  "DESCRIPTION": "Apply 2 CORRUPTED. Lose 10 HP.",
-	  "RARITY": "COMMON",
-	  "TYPE": "DEBUFF",
-	  "KEYWORDS": "corrupted",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"dark_star_card": {
-	  "CARD_NAME": "Dark Star",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 12 RITUAL",
-	  "RARITY": "COMMON",
-	  "TYPE": "BUFF",
-	  "KEYWORDS": "ritual",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"deaths_call_card": {
-	  "CARD_NAME": "Death's Call",
-	  "COST": 1,
-	  "DESCRIPTION": "UNPLAYABLE. Deals 10 DMG to you on turn end, then is removed from combat.",
-	  "RARITY": "WOUND",
-	  "TYPE": "WOUND",
-	  "KEYWORDS": null,
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"gash_card": {
-	  "CARD_NAME": "Gash",
-	  "COST": 1,
-	  "DESCRIPTION": "Draw a card. EPHEMERAL. FRAGILE.",
-	  "RARITY": "WOUND",
-	  "TYPE": "WOUND",
-	  "KEYWORDS": "ephemeral;fragile",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"rot_card": {
-	  "CARD_NAME": "Rot",
-	  "COST": 1,
-	  "DESCRIPTION": "UNPLAYABLE. Deals 40 DMG to you on turn end, then is discarded.",
-	  "RARITY": "WOUND",
-	  "TYPE": "WOUND",
-	  "KEYWORDS": null,
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"blind_rage_card": {
-	  "CARD_NAME": "Blind Rage",
-	  "COST": 0,
-	  "DESCRIPTION": "Gain 12 RAGE and 2 UNSTEADY. EPHEMERAL",
-	  "RARITY": "RARE",
-	  "TYPE": "BUFF",
-	  "KEYWORDS": "unsteady;rage;beserkers_fury_card;ephemeral",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"forge_anew_card": {
-	  "CARD_NAME": "Forge Anew",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 5 RAGE. SHARPEN Beserker Fury.",
-	  "RARITY": "RARE",
-	  "TYPE": "BUFF",
-	  "KEYWORDS": "sharpen;rage;beserkers_fury_card",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"bash_card": {
-	  "CARD_NAME": "Bash",
-	  "COST": 1,
-	  "DESCRIPTION": "Deal 50 DMG. Gain 50 ARMOR and 5 RAGE.",
-	  "RARITY": "RARE",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "armor;rage;beserkers_fury_card",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"armaments_card": {
-	  "CARD_NAME": "Armament",
-	  "COST": 1,
-	  "DESCRIPTION": "Whenever you play a card, gain 20 ARMOR for each time it's been SHARPENED.",
-	  "RARITY": "RARE",
-	  "TYPE": "ENCHANT",
-	  "KEYWORDS": "armor;sharpen",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"grind_card": {
-	  "CARD_NAME": "Grind",
-	  "COST": 1,
-	  "DESCRIPTION": "SHARPEN an attack in your hand 3 times.",
-	  "RARITY": "RARE",
-	  "TYPE": "BUFF",
-	  "KEYWORDS": "sharpen",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"hardened_blades_card": {
-	  "CARD_NAME": "Hardened Blades",
-	  "COST": 1,
-	  "DESCRIPTION": "Whenever you SHARPEN, SHARPEN 1 additional time.",
-	  "RARITY": "RARE",
-	  "TYPE": "ENCHANT",
-	  "KEYWORDS": "sharpen",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"unyield_card": {
-	  "CARD_NAME": "Unyield",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 50 ARMOR and 5 RAGE. Move Beserker Fury to your hand.",
-	  "RARITY": "RARE",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor;rage;beserkers_fury_card",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"devastate_card": {
-	  "CARD_NAME": "Devastate",
-	  "COST": 3,
-	  "DESCRIPTION": "Deal 200 DMG and gain 200 ARMOR.",
-	  "RARITY": "RARE",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "armor",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"breaching_shield_card": {
-	  "CARD_NAME": "Breaching Shield",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 70 ARMOR. Your next card is free to play.",
-	  "RARITY": "RARE",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"blast_zone_card": {
-	  "CARD_NAME": "Blast Zone",
-	  "COST": 2,
-	  "DESCRIPTION": "Deal 130 DMG and 100 to adjacent enemies. Apply 1 VULNERABLE to all hit enemies.",
-	  "RARITY": "RARE",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "vulnerable",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"knock_down_card": {
-	  "CARD_NAME": "Knock Down",
-	  "COST": 2,
-	  "DESCRIPTION": "Gain 130 ARMOR. Apply 2 DAZE.",
-	  "RARITY": "RARE",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": "armor;daze",
-	  "FORCE_TARGET_DRAG": 1,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"stagger_card": {
-	  "CARD_NAME": "Stagger",
-	  "COST": 1,
-	  "DESCRIPTION": "DAZED enemies take 15% more DMG and deal an additional 10% less DMG.",
-	  "RARITY": "RARE",
-	  "TYPE": "ENCHANT",
-	  "KEYWORDS": "daze",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"critical_strike_card": {
-	  "CARD_NAME": "Critical Strike",
-	  "COST": 2,
-	  "DESCRIPTION": "SHARPEN this card once for each DAZE on the enemy. Deal 60 DMG.",
-	  "RARITY": "RARE",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "sharpen;daze",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"skull_smash_card": {
-	  "CARD_NAME": "Skull Smash",
-	  "COST": 1,
-	  "DESCRIPTION": "Deal 60 DMG and 30 to adjacent enemies. Apply 1 DAZE to all hit enemies.",
-	  "RARITY": "RARE",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": "daze",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"deep_impact_card": {
-	  "CARD_NAME": "Deep Impact",
-	  "COST": 1,
-	  "DESCRIPTION": "Apply 2 DAZE. If the enemy already has DAZE, apply 4 additional DAZE.",
-	  "RARITY": "RARE",
-	  "TYPE": "DEBUFF",
-	  "KEYWORDS": "daze",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"aggression_card": {
-	  "CARD_NAME": "Aggression",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 7 RAGE at the start of each turn.",
-	  "RARITY": "RARE",
-	  "TYPE": "ENCHANT",
-	  "KEYWORDS": "rage;beserkers_fury_card",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"heavy_axe_card": {
-	  "CARD_NAME": "Heavy Axe",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 5 RAGE. Beserker Fury now applies 2 DAZE.",
-	  "RARITY": "RARE",
-	  "TYPE": "ENCHANT",
-	  "KEYWORDS": "rage;beserkers_fury_card;daze",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"invigoration_card": {
-	  "CARD_NAME": "Invigorate",
-	  "COST": 1,
-	  "DESCRIPTION": "Whenever you play a card with base cost 2 or more, gain 40 ARMOR and 1 EMPOWERED.",
-	  "RARITY": "RARE",
-	  "TYPE": "ENCHANT",
-	  "KEYWORDS": "armor",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": null,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"mana_crystal_card": {
-	  "CARD_NAME": "Mana Crystal",
-	  "COST": 0,
-	  "DESCRIPTION": "Gain 1 Energy next turn. EPHEMERAL.",
-	  "RARITY": "COMMON",
-	  "TYPE": "BUFF",
-	  "KEYWORDS": "ephemeral",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"mana_burn_card": {
-	  "CARD_NAME": "Mana Burn",
-	  "COST": 1,
-	  "DESCRIPTION": "UNPLAYABLE. FRAGILE.",
-	  "RARITY": "WOUND",
-	  "TYPE": "WOUND",
-	  "KEYWORDS": "ephemeral;fragile",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"": {
-	  "CARD_NAME": null,
-	  "COST": null,
-	  "DESCRIPTION": null,
-	  "RARITY": null,
-	  "TYPE": null,
-	  "KEYWORDS": null,
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"lightning_incantation_card": {
-	  "CARD_NAME": "Lightning Incantation",
-	  "COST": 1,
-	  "DESCRIPTION": "Ephemeral. Gain 3 Storm.",
-	  "RARITY": "RARE",
-	  "TYPE": "BUFF",
-	  "KEYWORDS": "storm",
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"slicer_rain_card": {
-	  "CARD_NAME": "Slicer Rain",
-	  "COST": 0,
-	  "DESCRIPTION": "Use all your remaining energy. Deal 80 Magic DMG that many times.",
-	  "RARITY": "RARE",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": null,
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"mana_storm_card": {
-	  "CARD_NAME": "Mana Storm",
-	  "COST": 1,
-	  "DESCRIPTION": "Whenever you play a card this turn, deal 10 Magic DMG to all enemies.",
-	  "RARITY": "RARE",
-	  "TYPE": "BUFF",
-	  "KEYWORDS": null,
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"omnipotence_card": {
-	  "CARD_NAME": "Omnipotence",
-	  "COST": 1,
-	  "DESCRIPTION": "Ephemeral. Add 6 Mana Crystals to your hand.",
-	  "RARITY": "HEROIC",
-	  "TYPE": "BUFF",
-	  "KEYWORDS": null,
-	  "FORCE_TARGET_DRAG": 1,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"stardust_greatsword": {
-	  "CARD_NAME": "Stardust Greatsword",
-	  "COST": 2,
-	  "DESCRIPTION": "Deal 100 DMG. Deals an additional 60 Magic DMG for each Mana Crystal played this game.",
-	  "RARITY": "HEROIC",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": null,
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"torment_card": {
-	  "CARD_NAME": "Torment",
-	  "COST": 1,
-	  "DESCRIPTION": "Deals 24 Cold DMG for each Insanity you have.",
-	  "RARITY": "HEROIC",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": null,
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"song_of_power": {
-	  "CARD_NAME": "Song of Power",
-	  "COST": null,
-	  "DESCRIPTION": "All enemies deal 30% less DMG for 2 turns. Gain 300 Armor.",
-	  "RARITY": "HEROIC",
-	  "TYPE": "DEFENSE",
-	  "KEYWORDS": null,
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"song_of_life": {
-	  "CARD_NAME": "Song of Life",
-	  "COST": null,
-	  "DESCRIPTION": "Deal 60% more final DMG for 4 turns.",
-	  "RARITY": "HEROIC",
-	  "TYPE": "BUFF",
-	  "KEYWORDS": null,
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	},
-	"song_of_wrath": {
-	  "CARD_NAME": "Song of Wrath",
-	  "COST": null,
-	  "DESCRIPTION": "Multistrike 4. Deal 60 Magic DMG to all enemies.",
-	  "RARITY": "HEROIC",
-	  "TYPE": "ATTACK",
-	  "KEYWORDS": null,
-	  "FORCE_TARGET_DRAG": null,
-	  "NOT_DRAFTABLE": true,
-	  "UPGRADED_KEYWORDS": null,
-	  "UPGRADED": null
-	}
+    "strike_card": {
+      "CARD_NAME": "Strike",
+      "COST": 1,
+      "DESCRIPTION": "Deal 50 DMG.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "guard_card": {
+      "CARD_NAME": "Guard",
+      "COST": 1,
+      "DESCRIPTION": "Gain 50 ARMOR.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "heavy_slash_card": {
+      "CARD_NAME": "Heavy Slash",
+      "COST": 2,
+      "DESCRIPTION": "Deal 120 DMG and 80 to adjacent enemies.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "focus_card": {
+      "CARD_NAME": "Focus",
+      "COST": 1,
+      "DESCRIPTION": "Gain 2 EMPOWERED.",
+      "RARITY": "COMMON",
+      "TYPE": "BUFF",
+      "KEYWORDS": "empowered",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "thrust_card": {
+      "CARD_NAME": "Thrust",
+      "COST": 1,
+      "DESCRIPTION": "Deal 60 DMG. Apply 2 VULNERABLE.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "vulnerable",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "sundering_strike_card": {
+      "CARD_NAME": "Sundering Strike",
+      "COST": 1,
+      "DESCRIPTION": "Deal 70 DMG. Apply 2 DAZE.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "daze",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "mighty_armor_card": {
+      "CARD_NAME": "Mighty Armor",
+      "COST": 1,
+      "DESCRIPTION": "Gain 75 ARMOR. Gain 2 EMPOWERED.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor;empowered",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "raging_blow_card": {
+      "CARD_NAME": "Raging Blow",
+      "COST": 2,
+      "DESCRIPTION": "Deal 160 DMG. Gain 3 RAGE.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "rage;beserkers_fury_card",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "honed_edge_card": {
+      "CARD_NAME": "Honed Edge",
+      "COST": 1,
+      "DESCRIPTION": "Deal 50 DMG. Gain ARMOR equal to damage dealt.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "armor",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "intimidate_card": {
+      "CARD_NAME": "Intimidate",
+      "COST": 0,
+      "DESCRIPTION": "Apply 1 VULNERABLE to all enemies. EPHEMERAL.",
+      "RARITY": "COMMON",
+      "TYPE": "DEBUFF",
+      "KEYWORDS": "vulnerable;ephemeral",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "concuss_card": {
+      "CARD_NAME": "Concuss",
+      "COST": 1,
+      "DESCRIPTION": "Apply 3 DAZE.",
+      "RARITY": "COMMON",
+      "TYPE": "DEBUFF",
+      "KEYWORDS": "daze",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "war_armor_card": {
+      "CARD_NAME": "War Armor",
+      "COST": 1,
+      "DESCRIPTION": "Gain 80 ARMOR. SHARPEN an attack in your hand.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor;sharpen",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "cleave_card": {
+      "CARD_NAME": "Cleave",
+      "COST": 2,
+      "DESCRIPTION": "Deal 180 DMG. Discard a card.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "whet_card": {
+      "CARD_NAME": "Whet",
+      "COST": 1,
+      "DESCRIPTION": "Gain 40 ARMOR. SHARPEN all attacks in your hand.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor;sharpen",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "sweeping_wave_card": {
+      "CARD_NAME": "Sweeping Wave",
+      "COST": 1,
+      "DESCRIPTION": "Deal 70 DMG to all enemies. Gain 5 RAGE.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "rage;beserkers_fury_card",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "surging_slash_card": {
+      "CARD_NAME": "Surging Slash",
+      "COST": 2,
+      "DESCRIPTION": "Deal 100 DMG. Gain 100 ARMOR.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "armor",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "beserkers_fury_card": {
+      "CARD_NAME": "Beserker Fury",
+      "COST": 2,
+      "DESCRIPTION": "Deal 100 DMG. Deal 10 additional DMG for each Rage you have.",
+      "RARITY": "HEROIC",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "rage",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "blessed_shield_card": {
+      "CARD_NAME": "Blessed Shield",
+      "COST": 1,
+      "DESCRIPTION": "Gain 60 ARMOR and 2 PRAYER.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor;prayer;blessing",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "grant_me_strength_card": {
+      "CARD_NAME": "Grant Me Strength",
+      "COST": 1,
+      "DESCRIPTION": "Gain 3 EMPOWERED. Discard a card.",
+      "RARITY": "COMMON",
+      "TYPE": "BUFF",
+      "KEYWORDS": "empowered",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "greater_barrier_card": {
+      "CARD_NAME": "Greater Barrier",
+      "COST": 2,
+      "DESCRIPTION": "Gain 140 ARMOR. Gain 2 RESOLVE.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor;resolve",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "ward_card": {
+      "CARD_NAME": "Ward",
+      "COST": 1,
+      "DESCRIPTION": "Gain 75 ARMOR and 1 FORTITUDE.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor;fortitude",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "bulwark_card": {
+      "CARD_NAME": "Bulwark",
+      "COST": 1,
+      "DESCRIPTION": "Gain 120 ARMOR.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "shield_bash_card": {
+      "CARD_NAME": "Shield Bash",
+      "COST": 1,
+      "DESCRIPTION": "Deal DMG equal to your current ARMOR.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "armor",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "defiant_blow_card": {
+      "CARD_NAME": "Defiant Blow",
+      "COST": 1,
+      "DESCRIPTION": "Deal 70 DMG. Gain 2 RESOLVE.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "resolve",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "angelic_chorus_card": {
+      "CARD_NAME": "Angelic Chorus",
+      "COST": 1,
+      "DESCRIPTION": "Gain 4 PRAYER.",
+      "RARITY": "COMMON",
+      "TYPE": "ENCHANT",
+      "KEYWORDS": "prayer;blessing",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "divine_guard_card": {
+      "CARD_NAME": "Divine Guard",
+      "COST": 1,
+      "DESCRIPTION": "Gain 60 ARMOR. Add a SMITE to your hand.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor;smite_card",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "purify_card": {
+      "CARD_NAME": "Purify",
+      "COST": 0,
+      "DESCRIPTION": "Add 3 SMITE to your hand.",
+      "RARITY": "COMMON",
+      "TYPE": "BUFF",
+      "KEYWORDS": "smite_card",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "holy_beam_card": {
+      "CARD_NAME": "Holy Beam",
+      "COST": 1,
+      "DESCRIPTION": "Deal 40 DMG to all enemies. Add a SMITE to your hand.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "smite_card",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "vivid_strike_card": {
+      "CARD_NAME": "Vivid Strike",
+      "COST": 1,
+      "DESCRIPTION": "Deal 70 DMG. Gain 1 EMPOWERED.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "empowered",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "smite_card": {
+      "CARD_NAME": "Smite",
+      "COST": 1,
+      "DESCRIPTION": "Deal 90 DMG. LIGHT.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "light",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "support_fire_card": {
+      "CARD_NAME": "Support Fire",
+      "COST": 1,
+      "DESCRIPTION": "The next 2 times you deal DMG with a card, deal 20 DMG with a 50% CRIT CHANCE.",
+      "RARITY": "COMMON",
+      "TYPE": "BUFF",
+      "KEYWORDS": "crit",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "sleight_of_hand_card": {
+      "CARD_NAME": "Sleight of Hand",
+      "COST": 1,
+      "DESCRIPTION": "Draw 2 cards. Discard 2 cards.",
+      "RARITY": "COMMON",
+      "TYPE": "BUFF",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "discharge_card": {
+      "CARD_NAME": "Discharge",
+      "COST": 1,
+      "DESCRIPTION": "Deal 50 DMG. Gain 3 STORM this turn",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "storm",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "hidden_slice_card": {
+      "CARD_NAME": "Hidden Slice",
+      "COST": 1,
+      "DESCRIPTION": "MULTISTRIKE 2. Deal 30 DMG. Play this for free when discarded.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "multistrike",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "dodge_past_card": {
+      "CARD_NAME": "Dodge Past",
+      "COST": 1,
+      "DESCRIPTION": "Gain 70 ARMOR. Play this for free when discarded.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "quick_strike_card": {
+      "CARD_NAME": "Quick Strike",
+      "COST": 1,
+      "DESCRIPTION": "MULTISTRIKE 3. Deal 30 DMG.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "multistrike",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "weak_spot_card": {
+      "CARD_NAME": "Weak Spot",
+      "COST": 1,
+      "DESCRIPTION": "Gain 60 ARMOR, apply 1 VULNERABLE.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor;vulnerable",
+      "FORCE_TARGET_DRAG": 1,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "parrying_dagger_card": {
+      "CARD_NAME": "Parrying Dagger",
+      "COST": 1,
+      "DESCRIPTION": "Gain 50 ARMOR. Your next attack card has +50% CRIT CHANCE.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor;crit",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "shock_armor_card": {
+      "CARD_NAME": "Shock Armor",
+      "COST": 1,
+      "DESCRIPTION": "Gain 40 ARMOR. Gain 2 STORM this turn.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor;storm",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "wild_barrage_card": {
+      "CARD_NAME": "Wild Barrage",
+      "COST": 0,
+      "DESCRIPTION": "MULTISTRIKE 2. Deal 20 DMG to all enemies.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "multistrike",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "bladed_blow_card": {
+      "CARD_NAME": "Bladed Blow",
+      "COST": 1,
+      "DESCRIPTION": "Deal 70 DMG with a 70% CRIT CHANCE.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "crit",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "uppercut_card": {
+      "CARD_NAME": "Uppercut",
+      "COST": 1,
+      "DESCRIPTION": "Deal 80 DMG. Discard a card",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "magic_missile_card": {
+      "CARD_NAME": "Magic Missile",
+      "COST": 2,
+      "DESCRIPTION": "MULTISTRIKE 3. Deal 45 DMG. Each time, deal DMG to a random enemy.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "mage_armor_card": {
+      "CARD_NAME": "Mage Armor",
+      "COST": 1,
+      "DESCRIPTION": "Gain 60 ARMOR. Add a MANA CRYSTAL to your hand.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor;mana_crystal_card",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "eldritch_blast_card": {
+      "CARD_NAME": "Eldritch Blast",
+      "COST": 1,
+      "DESCRIPTION": "Deal 70 DMG, add a MANA CRYSTAL to your hand and a MANA BURN to your deck.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "mana_crystal_card;mana_burn_card",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "mana_explosion_card": {
+      "CARD_NAME": "Mana Explosion",
+      "COST": 3,
+      "DESCRIPTION": "Deal 150 DMG to all enemies.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "divination_card": {
+      "CARD_NAME": "Divination",
+      "COST": 1,
+      "DESCRIPTION": "Draw 4 cards. Put a card from your hand on top of your deck",
+      "RARITY": "COMMON",
+      "TYPE": "BUFF",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "arcane_insight_card": {
+      "CARD_NAME": "Arcane Insight",
+      "COST": 1,
+      "DESCRIPTION": "Gain 3 EMPOWERED and 40 ARMOR. Add a MANA BURN to your deck.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor;empowered;mana_burn_card",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "omenshield_card": {
+      "CARD_NAME": "Omenshield",
+      "COST": 1,
+      "DESCRIPTION": "Gain 75 ARMOR. Put a card from your hand on top of your deck.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "abjuration_card": {
+      "CARD_NAME": "Abjuration",
+      "COST": 2,
+      "DESCRIPTION": "Gain 180 ARMOR. Discard a card.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "mages_greatbow_card": {
+      "CARD_NAME": "Mage's Greatbow",
+      "COST": 2,
+      "DESCRIPTION": "Deal 140 DMG. Draw 3 cards.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "channel_card": {
+      "CARD_NAME": "Channel",
+      "COST": 1,
+      "DESCRIPTION": "Add 2 MANA CRYSTAL to your hand.",
+      "RARITY": "COMMON",
+      "TYPE": "BUFF",
+      "KEYWORDS": "mana_crystal_card",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "song_of_protection_card": {
+      "CARD_NAME": "Song of Protection",
+      "COST": 1,
+      "DESCRIPTION": "Gain 60 ARMOR. Distribute 4 SYMPHONY randomly among cards in your hand.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor;symphony",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "song_of_wrath_card": {
+      "CARD_NAME": "Song of Wrath",
+      "COST": 1,
+      "DESCRIPTION": "Deal 80 DMG to all enemies. Add 2 SYMPHONY to a card in your hand.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "symphony",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "bleeding_strike_card": {
+      "CARD_NAME": "Bleeding Strike",
+      "COST": 1,
+      "DESCRIPTION": "Deal 60 DMG. Apply 4 BLEED.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "bleed",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "tear_card": {
+      "CARD_NAME": "Tear",
+      "COST": 1,
+      "DESCRIPTION": "Deal 40 DMG to all enemies apply 2 BLEED.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "bleed",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "blood_writing_card": {
+      "CARD_NAME": "Blood Writing",
+      "COST": 1,
+      "DESCRIPTION": "Draw 2 cards and gain 6 RITUAL. Lose 20 HP.",
+      "RARITY": "COMMON",
+      "TYPE": "BUFF",
+      "KEYWORDS": "ritual",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "drain_card": {
+      "CARD_NAME": "Drain",
+      "COST": 1,
+      "DESCRIPTION": "Apply 1 VULNERABLE and 1 WEAKENED. Discard a card.",
+      "RARITY": "COMMON",
+      "TYPE": "DEBUFF",
+      "KEYWORDS": "vulnerable;weakened",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "rancorous_bolt_card": {
+      "CARD_NAME": "Rancorous Bolt",
+      "COST": 2,
+      "DESCRIPTION": "Deal 100 DMG. Apply 2 VULNERABLE.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "vulnerable",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "wicked_blow_card": {
+      "CARD_NAME": "Wicked Blow",
+      "COST": 1,
+      "DESCRIPTION": "Deal 80 DMG. Gain 8 RITUAL.",
+      "RARITY": "COMMON",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "ritual",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "bone_shield_card": {
+      "CARD_NAME": "Bone Shield",
+      "COST": 2,
+      "DESCRIPTION": "Gain 170 Armor. Lose 10 HP.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "miasmic_armor_card": {
+      "CARD_NAME": "Miasmic Armor",
+      "COST": 1,
+      "DESCRIPTION": "Gain 70 ARMOR. Deal 30 DMG to all enemies.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor",
+      "FORCE_TARGET_DRAG": 1,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "screech_card": {
+      "CARD_NAME": "Screech",
+      "COST": 1,
+      "DESCRIPTION": "Gain 70 Armor. Apply 1 WEAKENED.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor;weakened",
+      "FORCE_TARGET_DRAG": 1,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "spiked_guard_card": {
+      "CARD_NAME": "Spiked Guard",
+      "COST": 1,
+      "DESCRIPTION": "Gain 60 Armor. Apply 2 BLEED.",
+      "RARITY": "COMMON",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "bleed",
+      "FORCE_TARGET_DRAG": 1,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "taint_card": {
+      "CARD_NAME": "Taint",
+      "COST": 0,
+      "DESCRIPTION": "Apply 2 CORRUPTED. Lose 10 HP.",
+      "RARITY": "COMMON",
+      "TYPE": "DEBUFF",
+      "KEYWORDS": "corrupted",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "dark_star_card": {
+      "CARD_NAME": "Dark Star",
+      "COST": 1,
+      "DESCRIPTION": "Gain 12 RITUAL",
+      "RARITY": "COMMON",
+      "TYPE": "BUFF",
+      "KEYWORDS": "ritual",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "deaths_call_card": {
+      "CARD_NAME": "Death's Call",
+      "COST": 1,
+      "DESCRIPTION": "UNPLAYABLE. Deals 10 DMG to you on turn end, then is removed from combat.",
+      "RARITY": "WOUND",
+      "TYPE": "WOUND",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "gash_card": {
+      "CARD_NAME": "Gash",
+      "COST": 1,
+      "DESCRIPTION": "Draw a card. EPHEMERAL. FRAGILE.",
+      "RARITY": "WOUND",
+      "TYPE": "WOUND",
+      "KEYWORDS": "ephemeral;fragile",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "rot_card": {
+      "CARD_NAME": "Rot",
+      "COST": 1,
+      "DESCRIPTION": "UNPLAYABLE. Deals 40 DMG to you on turn end, then is discarded.",
+      "RARITY": "WOUND",
+      "TYPE": "WOUND",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "blind_rage_card": {
+      "CARD_NAME": "Blind Rage",
+      "COST": 0,
+      "DESCRIPTION": "Gain 12 RAGE and 2 UNSTEADY. EPHEMERAL",
+      "RARITY": "RARE",
+      "TYPE": "BUFF",
+      "KEYWORDS": "unsteady;rage;beserkers_fury_card;ephemeral",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "forge_anew_card": {
+      "CARD_NAME": "Forge Anew",
+      "COST": 1,
+      "DESCRIPTION": "Gain 5 RAGE. SHARPEN Beserker Fury.",
+      "RARITY": "RARE",
+      "TYPE": "BUFF",
+      "KEYWORDS": "sharpen;rage;beserkers_fury_card",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "bash_card": {
+      "CARD_NAME": "Bash",
+      "COST": 1,
+      "DESCRIPTION": "Deal 50 DMG. Gain 50 ARMOR and 5 RAGE.",
+      "RARITY": "RARE",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "armor;rage;beserkers_fury_card",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "armaments_card": {
+      "CARD_NAME": "Armament",
+      "COST": 1,
+      "DESCRIPTION": "Whenever you play a card, gain 20 ARMOR for each time it's been SHARPENED.",
+      "RARITY": "RARE",
+      "TYPE": "ENCHANT",
+      "KEYWORDS": "armor;sharpen",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "grind_card": {
+      "CARD_NAME": "Grind",
+      "COST": 1,
+      "DESCRIPTION": "SHARPEN an attack in your hand 3 times.",
+      "RARITY": "RARE",
+      "TYPE": "BUFF",
+      "KEYWORDS": "sharpen",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "hardened_blades_card": {
+      "CARD_NAME": "Hardened Blades",
+      "COST": 1,
+      "DESCRIPTION": "Whenever you SHARPEN, SHARPEN 1 additional time.",
+      "RARITY": "RARE",
+      "TYPE": "ENCHANT",
+      "KEYWORDS": "sharpen",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "unyield_card": {
+      "CARD_NAME": "Unyield",
+      "COST": 1,
+      "DESCRIPTION": "Gain 50 ARMOR and 5 RAGE. Move Beserker Fury to your hand.",
+      "RARITY": "RARE",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor;rage;beserkers_fury_card",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "devastate_card": {
+      "CARD_NAME": "Devastate",
+      "COST": 3,
+      "DESCRIPTION": "Deal 200 DMG and gain 200 ARMOR.",
+      "RARITY": "RARE",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "armor",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "breaching_shield_card": {
+      "CARD_NAME": "Breaching Shield",
+      "COST": 1,
+      "DESCRIPTION": "Gain 70 ARMOR. Your next card is free to play.",
+      "RARITY": "RARE",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "blast_zone_card": {
+      "CARD_NAME": "Blast Zone",
+      "COST": 2,
+      "DESCRIPTION": "Deal 130 DMG and 100 to adjacent enemies. Apply 1 VULNERABLE to all hit enemies.",
+      "RARITY": "RARE",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "vulnerable",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "knock_down_card": {
+      "CARD_NAME": "Knock Down",
+      "COST": 2,
+      "DESCRIPTION": "Gain 130 ARMOR. Apply 2 DAZE.",
+      "RARITY": "RARE",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": "armor;daze",
+      "FORCE_TARGET_DRAG": 1,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "stagger_card": {
+      "CARD_NAME": "Stagger",
+      "COST": 1,
+      "DESCRIPTION": "DAZED enemies take 15% more DMG and deal an additional 10% less DMG.",
+      "RARITY": "RARE",
+      "TYPE": "ENCHANT",
+      "KEYWORDS": "daze",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "critical_strike_card": {
+      "CARD_NAME": "Critical Strike",
+      "COST": 2,
+      "DESCRIPTION": "SHARPEN this card once for each DAZE on the enemy. Deal 60 DMG.",
+      "RARITY": "RARE",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "sharpen;daze",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "skull_smash_card": {
+      "CARD_NAME": "Skull Smash",
+      "COST": 1,
+      "DESCRIPTION": "Deal 60 DMG and 30 to adjacent enemies. Apply 1 DAZE to all hit enemies.",
+      "RARITY": "RARE",
+      "TYPE": "ATTACK",
+      "KEYWORDS": "daze",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "deep_impact_card": {
+      "CARD_NAME": "Deep Impact",
+      "COST": 1,
+      "DESCRIPTION": "Apply 2 DAZE. If the enemy already has DAZE, apply 4 additional DAZE.",
+      "RARITY": "RARE",
+      "TYPE": "DEBUFF",
+      "KEYWORDS": "daze",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "aggression_card": {
+      "CARD_NAME": "Aggression",
+      "COST": 1,
+      "DESCRIPTION": "Gain 7 RAGE at the start of each turn.",
+      "RARITY": "RARE",
+      "TYPE": "ENCHANT",
+      "KEYWORDS": "rage;beserkers_fury_card",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "heavy_axe_card": {
+      "CARD_NAME": "Heavy Axe",
+      "COST": 1,
+      "DESCRIPTION": "Gain 5 RAGE. Beserker Fury now applies 2 DAZE.",
+      "RARITY": "RARE",
+      "TYPE": "ENCHANT",
+      "KEYWORDS": "rage;beserkers_fury_card;daze",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "invigoration_card": {
+      "CARD_NAME": "Invigorate",
+      "COST": 1,
+      "DESCRIPTION": "Whenever you play a card with base cost 2 or more, gain 40 ARMOR and 1 EMPOWERED.",
+      "RARITY": "RARE",
+      "TYPE": "ENCHANT",
+      "KEYWORDS": "armor",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": null,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "mana_crystal_card": {
+      "CARD_NAME": "Mana Crystal",
+      "COST": 0,
+      "DESCRIPTION": "Gain 1 Energy next turn. EPHEMERAL.",
+      "RARITY": "COMMON",
+      "TYPE": "BUFF",
+      "KEYWORDS": "ephemeral",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "mana_burn_card": {
+      "CARD_NAME": "Mana Burn",
+      "COST": 1,
+      "DESCRIPTION": "UNPLAYABLE. FRAGILE.",
+      "RARITY": "WOUND",
+      "TYPE": "WOUND",
+      "KEYWORDS": "ephemeral;fragile",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "": {
+      "CARD_NAME": null,
+      "COST": null,
+      "DESCRIPTION": null,
+      "RARITY": null,
+      "TYPE": null,
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "lightning_incantation_card": {
+      "CARD_NAME": "Lightning Incantation",
+      "COST": 1,
+      "DESCRIPTION": "Ephemeral. Gain 3 Storm.",
+      "RARITY": "RARE",
+      "TYPE": "BUFF",
+      "KEYWORDS": "storm",
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "slicer_rain_card": {
+      "CARD_NAME": "Slicer Rain",
+      "COST": 0,
+      "DESCRIPTION": "Use all your remaining energy. Deal 80 Magic DMG that many times.",
+      "RARITY": "RARE",
+      "TYPE": "ATTACK",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "mana_storm_card": {
+      "CARD_NAME": "Mana Storm",
+      "COST": 1,
+      "DESCRIPTION": "Whenever you play a card this turn, deal 10 Magic DMG to all enemies.",
+      "RARITY": "RARE",
+      "TYPE": "BUFF",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "omnipotence_card": {
+      "CARD_NAME": "Omnipotence",
+      "COST": 1,
+      "DESCRIPTION": "Ephemeral. Add 6 Mana Crystals to your hand.",
+      "RARITY": "HEROIC",
+      "TYPE": "BUFF",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": 1,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "stardust_greatsword": {
+      "CARD_NAME": "Stardust Greatsword",
+      "COST": 2,
+      "DESCRIPTION": "Deal 100 DMG. Deals an additional 60 Magic DMG for each Mana Crystal played this game.",
+      "RARITY": "HEROIC",
+      "TYPE": "ATTACK",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "torment_card": {
+      "CARD_NAME": "Torment",
+      "COST": 1,
+      "DESCRIPTION": "Deals 24 Cold DMG for each Insanity you have.",
+      "RARITY": "HEROIC",
+      "TYPE": "ATTACK",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "song_of_power": {
+      "CARD_NAME": "Song of Power",
+      "COST": null,
+      "DESCRIPTION": "All enemies deal 30% less DMG for 2 turns. Gain 300 Armor.",
+      "RARITY": "HEROIC",
+      "TYPE": "DEFENSE",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "song_of_life": {
+      "CARD_NAME": "Song of Life",
+      "COST": null,
+      "DESCRIPTION": "Deal 60% more final DMG for 4 turns.",
+      "RARITY": "HEROIC",
+      "TYPE": "BUFF",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    },
+    "song_of_wrath": {
+      "CARD_NAME": "Song of Wrath",
+      "COST": null,
+      "DESCRIPTION": "Multistrike 4. Deal 60 Magic DMG to all enemies.",
+      "RARITY": "HEROIC",
+      "TYPE": "ATTACK",
+      "KEYWORDS": null,
+      "FORCE_TARGET_DRAG": null,
+      "NOT_DRAFTABLE": true,
+      "UPGRADED_KEYWORDS": null,
+      "UPGRADED": null
+    }
   },
   "ScalingValues": {
-	"strike_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"guard_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"heavy_slash_card": {
-	  "STR": 5,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"focus_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": 5,
-	  "WLD": null
-	},
-	"thrust_card": {
-	  "STR": 10,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"sundering_strike_card": {
-	  "STR": 20,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"mighty_armor_card": {
-	  "STR": 10,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"raging_blow_card": {
-	  "STR": 20,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"honed_edge_card": {
-	  "STR": 20,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"intimidate_card": {
-	  "STR": 10,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"concuss_card": {
-	  "STR": 10,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"war_armor_card": {
-	  "STR": 10,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"cleave_card": {
-	  "STR": 10,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"whet_card": {
-	  "STR": 20,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"sweeping_wave_card": {
-	  "STR": 10,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"surging_slash_card": {
-	  "STR": 30,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"beserkers_fury_card": {
-	  "STR": 10,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"bash_card": {
-	  "STR": 40,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"armaments_card": {
-	  "STR": 30,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"forge_anew_card": {
-	  "STR": 10,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"blind_rage_card": {
-	  "STR": 30,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"hardened_blades_card": {
-	  "STR": 30,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"unyield_card": {
-	  "STR": 40,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"devastate_card": {
-	  "STR": 30,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"breaching_shield_card": {
-	  "STR": 20,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"blast_zone_card": {
-	  "STR": 10,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"knock_down_card": {
-	  "STR": 10,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"stagger_card": {
-	  "STR": 30,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"critical_strike_card": {
-	  "STR": 30,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"skull_smash_card": {
-	  "STR": 10,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"deep_impact_card": {
-	  "STR": 20,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"aggression_card": {
-	  "STR": 20,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"heavy_axe_card": {
-	  "STR": 20,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"invigoration_card": {
-	  "STR": 10,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"grind_card": {
-	  "STR": 10,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"deaths_call_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"gash_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"rot_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"blessed_shield_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": 10,
-	  "WLD": null
-	},
-	"grant_me_strength_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": 20,
-	  "WLD": null
-	},
-	"greater_barrier_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": 10,
-	  "WLD": null
-	},
-	"ward_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": 20,
-	  "WLD": null
-	},
-	"bulwark_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": 20,
-	  "WLD": null
-	},
-	"shield_bash_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": 10,
-	  "WLD": null
-	},
-	"defiant_blow_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": 10,
-	  "WLD": null
-	},
-	"angelic_chorus_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": 20,
-	  "WLD": null
-	},
-	"divine_guard_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": 10,
-	  "WLD": null
-	},
-	"purify_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": 10,
-	  "WLD": null
-	},
-	"holy_beam_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": 10,
-	  "WLD": null
-	},
-	"vivid_strike_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": 10,
-	  "WLD": null
-	},
-	"smite_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": 10,
-	  "WLD": null
-	},
-	"whetstone_item": {
-	  "STR": 5,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"heros_hilt_item": {
-	  "STR": 5,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"battle_horn_item": {
-	  "STR": 5,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"heavy_gauntlet_item": {
-	  "STR": 5,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"kite_shield_item": {
-	  "STR": 5,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"caltrops_item": {
-	  "STR": 5,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"stone_hammer_item": {
-	  "STR": 5,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"potion_of_flame_item": {
-	  "STR": 5,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"scarlet_feather_item": {
-	  "STR": 5,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"claymore_item": {
-	  "STR": 40,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"cloud_smasher_item": {
-	  "STR": 40,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"bloodied_axe_item": {
-	  "STR": 40,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"star_fists_item": {
-	  "STR": 40,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"greatsword_item": {
-	  "STR": 40,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"forge_hammer_item": {
-	  "STR": 40,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"bearclaw_item": {
-	  "STR": 40,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"crushing_gauntlets_item": {
-	  "STR": 40,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"forgotten_lance_item": {
-	  "STR": 40,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"assault_gear_item": {
-	  "STR": 40,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"support_fire_card": {
-	  "STR": null,
-	  "DEX": 10,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"sleight_of_hand_card": {
-	  "STR": null,
-	  "DEX": 10,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"discharge_card": {
-	  "STR": null,
-	  "DEX": 20,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"hidden_slice_card": {
-	  "STR": null,
-	  "DEX": 20,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"dodge_past_card": {
-	  "STR": null,
-	  "DEX": 20,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"quick_strike_card": {
-	  "STR": null,
-	  "DEX": 20,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"weak_spot_card": {
-	  "STR": null,
-	  "DEX": 10,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"parrying_dagger_card": {
-	  "STR": null,
-	  "DEX": 10,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"shock_armor_card": {
-	  "STR": null,
-	  "DEX": 10,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"wild_barrage_card": {
-	  "STR": null,
-	  "DEX": 10,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"bladed_blow_card": {
-	  "STR": null,
-	  "DEX": 10,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"uppercut_card": {
-	  "STR": null,
-	  "DEX": 10,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"magic_missile_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": 10,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"mage_armor_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": 10,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"eldritch_blast_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": 20,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"mana_explosion_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": 20,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"divination_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": 10,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"arcane_insight_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": 10,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"omenshield_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": 10,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"abjuration_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": 10,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"mages_greatbow_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": 10,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"channel_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": 20,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"song_of_protection_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": 10,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"song_of_wrath_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": 10,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"bleeding_strike_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": 10,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"tear_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": 10,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"blood_writing_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": 20,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"drain_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": 20,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"rancorous_bolt_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": 20,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"wicked_blow_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": 10,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"bone_shield_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": 10,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"miasmic_armor_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": 10,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"screech_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": 10,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"spiked_guard_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": 10,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"taint_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": 20,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"dark_star_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": 10,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"iron_helm_item": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": 10
-	},
-	"longsword_item": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": null,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": 20
-	},
-	"mana_crystal_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": 2,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	},
-	"mana_burn_card": {
-	  "STR": null,
-	  "DEX": null,
-	  "INT": 3,
-	  "ARC": null,
-	  "FTH": null,
-	  "WLD": null
-	}
+    "strike_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "guard_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "heavy_slash_card": {
+      "STR": 5,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "focus_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": 5,
+      "WLD": null
+    },
+    "thrust_card": {
+      "STR": 10,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "sundering_strike_card": {
+      "STR": 20,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "mighty_armor_card": {
+      "STR": 10,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "raging_blow_card": {
+      "STR": 20,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "honed_edge_card": {
+      "STR": 20,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "intimidate_card": {
+      "STR": 10,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "concuss_card": {
+      "STR": 10,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "war_armor_card": {
+      "STR": 10,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "cleave_card": {
+      "STR": 10,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "whet_card": {
+      "STR": 20,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "sweeping_wave_card": {
+      "STR": 10,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "surging_slash_card": {
+      "STR": 30,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "beserkers_fury_card": {
+      "STR": 10,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "bash_card": {
+      "STR": 40,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "armaments_card": {
+      "STR": 30,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "forge_anew_card": {
+      "STR": 10,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "blind_rage_card": {
+      "STR": 30,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "hardened_blades_card": {
+      "STR": 30,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "unyield_card": {
+      "STR": 40,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "devastate_card": {
+      "STR": 30,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "breaching_shield_card": {
+      "STR": 20,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "blast_zone_card": {
+      "STR": 10,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "knock_down_card": {
+      "STR": 10,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "stagger_card": {
+      "STR": 30,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "critical_strike_card": {
+      "STR": 30,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "skull_smash_card": {
+      "STR": 10,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "deep_impact_card": {
+      "STR": 20,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "aggression_card": {
+      "STR": 20,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "heavy_axe_card": {
+      "STR": 20,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "invigoration_card": {
+      "STR": 10,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "grind_card": {
+      "STR": 10,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "deaths_call_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "gash_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "rot_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "blessed_shield_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": 10,
+      "WLD": null
+    },
+    "grant_me_strength_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": 20,
+      "WLD": null
+    },
+    "greater_barrier_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": 10,
+      "WLD": null
+    },
+    "ward_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": 20,
+      "WLD": null
+    },
+    "bulwark_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": 20,
+      "WLD": null
+    },
+    "shield_bash_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": 10,
+      "WLD": null
+    },
+    "defiant_blow_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": 10,
+      "WLD": null
+    },
+    "angelic_chorus_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": 20,
+      "WLD": null
+    },
+    "divine_guard_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": 10,
+      "WLD": null
+    },
+    "purify_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": 10,
+      "WLD": null
+    },
+    "holy_beam_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": 10,
+      "WLD": null
+    },
+    "vivid_strike_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": 10,
+      "WLD": null
+    },
+    "smite_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": 10,
+      "WLD": null
+    },
+    "whetstone_item": {
+      "STR": 5,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "heros_hilt_item": {
+      "STR": 5,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "battle_horn_item": {
+      "STR": 5,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "heavy_gauntlet_item": {
+      "STR": 5,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "kite_shield_item": {
+      "STR": 5,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "caltrops_item": {
+      "STR": 5,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "stone_hammer_item": {
+      "STR": 5,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "potion_of_flame_item": {
+      "STR": 5,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "scarlet_feather_item": {
+      "STR": 5,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "claymore_item": {
+      "STR": 40,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "cloud_smasher_item": {
+      "STR": 40,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "bloodied_axe_item": {
+      "STR": 40,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "star_fists_item": {
+      "STR": 40,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "greatsword_item": {
+      "STR": 40,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "forge_hammer_item": {
+      "STR": 40,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "bearclaw_item": {
+      "STR": 40,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "crushing_gauntlets_item": {
+      "STR": 40,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "forgotten_lance_item": {
+      "STR": 40,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "assault_gear_item": {
+      "STR": 40,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "support_fire_card": {
+      "STR": null,
+      "DEX": 10,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "sleight_of_hand_card": {
+      "STR": null,
+      "DEX": 10,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "discharge_card": {
+      "STR": null,
+      "DEX": 20,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "hidden_slice_card": {
+      "STR": null,
+      "DEX": 20,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "dodge_past_card": {
+      "STR": null,
+      "DEX": 20,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "quick_strike_card": {
+      "STR": null,
+      "DEX": 20,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "weak_spot_card": {
+      "STR": null,
+      "DEX": 10,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "parrying_dagger_card": {
+      "STR": null,
+      "DEX": 10,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "shock_armor_card": {
+      "STR": null,
+      "DEX": 10,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "wild_barrage_card": {
+      "STR": null,
+      "DEX": 10,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "bladed_blow_card": {
+      "STR": null,
+      "DEX": 10,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "uppercut_card": {
+      "STR": null,
+      "DEX": 10,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "magic_missile_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 10,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "mage_armor_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 10,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "eldritch_blast_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 20,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "mana_explosion_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 20,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "divination_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 10,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "arcane_insight_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 10,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "omenshield_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 10,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "abjuration_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 10,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "mages_greatbow_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 10,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "channel_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 20,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "song_of_protection_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 10,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "song_of_wrath_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 10,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "bleeding_strike_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 10,
+      "FTH": null,
+      "WLD": null
+    },
+    "tear_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 10,
+      "FTH": null,
+      "WLD": null
+    },
+    "blood_writing_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 20,
+      "FTH": null,
+      "WLD": null
+    },
+    "drain_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 20,
+      "FTH": null,
+      "WLD": null
+    },
+    "rancorous_bolt_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 20,
+      "FTH": null,
+      "WLD": null
+    },
+    "wicked_blow_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 10,
+      "FTH": null,
+      "WLD": null
+    },
+    "bone_shield_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 10,
+      "FTH": null,
+      "WLD": null
+    },
+    "miasmic_armor_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 10,
+      "FTH": null,
+      "WLD": null
+    },
+    "screech_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 10,
+      "FTH": null,
+      "WLD": null
+    },
+    "spiked_guard_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 10,
+      "FTH": null,
+      "WLD": null
+    },
+    "taint_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 20,
+      "FTH": null,
+      "WLD": null
+    },
+    "dark_star_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": 10,
+      "FTH": null,
+      "WLD": null
+    },
+    "iron_helm_item": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": 10
+    },
+    "longsword_item": {
+      "STR": null,
+      "DEX": null,
+      "INT": null,
+      "ARC": null,
+      "FTH": null,
+      "WLD": 20
+    },
+    "mana_crystal_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 2,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    },
+    "mana_burn_card": {
+      "STR": null,
+      "DEX": null,
+      "INT": 3,
+      "ARC": null,
+      "FTH": null,
+      "WLD": null
+    }
   },
   "ItemFinal": {
-	"iron_helm_item": {
-	  "ITEM_NAME": "Iron Helm",
-	  "DESCRIPTION": "The first time you gain ARMOR each turn, increase that amount by 20%.",
-	  "NOT_DRAFTABLE": true,
-	  "WEAPON": null
-	},
-	"whetstone_item": {
-	  "ITEM_NAME": "Whetstone",
-	  "DESCRIPTION": "SHARPEN all attacks in your opening hand.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": null
-	},
-	"heros_hilt_item": {
-	  "ITEM_NAME": "Hero's Hilt",
-	  "DESCRIPTION": "Deal 70 DMG to all enemies on battle start.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": null
-	},
-	"battle_horn_item": {
-	  "ITEM_NAME": "Battle Horn",
-	  "DESCRIPTION": "Start each battle with 5 RAGE.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": null
-	},
-	"heavy_gauntlet_item": {
-	  "ITEM_NAME": "Heavy Gauntlet",
-	  "DESCRIPTION": "Cards with base cost 2 or more apply 1 DAZE.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": null
-	},
-	"kite_shield_item": {
-	  "ITEM_NAME": "Kite Shield",
-	  "DESCRIPTION": "The first time you gain RAGE each turn, gain 40 ARMOR.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": null
-	},
-	"caltrops_item": {
-	  "ITEM_NAME": "Caltrops",
-	  "DESCRIPTION": "Attacking with a SHARPENED card applies 1 WEAKENED.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": null
-	},
-	"stone_hammer_item": {
-	  "ITEM_NAME": "Stone Hammer",
-	  "DESCRIPTION": "DAZED enemies take 25% more DMG.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": null
-	},
-	"potion_of_flame_item": {
-	  "ITEM_NAME": "Potion of Flame",
-	  "DESCRIPTION": "The first time you deal DMG to a single enemy each turn, deal half that DMG to each other enemy.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": null
-	},
-	"scarlet_feather_item": {
-	  "ITEM_NAME": "Scarlet Feather",
-	  "DESCRIPTION": "Each enemy starts with 1 VULNERABLE.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": null
-	},
-	"longsword_item": {
-	  "ITEM_NAME": "Longsword",
-	  "DESCRIPTION": "Deal 10% more DMG.",
-	  "NOT_DRAFTABLE": true,
-	  "WEAPON": true
-	},
-	"recurve_bow_item": {
-	  "ITEM_NAME": "Recurve Bow",
-	  "DESCRIPTION": "Deal 10% more DMG.",
-	  "NOT_DRAFTABLE": true,
-	  "WEAPON": true
-	},
-	"wooden_stave_item": {
-	  "ITEM_NAME": "Wooden Stave",
-	  "DESCRIPTION": "Deal 10% more DMG.",
-	  "NOT_DRAFTABLE": true,
-	  "WEAPON": true
-	},
-	"claymore_item": {
-	  "ITEM_NAME": "Claymore",
-	  "DESCRIPTION": "Add 2 Thrusts to your deck on battle start. VULNERABLE enemies take 25% more DMG.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": true
-	},
-	"cloud_smasher_item": {
-	  "ITEM_NAME": "Cloud Smasher",
-	  "DESCRIPTION": "Cards with base cost 2 or more cost 1 less to play.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": true
-	},
-	"bloodied_axe_item": {
-	  "ITEM_NAME": "Bloodied Axe",
-	  "DESCRIPTION": "Whenever you gain RAGE, SHARPEN Beserker Fury.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": true
-	},
-	"star_fists_item": {
-	  "ITEM_NAME": "Star Fists",
-	  "DESCRIPTION": "DAZE does 100% more DMG. Apply 1 DAZE to each enemy on battle start.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": true
-	},
-	"greatsword_item": {
-	  "ITEM_NAME": "Greatsword",
-	  "DESCRIPTION": "Deal 15% more DMG.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": true
-	},
-	"forge_hammer_item": {
-	  "ITEM_NAME": "Forge Hammer",
-	  "DESCRIPTION": "Whenever you SHARPEN, deal 30 DMG to a random enemy and apply 1 DAZE.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": true
-	},
-	"bearclaw_item": {
-	  "ITEM_NAME": "Bearclaw",
-	  "DESCRIPTION": "Deal 30% more DMG. Whenever you play a non-attack card, discard a card.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": true
-	},
-	"crushing_gauntlets_item": {
-	  "ITEM_NAME": "Crushing Gauntlets",
-	  "DESCRIPTION": "On turn start, lose 4 RAGE. If you can do so, apply 2 DAZE to a random enemy.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": true
-	},
-	"forgotten_lance_item": {
-	  "ITEM_NAME": "Forgotten Lance",
-	  "DESCRIPTION": "When you end your turn with no ARMOR, gain 60 ARMOR.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": true
-	},
-	"assault_gear_item": {
-	  "ITEM_NAME": "Assault Gear",
-	  "DESCRIPTION": "Your first attack each turn deals 40% more DMG.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": true
-	},
-	"target_dummy_item": {
-	  "ITEM_NAME": "Target Dummy",
-	  "DESCRIPTION": "Cards with \"Strike\" in their name deal 20% more DMG.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": null
-	},
-	"heros_glove_item": {
-	  "ITEM_NAME": "Hero's Glove",
-	  "DESCRIPTION": "Draw two additional cards on battle start.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": null
-	},
-	"raven_feather_item": {
-	  "ITEM_NAME": "Raven Feather",
-	  "DESCRIPTION": "Gain 10 additional GOLD after each combat.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": null
-	},
-	"heros_shield_item": {
-	  "ITEM_NAME": "Hero's Shield",
-	  "DESCRIPTION": "Gain 80 ARMOR on battle start.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": null
-	},
-	"heros_crest_item": {
-	  "ITEM_NAME": "Hero's Crest",
-	  "DESCRIPTION": "On battle start items trigger an additional time.",
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": null
-	},
-	"": {
-	  "ITEM_NAME": "Moonlit Greatsword",
-	  "DESCRIPTION": null,
-	  "NOT_DRAFTABLE": null,
-	  "WEAPON": null
-	}
+    "iron_helm_item": {
+      "ITEM_NAME": "Iron Helm",
+      "DESCRIPTION": "The first time you gain ARMOR each turn, increase that amount by 20%.",
+      "NOT_DRAFTABLE": true,
+      "WEAPON": null
+    },
+    "whetstone_item": {
+      "ITEM_NAME": "Whetstone",
+      "DESCRIPTION": "SHARPEN all attacks in your opening hand.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": null
+    },
+    "heros_hilt_item": {
+      "ITEM_NAME": "Hero's Hilt",
+      "DESCRIPTION": "Deal 70 DMG to all enemies on battle start.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": null
+    },
+    "battle_horn_item": {
+      "ITEM_NAME": "Battle Horn",
+      "DESCRIPTION": "Start each battle with 5 RAGE.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": null
+    },
+    "heavy_gauntlet_item": {
+      "ITEM_NAME": "Heavy Gauntlet",
+      "DESCRIPTION": "Cards with base cost 2 or more apply 1 DAZE.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": null
+    },
+    "kite_shield_item": {
+      "ITEM_NAME": "Kite Shield",
+      "DESCRIPTION": "The first time you gain RAGE each turn, gain 40 ARMOR.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": null
+    },
+    "caltrops_item": {
+      "ITEM_NAME": "Caltrops",
+      "DESCRIPTION": "Attacking with a SHARPENED card applies 1 WEAKENED.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": null
+    },
+    "stone_hammer_item": {
+      "ITEM_NAME": "Stone Hammer",
+      "DESCRIPTION": "DAZED enemies take 25% more DMG.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": null
+    },
+    "potion_of_flame_item": {
+      "ITEM_NAME": "Potion of Flame",
+      "DESCRIPTION": "The first time you deal DMG to a single enemy each turn, deal half that DMG to each other enemy.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": null
+    },
+    "scarlet_feather_item": {
+      "ITEM_NAME": "Scarlet Feather",
+      "DESCRIPTION": "Each enemy starts with 1 VULNERABLE.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": null
+    },
+    "longsword_item": {
+      "ITEM_NAME": "Longsword",
+      "DESCRIPTION": "Deal 10% more DMG.",
+      "NOT_DRAFTABLE": true,
+      "WEAPON": true
+    },
+    "recurve_bow_item": {
+      "ITEM_NAME": "Recurve Bow",
+      "DESCRIPTION": "Deal 10% more DMG.",
+      "NOT_DRAFTABLE": true,
+      "WEAPON": true
+    },
+    "wooden_stave_item": {
+      "ITEM_NAME": "Wooden Stave",
+      "DESCRIPTION": "Deal 10% more DMG.",
+      "NOT_DRAFTABLE": true,
+      "WEAPON": true
+    },
+    "claymore_item": {
+      "ITEM_NAME": "Claymore",
+      "DESCRIPTION": "Add 2 Thrusts to your deck on battle start. VULNERABLE enemies take 25% more DMG.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "cloud_smasher_item": {
+      "ITEM_NAME": "Cloud Smasher",
+      "DESCRIPTION": "Cards with base cost 2 or more cost 1 less to play.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "bloodied_axe_item": {
+      "ITEM_NAME": "Bloodied Axe",
+      "DESCRIPTION": "Whenever you gain RAGE, SHARPEN Beserker Fury.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "star_fists_item": {
+      "ITEM_NAME": "Star Fists",
+      "DESCRIPTION": "DAZE does 100% more DMG. Apply 1 DAZE to each enemy on battle start.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "greatsword_item": {
+      "ITEM_NAME": "Greatsword",
+      "DESCRIPTION": "Deal 15% more DMG.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "forge_hammer_item": {
+      "ITEM_NAME": "Forge Hammer",
+      "DESCRIPTION": "Whenever you SHARPEN, deal 30 DMG to a random enemy and apply 1 DAZE.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "bearclaw_item": {
+      "ITEM_NAME": "Bearclaw",
+      "DESCRIPTION": "Deal 30% more DMG. Whenever you play a non-attack card, discard a card.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "crushing_gauntlets_item": {
+      "ITEM_NAME": "Crushing Gauntlets",
+      "DESCRIPTION": "On turn start, lose 4 RAGE. If you can do so, apply 2 DAZE to a random enemy.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "forgotten_lance_item": {
+      "ITEM_NAME": "Forgotten Lance",
+      "DESCRIPTION": "When you end your turn with no ARMOR, gain 60 ARMOR.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "assault_gear_item": {
+      "ITEM_NAME": "Assault Gear",
+      "DESCRIPTION": "Your first attack each turn deals 40% more DMG.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "target_dummy_item": {
+      "ITEM_NAME": "Target Dummy",
+      "DESCRIPTION": "Cards with \"Strike\" in their name deal 20% more DMG.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": null
+    },
+    "heros_glove_item": {
+      "ITEM_NAME": "Hero's Glove",
+      "DESCRIPTION": "Draw two additional cards on battle start.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": null
+    },
+    "raven_feather_item": {
+      "ITEM_NAME": "Raven Feather",
+      "DESCRIPTION": "Gain 10 additional GOLD after each combat.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": null
+    },
+    "heros_shield_item": {
+      "ITEM_NAME": "Hero's Shield",
+      "DESCRIPTION": "Gain 80 ARMOR on battle start.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": null
+    },
+    "heros_crest_item": {
+      "ITEM_NAME": "Hero's Crest",
+      "DESCRIPTION": "On battle start items trigger an additional time.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": null
+    },
+    "blasphemous_blade_item": {
+      "ITEM_NAME": "Blasphemous Blade",
+      "DESCRIPTION": "On battle start, gain 30 HP and add 3 SMITE to your hand.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "dawnbreaker_item": {
+      "ITEM_NAME": "Dawnbreaker",
+      "DESCRIPTION": "After gaining 12 positive status effects, deal 200 DMG to all enemies.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "golden_spear_item": {
+      "ITEM_NAME": "Golden Spear",
+      "DESCRIPTION": "The first time you play a SMITE each turn, gain 1 PRAYER.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "inquisitors_staff_item": {
+      "ITEM_NAME": "Inquisitor's Staff",
+      "DESCRIPTION": "On turn start, gain 5 ARMOR for each RESOLVE you have.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "excalibur_item": {
+      "ITEM_NAME": "Excalibur",
+      "DESCRIPTION": "On turn end, remove a SMITE from your hand. If you can, gain 3 RESOLVE.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "blessed_seal_item": {
+      "ITEM_NAME": "Blessed Seal",
+      "DESCRIPTION": "Enchant cards cost 1 less to play.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "tome_of_creed_item": {
+      "ITEM_NAME": "Tome of Creed",
+      "DESCRIPTION": "On battle start, gain 6 EMPOWERED and 2 FORTITUDE.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "sacramental_bow_item": {
+      "ITEM_NAME": "Sacramental Bow",
+      "DESCRIPTION": "Whenever you gain BLESSING, deal 20 DMG to a random enemy and gain 10 ARMOR.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "sin_crusher_item": {
+      "ITEM_NAME": "Sin Crusher",
+      "DESCRIPTION": "Deal 10% more DMG for every 50 ARMOR you have.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "greatshield_item": {
+      "ITEM_NAME": "Greatshield",
+      "DESCRIPTION": "Gain 15% more ARMOR.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "ruined_kings_blade_item": {
+      "ITEM_NAME": "Ruined King's Blade",
+      "DESCRIPTION": "Deal additional flat damage equal to 5% of the target's max HP, at a max of 100 Addtitional DMG.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "hand_ballistia_item": {
+      "ITEM_NAME": "Hand Ballistia",
+      "DESCRIPTION": "On turn end, deal 10 DMG to a random enemy 3 times.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "winged_blade_item": {
+      "ITEM_NAME": "Winged Blade",
+      "DESCRIPTION": "Whenever you discard a card, gain 30 ARMOR and 1 STORM this turn.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "tornado_shot_item": {
+      "ITEM_NAME": "Tornado Shot",
+      "DESCRIPTION": "EXTRA-ACTIONS have +100% CRIT CHANCE.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "serpent_bolt_item": {
+      "ITEM_NAME": "Serpent Bolt",
+      "DESCRIPTION": "The first time you deal CRITICAL DMG each turn, gain 1 STORM.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "ripping_knives_item": {
+      "ITEM_NAME": "Ripping Knives",
+      "DESCRIPTION": "Whenever you deal DMG, gain 10 ARMOR.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "hunters_longbow_item": {
+      "ITEM_NAME": "Hunter's Longbow",
+      "DESCRIPTION": "CRITICAL HITS deal 100% more DMG.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "twinblades_item": {
+      "ITEM_NAME": "Twinblades",
+      "DESCRIPTION": "MULTISTRIKE triggers 1 additional time.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "two_shot_item": {
+      "ITEM_NAME": "Two-Shot",
+      "DESCRIPTION": "Whenever you deal CRITICAL DMG, if your CRIT CHANCE was higher than 100%, add your excess CRIT CHANCE to your CRITICAL DMG%.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "steel_fang_item": {
+      "ITEM_NAME": "Steel Fang",
+      "DESCRIPTION": "On turn start, discard a card. The first attack you play this turn has +100% CRIT CHANCE.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "staff_of_infinities_item": {
+      "ITEM_NAME": "Staff of Infinites",
+      "DESCRIPTION": "When you play your 4th MANA CRYSTAL, play the top card of your deck for free.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "moonlit_greatsword_item": {
+      "ITEM_NAME": "Moonlit Greatsword",
+      "DESCRIPTION": "On turn end, deal 10 DMG to a random enemy for each energy spent that turn.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "sword_of_fire_and_ice_item": {
+      "ITEM_NAME": "Sword of Fire and Ice",
+      "DESCRIPTION": "Whenever you create a MANA BURN, add a MANA CRYSTAL to your hand.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "starry_night_item": {
+      "ITEM_NAME": "Starry Night",
+      "DESCRIPTION": "On turn end, transforms a MANA BURN in your hand to a 0-cost MAGIC MISSILE.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "drake_staff_item": {
+      "ITEM_NAME": "Drake Staff",
+      "DESCRIPTION": "On turn start, add a MANA BURN to your deck. You deal 40% more DMG.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "gem_laden_lute_item": {
+      "ITEM_NAME": "Gem-Laden Lute",
+      "DESCRIPTION": "Whenever you create a MANA CRYSTAL, add 1 SYMPHONY to it.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "lyre_item": {
+      "ITEM_NAME": "Lyre",
+      "DESCRIPTION": "Your SYMPHONY attack deals 10% more DMG for each MANA BURN in your deck.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "fae_lantern_item": {
+      "ITEM_NAME": "Fae Lantern",
+      "DESCRIPTION": "The first card you play each turn deals 40 additional flat DMG.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "gamblers_deck_item": {
+      "ITEM_NAME": "Gambler's Deck",
+      "DESCRIPTION": "Whenever you play a card, gain a random bonus: deal 5 DMG to all enemies, gain 5 ARMOR, or add 1 SYMPHONY to the top card of your deck.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "lost_grimoire_item": {
+      "ITEM_NAME": "Lost Grimoire",
+      "DESCRIPTION": "Your max hand size is increased by 3.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "feeding_blade_item": {
+      "ITEM_NAME": "Feeding Blade",
+      "DESCRIPTION": "On turn start, lose 6 RITUAL. Apply 1 BLEED to a random enemy for each RITUAL lost.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "vampire_knives_item": {
+      "ITEM_NAME": "Vampire Knives",
+      "DESCRIPTION": "Whenever you lose life, apply 1 BLEED to all enemies.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "pure_nail_item": {
+      "ITEM_NAME": "Pure Nail",
+      "DESCRIPTION": "On turn start, lose 10 HP, draw a card, and gain 20 ARMOR.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "cracked_mirror_item": {
+      "ITEM_NAME": "Cracked Mirror",
+      "DESCRIPTION": "RITUAL explosions deals 30% more DMG but make you lose 30 HP.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "spectral_dagger_item": {
+      "ITEM_NAME": "Spectral Dagger",
+      "DESCRIPTION": "WEAKENED enemies deal an additional 25% less DMG. VULNERABLE enemies take an additional 25% more DMG.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "death_scythe_item": {
+      "ITEM_NAME": "Death Scythe",
+      "DESCRIPTION": "When you lose life from your own effect, heal that much life and deal that much DMG to a random enemy.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "nihility_item": {
+      "ITEM_NAME": "Nihility",
+      "DESCRIPTION": "The first negative status you apply each turn is doubled.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": null
+    },
+    "flamberge_item": {
+      "ITEM_NAME": "Flamberge",
+      "DESCRIPTION": "Whenever you deal DMG, apply 1 BLEED.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "night_whip_item": {
+      "ITEM_NAME": "Night Whip",
+      "DESCRIPTION": "The first card you play each turn is free and makes you lose 30 HP.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    },
+    "dragonhead_item": {
+      "ITEM_NAME": "Dragonhead",
+      "DESCRIPTION": "On turn start, enemies take 10 DMG for each negative status they have.",
+      "NOT_DRAFTABLE": null,
+      "WEAPON": true
+    }
   },
   "Keywords": {
-	"multistrike": {
-	  "KEYWORD_NAME": "Multistrike",
-	  "DESCRIPTION": "Deals DMG multiple times."
-	},
-	"follow_up": {
-	  "KEYWORD_NAME": "Follow-Up Attack",
-	  "DESCRIPTION": "An attack triggered by an effect rather than played directly."
-	},
-	"daze": {
-	  "KEYWORD_NAME": "Daze",
-	  "DESCRIPTION": "Dazed enemies deal 20% less DMG and take 30 DMG on turn start."
-	},
-	"bleed": {
-	  "KEYWORD_NAME": "Bleed",
-	  "DESCRIPTION": "Deals 10 DMG on turn start for each BLEED, then loses 1 BLEED."
-	},
-	"mana_crystal": {
-	  "KEYWORD_NAME": "Mana Crystal",
-	  "DESCRIPTION": "A 0 cost card. Adds 1 Energy next turn."
-	},
-	"storm": {
-	  "KEYWORD_NAME": "Storm",
-	  "DESCRIPTION": "Adds 8 DMG per STORM to each attack."
-	},
-	"fortitude": {
-	  "KEYWORD_NAME": "Fortitude",
-	  "DESCRIPTION": "Gain 25% more ARMOR."
-	},
-	"ephemeral": {
-	  "KEYWORD_NAME": "Ephemeral",
-	  "DESCRIPTION": "Playing this card removes it from your deck until the end of combat."
-	},
-	"armor": {
-	  "KEYWORD_NAME": "Armor",
-	  "DESCRIPTION": "Prevents DMG this turn."
-	},
-	"crit": {
-	  "KEYWORD_NAME": "Critical Hit",
-	  "DESCRIPTION": "Critical hits deal double DMG."
-	},
-	"inspiration": {
-	  "KEYWORD_NAME": "Inspiration",
-	  "DESCRIPTION": "Once inspiration reaches 10, resets and adds a powerful card to your hand."
-	},
-	"ritual": {
-	  "KEYWORD_NAME": "Ritual",
-	  "DESCRIPTION": "Enemies take 2% more DMG for each RITUAL. At 20 RITUAL, lose all RITUAL and deal 100 DMG to all enemies."
-	},
-	"resonance": {
-	  "KEYWORD_NAME": "Resonance",
-	  "DESCRIPTION": "After casting, casts all cards with Resonance in your discard pile."
-	},
-	"empowered": {
-	  "KEYWORD_NAME": "Empowered",
-	  "DESCRIPTION": "Deal 40% more damage."
-	},
-	"vulnerable": {
-	  "KEYWORD_NAME": "Vulnerable",
-	  "DESCRIPTION": "Takes 50% more damage."
-	},
-	"rage": {
-	  "KEYWORD_NAME": "Rage",
-	  "DESCRIPTION": "The first time you gain Rage, add Beserker Fury into your Hand."
-	},
-	"sharpen": {
-	  "KEYWORD_NAME": "Sharpen",
-	  "DESCRIPTION": "Deals 25% more damage for each time its been sharpened this combat."
-	},
-	"unsteady": {
-	  "KEYWORD_NAME": "Unsteady",
-	  "DESCRIPTION": "Gain 25% less ARMOR."
-	},
-	"fragile": {
-	  "KEYWORD_NAME": "Fragile",
-	  "DESCRIPTION": "If this isn't played by turn end, it is removed from your deck until the end of combat."
-	},
-	"prayer": {
-	  "KEYWORD_NAME": "Prayer",
-	  "DESCRIPTION": "1 PRAYER is converted to BLESSING on turn start."
-	},
-	"blessing": {
-	  "KEYWORD_NAME": "Blessing",
-	  "DESCRIPTION": "Deal 10% more DMG for each BLESSING."
-	},
-	"resolve": {
-	  "KEYWORD_NAME": "Resolve",
-	  "DESCRIPTION": "When ARMOR resets, retains 10 ARMOR for each RESOLVE, then lose 1 RESOLVE."
-	},
-	"light": {
-	  "KEYWORD_NAME": "Light",
-	  "DESCRIPTION": "Does not take up space in your hand for max hand size."
-	},
-	"symphony": {
-	  "KEYWORD_NAME": "Symphony",
-	  "DESCRIPTION": "When you play a card with SYMPHONY, remove all SYMPHONY and add 20 DMG to an end of turn attack."
-	},
-	"weakened": {
-	  "KEYWORD_NAME": "Weakened",
-	  "DESCRIPTION": "Deals 25% less DMG."
-	},
-	"corrupted": {
-	  "KEYWORD_NAME": "Corrupted",
-	  "DESCRIPTION": "Gains 20% less ARMOR and takes 20% more DMG."
-	}
+    "multistrike": {
+      "KEYWORD_NAME": "Multistrike",
+      "DESCRIPTION": "Deals DMG multiple times."
+    },
+    "follow_up": {
+      "KEYWORD_NAME": "Follow-Up Attack",
+      "DESCRIPTION": "An attack triggered by an effect rather than played directly."
+    },
+    "daze": {
+      "KEYWORD_NAME": "Daze",
+      "DESCRIPTION": "Dazed enemies deal 20% less DMG and take 30 DMG on turn start."
+    },
+    "bleed": {
+      "KEYWORD_NAME": "Bleed",
+      "DESCRIPTION": "Deals 10 DMG on turn start for each BLEED, then loses 1 BLEED."
+    },
+    "mana_crystal": {
+      "KEYWORD_NAME": "Mana Crystal",
+      "DESCRIPTION": "A 0 cost card. Adds 1 Energy next turn."
+    },
+    "storm": {
+      "KEYWORD_NAME": "Storm",
+      "DESCRIPTION": "Adds 8 DMG per STORM to each attack."
+    },
+    "fortitude": {
+      "KEYWORD_NAME": "Fortitude",
+      "DESCRIPTION": "Gain 25% more ARMOR."
+    },
+    "ephemeral": {
+      "KEYWORD_NAME": "Ephemeral",
+      "DESCRIPTION": "Playing this card removes it from your deck until the end of combat."
+    },
+    "armor": {
+      "KEYWORD_NAME": "Armor",
+      "DESCRIPTION": "Prevents DMG this turn."
+    },
+    "crit": {
+      "KEYWORD_NAME": "Critical Hit",
+      "DESCRIPTION": "Critical hits deal double DMG."
+    },
+    "inspiration": {
+      "KEYWORD_NAME": "Inspiration",
+      "DESCRIPTION": "Once inspiration reaches 10, resets and adds a powerful card to your hand."
+    },
+    "ritual": {
+      "KEYWORD_NAME": "Ritual",
+      "DESCRIPTION": "Enemies take 2% more DMG for each RITUAL. At 20 RITUAL, lose all RITUAL and deal 100 DMG to all enemies."
+    },
+    "resonance": {
+      "KEYWORD_NAME": "Resonance",
+      "DESCRIPTION": "After casting, casts all cards with Resonance in your discard pile."
+    },
+    "empowered": {
+      "KEYWORD_NAME": "Empowered",
+      "DESCRIPTION": "Deal 40% more damage."
+    },
+    "vulnerable": {
+      "KEYWORD_NAME": "Vulnerable",
+      "DESCRIPTION": "Takes 50% more damage."
+    },
+    "rage": {
+      "KEYWORD_NAME": "Rage",
+      "DESCRIPTION": "The first time you gain Rage, add Beserker Fury into your Hand."
+    },
+    "sharpen": {
+      "KEYWORD_NAME": "Sharpen",
+      "DESCRIPTION": "Deals 25% more damage for each time its been sharpened this combat."
+    },
+    "unsteady": {
+      "KEYWORD_NAME": "Unsteady",
+      "DESCRIPTION": "Gain 25% less ARMOR."
+    },
+    "fragile": {
+      "KEYWORD_NAME": "Fragile",
+      "DESCRIPTION": "If this isn't played by turn end, it is removed from your deck until the end of combat."
+    },
+    "prayer": {
+      "KEYWORD_NAME": "Prayer",
+      "DESCRIPTION": "1 PRAYER is converted to BLESSING on turn start."
+    },
+    "blessing": {
+      "KEYWORD_NAME": "Blessing",
+      "DESCRIPTION": "Deal 10% more DMG for each BLESSING."
+    },
+    "resolve": {
+      "KEYWORD_NAME": "Resolve",
+      "DESCRIPTION": "When ARMOR resets, retains 10 ARMOR for each RESOLVE, then lose 1 RESOLVE."
+    },
+    "light": {
+      "KEYWORD_NAME": "Light",
+      "DESCRIPTION": "Does not take up space in your hand for max hand size."
+    },
+    "symphony": {
+      "KEYWORD_NAME": "Symphony",
+      "DESCRIPTION": "When you play a card with SYMPHONY, remove all SYMPHONY and add 20 DMG to an end of turn attack."
+    },
+    "weakened": {
+      "KEYWORD_NAME": "Weakened",
+      "DESCRIPTION": "Deals 25% less DMG."
+    },
+    "corrupted": {
+      "KEYWORD_NAME": "Corrupted",
+      "DESCRIPTION": "Gains 20% less ARMOR and takes 20% more DMG."
+    }
   },
   "StatusEffects": {
-	"empowered_status": {
-	  "STATUS_NAME": "Empowered",
-	  "ICON_TYPE": "damage_percent_buff",
-	  "DESCRIPTION": "Deals 40% more DMG.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"vulnerable_status": {
-	  "STATUS_NAME": "Vulnerable",
-	  "ICON_TYPE": "damage_taken_percent_debuff",
-	  "DESCRIPTION": "Takes 50% more DMG.",
-	  "STATUS_TYPE": "Debuff"
-	},
-	"bleed_status": {
-	  "STATUS_NAME": "Bleed",
-	  "ICON_TYPE": "bleed_debuff",
-	  "DESCRIPTION": "Deals {10*STACKS} on turn start, then loses 1 BLEED.",
-	  "STATUS_TYPE": "Debuff"
-	},
-	"support_fire_status": {
-	  "STATUS_NAME": "Support Fire",
-	  "ICON_TYPE": "follow_up_buff",
-	  "DESCRIPTION": "After dealing DMG with a card, launches follow-up: Deal 50 Physical DMG and apply 2 daze.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"thorned_armor_status": {
-	  "STATUS_NAME": "Thorned Armor",
-	  "ICON_TYPE": "follow_up_buff",
-	  "DESCRIPTION": "After losing any Armor, launches follow-up: Deal 30 Physical DMG.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"daze_status": {
-	  "STATUS_NAME": "Daze",
-	  "ICON_TYPE": "daze_debuff",
-	  "DESCRIPTION": "Deal 20% less DMG. Takes 30 DMG on turn start.",
-	  "STATUS_TYPE": "Debuff"
-	},
-	"mana_crystal_status": {
-	  "STATUS_NAME": "Mana Crystal",
-	  "ICON_TYPE": "mana_crystal_buff",
-	  "DESCRIPTION": "Gains {STACKS} Energy next turn.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"rage_status": {
-	  "STATUS_NAME": "Rage",
-	  "ICON_TYPE": "rage_buff",
-	  "DESCRIPTION": "Increases damage of Beserker Fury",
-	  "STATUS_TYPE": "Buff"
-	},
-	"rancorous_bolt_status": {
-	  "STATUS_NAME": "Rancorous Bolt",
-	  "ICON_TYPE": "damage_taken_percent_debuff",
-	  "DESCRIPTION": "Takes 40% more DMG.",
-	  "STATUS_TYPE": "Debuff"
-	},
-	"arcane_insight_status": {
-	  "STATUS_NAME": "Arcane Insight",
-	  "ICON_TYPE": "damage_percent_debuff",
-	  "DESCRIPTION": "Deal 30% less DMG.",
-	  "STATUS_TYPE": "Debuff"
-	},
-	"storm_status": {
-	  "STATUS_NAME": "Storm",
-	  "ICON_TYPE": "storm_buff",
-	  "DESCRIPTION": "After dealing damage, launches follow-up: Deal {8*STACKS} Lightning DMG.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"fortitude_status": {
-	  "STATUS_NAME": "Fortitude",
-	  "ICON_TYPE": "fortitude_buff",
-	  "DESCRIPTION": "Gain 25% more ARMOR.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"discharge_status": {
-	  "STATUS_NAME": "Discharge",
-	  "ICON_TYPE": "general_debuff",
-	  "DESCRIPTION": "Lose {STACKS} STORM on turn end.",
-	  "STATUS_TYPE": "Debuff"
-	},
-	"war_armor_status": {
-	  "STATUS_NAME": "War Armor",
-	  "ICON_TYPE": "damage_percent_buff",
-	  "DESCRIPTION": "Deal 60% more DMG.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"weakened_status": {
-	  "STATUS_NAME": "Weakened",
-	  "ICON_TYPE": "damage_percent_debuff",
-	  "DESCRIPTION": "Deal 25% less DMG",
-	  "STATUS_TYPE": "Debuff"
-	},
-	"might_status": {
-	  "STATUS_NAME": "Might",
-	  "ICON_TYPE": "might_buff",
-	  "DESCRIPTION": "Deal {10*STACKS} additional flat damage.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"unsteady_status": {
-	  "STATUS_NAME": "Unsteady",
-	  "ICON_TYPE": "armor_percent_debuff",
-	  "DESCRIPTION": "Gain 25% less ARMOR.",
-	  "STATUS_TYPE": "Debuff"
-	},
-	"sturdy_status": {
-	  "STATUS_NAME": "Sturdy",
-	  "ICON_TYPE": "armor_percent_buff",
-	  "DESCRIPTION": "Gain 25% more ARMOR.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"gelatinous_status": {
-	  "STATUS_NAME": "Gelatinous",
-	  "ICON_TYPE": "general_buff",
-	  "DESCRIPTION": "Splits into two smaller slimes upon reaching half HP.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"thieving_status": {
-	  "STATUS_NAME": "Thieving",
-	  "ICON_TYPE": "general_buff",
-	  "DESCRIPTION": "Takes {STACKS} Gold upon attacking you. Returns half of stolen gold upon death.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"towering_shield_status": {
-	  "STATUS_NAME": "Towering Shield",
-	  "ICON_TYPE": "armor_percent_buff",
-	  "DESCRIPTION": "Gaining ARMOR also gives allies that much ARMOR.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"healing_rune_status": {
-	  "STATUS_NAME": "Rune of Healing",
-	  "ICON_TYPE": "general_buff",
-	  "DESCRIPTION": "If this doesn't take damage with {STACKS} turns, it heals 50 HP.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"armaments_status": {
-	  "STATUS_NAME": "Armament",
-	  "ICON_TYPE": "fortitude_buff",
-	  "DESCRIPTION": "Whenever you play a card, gain {20*STACKS} ARMOR for each time it's been sharpened.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"hardened_blades_status": {
-	  "STATUS_NAME": "Hardened Blades",
-	  "ICON_TYPE": "general_buff",
-	  "DESCRIPTION": "Whenever you SHARPEN, SHARPEN {STACKS} additional time. Ephemeral.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"next_card_free_status": {
-	  "STATUS_NAME": "Next Card Free",
-	  "ICON_TYPE": "general_buff",
-	  "DESCRIPTION": "Your next card is free to play.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"stagger_status": {
-	  "STATUS_NAME": "Stagger",
-	  "ICON_TYPE": "general_buff",
-	  "DESCRIPTION": "DAZED enemies take {15*STACKS}% more DMG and deal {10*STACKS}% less DMG.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"aggression_status": {
-	  "STATUS_NAME": "Aggression",
-	  "ICON_TYPE": "general_buff",
-	  "DESCRIPTION": "Gain {4*STACKS} at the start of each turn.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"heavy_axe_status": {
-	  "STATUS_NAME": "Heavy Axe",
-	  "ICON_TYPE": "general_buff",
-	  "DESCRIPTION": "Beserker's Fury applies 2 DAZE.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"invigoration_status": {
-	  "STATUS_NAME": "Invigorate",
-	  "ICON_TYPE": "general_buff",
-	  "DESCRIPTION": "Whenever you play a card with base cost 2 or more, gain 40 ARMOR and 1 EMPOWERED.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"grievous_wounds_status": {
-	  "STATUS_NAME": "Grievous Wounds",
-	  "ICON_TYPE": "general_buff",
-	  "DESCRIPTION": "Deal {10*STACKS} additional flat damage for each WOUND in your deck.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"prayer_status": {
-	  "STATUS_NAME": "Prayer",
-	  "ICON_TYPE": "prayer_buff",
-	  "DESCRIPTION": "Converts to 1 BLESSING on turn end.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"blessing_status": {
-	  "STATUS_NAME": "Blessing",
-	  "ICON_TYPE": "blessing_buff",
-	  "DESCRIPTION": "Deal {10*STACKS}% more DMG.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"resolve_status": {
-	  "STATUS_NAME": "Resolve",
-	  "ICON_TYPE": "resolve_buff",
-	  "DESCRIPTION": "Keeps up to {10*STACKS} ARMOR between turns. Loses 1 RESOLVE on turn start.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"shock_armor_status": {
-	  "STATUS_NAME": "Shock Armor",
-	  "ICON_TYPE": "general_debuff",
-	  "DESCRIPTION": "Lose {STACKS} STORM on turn end.",
-	  "STATUS_TYPE": "Debuff"
-	},
-	"parrying_dagger_status": {
-	  "STATUS_NAME": "Parrying Dagger",
-	  "ICON_TYPE": "general_buff",
-	  "DESCRIPTION": "Your next attack card has a bonus 50% CRIT CHANCE.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"symphony_status": {
-	  "STATUS_NAME": "Symphony",
-	  "ICON_TYPE": "symphony_buff",
-	  "DESCRIPTION": "Deals {20*STACKS} to all enemies on turn end, then loses all SYMPHONY.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"ritual_status": {
-	  "STATUS_NAME": "Ritual",
-	  "ICON_TYPE": "ritual_buff",
-	  "DESCRIPTION": "Enemies take {2*STACKS}% more DMG. At 20 RITUAL, lose all RITUAL and deal 100 DMG to all enemies.",
-	  "STATUS_TYPE": "Buff"
-	},
-	"corrupted_status": {
-	  "STATUS_NAME": "Corrupted",
-	  "ICON_TYPE": "corrupted_debuff",
-	  "DESCRIPTION": "Gains 20% less ARMOR and takes 20% more DMG.",
-	  "STATUS_TYPE": "Debuff"
-	}
+    "empowered_status": {
+      "STATUS_NAME": "Empowered",
+      "ICON_TYPE": "damage_percent_buff",
+      "DESCRIPTION": "Deals 40% more DMG.",
+      "STATUS_TYPE": "Buff"
+    },
+    "vulnerable_status": {
+      "STATUS_NAME": "Vulnerable",
+      "ICON_TYPE": "damage_taken_percent_debuff",
+      "DESCRIPTION": "Takes 50% more DMG.",
+      "STATUS_TYPE": "Debuff"
+    },
+    "bleed_status": {
+      "STATUS_NAME": "Bleed",
+      "ICON_TYPE": "bleed_debuff",
+      "DESCRIPTION": "Deals {10*STACKS} on turn start, then loses 1 BLEED.",
+      "STATUS_TYPE": "Debuff"
+    },
+    "support_fire_status": {
+      "STATUS_NAME": "Support Fire",
+      "ICON_TYPE": "follow_up_buff",
+      "DESCRIPTION": "After dealing DMG with a card, launches follow-up: Deal 50 Physical DMG and apply 2 daze.",
+      "STATUS_TYPE": "Buff"
+    },
+    "thorned_armor_status": {
+      "STATUS_NAME": "Thorned Armor",
+      "ICON_TYPE": "follow_up_buff",
+      "DESCRIPTION": "After losing any Armor, launches follow-up: Deal 30 Physical DMG.",
+      "STATUS_TYPE": "Buff"
+    },
+    "daze_status": {
+      "STATUS_NAME": "Daze",
+      "ICON_TYPE": "daze_debuff",
+      "DESCRIPTION": "Deal 20% less DMG. Takes 30 DMG on turn start.",
+      "STATUS_TYPE": "Debuff"
+    },
+    "mana_crystal_status": {
+      "STATUS_NAME": "Mana Crystal",
+      "ICON_TYPE": "mana_crystal_buff",
+      "DESCRIPTION": "Gains {STACKS} Energy next turn.",
+      "STATUS_TYPE": "Buff"
+    },
+    "rage_status": {
+      "STATUS_NAME": "Rage",
+      "ICON_TYPE": "rage_buff",
+      "DESCRIPTION": "Increases damage of Beserker Fury",
+      "STATUS_TYPE": "Buff"
+    },
+    "rancorous_bolt_status": {
+      "STATUS_NAME": "Rancorous Bolt",
+      "ICON_TYPE": "damage_taken_percent_debuff",
+      "DESCRIPTION": "Takes 40% more DMG.",
+      "STATUS_TYPE": "Debuff"
+    },
+    "arcane_insight_status": {
+      "STATUS_NAME": "Arcane Insight",
+      "ICON_TYPE": "damage_percent_debuff",
+      "DESCRIPTION": "Deal 30% less DMG.",
+      "STATUS_TYPE": "Debuff"
+    },
+    "storm_status": {
+      "STATUS_NAME": "Storm",
+      "ICON_TYPE": "storm_buff",
+      "DESCRIPTION": "After dealing damage, launches follow-up: Deal {8*STACKS} Lightning DMG.",
+      "STATUS_TYPE": "Buff"
+    },
+    "fortitude_status": {
+      "STATUS_NAME": "Fortitude",
+      "ICON_TYPE": "fortitude_buff",
+      "DESCRIPTION": "Gain 25% more ARMOR.",
+      "STATUS_TYPE": "Buff"
+    },
+    "discharge_status": {
+      "STATUS_NAME": "Discharge",
+      "ICON_TYPE": "general_debuff",
+      "DESCRIPTION": "Lose {STACKS} STORM on turn end.",
+      "STATUS_TYPE": "Debuff"
+    },
+    "war_armor_status": {
+      "STATUS_NAME": "War Armor",
+      "ICON_TYPE": "damage_percent_buff",
+      "DESCRIPTION": "Deal 60% more DMG.",
+      "STATUS_TYPE": "Buff"
+    },
+    "weakened_status": {
+      "STATUS_NAME": "Weakened",
+      "ICON_TYPE": "damage_percent_debuff",
+      "DESCRIPTION": "Deal 25% less DMG",
+      "STATUS_TYPE": "Debuff"
+    },
+    "might_status": {
+      "STATUS_NAME": "Might",
+      "ICON_TYPE": "might_buff",
+      "DESCRIPTION": "Deal {10*STACKS} additional flat damage.",
+      "STATUS_TYPE": "Buff"
+    },
+    "unsteady_status": {
+      "STATUS_NAME": "Unsteady",
+      "ICON_TYPE": "armor_percent_debuff",
+      "DESCRIPTION": "Gain 25% less ARMOR.",
+      "STATUS_TYPE": "Debuff"
+    },
+    "sturdy_status": {
+      "STATUS_NAME": "Sturdy",
+      "ICON_TYPE": "armor_percent_buff",
+      "DESCRIPTION": "Gain 25% more ARMOR.",
+      "STATUS_TYPE": "Buff"
+    },
+    "gelatinous_status": {
+      "STATUS_NAME": "Gelatinous",
+      "ICON_TYPE": "general_buff",
+      "DESCRIPTION": "Splits into two smaller slimes upon reaching half HP.",
+      "STATUS_TYPE": "Buff"
+    },
+    "thieving_status": {
+      "STATUS_NAME": "Thieving",
+      "ICON_TYPE": "general_buff",
+      "DESCRIPTION": "Takes {STACKS} Gold upon attacking you. Returns half of stolen gold upon death.",
+      "STATUS_TYPE": "Buff"
+    },
+    "towering_shield_status": {
+      "STATUS_NAME": "Towering Shield",
+      "ICON_TYPE": "armor_percent_buff",
+      "DESCRIPTION": "Gaining ARMOR also gives allies that much ARMOR.",
+      "STATUS_TYPE": "Buff"
+    },
+    "healing_rune_status": {
+      "STATUS_NAME": "Rune of Healing",
+      "ICON_TYPE": "general_buff",
+      "DESCRIPTION": "If this doesn't take damage with {STACKS} turns, it heals 50 HP.",
+      "STATUS_TYPE": "Buff"
+    },
+    "armaments_status": {
+      "STATUS_NAME": "Armament",
+      "ICON_TYPE": "fortitude_buff",
+      "DESCRIPTION": "Whenever you play a card, gain {20*STACKS} ARMOR for each time it's been sharpened.",
+      "STATUS_TYPE": "Buff"
+    },
+    "hardened_blades_status": {
+      "STATUS_NAME": "Hardened Blades",
+      "ICON_TYPE": "general_buff",
+      "DESCRIPTION": "Whenever you SHARPEN, SHARPEN {STACKS} additional time. Ephemeral.",
+      "STATUS_TYPE": "Buff"
+    },
+    "next_card_free_status": {
+      "STATUS_NAME": "Next Card Free",
+      "ICON_TYPE": "general_buff",
+      "DESCRIPTION": "Your next card is free to play.",
+      "STATUS_TYPE": "Buff"
+    },
+    "stagger_status": {
+      "STATUS_NAME": "Stagger",
+      "ICON_TYPE": "general_buff",
+      "DESCRIPTION": "DAZED enemies take {15*STACKS}% more DMG and deal {10*STACKS}% less DMG.",
+      "STATUS_TYPE": "Buff"
+    },
+    "aggression_status": {
+      "STATUS_NAME": "Aggression",
+      "ICON_TYPE": "general_buff",
+      "DESCRIPTION": "Gain {4*STACKS} at the start of each turn.",
+      "STATUS_TYPE": "Buff"
+    },
+    "heavy_axe_status": {
+      "STATUS_NAME": "Heavy Axe",
+      "ICON_TYPE": "general_buff",
+      "DESCRIPTION": "Beserker's Fury applies 2 DAZE.",
+      "STATUS_TYPE": "Buff"
+    },
+    "invigoration_status": {
+      "STATUS_NAME": "Invigorate",
+      "ICON_TYPE": "general_buff",
+      "DESCRIPTION": "Whenever you play a card with base cost 2 or more, gain 40 ARMOR and 1 EMPOWERED.",
+      "STATUS_TYPE": "Buff"
+    },
+    "grievous_wounds_status": {
+      "STATUS_NAME": "Grievous Wounds",
+      "ICON_TYPE": "general_buff",
+      "DESCRIPTION": "Deal {10*STACKS} additional flat damage for each WOUND in your deck.",
+      "STATUS_TYPE": "Buff"
+    },
+    "prayer_status": {
+      "STATUS_NAME": "Prayer",
+      "ICON_TYPE": "prayer_buff",
+      "DESCRIPTION": "Converts to 1 BLESSING on turn end.",
+      "STATUS_TYPE": "Buff"
+    },
+    "blessing_status": {
+      "STATUS_NAME": "Blessing",
+      "ICON_TYPE": "blessing_buff",
+      "DESCRIPTION": "Deal {10*STACKS}% more DMG.",
+      "STATUS_TYPE": "Buff"
+    },
+    "resolve_status": {
+      "STATUS_NAME": "Resolve",
+      "ICON_TYPE": "resolve_buff",
+      "DESCRIPTION": "Keeps up to {10*STACKS} ARMOR between turns. Loses 1 RESOLVE on turn start.",
+      "STATUS_TYPE": "Buff"
+    },
+    "shock_armor_status": {
+      "STATUS_NAME": "Shock Armor",
+      "ICON_TYPE": "general_debuff",
+      "DESCRIPTION": "Lose {STACKS} STORM on turn end.",
+      "STATUS_TYPE": "Debuff"
+    },
+    "parrying_dagger_status": {
+      "STATUS_NAME": "Parrying Dagger",
+      "ICON_TYPE": "general_buff",
+      "DESCRIPTION": "Your next attack card has a bonus 50% CRIT CHANCE.",
+      "STATUS_TYPE": "Buff"
+    },
+    "symphony_status": {
+      "STATUS_NAME": "Symphony",
+      "ICON_TYPE": "symphony_buff",
+      "DESCRIPTION": "Deals {20*STACKS} to all enemies on turn end, then loses all SYMPHONY.",
+      "STATUS_TYPE": "Buff"
+    },
+    "ritual_status": {
+      "STATUS_NAME": "Ritual",
+      "ICON_TYPE": "ritual_buff",
+      "DESCRIPTION": "Enemies take {2*STACKS}% more DMG. At 20 RITUAL, lose all RITUAL and deal 100 DMG to all enemies.",
+      "STATUS_TYPE": "Buff"
+    },
+    "corrupted_status": {
+      "STATUS_NAME": "Corrupted",
+      "ICON_TYPE": "corrupted_debuff",
+      "DESCRIPTION": "Gains 20% less ARMOR and takes 20% more DMG.",
+      "STATUS_TYPE": "Debuff"
+    }
   }
 }
