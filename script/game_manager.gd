@@ -371,13 +371,8 @@ func load_player_data() -> void:
 				player_data.deck.append(
 					card
 				)
-				
+				 
 	#player_data.deck.append(CardDatabase.get_card("taint_card"))
-	
-	#player_data.deck.append(
-	#	CardDatabase.get_card("sleight_of_hand_card")
-	#)
-
 	
 	#player_data.weapon = ItemDatabase.get_item("crushing_gauntlets_item")
 	#player_data.items.append(ItemDatabase.get_item("battle_horn_item"))
