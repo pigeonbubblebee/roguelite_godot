@@ -5,17 +5,57 @@ var current_items : Array
 var current_weapon
 
 var current_attributes
-
 func generate_card_rewards(ctx, amount := 4) -> Array:
 	var pool = CardDatabase.get_all_valid_cards().filter(func(dict):
 		return (
-			dict["RARITY"] == "COMMON"
+			(dict["RARITY"] == "COMMON" or dict["RARITY"] == "RARE")
 			and not dict["NOT_DRAFTABLE"]
 		)
 	)
 
+	var rare_pool = pool.filter(func(dict):
+		return dict["RARITY"] == "RARE"
+	)
+
+	var common_pool = pool.filter(func(dict):
+		return dict["RARITY"] == "COMMON"
+	)
+
+	var rewards: Array = []
+
+	# Determine how many rare slots we get.
+	var rare_chance: float = ctx.added_rare_pool_chance
+	var guaranteed_rares: int = floori(rare_chance)
+
+	# Decimal portion gives a chance for one additional rare.
+	var fractional_rare_chance: float = rare_chance - guaranteed_rares
+
+	if randf() < fractional_rare_chance:
+		guaranteed_rares += 1
+
+	# Don't try to generate more rare cards than reward slots.
+	guaranteed_rares = mini(guaranteed_rares, amount)
+
+	# Add guaranteed/proc'd rare cards.
+	rare_pool.shuffle()
+
+	var rare_count: int = mini(guaranteed_rares, rare_pool.size())
+	rewards.append_array(rare_pool.slice(0, rare_count))
+
+	# Remaining slots are filled using the normal common-card logic.
+	var common_amount := amount - rewards.size()
+
+	if common_amount > 0:
+		rewards.append_array(_generate_common_rewards(common_pool, common_amount))
+
+	rewards.shuffle()
+	return rewards.slice(0, amount)
+
+
+func _generate_common_rewards(pool: Array, amount: int) -> Array:
 	# Get stats sorted from highest to lowest.
 	var sorted_stats: Array[String] = []
+
 	for stat in current_attributes:
 		sorted_stats.append(stat)
 
@@ -61,9 +101,10 @@ func generate_card_rewards(ctx, amount := 4) -> Array:
 	# Only one stat has points.
 	if sorted_stats.size() == 1 or current_attributes[sorted_stats[1]] <= 0:
 		rewards.append_array(stat_pools[highest_stat].slice(0, 2))
-		
+
 		var remaining = amount - rewards.size()
-		rewards.append_array(random_pool.slice(0, remaining))
+		if remaining > 0:
+			rewards.append_array(random_pool.slice(0, remaining))
 
 	# Two or more stats have points.
 	else:
@@ -97,10 +138,13 @@ func generate_card_rewards(ctx, amount := 4) -> Array:
 		var remaining_pool = pool.filter(func(card):
 			return not rewards.has(card)
 		)
-		remaining_pool.shuffle()
-		rewards.append_array(remaining_pool.slice(0, amount - rewards.size()))
 
-	rewards.shuffle()
+		remaining_pool.shuffle()
+
+		rewards.append_array(
+			remaining_pool.slice(0, amount - rewards.size())
+		)
+
 	return rewards.slice(0, amount)
 	
 func generate_item_rewards(ctx, amt := 3) -> Array:

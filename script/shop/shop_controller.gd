@@ -86,6 +86,7 @@ func process_reward(reward) -> void:
 func bind_player_data(player_data : PlayerData):
 	_player_data = player_data
 	reward_manager.bind_items(player_data.items, player_data.weapon)
+	reward_manager.bind_attributes(player_data.attributes)
 
 func request_player_data_modification(effect : PlayerDataEffect):
 	player_data_change_request.emit(effect)
