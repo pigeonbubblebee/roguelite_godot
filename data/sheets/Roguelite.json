@@ -2410,7 +2410,7 @@
 	},
 	"gamblers_deck_item": {
 	  "ITEM_NAME": "Gambler's Deck",
-	  "DESCRIPTION": "Whenever you play a card, gain a random bonus: deal 5 DMG to all enemies, gain 5 ARMOR, or add 1 SYMPHONY to the top card of your deck.",
+	  "DESCRIPTION": "Whenever you play a card, randomly do: deal 5 DMG to all enemies, gain 5 ARMOR, add 1 SYMPHONY to the top card of your deck.",
 	  "NOT_DRAFTABLE": null,
 	  "WEAPON": true
 	},

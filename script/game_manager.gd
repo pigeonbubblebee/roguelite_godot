@@ -374,7 +374,7 @@ func load_player_data() -> void:
 				 
 	#player_data.deck.append(CardDatabase.get_card("taint_card"))
 	
-	# player_data.weapon = ItemDatabase.get_item("ruined_kings_blade_item")
+	player_data.weapon = ItemDatabase.get_item("lost_grimoire_item")
 	#player_data.items.append(ItemDatabase.get_item("battle_horn_item"))
 	#player_data.items.append(
 	#		ItemDatabase.get_item(item.item_id)
