@@ -2302,7 +2302,7 @@
 	},
 	"ruined_kings_blade_item": {
 	  "ITEM_NAME": "Ruined King's Blade",
-	  "DESCRIPTION": "Deal additional flat damage equal to 5% of the target's max HP, at a max of 100 Addtitional DMG.",
+	  "DESCRIPTION": "You deal additional flat damage equal to 5% of the target's max HP, at a max of 100 Addtitional DMG.",
 	  "NOT_DRAFTABLE": null,
 	  "WEAPON": true
 	},

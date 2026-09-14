@@ -249,6 +249,15 @@ func lose_life(target: Actor, amount: int) -> EffectSequenceBuilder:
 		func(): controller.lose_life(target, amount)
 	)
 	
+func heal_actor(target: Actor, amount: int) -> EffectSequenceBuilder:
+	if target == null:
+		return self
+	
+	return step(
+		null,
+		func(): controller.heal_actor(target, amount)
+	)
+	
 func apply_status_multi(targets: Array[Actor], effect_factory: Callable) -> EffectSequenceBuilder:
 	for t in targets:
 		if t._processing_death:

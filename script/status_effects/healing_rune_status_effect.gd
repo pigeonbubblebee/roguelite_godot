@@ -23,4 +23,9 @@ func on_turn_start(_actor: Actor, battle_context: BattleContext, controller: Bat
 		reduce_stacks()
 	elif _stacks == 1:
 		set_stacks(2)
-		controller.heal_actor(_owner, 50)
+		var custom_action = BattleRuntimeHelper.generate_light_camera_shake_action()
+		EffectSequenceBuilder.new(battle_context, controller)\
+			.as_status(self)\
+			.use_action(custom_action)\
+			.heal_actor(_owner, 50)\
+			.enqueue()
