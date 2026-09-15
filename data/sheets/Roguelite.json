@@ -458,8 +458,8 @@
 	},
 	"shock_armor_card": {
 	  "CARD_NAME": "Shock Armor",
-	  "COST": 1,
-	  "DESCRIPTION": "Gain 40 ARMOR. Gain 2 STORM this turn.",
+	  "COST": 0,
+	  "DESCRIPTION": "Gain 30 ARMOR. Gain 2 STORM this turn.",
 	  "RARITY": "COMMON",
 	  "TYPE": "DEFENSE",
 	  "KEYWORDS": "armor;storm",
@@ -2338,7 +2338,7 @@
 	},
 	"hunters_longbow_item": {
 	  "ITEM_NAME": "Hunter's Longbow",
-	  "DESCRIPTION": "CRITICAL HITS deal 100% more DMG.",
+	  "DESCRIPTION": "The first card you play each turn with base cost 0 is returned to your hand after playing.",
 	  "NOT_DRAFTABLE": null,
 	  "WEAPON": true
 	},
@@ -2350,7 +2350,7 @@
 	},
 	"two_shot_item": {
 	  "ITEM_NAME": "Two-Shot",
-	  "DESCRIPTION": "Whenever you deal CRITICAL DMG, if your CRIT CHANCE was higher than 100%, add your excess CRIT CHANCE to your CRITICAL DMG%.",
+	  "DESCRIPTION": "Extra CRIT CHANCE past 100% is converted to bonus CRITICAL DMG.",
 	  "NOT_DRAFTABLE": null,
 	  "WEAPON": true
 	},
@@ -2410,7 +2410,7 @@
 	},
 	"gamblers_deck_item": {
 	  "ITEM_NAME": "Gambler's Deck",
-	  "DESCRIPTION": "Whenever you play a card, randomly do: deal 5 DMG to all enemies, gain 5 ARMOR, add 1 SYMPHONY to the top card of your deck.",
+	  "DESCRIPTION": "Whenever you draw cards during your turn not counting turn start, deal 10 DMG to all enemies.",
 	  "NOT_DRAFTABLE": null,
 	  "WEAPON": true
 	},
@@ -2446,7 +2446,7 @@
 	},
 	"spectral_dagger_item": {
 	  "ITEM_NAME": "Spectral Dagger",
-	  "DESCRIPTION": "WEAKENED enemies deal an additional 25% less DMG. VULNERABLE enemies take an additional 25% more DMG.",
+	  "DESCRIPTION": "WEAKENED and VULNERABLE are 50% more effective.",
 	  "NOT_DRAFTABLE": null,
 	  "WEAPON": true
 	},

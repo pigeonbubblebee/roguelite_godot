@@ -1,7 +1,7 @@
 class_name ShockArmorCard
 extends Card
 
-var armor : int = 40
+var armor : int = 30
 var stacks_storm : int = 2
 var status_id_storm : String = "storm_status"
 
