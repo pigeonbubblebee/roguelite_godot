@@ -14,6 +14,9 @@ var _battle_context : WeakRef
 signal expired(status: StatusEffect)
 signal stacks_changed(stacks: int)
 
+static var TYPE_BUFF = "Buff"
+static var TYPE_DEBUFF = "Debuff"
+
 func _init(id : String, stacks : int = 1):
 	_stacks = stacks
 	_status_id = id

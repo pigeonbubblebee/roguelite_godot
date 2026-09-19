@@ -2460,7 +2460,7 @@
 	  "ITEM_NAME": "Nihility",
 	  "DESCRIPTION": "The first negative status you apply each turn is doubled.",
 	  "NOT_DRAFTABLE": null,
-	  "WEAPON": null
+	  "WEAPON": true
 	},
 	"flamberge_item": {
 	  "ITEM_NAME": "Flamberge",
