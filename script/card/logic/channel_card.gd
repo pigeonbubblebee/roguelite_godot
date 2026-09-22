@@ -3,6 +3,9 @@ extends Card
 
 var mana_crystal_card_id : String = "mana_crystal_card"
 
+func effect_on_resolve(context, controller):
+	return ResolveEffect.REMOVE
+
 func build_sequence(context: BattleContext, controller: BattleController, preview: bool = false) -> EffectSequenceBuilder:
 	var custom_action = BattleRuntimeHelper.generate_basic_defense_action(context)
 
