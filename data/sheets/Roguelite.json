@@ -2452,7 +2452,7 @@
 	},
 	"death_scythe_item": {
 	  "ITEM_NAME": "Death Scythe",
-	  "DESCRIPTION": "When you lose life from your own effect, heal that much life and deal that much DMG to a random enemy.",
+	  "DESCRIPTION": "When you lose life on your turn, heal that much life and deal that much DMG to a random enemy.",
 	  "NOT_DRAFTABLE": null,
 	  "WEAPON": true
 	},

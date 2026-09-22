@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c12j8ssnaarvs"]
+
+[ext_resource type="PackedScene" uid="uid://fp4dd2rv1vu5" path="res://scenes/particles/slash_hit_effect.tscn" id="1_7dht1"]
+[ext_resource type="Texture2D" uid="uid://1y14e6wj6c8u" path="res://assets/vfx/lightning_strike.png" id="2_p5vcb"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_we8pq"]
+particles_animation = true
+particles_anim_h_frames = 7
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7dht1"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -10, 0)
+gravity = Vector3(0, 0, 0)
+anim_speed_min = 1.0
+anim_speed_max = 1.0
+
+[node name="particle" unique_id=251637107 instance=ExtResource("1_7dht1")]
+material = SubResource("CanvasItemMaterial_we8pq")
+texture = ExtResource("2_p5vcb")
+lifetime = 0.4
+process_material = SubResource("ParticleProcessMaterial_7dht1")

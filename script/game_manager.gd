@@ -372,9 +372,9 @@ func load_player_data() -> void:
 					card
 				)
 				 
-	#player_data.deck.append(CardDatabase.get_card("defiant_blow_card"))
+	player_data.deck.append(CardDatabase.get_card("lightning_incantation_card"))
 	
-	player_data.weapon = ItemDatabase.get_item("dawnbreaker_item")
+	player_data.weapon = ItemDatabase.get_item("hand_ballistia_item")
 	#player_data.items.append(ItemDatabase.get_item("battle_horn_item"))
 	#player_data.items.append(
 	#		ItemDatabase.get_item(item.item_id)

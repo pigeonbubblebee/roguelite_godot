@@ -46,6 +46,13 @@ func add_damage_flat(amp: int):
 		else:
 			modifiers.flat_damage_dictionary[actor] = amp
 			
+
+func add_damage_flat_to_target(amp: int, target : Actor):
+	if target in modifiers.flat_damage_dictionary:
+		modifiers.flat_damage_dictionary[target] += amp
+	else:
+		modifiers.flat_damage_dictionary[target] = amp
+			
 func add_vulnerable(amp: float, target: Actor):
 	if target in modifiers.vulnerability_dictionary:
 		modifiers.vulnerability_dictionary[target] += amp

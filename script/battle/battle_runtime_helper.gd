@@ -9,6 +9,17 @@ static func generate_basic_attack_action(context: BattleContext, actor: Actor = 
 	
 	return parallel
 	
+static func generate_storm_action(context: BattleContext, targets : Array[Actor]) -> BattleVisualAction:
+	var parallel = ParallelAction.new([
+		ShakeCameraAction.new(0.65),
+		DelayAction.new()
+	])
+	
+	for actor in targets:
+		parallel.append_action(PlayParticleEffectAction.new(actor, "storm"))
+	
+	return parallel
+	
 static func generate_basic_defense_action(context: BattleContext, actor: Actor = context.get_player()) -> BattleVisualAction:
 	var parallel = ParallelAction.new([
 		ShakeCameraAction.new(0.65),

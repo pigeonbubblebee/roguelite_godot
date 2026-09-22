@@ -12,7 +12,7 @@ func execute(dmg_context: DamageContext, context: BattleContext, controller: Bat
 	var targets = dmg_context.hit_actors
 	var final_damage = damage * stacks
 	
-	var custom_action = BattleRuntimeHelper.generate_light_camera_shake_action()\
+	var custom_action = BattleRuntimeHelper.generate_storm_action(context, targets)\
 		.set_priority(1)
 	
 	EffectSequenceBuilder.new(context, controller)\

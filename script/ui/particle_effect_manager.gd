@@ -2,6 +2,7 @@ class_name ParticleEffectManager
 extends Node
 
 var slash_effect: PackedScene = preload("res://scenes/particles/slash_hit_effect.tscn")
+var storm_effect: PackedScene = preload("res://scenes/particles/lightning_strike_particle.tscn")
 var magic_slash_effect: PackedScene = preload("res://scenes/particles/magic_slash_hit_particle.tscn")
 var armor_effect: PackedScene = preload("res://scenes/particles/armor_particle.tscn")
 var thorns_effect: PackedScene = preload("res://scenes/particles/thorns_particle.tscn")
@@ -10,7 +11,8 @@ var thorns_effect: PackedScene = preload("res://scenes/particles/thorns_particle
 	"slash": slash_effect,
 	"magic_slash": magic_slash_effect,
 	"armor": armor_effect,
-	"thorns": thorns_effect
+	"thorns": thorns_effect,
+	"storm": storm_effect
 }
 
 # Spawns particle effect as a child of target node, returns the instance

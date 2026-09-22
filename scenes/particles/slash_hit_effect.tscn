@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://fp4dd2rv1vu5"]
+[gd_scene format=3 uid="uid://fp4dd2rv1vu5"]
 
 [ext_resource type="Texture2D" uid="uid://dpkcqmnhgcn4e" path="res://assets/vfx/slash_hit.png" id="1_rd0qr"]
 
@@ -15,14 +15,14 @@ gravity = Vector3(0, 0, 0)
 anim_speed_min = 1.0
 anim_speed_max = 1.0
 
-[node name="particle" type="GPUParticles2D"]
+[node name="particle" type="GPUParticles2D" unique_id=835210797]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_8u8g4")
 emitting = false
 amount = 1
-process_material = SubResource("ParticleProcessMaterial_n7pav")
 texture = ExtResource("1_rd0qr")
 lifetime = 0.16
 one_shot = true
 fixed_fps = 40
 local_coords = true
+process_material = SubResource("ParticleProcessMaterial_n7pav")
