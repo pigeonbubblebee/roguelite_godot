@@ -29,7 +29,7 @@ func on_turn_start(actor: Actor, context: BattleContext, controller: BattleContr
 	])
 	
 	EffectSequenceBuilder.new(context, controller)\
-		.as_status(self)\
+		.as_status(self, false)\
 		.use_action(custom_action)\
 		.damage(target, base_damage)\
 		.enqueue()

@@ -615,10 +615,10 @@
 	"channel_card": {
 	  "CARD_NAME": "Channel",
 	  "COST": 1,
-	  "DESCRIPTION": "Add 2 MANA CRYSTAL to your hand.",
+	  "DESCRIPTION": "Add 2 MANA CRYSTAL to your hand. EPHEMERAL.",
 	  "RARITY": "COMMON",
 	  "TYPE": "BUFF",
-	  "KEYWORDS": "mana_crystal_card",
+	  "KEYWORDS": "mana_crystal_card;ephemeral",
 	  "FORCE_TARGET_DRAG": null,
 	  "NOT_DRAFTABLE": null,
 	  "UPGRADED_KEYWORDS": null,
@@ -831,7 +831,7 @@
 	"blind_rage_card": {
 	  "CARD_NAME": "Blind Rage",
 	  "COST": 0,
-	  "DESCRIPTION": "Gain 12 RAGE and 2 UNSTEADY. EPHEMERAL",
+	  "DESCRIPTION": "Gain 12 RAGE and 2 UNSTEADY. EPHEMERAL.",
 	  "RARITY": "RARE",
 	  "TYPE": "BUFF",
 	  "KEYWORDS": "unsteady;rage;beserkers_fury_card;ephemeral",
@@ -2320,7 +2320,7 @@
 	},
 	"tornado_shot_item": {
 	  "ITEM_NAME": "Tornado Shot",
-	  "DESCRIPTION": "EXTRA-ACTIONS have +100% CRIT CHANCE.",
+	  "DESCRIPTION": "FOLLOW-UPS have +100% CRIT CHANCE.",
 	  "NOT_DRAFTABLE": null,
 	  "WEAPON": true
 	},
@@ -2446,7 +2446,7 @@
 	},
 	"spectral_dagger_item": {
 	  "ITEM_NAME": "Spectral Dagger",
-	  "DESCRIPTION": "WEAKENED and VULNERABLE are 50% more effective.",
+	  "DESCRIPTION": "Whenever you apply WEAKENED, apply 1 CORRUPTED.",
 	  "NOT_DRAFTABLE": null,
 	  "WEAPON": true
 	},
@@ -2651,7 +2651,7 @@
 	"storm_status": {
 	  "STATUS_NAME": "Storm",
 	  "ICON_TYPE": "storm_buff",
-	  "DESCRIPTION": "After dealing damage, launches follow-up: Deal {8*STACKS} Lightning DMG.",
+	  "DESCRIPTION": "After dealing damage, deals {8*STACKS} additional DMG.",
 	  "STATUS_TYPE": "Buff"
 	},
 	"fortitude_status": {
@@ -2660,8 +2660,8 @@
 	  "DESCRIPTION": "Gain 25% more ARMOR.",
 	  "STATUS_TYPE": "Buff"
 	},
-	"discharge_status": {
-	  "STATUS_NAME": "Discharge",
+	"temporary_storm_status": {
+	  "STATUS_NAME": "Temporary Storm",
 	  "ICON_TYPE": "general_debuff",
 	  "DESCRIPTION": "Lose {STACKS} STORM on turn end.",
 	  "STATUS_TYPE": "Debuff"
@@ -2786,12 +2786,6 @@
 	  "DESCRIPTION": "Keeps up to {10*STACKS} ARMOR between turns. Loses 1 RESOLVE on turn start.",
 	  "STATUS_TYPE": "Buff"
 	},
-	"shock_armor_status": {
-	  "STATUS_NAME": "Shock Armor",
-	  "ICON_TYPE": "general_debuff",
-	  "DESCRIPTION": "Lose {STACKS} STORM on turn end.",
-	  "STATUS_TYPE": "Debuff"
-	},
 	"parrying_dagger_status": {
 	  "STATUS_NAME": "Parrying Dagger",
 	  "ICON_TYPE": "general_buff",
@@ -2815,6 +2809,12 @@
 	  "ICON_TYPE": "corrupted_debuff",
 	  "DESCRIPTION": "Gains 20% less ARMOR and takes 20% more DMG.",
 	  "STATUS_TYPE": "Debuff"
+	},
+	"steel_fang_status": {
+	  "STATUS_NAME": "Steel Fang",
+	  "ICON_TYPE": "general_buff",
+	  "DESCRIPTION": "Your next attack card has a bonus 100% CRIT CHANCE.",
+	  "STATUS_TYPE": "Buff"
 	}
   }
 }

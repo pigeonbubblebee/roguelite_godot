@@ -40,6 +40,7 @@ func add_stacks(amt : int):
 func on_apply(_context: BattleContext, _controller: BattleController):
 	_battle_context = weakref(_context)
 	_battle_context.get_ref().event_bus.before_damage_dealt.connect(before_damage_dealt)
+	_battle_context.get_ref().event_bus.resolve_damage.connect(resolve_damage)
 	_battle_context.get_ref().event_bus.damage_dealt.connect(damage_dealt)
 	_battle_context.get_ref().event_bus.before_armor_applied.connect(before_armor_applied)
 	_battle_context.get_ref().event_bus.armor_applied.connect(armor_applied)
@@ -55,9 +56,11 @@ func on_apply(_context: BattleContext, _controller: BattleController):
 	_battle_context.get_ref().event_bus.status_applied.connect(status_applied)
 	_battle_context.get_ref().event_bus.before_status_applied.connect(before_status_applied)
 	_battle_context.get_ref().event_bus.on_card_added_to_deck.connect(on_card_added_to_deck)
+	_battle_context.get_ref().event_bus.on_card_discarded.connect(on_card_discarded)
 	
 func cleanup():
 	_battle_context.get_ref().event_bus.before_damage_dealt.disconnect(before_damage_dealt)
+	_battle_context.get_ref().event_bus.resolve_damage.disconnect(resolve_damage)
 	_battle_context.get_ref().event_bus.damage_dealt.disconnect(damage_dealt)
 	_battle_context.get_ref().event_bus.before_armor_applied.disconnect(before_armor_applied)
 	_battle_context.get_ref().event_bus.armor_applied.disconnect(armor_applied)
@@ -73,8 +76,12 @@ func cleanup():
 	_battle_context.get_ref().event_bus.status_applied.disconnect(status_applied)
 	_battle_context.get_ref().event_bus.before_status_applied.disconnect(before_status_applied)
 	_battle_context.get_ref().event_bus.on_card_added_to_deck.disconnect(on_card_added_to_deck)
+	_battle_context.get_ref().event_bus.on_card_discarded.disconnect(on_card_discarded)
 	
 func card_cost_request(ctx: CardCostRequestContext):
+	pass
+	
+func on_card_discarded(card : Card, context: BattleContext, controller: BattleController):
 	pass
 	
 func status_applied(ctx: StatusEffectApplicationContext, context: BattleContext, controller: BattleController):
@@ -102,6 +109,9 @@ func stacks_updated(_context: BattleContext, _controller: BattleController):
 	pass
 	
 func before_damage_dealt(_context: DamageContext, battle_context: BattleContext, controller: BattleController):
+	pass
+	
+func resolve_damage(_context: DamageContext, battle_context: BattleContext, controller: BattleController):
 	pass
 	
 func damage_dealt(_context: DamageContext, battle_context: BattleContext, controller: BattleController):

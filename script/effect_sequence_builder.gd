@@ -35,6 +35,7 @@ func _current_group() -> Array:
 func as_card(card: Card) -> EffectSequenceBuilder:
 	_card = card
 	add_tag(DamageContext.TAG_CARD)
+	
 	return self
 
 func as_actor(actor: Actor) -> EffectSequenceBuilder:
@@ -50,9 +51,11 @@ func as_follow_up(fua: FollowUp) -> EffectSequenceBuilder:
 	set_source(fua.get_follow_up_id())
 	return self
 	
-func as_status(status: StatusEffect) -> EffectSequenceBuilder:
+func as_status(status: StatusEffect, follow_up := true) -> EffectSequenceBuilder:
 	_status = status
 	add_tag(DamageContext.TAG_STATUS_EFFECT)
+	if follow_up:
+		add_tag(DamageContext.TAG_FOLLOW_UP)
 	return self
 	
 func as_wound(card: Card) -> EffectSequenceBuilder:

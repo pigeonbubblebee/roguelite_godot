@@ -40,6 +40,7 @@ var reward_handler: RewardHandler
 
 var _player_data : PlayerData
 
+
 @export var log_card_play := false
 
 func _input(event: InputEvent) -> void:
@@ -378,6 +379,12 @@ func remove_card_from_hand(card: Card):
 
 func apply_damage(ctx: DamageContext):
 	_battle_context.event_bus.before_damage_dealt.emit(ctx, _battle_context, self)
+	
+	_battle_context.event_bus.resolve_damage.emit(
+		ctx,
+		_battle_context,
+		self
+	)
 	
 	var damage_dictionary = ctx.calculate_damage()
 	for actor in damage_dictionary.keys():

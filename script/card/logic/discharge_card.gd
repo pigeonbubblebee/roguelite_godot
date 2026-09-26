@@ -6,7 +6,7 @@ var stacks_storm : int = 3
 var status_id_storm : String = "storm_status"
 
 var stacks_discharge : int = 3
-var status_id_discharge : String = "discharge_status"
+var status_id_discharge : String = "temporary_storm_status"
 
 func build_sequence(context: BattleContext, controller: BattleController, preview: bool = false) -> EffectSequenceBuilder:
 	var player = context.get_player()

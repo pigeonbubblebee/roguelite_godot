@@ -15,11 +15,13 @@ func build_sequence(context: BattleContext, controller: BattleController, previe
 	var sequence = EffectSequenceBuilder.new(context, controller)\
 		.as_card(self)
 		
-	for i in range(multistrike_amount):
+	var multistrike = multistrike_amount + context.multistrike_bonus
+		
+	for i in range(multistrike):
 		var target = selected_enemys.pick_random()
 		sequence.damage(target, damage)
 		
-		if i < multistrike_amount - 1:
+		if i < multistrike - 1:
 			sequence.delay()
 			
 	return sequence
