@@ -193,6 +193,7 @@ func _setup_connections():
 	# _hand_manager.card_played.connect(_on_card_played)
 	
 	_energy_manager.energy_change.connect(_on_energy_change)
+	_energy_manager.energy_used.connect(_on_energy_used)
 	_energy_manager.energy_change.connect(_battle_context.on_energy_change)
 	
 	reward_handler.player_data_change_request.connect(
@@ -223,7 +224,7 @@ func _on_turn_ready(actor: Actor):
 func _on_turn_started(actor: Actor):
 	if actor.get_actor_faction() == Faction.Type.ALLY:
 		_energy_manager.reset_energy()
-		_hand_manager.draw_to_max()
+		_hand_manager.draw_to_max(_battle_context.max_hand_size_bonus)
 	
 	_battle_context.event_bus.turn_started.emit(actor, _battle_context, self)
 	
@@ -255,6 +256,9 @@ func _on_card_played(card: Card):
 	
 func _on_energy_change(current: int):
 	energy_changed.emit(current)
+	
+func _on_energy_used(current, amount):
+	_battle_context.event_bus.energy_used.emit(current, amount, _battle_context, self)
 
 func _on_turn_ended(actor: Actor):
 	_battle_context.event_bus.turn_ended.emit(actor, _battle_context, self)	
@@ -446,13 +450,15 @@ func request_premove_refresh():
 	
 func draw_card(amt: int = 1):
 	for i in range(amt):
-		_hand_manager.draw_from_top()
+		var card = _hand_manager.draw_from_top()
+		_battle_context.event_bus.on_card_draw.emit(card, _battle_context, self)
 		
 func add_card_to_hand(card_id : String, amt : int = 1):
 	for i in range(amt):
 		var card = _hand_manager.init_card_script_from_id(card_id)
 		card.bind_event_bus(_battle_context.event_bus)
 		_hand_manager.draw_card(card)
+		_battle_context.event_bus.on_card_added_to_deck.emit(card, _battle_context, self)
 		
 func shuffle_card_to_deck(card_id : String, amt : int = 1):
 	for i in range(amt):

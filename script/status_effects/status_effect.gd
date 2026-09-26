@@ -70,6 +70,8 @@ func _set_event_connections(event_bus, connect_events: bool):
 		[event_bus.before_status_applied, before_status_applied],
 		[event_bus.on_card_added_to_deck, on_card_added_to_deck],
 		[event_bus.on_card_discarded, on_card_discarded],
+		[event_bus.energy_used, energy_used],
+		[event_bus.on_card_draw, on_card_draw],
 	]
 	
 	for event in events:
@@ -77,6 +79,9 @@ func _set_event_connections(event_bus, connect_events: bool):
 			event[0].connect(event[1])
 		else:
 			event[0].disconnect(event[1])
+			
+func energy_used(current: int, amount: int, context: BattleContext, controller: BattleController):
+	pass
 
 func card_cost_request(ctx: CardCostRequestContext):
 	pass
@@ -99,6 +104,9 @@ func before_modifier_applied(card: Card, mod: CardModifier, context: BattleConte
 func on_card_played(card: Card, context: BattleContext, controller: BattleController):
 	pass
 	
+func on_card_draw(card: Card, context: BattleContext, controller: BattleController):
+	pass
+		
 func before_card_played(card: Card, context: BattleContext, controller: BattleController):
 	pass
 	

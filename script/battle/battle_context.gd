@@ -22,6 +22,7 @@ var action_started = false
 signal action_queue_cleared
 
 var multistrike_bonus := 0
+var max_hand_size_bonus := 0
 
 func _init(turn_manager: TurnManager, _controller: BattleController):
 	_turn_manager = turn_manager

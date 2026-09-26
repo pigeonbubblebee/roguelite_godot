@@ -26,19 +26,20 @@ func _ready() -> void:
 	#EventBus.turn_start.connect(_on_turn_start)
 	pass
 	
-func draw_to_max():
+func draw_to_max(bonus_hand_size := 0):
 	var hand_size = hand.size()
 	
 	for card in hand:
 		if not card.get_takes_max_hand_space():
 			hand_size -= 1	
 	
-	var card_count = max_hand_size - hand_size
+	var card_count = max_hand_size + bonus_hand_size - hand_size
 	if card_count < 0:
 		card_count = 0
 	draw_from_top(card_count)
 
-func draw_from_top(amt = 1):
+func draw_from_top(amt = 1) -> Card:
+	var result
 	for i in range(amt):
 		if deck.is_empty():
 			return_all_from_discard()
@@ -49,8 +50,10 @@ func draw_from_top(amt = 1):
 		
 		var card = deck.pop_front()
 		draw_card(card)
+		result = card
 		#print(card)
 	deck_updated.emit(deck)
+	return result
 	
 func shuffle_deck():
 	deck.shuffle()
@@ -135,6 +138,9 @@ func draw_card(card: Card):
 
 func get_hand() -> Array[Card]:
 	return hand
+	
+func get_deck() -> Array[Card]:
+	return deck
 	
 func discard_card_from_play(card: Card):
 	# print(hand.find(card))

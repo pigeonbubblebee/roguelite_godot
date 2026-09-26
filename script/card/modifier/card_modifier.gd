@@ -25,12 +25,18 @@ func set_owner(owner : Card):
 func on_apply(card: Card, context:BattleContext, controller:BattleController):
 	context.event_bus.before_damage_dealt.connect(before_damage_dealt)
 	context.event_bus.on_card_played.connect(on_card_played)
+	context.event_bus.card_cost_request.connect(card_cost_request)
 
 func before_damage_dealt(context: DamageContext, battle_context: BattleContext, controller: BattleController):
 	pass
 	
 func on_card_played(card: Card, battle_context: BattleContext, controller: BattleController):
 	pass
+	
+func card_cost_request(ctx: CardCostRequestContext):
+	pass
+	
+
 
 func get_name():
 	return ""

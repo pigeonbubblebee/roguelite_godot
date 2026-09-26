@@ -372,10 +372,10 @@ func load_player_data() -> void:
 					card
 				)
 				 
-	#player_data.deck.append(CardDatabase.get_card("parrying_dagger_card"))
-	#player_data.deck.append(CardDatabase.get_card("bladed_blow_card"))
+	#player_data.deck.append(CardDatabase.get_card("song_of_protection_card"))
+	#player_data.deck.append(CardDatabase.get_card("mages_greatbow_card"))
 	
-	# player_data.weapon = ItemDatabase.get_item("steel_fang_item")
+	#player_data.weapon = ItemDatabase.get_item("lost_grimoire_item")
 	#player_data.items.append(ItemDatabase.get_item("battle_horn_item"))
 	#player_data.items.append(
 	#		ItemDatabase.get_item(item.item_id)

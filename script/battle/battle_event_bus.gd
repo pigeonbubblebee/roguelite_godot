@@ -18,6 +18,8 @@ signal on_armor_reset_request(ctx: ArmorResetContext, context: BattleController,
 signal on_card_discarded(card : Card, context: BattleContext, controller: BattleController)
 signal on_card_added_to_deck(card : Card, context: BattleContext, controller: BattleController)
 
+signal on_card_draw(card : Card, context: BattleContext, controller: BattleController)
+
 signal on_card_played(card : Card, context: BattleContext, controller: BattleController)
 signal before_card_played(card : Card, context: BattleContext, controller: BattleController)
 
@@ -30,3 +32,4 @@ signal before_status_applied(ctx: StatusEffectApplicationContext, context: Battl
 signal status_applied(ctx: StatusEffectApplicationContext, context: BattleContext, controller: BattleController)
 
 signal card_cost_request(ctx: CardCostRequestContext)
+signal energy_used(current: int, amount: int, context: BattleContext, controller: BattleController)
