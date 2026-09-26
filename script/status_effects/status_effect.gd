@@ -37,47 +37,47 @@ func add_stacks(amt : int):
 	_stacks += amt
 	stacks_changed.emit(_stacks)
 
-func on_apply(_context: BattleContext, _controller: BattleController):
-	_battle_context = weakref(_context)
-	_battle_context.get_ref().event_bus.before_damage_dealt.connect(before_damage_dealt)
-	_battle_context.get_ref().event_bus.resolve_damage.connect(resolve_damage)
-	_battle_context.get_ref().event_bus.damage_dealt.connect(damage_dealt)
-	_battle_context.get_ref().event_bus.before_armor_applied.connect(before_armor_applied)
-	_battle_context.get_ref().event_bus.armor_applied.connect(armor_applied)
-	_battle_context.get_ref().event_bus.turn_ended.connect(on_turn_end)
-	_battle_context.get_ref().event_bus.turn_started.connect(on_turn_start)
-	_battle_context.get_ref().event_bus.turn_started_after_action.connect(on_turn_started_after_action)
-	_battle_context.get_ref().event_bus.actor_died.connect(on_actor_died)
-	_battle_context.get_ref().event_bus.on_card_played.connect(on_card_played)
-	_battle_context.get_ref().event_bus.modifier_applied.connect(modifier_applied)
-	_battle_context.get_ref().event_bus.before_modifier_applied.connect(before_modifier_applied)
-	_battle_context.get_ref().event_bus.card_cost_request.connect(card_cost_request)
-	_battle_context.get_ref().event_bus.before_card_played.connect(before_card_played)
-	_battle_context.get_ref().event_bus.status_applied.connect(status_applied)
-	_battle_context.get_ref().event_bus.before_status_applied.connect(before_status_applied)
-	_battle_context.get_ref().event_bus.on_card_added_to_deck.connect(on_card_added_to_deck)
-	_battle_context.get_ref().event_bus.on_card_discarded.connect(on_card_discarded)
-	
+func on_apply(context: BattleContext, _controller: BattleController):
+	_battle_context = weakref(context)
+	_set_event_connections(context.event_bus, true)
+
 func cleanup():
-	_battle_context.get_ref().event_bus.before_damage_dealt.disconnect(before_damage_dealt)
-	_battle_context.get_ref().event_bus.resolve_damage.disconnect(resolve_damage)
-	_battle_context.get_ref().event_bus.damage_dealt.disconnect(damage_dealt)
-	_battle_context.get_ref().event_bus.before_armor_applied.disconnect(before_armor_applied)
-	_battle_context.get_ref().event_bus.armor_applied.disconnect(armor_applied)
-	_battle_context.get_ref().event_bus.turn_ended.disconnect(on_turn_end)
-	_battle_context.get_ref().event_bus.turn_started.disconnect(on_turn_start)
-	_battle_context.get_ref().event_bus.turn_started_after_action.disconnect(on_turn_started_after_action)
-	_battle_context.get_ref().event_bus.actor_died.disconnect(on_actor_died)
-	_battle_context.get_ref().event_bus.on_card_played.disconnect(on_card_played)
-	_battle_context.get_ref().event_bus.modifier_applied.disconnect(modifier_applied)
-	_battle_context.get_ref().event_bus.before_modifier_applied.disconnect(before_modifier_applied)
-	_battle_context.get_ref().event_bus.card_cost_request.disconnect(card_cost_request)
-	_battle_context.get_ref().event_bus.before_card_played.disconnect(before_card_played)
-	_battle_context.get_ref().event_bus.status_applied.disconnect(status_applied)
-	_battle_context.get_ref().event_bus.before_status_applied.disconnect(before_status_applied)
-	_battle_context.get_ref().event_bus.on_card_added_to_deck.disconnect(on_card_added_to_deck)
-	_battle_context.get_ref().event_bus.on_card_discarded.disconnect(on_card_discarded)
+	var context = _battle_context.get_ref()
+	if context == null:
+		return
 	
+	_set_event_connections(context.event_bus, false)
+	_battle_context = null
+
+
+func _set_event_connections(event_bus, connect_events: bool):
+	var events = [
+		[event_bus.before_damage_dealt, before_damage_dealt],
+		[event_bus.resolve_damage, resolve_damage],
+		[event_bus.damage_dealt, damage_dealt],
+		[event_bus.before_armor_applied, before_armor_applied],
+		[event_bus.armor_applied, armor_applied],
+		[event_bus.turn_ended, on_turn_end],
+		[event_bus.turn_started, on_turn_start],
+		[event_bus.turn_started_after_action, on_turn_started_after_action],
+		[event_bus.actor_died, on_actor_died],
+		[event_bus.on_card_played, on_card_played],
+		[event_bus.modifier_applied, modifier_applied],
+		[event_bus.before_modifier_applied, before_modifier_applied],
+		[event_bus.card_cost_request, card_cost_request],
+		[event_bus.before_card_played, before_card_played],
+		[event_bus.status_applied, status_applied],
+		[event_bus.before_status_applied, before_status_applied],
+		[event_bus.on_card_added_to_deck, on_card_added_to_deck],
+		[event_bus.on_card_discarded, on_card_discarded],
+	]
+	
+	for event in events:
+		if connect_events:
+			event[0].connect(event[1])
+		else:
+			event[0].disconnect(event[1])
+
 func card_cost_request(ctx: CardCostRequestContext):
 	pass
 	
