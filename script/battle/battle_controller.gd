@@ -544,6 +544,8 @@ func lose_life(actor, amt: int = 10):
 		
 	if actor.get_actor_name() == "Player":
 		request_player_data_modification(HealthChangePlayerDataEffect.new(actor.get_health()))
+		
+	_battle_context.event_bus.on_lose_life.emit(actor, amt, _battle_context, self)
 	
 func add_card_modifier(card: Card, modifier: CardModifier):
 	_battle_context.event_bus.before_modifier_applied.emit(card, modifier, _battle_context, self)

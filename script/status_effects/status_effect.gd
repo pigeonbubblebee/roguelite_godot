@@ -72,6 +72,7 @@ func _set_event_connections(event_bus, connect_events: bool):
 		[event_bus.on_card_discarded, on_card_discarded],
 		[event_bus.energy_used, energy_used],
 		[event_bus.on_card_draw, on_card_draw],
+		[event_bus.on_lose_life, on_lose_life],
 	]
 	
 	for event in events:
@@ -135,6 +136,9 @@ func on_actor_died(actor: Actor, context: BattleContext, controller: BattleContr
 	pass
 	
 func on_turn_started_after_action(actor: Actor, battle_context: BattleContext, controller: BattleController):
+	pass
+
+func on_lose_life(actor: Actor, amount: int, context : BattleContext, controller : BattleController):
 	pass
 	
 func on_turn_end(actor: Actor, battle_context: BattleContext, controller: BattleController):

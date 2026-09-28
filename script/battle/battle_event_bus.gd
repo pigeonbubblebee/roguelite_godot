@@ -33,3 +33,5 @@ signal status_applied(ctx: StatusEffectApplicationContext, context: BattleContex
 
 signal card_cost_request(ctx: CardCostRequestContext)
 signal energy_used(current: int, amount: int, context: BattleContext, controller: BattleController)
+
+signal on_lose_life(actor : Actor, amount : int, context: BattleContext, controller: BattleController)
