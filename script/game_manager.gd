@@ -372,7 +372,7 @@ func load_player_data() -> void:
 					card
 				)
 				 
-	#player_data.deck.append(CardDatabase.get_card("song_of_protection_card"))
+	player_data.deck.append(CardDatabase.get_card("dark_star_card"))
 	#player_data.deck.append(CardDatabase.get_card("mages_greatbow_card"))
 	
 	#player_data.weapon = ItemDatabase.get_item("lost_grimoire_item")
