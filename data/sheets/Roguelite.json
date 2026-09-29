@@ -783,7 +783,7 @@
     "dark_star_card": {
       "CARD_NAME": "Dark Star",
       "COST": 1,
-      "DESCRIPTION": "Gain 12 RITUAL",
+      "DESCRIPTION": "Gain 12 RITUAL.",
       "RARITY": "COMMON",
       "TYPE": "BUFF",
       "KEYWORDS": "ritual",
@@ -2742,13 +2742,13 @@
     },
     "feeding_blade_item": {
       "ITEM_NAME": "Feeding Blade",
-      "DESCRIPTION": "On turn start, lose 6 RITUAL. Apply 1 BLEED to a random enemy for each RITUAL lost.",
+      "DESCRIPTION": "On turn start, lose 6 RITUAL. Apply 1 BLEED to a random enemy for every 2 RITUAL lost.",
       "NOT_DRAFTABLE": null,
       "WEAPON": true
     },
     "vampire_knives_item": {
       "ITEM_NAME": "Vampire Knives",
-      "DESCRIPTION": "Whenever you lose life, apply 1 BLEED to all enemies.",
+      "DESCRIPTION": "Whenever you lose life on your turn, apply 1 BLEED to all enemies.",
       "NOT_DRAFTABLE": null,
       "WEAPON": true
     },
@@ -2796,7 +2796,7 @@
     },
     "dragonhead_item": {
       "ITEM_NAME": "Dragonhead",
-      "DESCRIPTION": "On turn start, enemies take 10 DMG for each negative status they have.",
+      "DESCRIPTION": "On turn end, enemies take 10 DMG for each negative status they have.",
       "NOT_DRAFTABLE": null,
       "WEAPON": true
     }
