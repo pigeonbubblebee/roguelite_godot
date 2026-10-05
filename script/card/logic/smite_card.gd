@@ -3,6 +3,9 @@ extends Card
 
 var damage : int = 90
 
+func effect_on_resolve(context, controller):
+	return ResolveEffect.REMOVE
+
 func get_takes_max_hand_space() -> bool:
 	return false
 
