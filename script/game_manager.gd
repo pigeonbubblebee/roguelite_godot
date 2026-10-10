@@ -372,8 +372,8 @@ func load_player_data() -> void:
 					card
 				)
 				 
-	#player_data.deck.append(CardDatabase.get_card("bleeding_strike_card"))
-	#player_data.deck.append(CardDatabase.get_card("mages_greatbow_card"))
+	player_data.deck.append(CardDatabase.get_card("divine_judgement_card"))
+	player_data.deck.append(CardDatabase.get_card("divine_guard_card"))
 	
 	#player_data.weapon = ItemDatabase.get_item("dragonhead_item")
 	#player_data.items.append(ItemDatabase.get_item("battle_horn_item"))

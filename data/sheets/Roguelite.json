@@ -1083,7 +1083,7 @@
     "intervention_card": {
       "CARD_NAME": "Intervention",
       "COST": 2,
-      "DESCRIPTION": "On turn start, gain 40 ARMOR.",
+      "DESCRIPTION": "On turn start, gain 40 ARMOR. If you have RESOLVE, gain 20 additional ARMOR.",
       "RARITY": "RARE",
       "TYPE": "ENCHANT",
       "KEYWORDS": null,
@@ -1095,7 +1095,7 @@
     "facsimile_card": {
       "CARD_NAME": "Facsimile",
       "COST": 2,
-      "DESCRIPTION": "Gain 70 ARMOR. The next enchant card you play is played twice.",
+      "DESCRIPTION": "Gain 70 ARMOR. The next enchant card you play is played twice. EPHEMERAL.",
       "RARITY": "RARE",
       "TYPE": "DEFENSE",
       "KEYWORDS": null,
@@ -1202,7 +1202,7 @@
     },
     "opalescence_card": {
       "CARD_NAME": "Opalescence",
-      "COST": 1,
+      "COST": 2,
       "DESCRIPTION": "Deal 80 DMG to all enemies. Gain 60 ARMOR and 3 RESOLVE.",
       "RARITY": "RARE",
       "TYPE": "ATTACK",
@@ -1230,18 +1230,6 @@
       "DESCRIPTION": "Add 5 SMITEs to your hand. EPHEMERAL.",
       "RARITY": "RARE",
       "TYPE": "BUFF",
-      "KEYWORDS": null,
-      "FORCE_TARGET_DRAG": null,
-      "NOT_DRAFTABLE": null,
-      "UPGRADED_KEYWORDS": null,
-      "UPGRADED": null
-    },
-    "revelation_card": {
-      "CARD_NAME": "Revelation",
-      "COST": 2,
-      "DESCRIPTION": "Deal 40 DMG and gain 170 ARMOR. EPHEMERAL.",
-      "RARITY": "RARE",
-      "TYPE": "ATTACK",
       "KEYWORDS": null,
       "FORCE_TARGET_DRAG": null,
       "NOT_DRAFTABLE": null,
@@ -3362,6 +3350,12 @@
       "STATUS_NAME": "Steel Fang",
       "ICON_TYPE": "general_buff",
       "DESCRIPTION": "Your next attack card has a bonus 100% CRIT CHANCE.",
+      "STATUS_TYPE": "Buff"
+    },
+    "divine_judgement_status": {
+      "STATUS_NAME": "Divine Judgement",
+      "ICON_TYPE": "general_buff",
+      "DESCRIPTION": "SMITE cards cost {STACKS} less to play.",
       "STATUS_TYPE": "Buff"
     }
   }
