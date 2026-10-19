@@ -44,6 +44,10 @@ func decorate_path():
 		critical_path[1],
 		MapNode.RoomType.REST
 	)
+	set_room(
+		critical_path[critical_path.size() - 6],
+		MapNode.RoomType.SHOP
+	)
 	
 	if testing_room:
 		set_room(
@@ -88,12 +92,9 @@ func decorate_path():
 			MapNode.RoomType.TREASURE
 		)
 		branch_end_candidates.erase(branch)
-	branch = branch_end_candidates.pick_random()
-	set_room(
-		branch_paths[branch][0],
-		MapNode.RoomType.SHOP
-	)
-	branch_end_candidates.erase(branch)
+	#branch = branch_end_candidates.pick_random()
+	
+	#branch_end_candidates.erase(branch)
 	
 	var occ_amount = randi_range(2,3)
 

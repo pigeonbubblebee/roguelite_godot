@@ -25,3 +25,6 @@ func build_sequence(context: BattleContext, controller: BattleController, previe
 		.armor(player, armor)\
 		.apply_status(player, effect_storm)\
 		.apply_status(player, effect_discharge)
+		
+func get_buff_target_index(total_targets: int) -> Array[int]:
+	return get_index_buff_single_target(total_targets)
